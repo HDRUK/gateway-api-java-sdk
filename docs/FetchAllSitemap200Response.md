@@ -1,0 +1,14 @@
+
+
+# FetchAllSitemap200Response
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**message** | **String** |  |  [optional] |
+|**data** | [**List&lt;FetchAllSitemap200ResponseDataInner&gt;**](FetchAllSitemap200ResponseDataInner.md) |  |  [optional] |
+
+
+
