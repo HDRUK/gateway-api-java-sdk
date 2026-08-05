@@ -14,17 +14,10 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDataProviderCollRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
-import uk.ac.hdruk.gatewayapi.model.EditDataProviderCollRequest;
 import uk.ac.hdruk.gatewayapi.model.FetchDataProviderColl200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataProviderCollSummary200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataProviderColls200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateDataProviderColl200Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateDataProviderCollRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -40,49 +33,6 @@ import java.util.Map;
 public class DataProviderCollApiTest {
 
     private final DataProviderCollApi api = new DataProviderCollApi();
-
-    /**
-     * DataProviderColl@store
-     *
-     * Creates a new DataProviderColl
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createDataProviderCollTest() throws ApiException {
-        CreateDataProviderCollRequest createDataProviderCollRequest = null;
-        CreateDarIntegration201Response response = api.createDataProviderColl(createDataProviderCollRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * DataProviderColl@destroy
-     *
-     * Delete a DataProviderColl
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteDataProviderCollTest() throws ApiException {
-        Integer id = null;
-        DeleteApplications200Response response = api.deleteDataProviderColl(id);
-        // TODO: test validations
-    }
-
-    /**
-     * DataProviderColl@edit
-     *
-     * Edit a DataProviderColl
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editDataProviderCollTest() throws ApiException {
-        Integer id = null;
-        EditDataProviderCollRequest editDataProviderCollRequest = null;
-        UpdateDataProviderColl200Response response = api.editDataProviderColl(id, editDataProviderCollRequest);
-        // TODO: test validations
-    }
 
     /**
      * DataProviderColl@show
@@ -123,21 +73,6 @@ public class DataProviderCollApiTest {
     public void fetchDataProviderCollsTest() throws ApiException {
         Integer perPage = null;
         FetchDataProviderColls200Response response = api.fetchDataProviderColls(perPage);
-        // TODO: test validations
-    }
-
-    /**
-     * DataProviderColl@update
-     *
-     * Update a DataProviderColl
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateDataProviderCollTest() throws ApiException {
-        Integer id = null;
-        UpdateDataProviderCollRequest updateDataProviderCollRequest = null;
-        UpdateDataProviderColl200Response response = api.updateDataProviderColl(id, updateDataProviderCollRequest);
         // TODO: test validations
     }
 

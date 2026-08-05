@@ -14,11 +14,6 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDataProviderCollRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
-import uk.ac.hdruk.gatewayapi.model.EditDataProviderCollRequest;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetwork200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworkCustodiansSummary200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworkDatasetsSummary200Response;
@@ -26,8 +21,6 @@ import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworkEntitiesSummary200R
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworkInfo200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworks200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateDataCustodianNetwork200Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateDataProviderCollRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,49 +36,6 @@ import java.util.Map;
 public class DataCustodianNetworksApiTest {
 
     private final DataCustodianNetworksApi api = new DataCustodianNetworksApi();
-
-    /**
-     * DataCustodianNetworks@store
-     *
-     * Creates a new DataCustodianNetwork
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createDataCustodianNetworkTest() throws ApiException {
-        CreateDataProviderCollRequest createDataProviderCollRequest = null;
-        CreateDarIntegration201Response response = api.createDataCustodianNetwork(createDataProviderCollRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * DataCustodianNetworks@destroy
-     *
-     * Delete a DataCustodianNetwork
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteDataCustodianNetworkTest() throws ApiException {
-        Integer id = null;
-        DeleteApplications200Response response = api.deleteDataCustodianNetwork(id);
-        // TODO: test validations
-    }
-
-    /**
-     * DataCustodianNetworks@edit
-     *
-     * Edit a DataCustodianNetwork
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editDataCustodianNetworkTest() throws ApiException {
-        Integer id = null;
-        EditDataProviderCollRequest editDataProviderCollRequest = null;
-        UpdateDataCustodianNetwork200Response response = api.editDataCustodianNetwork(id, editDataProviderCollRequest);
-        // TODO: test validations
-    }
 
     /**
      * DataCustodianNetworks@show
@@ -168,21 +118,6 @@ public class DataCustodianNetworksApiTest {
     public void fetchDataCustodianNetworksTest() throws ApiException {
         Integer perPage = null;
         FetchDataCustodianNetworks200Response response = api.fetchDataCustodianNetworks(perPage);
-        // TODO: test validations
-    }
-
-    /**
-     * DataCustodianNetworks@update
-     *
-     * Update a DataCustodianNetwork
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateDataCustodianNetworkTest() throws ApiException {
-        Integer id = null;
-        UpdateDataProviderCollRequest updateDataProviderCollRequest = null;
-        UpdateDataCustodianNetwork200Response response = api.updateDataCustodianNetwork(id, updateDataProviderCollRequest);
         // TODO: test validations
     }
 

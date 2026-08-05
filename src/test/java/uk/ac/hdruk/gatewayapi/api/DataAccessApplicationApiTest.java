@@ -46,35 +46,6 @@ public class DataAccessApplicationApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void deleteDarApplicationFilesTest() throws ApiException {
-        Integer id = null;
-        String fileId = null;
-        DeleteApplications200Response response = api.deleteDarApplicationFiles(id, fileId);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplication@destroy
-     *
-     * Delete a system DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteDarApplicationsTest() throws ApiException {
-        Integer id = null;
-        DeleteApplications200Response response = api.deleteDarApplications(id);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplication@destroyFile
-     *
-     * Delete a file associated with a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
     public void deleteTeamDarApplicationFileTest() throws ApiException {
         Integer teamId = null;
         Integer id = null;

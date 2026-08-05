@@ -14,15 +14,6 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
-import uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrations400Response;
-import uk.ac.hdruk.gatewayapi.model.CreateUsersRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
-import uk.ac.hdruk.gatewayapi.model.EditUsers200Response;
-import uk.ac.hdruk.gatewayapi.model.EditUsersRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail200Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail400Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail404Response;
@@ -41,49 +32,6 @@ import java.util.Map;
 public class UsersApiTest {
 
     private final UsersApi api = new UsersApi();
-
-    /**
-     * UserController@store
-     *
-     * Create a new user
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createUsersTest() throws ApiException {
-        CreateUsersRequest createUsersRequest = null;
-        CreateDarIntegration201Response response = api.createUsers(createUsersRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * UserController@destroy
-     *
-     * Delete User based in id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteUsersTest() throws ApiException {
-        Integer id = null;
-        DeleteFederation200Response response = api.deleteUsers(id);
-        // TODO: test validations
-    }
-
-    /**
-     * UserController@edit
-     *
-     * Edit user
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editUsersTest() throws ApiException {
-        Integer id = null;
-        EditUsersRequest editUsersRequest = null;
-        EditUsers200Response response = api.editUsers(id, editUsersRequest);
-        // TODO: test validations
-    }
 
     /**
      * Verify user&#39;s secondary email using a UUID

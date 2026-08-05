@@ -17,12 +17,7 @@ import uk.ac.hdruk.gatewayapi.ApiException;
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
 import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDatasetsLinkageExtraction200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDatasetsLinkageExtractionRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtraction200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtraction500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtractionRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsV2Request;
 import uk.ac.hdruk.gatewayapi.model.CreateTeamDatasetsV2Request;
 import uk.ac.hdruk.gatewayapi.model.DatasetsTestRequest;
@@ -93,37 +88,6 @@ public class DatasetsApiTest {
         String inputSchema = null;
         String inputVersion = null;
         CreateDarIntegration201Response response = api.createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion);
-        // TODO: test validations
-    }
-
-    /**
-     * Trigger Term Extraction for Datasets
-     *
-     * Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createDatasetsLinkageExtractionTest() throws ApiException {
-        String authorization = null;
-        CreateDatasetsLinkageExtractionRequest createDatasetsLinkageExtractionRequest = null;
-        CreateDatasetsLinkageExtraction200Response response = api.createDatasetsLinkageExtraction(authorization, createDatasetsLinkageExtractionRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Trigger Term Extraction for Datasets
-     *
-     * Triggers the term extraction job for datasets within a specified range and controls whether data is partially indexed in Elasticsearch.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createDatasetsTermExtractionTest() throws ApiException {
-        String authorization = null;
-        String role = null;
-        CreateDatasetsTermExtractionRequest createDatasetsTermExtractionRequest = null;
-        CreateDatasetsTermExtraction200Response response = api.createDatasetsTermExtraction(authorization, role, createDatasetsTermExtractionRequest);
         // TODO: test validations
     }
 

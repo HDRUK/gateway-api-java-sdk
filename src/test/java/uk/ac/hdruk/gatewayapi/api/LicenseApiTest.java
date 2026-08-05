@@ -14,14 +14,9 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
-import uk.ac.hdruk.gatewayapi.model.CreateLicensesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllLicenses200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchLicenses200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateLicenses200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -37,49 +32,6 @@ import java.util.Map;
 public class LicenseApiTest {
 
     private final LicenseApi api = new LicenseApi();
-
-    /**
-     * License@store
-     *
-     * Creates a new license
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createLicensesTest() throws ApiException {
-        CreateLicensesRequest createLicensesRequest = null;
-        CreateDarIntegration201Response response = api.createLicenses(createLicensesRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * License@destroy
-     *
-     * Delete a License
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteLicensesTest() throws ApiException {
-        Integer id = null;
-        DeleteApplications200Response response = api.deleteLicenses(id);
-        // TODO: test validations
-    }
-
-    /**
-     * License@edit
-     *
-     * Edit a tool license
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editLicensesTest() throws ApiException {
-        Integer id = null;
-        CreateLicensesRequest createLicensesRequest = null;
-        UpdateLicenses200Response response = api.editLicenses(id, createLicensesRequest);
-        // TODO: test validations
-    }
 
     /**
      * License@index
@@ -105,21 +57,6 @@ public class LicenseApiTest {
     public void fetchLicensesTest() throws ApiException {
         Integer id = null;
         FetchLicenses200Response response = api.fetchLicenses(id);
-        // TODO: test validations
-    }
-
-    /**
-     * License@update
-     *
-     * Update a tool license
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateLicensesTest() throws ApiException {
-        Integer id = null;
-        CreateLicensesRequest createLicensesRequest = null;
-        UpdateLicenses200Response response = api.updateLicenses(id, createLicensesRequest);
         // TODO: test validations
     }
 

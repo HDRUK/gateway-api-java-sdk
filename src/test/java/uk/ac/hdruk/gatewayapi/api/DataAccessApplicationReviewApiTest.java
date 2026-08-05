@@ -71,39 +71,6 @@ public class DataAccessApplicationReviewApiTest {
     }
 
     /**
-     * DataAccessApplicationReview@destroy
-     *
-     * Delete a review from a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteTeamDarApplicationQuestionReviewTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        Integer questionId = null;
-        Integer reviewId = null;
-        DeleteApplications200Response response = api.deleteTeamDarApplicationQuestionReview(teamId, id, questionId, reviewId);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplicationReview@destroyGlobal
-     *
-     * Delete a review from a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteTeamDarApplicationReviewTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        Integer reviewId = null;
-        DeleteApplications200Response response = api.deleteTeamDarApplicationReview(teamId, id, reviewId);
-        // TODO: test validations
-    }
-
-    /**
      * DataAccessApplicationReview@destroyFile
      *
      * Delete a file associated with a DAR review
