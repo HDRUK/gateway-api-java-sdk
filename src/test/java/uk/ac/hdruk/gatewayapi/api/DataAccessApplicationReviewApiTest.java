@@ -14,12 +14,12 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateTeamDarApplicationReviewRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplicationReviews200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateTeamDarApplicationQuestionReview200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -50,7 +50,7 @@ public class DataAccessApplicationReviewApiTest {
         Integer id = null;
         Integer questionId = null;
         CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = null;
-        CreateCategories200Response response = api.createTeamDarApplicationQuestionReview(teamId, id, questionId, createTeamDarApplicationReviewRequest);
+        CreateDarIntegration201Response response = api.createTeamDarApplicationQuestionReview(teamId, id, questionId, createTeamDarApplicationReviewRequest);
         // TODO: test validations
     }
 
@@ -66,7 +66,7 @@ public class DataAccessApplicationReviewApiTest {
         Integer teamId = null;
         Integer id = null;
         CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = null;
-        CreateCategories200Response response = api.createTeamDarApplicationReview(teamId, id, createTeamDarApplicationReviewRequest);
+        CreateDarIntegration201Response response = api.createTeamDarApplicationReview(teamId, id, createTeamDarApplicationReviewRequest);
         // TODO: test validations
     }
 
@@ -83,7 +83,7 @@ public class DataAccessApplicationReviewApiTest {
         Integer id = null;
         Integer questionId = null;
         Integer reviewId = null;
-        DeleteAliases200Response response = api.deleteTeamDarApplicationQuestionReview(teamId, id, questionId, reviewId);
+        DeleteApplications200Response response = api.deleteTeamDarApplicationQuestionReview(teamId, id, questionId, reviewId);
         // TODO: test validations
     }
 
@@ -99,7 +99,7 @@ public class DataAccessApplicationReviewApiTest {
         Integer teamId = null;
         Integer id = null;
         Integer reviewId = null;
-        DeleteAliases200Response response = api.deleteTeamDarApplicationReview(teamId, id, reviewId);
+        DeleteApplications200Response response = api.deleteTeamDarApplicationReview(teamId, id, reviewId);
         // TODO: test validations
     }
 
@@ -116,7 +116,7 @@ public class DataAccessApplicationReviewApiTest {
         Integer id = null;
         Integer reviewId = null;
         String fileId = null;
-        DeleteAliases200Response response = api.deleteTeamDarApplicationReviewFile(teamId, id, reviewId, fileId);
+        DeleteApplications200Response response = api.deleteTeamDarApplicationReviewFile(teamId, id, reviewId, fileId);
         // TODO: test validations
     }
 
@@ -153,38 +153,6 @@ public class DataAccessApplicationReviewApiTest {
     }
 
     /**
-     * DataAccessApplicationReview@downloadUserFile
-     *
-     * Download a file associated with a DAR application review
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUserDarApplicationReviewFileTest() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        Integer reviewId = null;
-        String fileId = null;
-        api.fetchUserDarApplicationReviewFile(userId, id, reviewId, fileId);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplicationReview@index
-     *
-     * Return all reviews on a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUserDarApplicationReviewsTest() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        FetchTeamDarApplicationReviews200Response response = api.fetchUserDarApplicationReviews(userId, id);
-        // TODO: test validations
-    }
-
-    /**
      * DataAccessApplicationReview@update
      *
      * Update a review comment on a question in a DAR application
@@ -216,41 +184,6 @@ public class DataAccessApplicationReviewApiTest {
         Integer reviewId = null;
         CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = null;
         UpdateTeamDarApplicationQuestionReview200Response response = api.updateTeamDarApplicationReview(teamId, id, reviewId, createTeamDarApplicationReviewRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplicationReview@userUpdate
-     *
-     * User endpoint to update a review comment on a question in a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateUserDarApplicationQuestionReviewTest() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        Integer questionId = null;
-        Integer reviewId = null;
-        CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = null;
-        UpdateTeamDarApplicationQuestionReview200Response response = api.updateUserDarApplicationQuestionReview(userId, id, questionId, reviewId, createTeamDarApplicationReviewRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplicationReview@userUpdateGlobal
-     *
-     * User endpoint to update a review comment on a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateUserDarApplicationReviewTest() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        Integer reviewId = null;
-        CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = null;
-        UpdateTeamDarApplicationQuestionReview200Response response = api.updateUserDarApplicationReview(userId, id, reviewId, createTeamDarApplicationReviewRequest);
         // TODO: test validations
     }
 

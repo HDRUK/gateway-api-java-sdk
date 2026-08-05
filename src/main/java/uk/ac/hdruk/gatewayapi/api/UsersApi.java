@@ -27,19 +27,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrations400Response;
 import uk.ac.hdruk.gatewayapi.model.CreateUsersRequest;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllUsers200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchUsers200Response;
-import uk.ac.hdruk.gatewayapi.model.ResendSecondaryVerificationEmail200Response;
-import uk.ac.hdruk.gatewayapi.model.ResendSecondaryVerificationEmail404Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateUsersRequest;
+import uk.ac.hdruk.gatewayapi.model.EditUsers200Response;
+import uk.ac.hdruk.gatewayapi.model.EditUsersRequest;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail200Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail400Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail404Response;
@@ -162,7 +158,7 @@ public class UsersApi {
      * UserController@store
      * Create a new user
      * @param createUsersRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -173,8 +169,8 @@ public class UsersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createUsers(@javax.annotation.Nonnull CreateUsersRequest createUsersRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createUsersWithHttpInfo(createUsersRequest);
+    public CreateDarIntegration201Response createUsers(@javax.annotation.Nonnull CreateUsersRequest createUsersRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createUsersWithHttpInfo(createUsersRequest);
         return localVarResp.getData();
     }
 
@@ -182,7 +178,7 @@ public class UsersApi {
      * UserController@store
      * Create a new user
      * @param createUsersRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -193,9 +189,9 @@ public class UsersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createUsersWithHttpInfo(@javax.annotation.Nonnull CreateUsersRequest createUsersRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createUsersWithHttpInfo(@javax.annotation.Nonnull CreateUsersRequest createUsersRequest) throws ApiException {
         okhttp3.Call localVarCall = createUsersValidateBeforeCall(createUsersRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -215,10 +211,10 @@ public class UsersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createUsersAsync(@javax.annotation.Nonnull CreateUsersRequest createUsersRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createUsersAsync(@javax.annotation.Nonnull CreateUsersRequest createUsersRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createUsersValidateBeforeCall(createUsersRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -364,7 +360,7 @@ public class UsersApi {
     /**
      * Build call for editUsers
      * @param id user id (required)
-     * @param updateUsersRequest Pass user credentials (required)
+     * @param editUsersRequest Pass user credentials (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -379,7 +375,7 @@ public class UsersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editUsersCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editUsersCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditUsersRequest editUsersRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -393,7 +389,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateUsersRequest;
+        Object localVarPostBody = editUsersRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/users/{id}"
@@ -426,18 +422,18 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editUsersValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call editUsersValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditUsersRequest editUsersRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling editUsers(Async)");
         }
 
-        // verify the required parameter 'updateUsersRequest' is set
-        if (updateUsersRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateUsersRequest' when calling editUsers(Async)");
+        // verify the required parameter 'editUsersRequest' is set
+        if (editUsersRequest == null) {
+            throw new ApiException("Missing the required parameter 'editUsersRequest' when calling editUsers(Async)");
         }
 
-        return editUsersCall(id, updateUsersRequest, _callback);
+        return editUsersCall(id, editUsersRequest, _callback);
 
     }
 
@@ -445,8 +441,8 @@ public class UsersApi {
      * UserController@edit
      * Edit user
      * @param id user id (required)
-     * @param updateUsersRequest Pass user credentials (required)
-     * @return FetchUsers200Response
+     * @param editUsersRequest Pass user credentials (required)
+     * @return EditUsers200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -459,8 +455,8 @@ public class UsersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public FetchUsers200Response editUsers(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest) throws ApiException {
-        ApiResponse<FetchUsers200Response> localVarResp = editUsersWithHttpInfo(id, updateUsersRequest);
+    public EditUsers200Response editUsers(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditUsersRequest editUsersRequest) throws ApiException {
+        ApiResponse<EditUsers200Response> localVarResp = editUsersWithHttpInfo(id, editUsersRequest);
         return localVarResp.getData();
     }
 
@@ -468,8 +464,8 @@ public class UsersApi {
      * UserController@edit
      * Edit user
      * @param id user id (required)
-     * @param updateUsersRequest Pass user credentials (required)
-     * @return ApiResponse&lt;FetchUsers200Response&gt;
+     * @param editUsersRequest Pass user credentials (required)
+     * @return ApiResponse&lt;EditUsers200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -482,9 +478,9 @@ public class UsersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FetchUsers200Response> editUsersWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest) throws ApiException {
-        okhttp3.Call localVarCall = editUsersValidateBeforeCall(id, updateUsersRequest, null);
-        Type localVarReturnType = new TypeToken<FetchUsers200Response>(){}.getType();
+    public ApiResponse<EditUsers200Response> editUsersWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditUsersRequest editUsersRequest) throws ApiException {
+        okhttp3.Call localVarCall = editUsersValidateBeforeCall(id, editUsersRequest, null);
+        Type localVarReturnType = new TypeToken<EditUsers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -492,7 +488,7 @@ public class UsersApi {
      * UserController@edit (asynchronously)
      * Edit user
      * @param id user id (required)
-     * @param updateUsersRequest Pass user credentials (required)
+     * @param editUsersRequest Pass user credentials (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -507,554 +503,10 @@ public class UsersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editUsersAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest, final ApiCallback<FetchUsers200Response> _callback) throws ApiException {
+    public okhttp3.Call editUsersAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditUsersRequest editUsersRequest, final ApiCallback<EditUsers200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editUsersValidateBeforeCall(id, updateUsersRequest, _callback);
-        Type localVarReturnType = new TypeToken<FetchUsers200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchAllUsers
-     * @param filterNames Three or more characters to filter users names by (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllUsersCall(@javax.annotation.Nullable String filterNames, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (filterNames != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filterNames", filterNames));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchAllUsersValidateBeforeCall(@javax.annotation.Nullable String filterNames, final ApiCallback _callback) throws ApiException {
-        return fetchAllUsersCall(filterNames, _callback);
-
-    }
-
-    /**
-     * UserController@index
-     * Get All Users
-     * @param filterNames Three or more characters to filter users names by (optional)
-     * @return FetchAllUsers200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllUsers200Response fetchAllUsers(@javax.annotation.Nullable String filterNames) throws ApiException {
-        ApiResponse<FetchAllUsers200Response> localVarResp = fetchAllUsersWithHttpInfo(filterNames);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserController@index
-     * Get All Users
-     * @param filterNames Three or more characters to filter users names by (optional)
-     * @return ApiResponse&lt;FetchAllUsers200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllUsers200Response> fetchAllUsersWithHttpInfo(@javax.annotation.Nullable String filterNames) throws ApiException {
-        okhttp3.Call localVarCall = fetchAllUsersValidateBeforeCall(filterNames, null);
-        Type localVarReturnType = new TypeToken<FetchAllUsers200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserController@index (asynchronously)
-     * Get All Users
-     * @param filterNames Three or more characters to filter users names by (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllUsersAsync(@javax.annotation.Nullable String filterNames, final ApiCallback<FetchAllUsers200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchAllUsersValidateBeforeCall(filterNames, _callback);
-        Type localVarReturnType = new TypeToken<FetchAllUsers200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchUsers
-     * @param id user id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchUsersCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchUsersValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchUsers(Async)");
-        }
-
-        return fetchUsersCall(id, _callback);
-
-    }
-
-    /**
-     * UserController@show
-     * Get users by id
-     * @param id user id (required)
-     * @return FetchUsers200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchUsers200Response fetchUsers(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<FetchUsers200Response> localVarResp = fetchUsersWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserController@show
-     * Get users by id
-     * @param id user id (required)
-     * @return ApiResponse&lt;FetchUsers200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchUsers200Response> fetchUsersWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = fetchUsersValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<FetchUsers200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserController@show (asynchronously)
-     * Get users by id
-     * @param id user id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchUsersAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<FetchUsers200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchUsersValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<FetchUsers200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for resendSecondaryVerificationEmail
-     * @param id User ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Verification email resent </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User or secondary email not found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call resendSecondaryVerificationEmailCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{id}/resend-secondary-verification"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call resendSecondaryVerificationEmailValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling resendSecondaryVerificationEmail(Async)");
-        }
-
-        return resendSecondaryVerificationEmailCall(id, _callback);
-
-    }
-
-    /**
-     * Resend secondary email verification
-     * Resends the verification email for the secondary email address. Old tokens are expired.
-     * @param id User ID (required)
-     * @return ResendSecondaryVerificationEmail200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Verification email resent </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User or secondary email not found </td><td>  -  </td></tr>
-     </table>
-     */
-    public ResendSecondaryVerificationEmail200Response resendSecondaryVerificationEmail(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<ResendSecondaryVerificationEmail200Response> localVarResp = resendSecondaryVerificationEmailWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Resend secondary email verification
-     * Resends the verification email for the secondary email address. Old tokens are expired.
-     * @param id User ID (required)
-     * @return ApiResponse&lt;ResendSecondaryVerificationEmail200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Verification email resent </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User or secondary email not found </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ResendSecondaryVerificationEmail200Response> resendSecondaryVerificationEmailWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = resendSecondaryVerificationEmailValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<ResendSecondaryVerificationEmail200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Resend secondary email verification (asynchronously)
-     * Resends the verification email for the secondary email address. Old tokens are expired.
-     * @param id User ID (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Verification email resent </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User or secondary email not found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call resendSecondaryVerificationEmailAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<ResendSecondaryVerificationEmail200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = resendSecondaryVerificationEmailValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<ResendSecondaryVerificationEmail200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateUsers
-     * @param id user id (required)
-     * @param updateUsersRequest Pass user credentials (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Error response </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateUsersCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = updateUsersRequest;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUsersValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling updateUsers(Async)");
-        }
-
-        // verify the required parameter 'updateUsersRequest' is set
-        if (updateUsersRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateUsersRequest' when calling updateUsers(Async)");
-        }
-
-        return updateUsersCall(id, updateUsersRequest, _callback);
-
-    }
-
-    /**
-     * UserController@update
-     * Update user
-     * @param id user id (required)
-     * @param updateUsersRequest Pass user credentials (required)
-     * @return FetchUsers200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Error response </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchUsers200Response updateUsers(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest) throws ApiException {
-        ApiResponse<FetchUsers200Response> localVarResp = updateUsersWithHttpInfo(id, updateUsersRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserController@update
-     * Update user
-     * @param id user id (required)
-     * @param updateUsersRequest Pass user credentials (required)
-     * @return ApiResponse&lt;FetchUsers200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Error response </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchUsers200Response> updateUsersWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateUsersValidateBeforeCall(id, updateUsersRequest, null);
-        Type localVarReturnType = new TypeToken<FetchUsers200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserController@update (asynchronously)
-     * Update user
-     * @param id user id (required)
-     * @param updateUsersRequest Pass user credentials (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Error response </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateUsersAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUsersRequest updateUsersRequest, final ApiCallback<FetchUsers200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateUsersValidateBeforeCall(id, updateUsersRequest, _callback);
-        Type localVarReturnType = new TypeToken<FetchUsers200Response>(){}.getType();
+        okhttp3.Call localVarCall = editUsersValidateBeforeCall(id, editUsersRequest, _callback);
+        Type localVarReturnType = new TypeToken<EditUsers200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

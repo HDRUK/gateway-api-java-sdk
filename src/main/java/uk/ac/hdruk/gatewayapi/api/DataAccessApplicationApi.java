@@ -27,19 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDarApplicationsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplication200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplicationAnswers200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplicationFiles200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplicationStatusHistory200Response;
-import uk.ac.hdruk.gatewayapi.model.PatchUserDarApplicationRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateTeamDarApplicationRequest;
-import uk.ac.hdruk.gatewayapi.model.UpdateUserDarApplicationRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -84,137 +79,6 @@ public class DataAccessApplicationApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createDarApplications
-     * @param createDarApplicationsRequest DataAccessApplication definition (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createDarApplicationsCall(@javax.annotation.Nonnull CreateDarApplicationsRequest createDarApplicationsRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = createDarApplicationsRequest;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/dar/applications";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createDarApplicationsValidateBeforeCall(@javax.annotation.Nonnull CreateDarApplicationsRequest createDarApplicationsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'createDarApplicationsRequest' is set
-        if (createDarApplicationsRequest == null) {
-            throw new ApiException("Missing the required parameter 'createDarApplicationsRequest' when calling createDarApplications(Async)");
-        }
-
-        return createDarApplicationsCall(createDarApplicationsRequest, _callback);
-
-    }
-
-    /**
-     * DataAccessApplication@store
-     * Creates a new DAR application
-     * @param createDarApplicationsRequest DataAccessApplication definition (required)
-     * @return CreateCategories200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateCategories200Response createDarApplications(@javax.annotation.Nonnull CreateDarApplicationsRequest createDarApplicationsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDarApplicationsWithHttpInfo(createDarApplicationsRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * DataAccessApplication@store
-     * Creates a new DAR application
-     * @param createDarApplicationsRequest DataAccessApplication definition (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateCategories200Response> createDarApplicationsWithHttpInfo(@javax.annotation.Nonnull CreateDarApplicationsRequest createDarApplicationsRequest) throws ApiException {
-        okhttp3.Call localVarCall = createDarApplicationsValidateBeforeCall(createDarApplicationsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * DataAccessApplication@store (asynchronously)
-     * Creates a new DAR application
-     * @param createDarApplicationsRequest DataAccessApplication definition (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createDarApplicationsAsync(@javax.annotation.Nonnull CreateDarApplicationsRequest createDarApplicationsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createDarApplicationsValidateBeforeCall(createDarApplicationsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for deleteDarApplicationFiles
      * @param id DAR application id (required)
@@ -298,7 +162,7 @@ public class DataAccessApplicationApi {
      * Delete a file associated with a DAR application
      * @param id DAR application id (required)
      * @param fileId File id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -309,8 +173,8 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteDarApplicationFiles(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDarApplicationFilesWithHttpInfo(id, fileId);
+    public DeleteApplications200Response deleteDarApplicationFiles(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDarApplicationFilesWithHttpInfo(id, fileId);
         return localVarResp.getData();
     }
 
@@ -319,7 +183,7 @@ public class DataAccessApplicationApi {
      * Delete a file associated with a DAR application
      * @param id DAR application id (required)
      * @param fileId File id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -330,9 +194,9 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteDarApplicationFilesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDarApplicationFilesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId) throws ApiException {
         okhttp3.Call localVarCall = deleteDarApplicationFilesValidateBeforeCall(id, fileId, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -353,10 +217,10 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDarApplicationFilesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDarApplicationFilesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDarApplicationFilesValidateBeforeCall(id, fileId, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -435,7 +299,7 @@ public class DataAccessApplicationApi {
      * DataAccessApplication@destroy
      * Delete a system DAR application
      * @param id DAR application id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -446,8 +310,8 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteDarApplications(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDarApplicationsWithHttpInfo(id);
+    public DeleteApplications200Response deleteDarApplications(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDarApplicationsWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -455,7 +319,7 @@ public class DataAccessApplicationApi {
      * DataAccessApplication@destroy
      * Delete a system DAR application
      * @param id DAR application id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -466,9 +330,9 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteDarApplicationsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDarApplicationsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDarApplicationsValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -488,10 +352,10 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDarApplicationsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDarApplicationsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDarApplicationsValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -586,7 +450,7 @@ public class DataAccessApplicationApi {
      * @param teamId Team id (required)
      * @param id DAR application id (required)
      * @param fileId File id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -597,8 +461,8 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteTeamDarApplicationFile(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteTeamDarApplicationFileWithHttpInfo(teamId, id, fileId);
+    public DeleteApplications200Response deleteTeamDarApplicationFile(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteTeamDarApplicationFileWithHttpInfo(teamId, id, fileId);
         return localVarResp.getData();
     }
 
@@ -608,7 +472,7 @@ public class DataAccessApplicationApi {
      * @param teamId Team id (required)
      * @param id DAR application id (required)
      * @param fileId File id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -619,9 +483,9 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteTeamDarApplicationFileWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteTeamDarApplicationFileWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId) throws ApiException {
         okhttp3.Call localVarCall = deleteTeamDarApplicationFileValidateBeforeCall(teamId, id, fileId, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -643,310 +507,10 @@ public class DataAccessApplicationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTeamDarApplicationFileAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteTeamDarApplicationFileAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTeamDarApplicationFileValidateBeforeCall(teamId, id, fileId, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteUserDarApplication
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteUserDarApplicationCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{userId}/dar/applications/{id}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteUserDarApplicationValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling deleteUserDarApplication(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling deleteUserDarApplication(Async)");
-        }
-
-        return deleteUserDarApplicationCall(userId, id, _callback);
-
-    }
-
-    /**
-     * DataAccessApplication@destroy
-     * Delete a users DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @return DeleteAliases200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public DeleteAliases200Response deleteUserDarApplication(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteUserDarApplicationWithHttpInfo(userId, id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * DataAccessApplication@destroy
-     * Delete a users DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<DeleteAliases200Response> deleteUserDarApplicationWithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = deleteUserDarApplicationValidateBeforeCall(userId, id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * DataAccessApplication@destroy (asynchronously)
-     * Delete a users DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteUserDarApplicationAsync(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteUserDarApplicationValidateBeforeCall(userId, id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteUserDarApplicationFile
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param fileId File uuid (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteUserDarApplicationFileCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{userId}/dar/applications/{id}/files/{fileId}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "fileId" + "}", localVarApiClient.escapeString(fileId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteUserDarApplicationFileValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling deleteUserDarApplicationFile(Async)");
-        }
-
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling deleteUserDarApplicationFile(Async)");
-        }
-
-        // verify the required parameter 'fileId' is set
-        if (fileId == null) {
-            throw new ApiException("Missing the required parameter 'fileId' when calling deleteUserDarApplicationFile(Async)");
-        }
-
-        return deleteUserDarApplicationFileCall(id, userId, fileId, _callback);
-
-    }
-
-    /**
-     * DataAccessApplication@destroyFile
-     * Delete a file associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param fileId File uuid (required)
-     * @return DeleteAliases200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public DeleteAliases200Response deleteUserDarApplicationFile(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteUserDarApplicationFileWithHttpInfo(id, userId, fileId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * DataAccessApplication@destroyFile
-     * Delete a file associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param fileId File uuid (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<DeleteAliases200Response> deleteUserDarApplicationFileWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId) throws ApiException {
-        okhttp3.Call localVarCall = deleteUserDarApplicationFileValidateBeforeCall(id, userId, fileId, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * DataAccessApplication@destroyFile (asynchronously)
-     * Delete a file associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param fileId File uuid (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteUserDarApplicationFileAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteUserDarApplicationFileValidateBeforeCall(id, userId, fileId, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1660,450 +1224,6 @@ public class DataAccessApplicationApi {
         return localVarCall;
     }
     /**
-     * Build call for fetchUserDarApplicationFile
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param fileId File id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchUserDarApplicationFileCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{userId}/dar/applications/{id}/files/{fileId}/download"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "fileId" + "}", localVarApiClient.escapeString(fileId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "file",
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchUserDarApplicationFileValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchUserDarApplicationFile(Async)");
-        }
-
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling fetchUserDarApplicationFile(Async)");
-        }
-
-        // verify the required parameter 'fileId' is set
-        if (fileId == null) {
-            throw new ApiException("Missing the required parameter 'fileId' when calling fetchUserDarApplicationFile(Async)");
-        }
-
-        return fetchUserDarApplicationFileCall(id, userId, fileId, _callback);
-
-    }
-
-    /**
-     * DataAccessApplication@downloadFile
-     * Download a file associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param fileId File id (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public void fetchUserDarApplicationFile(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId) throws ApiException {
-        fetchUserDarApplicationFileWithHttpInfo(id, userId, fileId);
-    }
-
-    /**
-     * DataAccessApplication@downloadFile
-     * Download a file associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param fileId File id (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> fetchUserDarApplicationFileWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId) throws ApiException {
-        okhttp3.Call localVarCall = fetchUserDarApplicationFileValidateBeforeCall(id, userId, fileId, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * DataAccessApplication@downloadFile (asynchronously)
-     * Download a file associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param fileId File id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchUserDarApplicationFileAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String fileId, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchUserDarApplicationFileValidateBeforeCall(id, userId, fileId, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchUserDarApplicationFiles
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchUserDarApplicationFilesCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{userId}/dar/applications/{id}/files"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchUserDarApplicationFilesValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchUserDarApplicationFiles(Async)");
-        }
-
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling fetchUserDarApplicationFiles(Async)");
-        }
-
-        return fetchUserDarApplicationFilesCall(id, userId, _callback);
-
-    }
-
-    /**
-     * DataAccessApplication@showFiles
-     * Return a list of files associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @return FetchTeamDarApplicationFiles200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchTeamDarApplicationFiles200Response fetchUserDarApplicationFiles(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId) throws ApiException {
-        ApiResponse<FetchTeamDarApplicationFiles200Response> localVarResp = fetchUserDarApplicationFilesWithHttpInfo(id, userId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * DataAccessApplication@showFiles
-     * Return a list of files associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @return ApiResponse&lt;FetchTeamDarApplicationFiles200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchTeamDarApplicationFiles200Response> fetchUserDarApplicationFilesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId) throws ApiException {
-        okhttp3.Call localVarCall = fetchUserDarApplicationFilesValidateBeforeCall(id, userId, null);
-        Type localVarReturnType = new TypeToken<FetchTeamDarApplicationFiles200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * DataAccessApplication@showFiles (asynchronously)
-     * Return a list of files associated with a DAR application
-     * @param id DAR application id (required)
-     * @param userId User id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchUserDarApplicationFilesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer userId, final ApiCallback<FetchTeamDarApplicationFiles200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchUserDarApplicationFilesValidateBeforeCall(id, userId, _callback);
-        Type localVarReturnType = new TypeToken<FetchTeamDarApplicationFiles200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for patchUserDarApplication
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param patchUserDarApplicationRequest DataAccessApplication definition (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call patchUserDarApplicationCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchUserDarApplicationRequest patchUserDarApplicationRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = patchUserDarApplicationRequest;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{userId}/dar/applications/{id}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchUserDarApplicationValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchUserDarApplicationRequest patchUserDarApplicationRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling patchUserDarApplication(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling patchUserDarApplication(Async)");
-        }
-
-        // verify the required parameter 'patchUserDarApplicationRequest' is set
-        if (patchUserDarApplicationRequest == null) {
-            throw new ApiException("Missing the required parameter 'patchUserDarApplicationRequest' when calling patchUserDarApplication(Async)");
-        }
-
-        return patchUserDarApplicationCall(userId, id, patchUserDarApplicationRequest, _callback);
-
-    }
-
-    /**
-     * DataAccessApplication@update
-     * Edit a system DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param patchUserDarApplicationRequest DataAccessApplication definition (required)
-     * @return FetchTeamDarApplication200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchTeamDarApplication200Response patchUserDarApplication(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchUserDarApplicationRequest patchUserDarApplicationRequest) throws ApiException {
-        ApiResponse<FetchTeamDarApplication200Response> localVarResp = patchUserDarApplicationWithHttpInfo(userId, id, patchUserDarApplicationRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * DataAccessApplication@update
-     * Edit a system DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param patchUserDarApplicationRequest DataAccessApplication definition (required)
-     * @return ApiResponse&lt;FetchTeamDarApplication200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchTeamDarApplication200Response> patchUserDarApplicationWithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchUserDarApplicationRequest patchUserDarApplicationRequest) throws ApiException {
-        okhttp3.Call localVarCall = patchUserDarApplicationValidateBeforeCall(userId, id, patchUserDarApplicationRequest, null);
-        Type localVarReturnType = new TypeToken<FetchTeamDarApplication200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * DataAccessApplication@update (asynchronously)
-     * Edit a system DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param patchUserDarApplicationRequest DataAccessApplication definition (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call patchUserDarApplicationAsync(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchUserDarApplicationRequest patchUserDarApplicationRequest, final ApiCallback<FetchTeamDarApplication200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = patchUserDarApplicationValidateBeforeCall(userId, id, patchUserDarApplicationRequest, _callback);
-        Type localVarReturnType = new TypeToken<FetchTeamDarApplication200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for updateTeamDarApplication
      * @param teamId Team id (required)
      * @param id DAR application id (required)
@@ -2254,161 +1374,6 @@ public class DataAccessApplicationApi {
     public okhttp3.Call updateTeamDarApplicationAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamDarApplicationRequest updateTeamDarApplicationRequest, final ApiCallback<FetchTeamDarApplication200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTeamDarApplicationValidateBeforeCall(teamId, id, updateTeamDarApplicationRequest, _callback);
-        Type localVarReturnType = new TypeToken<FetchTeamDarApplication200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateUserDarApplication
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param updateUserDarApplicationRequest DataAccessApplication definition (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateUserDarApplicationCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUserDarApplicationRequest updateUserDarApplicationRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = updateUserDarApplicationRequest;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/users/{userId}/dar/applications/{id}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUserDarApplicationValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUserDarApplicationRequest updateUserDarApplicationRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling updateUserDarApplication(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling updateUserDarApplication(Async)");
-        }
-
-        // verify the required parameter 'updateUserDarApplicationRequest' is set
-        if (updateUserDarApplicationRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateUserDarApplicationRequest' when calling updateUserDarApplication(Async)");
-        }
-
-        return updateUserDarApplicationCall(userId, id, updateUserDarApplicationRequest, _callback);
-
-    }
-
-    /**
-     * DataAccessApplication@update
-     * Update a system DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param updateUserDarApplicationRequest DataAccessApplication definition (required)
-     * @return FetchTeamDarApplication200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchTeamDarApplication200Response updateUserDarApplication(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUserDarApplicationRequest updateUserDarApplicationRequest) throws ApiException {
-        ApiResponse<FetchTeamDarApplication200Response> localVarResp = updateUserDarApplicationWithHttpInfo(userId, id, updateUserDarApplicationRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * DataAccessApplication@update
-     * Update a system DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param updateUserDarApplicationRequest DataAccessApplication definition (required)
-     * @return ApiResponse&lt;FetchTeamDarApplication200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchTeamDarApplication200Response> updateUserDarApplicationWithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUserDarApplicationRequest updateUserDarApplicationRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateUserDarApplicationValidateBeforeCall(userId, id, updateUserDarApplicationRequest, null);
-        Type localVarReturnType = new TypeToken<FetchTeamDarApplication200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * DataAccessApplication@update (asynchronously)
-     * Update a system DAR application
-     * @param userId User id (required)
-     * @param id DAR application id (required)
-     * @param updateUserDarApplicationRequest DataAccessApplication definition (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateUserDarApplicationAsync(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateUserDarApplicationRequest updateUserDarApplicationRequest, final ApiCallback<FetchTeamDarApplication200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateUserDarApplicationValidateBeforeCall(userId, id, updateUserDarApplicationRequest, _callback);
         Type localVarReturnType = new TypeToken<FetchTeamDarApplication200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

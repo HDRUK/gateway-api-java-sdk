@@ -7,14 +7,12 @@ All URIs are relative to *http://localhost*
 | [**createTypeCategories**](TypeCategoryApi.md#createTypeCategories) | **POST** /api/v1/type_categories | TypeCategory@store |
 | [**deleteTypeCategories**](TypeCategoryApi.md#deleteTypeCategories) | **DELETE** /api/v1/type_categories/{id} | TypeCategory@destroy |
 | [**editTypeCategories**](TypeCategoryApi.md#editTypeCategories) | **PATCH** /api/v1/type_categories/{id} | TypeCategory@update |
-| [**fetchAllTypeCategories**](TypeCategoryApi.md#fetchAllTypeCategories) | **GET** /api/v1/type_categories | TypeCategory@index |
-| [**fetchTypeCategories**](TypeCategoryApi.md#fetchTypeCategories) | **GET** /api/v1/type_categories/{id} | TypeCategory@show |
 | [**updateTypeCategories**](TypeCategoryApi.md#updateTypeCategories) | **PUT** /api/v1/type_categories/{id} | TypeCategory@update |
 
 
 <a id="createTypeCategories"></a>
 # **createTypeCategories**
-> CreateCategories200Response createTypeCategories(createTypeCategoriesRequest)
+> CreateDarIntegration201Response createTypeCategories(createTypeCategoriesRequest)
 
 TypeCategory@store
 
@@ -42,7 +40,7 @@ public class Example {
     TypeCategoryApi apiInstance = new TypeCategoryApi(defaultClient);
     CreateTypeCategoriesRequest createTypeCategoriesRequest = new CreateTypeCategoriesRequest(); // CreateTypeCategoriesRequest | Programming language definition
     try {
-      CreateCategories200Response result = apiInstance.createTypeCategories(createTypeCategoriesRequest);
+      CreateDarIntegration201Response result = apiInstance.createTypeCategories(createTypeCategoriesRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TypeCategoryApi#createTypeCategories");
@@ -63,7 +61,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -82,7 +80,7 @@ public class Example {
 
 <a id="deleteTypeCategories"></a>
 # **deleteTypeCategories**
-> DeleteAliases200Response deleteTypeCategories(id)
+> DeleteApplications200Response deleteTypeCategories(id)
 
 TypeCategory@destroy
 
@@ -110,7 +108,7 @@ public class Example {
     TypeCategoryApi apiInstance = new TypeCategoryApi(defaultClient);
     Integer id = 1; // Integer | type category id
     try {
-      DeleteAliases200Response result = apiInstance.deleteTypeCategories(id);
+      DeleteApplications200Response result = apiInstance.deleteTypeCategories(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TypeCategoryApi#deleteTypeCategories");
@@ -131,7 +129,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -151,7 +149,7 @@ public class Example {
 
 <a id="editTypeCategories"></a>
 # **editTypeCategories**
-> UpdateTypeCategories200Response editTypeCategories(id, editCategoriesRequest)
+> UpdateTypeCategories200Response editTypeCategories(id, editProgrammingLanguagesRequest)
 
 TypeCategory@update
 
@@ -178,9 +176,9 @@ public class Example {
 
     TypeCategoryApi apiInstance = new TypeCategoryApi(defaultClient);
     Integer id = 1; // Integer | type category id
-    EditCategoriesRequest editCategoriesRequest = new EditCategoriesRequest(); // EditCategoriesRequest | TypeCategory definition
+    EditProgrammingLanguagesRequest editProgrammingLanguagesRequest = new EditProgrammingLanguagesRequest(); // EditProgrammingLanguagesRequest | TypeCategory definition
     try {
-      UpdateTypeCategories200Response result = apiInstance.editTypeCategories(id, editCategoriesRequest);
+      UpdateTypeCategories200Response result = apiInstance.editTypeCategories(id, editProgrammingLanguagesRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TypeCategoryApi#editTypeCategories");
@@ -198,7 +196,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| type category id | |
-| **editCategoriesRequest** | [**EditCategoriesRequest**](EditCategoriesRequest.md)| TypeCategory definition | |
+| **editProgrammingLanguagesRequest** | [**EditProgrammingLanguagesRequest**](EditProgrammingLanguagesRequest.md)| TypeCategory definition | |
 
 ### Return type
 
@@ -219,137 +217,6 @@ public class Example {
 | **404** | Not found response |  -  |
 | **200** | Success |  -  |
 | **500** | Error |  -  |
-
-<a id="fetchAllTypeCategories"></a>
-# **fetchAllTypeCategories**
-> FetchAllTypeCategories200Response fetchAllTypeCategories()
-
-TypeCategory@index
-
-Returns a list of type categories enabled on the system
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.TypeCategoryApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    TypeCategoryApi apiInstance = new TypeCategoryApi(defaultClient);
-    try {
-      FetchAllTypeCategories200Response result = apiInstance.fetchAllTypeCategories();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TypeCategoryApi#fetchAllTypeCategories");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**FetchAllTypeCategories200Response**](FetchAllTypeCategories200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-<a id="fetchTypeCategories"></a>
-# **fetchTypeCategories**
-> FetchTypeCategories200Response fetchTypeCategories(id)
-
-TypeCategory@show
-
-Return a single system type category
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.TypeCategoryApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    TypeCategoryApi apiInstance = new TypeCategoryApi(defaultClient);
-    Integer id = 1; // Integer | type category id
-    try {
-      FetchTypeCategories200Response result = apiInstance.fetchTypeCategories(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TypeCategoryApi#fetchTypeCategories");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| type category id | |
-
-### Return type
-
-[**FetchTypeCategories200Response**](FetchTypeCategories200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Not found response |  -  |
 
 <a id="updateTypeCategories"></a>
 # **updateTypeCategories**

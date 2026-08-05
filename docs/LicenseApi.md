@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createLicenses"></a>
 # **createLicenses**
-> CreateCategories200Response createLicenses(createLicensesRequest)
+> CreateDarIntegration201Response createLicenses(createLicensesRequest)
 
 License@store
 
@@ -42,7 +42,7 @@ public class Example {
     LicenseApi apiInstance = new LicenseApi(defaultClient);
     CreateLicensesRequest createLicensesRequest = new CreateLicensesRequest(); // CreateLicensesRequest | License definition
     try {
-      CreateCategories200Response result = apiInstance.createLicenses(createLicensesRequest);
+      CreateDarIntegration201Response result = apiInstance.createLicenses(createLicensesRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicenseApi#createLicenses");
@@ -63,7 +63,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ public class Example {
 
 <a id="deleteLicenses"></a>
 # **deleteLicenses**
-> DeleteAliases200Response deleteLicenses(id)
+> DeleteApplications200Response deleteLicenses(id)
 
 License@destroy
 
@@ -110,7 +110,7 @@ public class Example {
     LicenseApi apiInstance = new LicenseApi(defaultClient);
     Integer id = 1; // Integer | License id
     try {
-      DeleteAliases200Response result = apiInstance.deleteLicenses(id);
+      DeleteApplications200Response result = apiInstance.deleteLicenses(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicenseApi#deleteLicenses");
@@ -131,7 +131,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

@@ -27,14 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateTypeCategoriesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.EditCategoriesRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllTypeCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchTypeCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.EditProgrammingLanguagesRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateTypeCategories200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateTypeCategoriesRequest;
 
@@ -155,7 +153,7 @@ public class TypeCategoryApi {
      * TypeCategory@store
      * Creates a new system type category
      * @param createTypeCategoriesRequest Programming language definition (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -165,8 +163,8 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createTypeCategories(@javax.annotation.Nonnull CreateTypeCategoriesRequest createTypeCategoriesRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createTypeCategoriesWithHttpInfo(createTypeCategoriesRequest);
+    public CreateDarIntegration201Response createTypeCategories(@javax.annotation.Nonnull CreateTypeCategoriesRequest createTypeCategoriesRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createTypeCategoriesWithHttpInfo(createTypeCategoriesRequest);
         return localVarResp.getData();
     }
 
@@ -174,7 +172,7 @@ public class TypeCategoryApi {
      * TypeCategory@store
      * Creates a new system type category
      * @param createTypeCategoriesRequest Programming language definition (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -184,9 +182,9 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createTypeCategoriesWithHttpInfo(@javax.annotation.Nonnull CreateTypeCategoriesRequest createTypeCategoriesRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createTypeCategoriesWithHttpInfo(@javax.annotation.Nonnull CreateTypeCategoriesRequest createTypeCategoriesRequest) throws ApiException {
         okhttp3.Call localVarCall = createTypeCategoriesValidateBeforeCall(createTypeCategoriesRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -205,10 +203,10 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTypeCategoriesAsync(@javax.annotation.Nonnull CreateTypeCategoriesRequest createTypeCategoriesRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createTypeCategoriesAsync(@javax.annotation.Nonnull CreateTypeCategoriesRequest createTypeCategoriesRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTypeCategoriesValidateBeforeCall(createTypeCategoriesRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -287,7 +285,7 @@ public class TypeCategoryApi {
      * TypeCategory@destroy
      * Delete a system type category
      * @param id type category id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -298,8 +296,8 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteTypeCategories(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteTypeCategoriesWithHttpInfo(id);
+    public DeleteApplications200Response deleteTypeCategories(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteTypeCategoriesWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -307,7 +305,7 @@ public class TypeCategoryApi {
      * TypeCategory@destroy
      * Delete a system type category
      * @param id type category id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -318,9 +316,9 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteTypeCategoriesWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteTypeCategoriesWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteTypeCategoriesValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -340,17 +338,17 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTypeCategoriesAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteTypeCategoriesAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTypeCategoriesValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for editTypeCategories
      * @param id type category id (required)
-     * @param editCategoriesRequest TypeCategory definition (required)
+     * @param editProgrammingLanguagesRequest TypeCategory definition (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -363,7 +361,7 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editTypeCategoriesCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editTypeCategoriesCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -377,7 +375,7 @@ public class TypeCategoryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = editCategoriesRequest;
+        Object localVarPostBody = editProgrammingLanguagesRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/type_categories/{id}"
@@ -410,18 +408,18 @@ public class TypeCategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editTypeCategoriesValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call editTypeCategoriesValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling editTypeCategories(Async)");
         }
 
-        // verify the required parameter 'editCategoriesRequest' is set
-        if (editCategoriesRequest == null) {
-            throw new ApiException("Missing the required parameter 'editCategoriesRequest' when calling editTypeCategories(Async)");
+        // verify the required parameter 'editProgrammingLanguagesRequest' is set
+        if (editProgrammingLanguagesRequest == null) {
+            throw new ApiException("Missing the required parameter 'editProgrammingLanguagesRequest' when calling editTypeCategories(Async)");
         }
 
-        return editTypeCategoriesCall(id, editCategoriesRequest, _callback);
+        return editTypeCategoriesCall(id, editProgrammingLanguagesRequest, _callback);
 
     }
 
@@ -429,7 +427,7 @@ public class TypeCategoryApi {
      * TypeCategory@update
      * Edit a system type category
      * @param id type category id (required)
-     * @param editCategoriesRequest TypeCategory definition (required)
+     * @param editProgrammingLanguagesRequest TypeCategory definition (required)
      * @return UpdateTypeCategories200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -441,8 +439,8 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateTypeCategories200Response editTypeCategories(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest) throws ApiException {
-        ApiResponse<UpdateTypeCategories200Response> localVarResp = editTypeCategoriesWithHttpInfo(id, editCategoriesRequest);
+    public UpdateTypeCategories200Response editTypeCategories(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest) throws ApiException {
+        ApiResponse<UpdateTypeCategories200Response> localVarResp = editTypeCategoriesWithHttpInfo(id, editProgrammingLanguagesRequest);
         return localVarResp.getData();
     }
 
@@ -450,7 +448,7 @@ public class TypeCategoryApi {
      * TypeCategory@update
      * Edit a system type category
      * @param id type category id (required)
-     * @param editCategoriesRequest TypeCategory definition (required)
+     * @param editProgrammingLanguagesRequest TypeCategory definition (required)
      * @return ApiResponse&lt;UpdateTypeCategories200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -462,8 +460,8 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateTypeCategories200Response> editTypeCategoriesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest) throws ApiException {
-        okhttp3.Call localVarCall = editTypeCategoriesValidateBeforeCall(id, editCategoriesRequest, null);
+    public ApiResponse<UpdateTypeCategories200Response> editTypeCategoriesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest) throws ApiException {
+        okhttp3.Call localVarCall = editTypeCategoriesValidateBeforeCall(id, editProgrammingLanguagesRequest, null);
         Type localVarReturnType = new TypeToken<UpdateTypeCategories200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -472,7 +470,7 @@ public class TypeCategoryApi {
      * TypeCategory@update (asynchronously)
      * Edit a system type category
      * @param id type category id (required)
-     * @param editCategoriesRequest TypeCategory definition (required)
+     * @param editProgrammingLanguagesRequest TypeCategory definition (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -485,258 +483,10 @@ public class TypeCategoryApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editTypeCategoriesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest, final ApiCallback<UpdateTypeCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call editTypeCategoriesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest, final ApiCallback<UpdateTypeCategories200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editTypeCategoriesValidateBeforeCall(id, editCategoriesRequest, _callback);
+        okhttp3.Call localVarCall = editTypeCategoriesValidateBeforeCall(id, editProgrammingLanguagesRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdateTypeCategories200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchAllTypeCategories
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllTypeCategoriesCall(final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/type_categories";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchAllTypeCategoriesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return fetchAllTypeCategoriesCall(_callback);
-
-    }
-
-    /**
-     * TypeCategory@index
-     * Returns a list of type categories enabled on the system
-     * @return FetchAllTypeCategories200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllTypeCategories200Response fetchAllTypeCategories() throws ApiException {
-        ApiResponse<FetchAllTypeCategories200Response> localVarResp = fetchAllTypeCategoriesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * TypeCategory@index
-     * Returns a list of type categories enabled on the system
-     * @return ApiResponse&lt;FetchAllTypeCategories200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllTypeCategories200Response> fetchAllTypeCategoriesWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = fetchAllTypeCategoriesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<FetchAllTypeCategories200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TypeCategory@index (asynchronously)
-     * Returns a list of type categories enabled on the system
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllTypeCategoriesAsync(final ApiCallback<FetchAllTypeCategories200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchAllTypeCategoriesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<FetchAllTypeCategories200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchTypeCategories
-     * @param id type category id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchTypeCategoriesCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/type_categories/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchTypeCategoriesValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchTypeCategories(Async)");
-        }
-
-        return fetchTypeCategoriesCall(id, _callback);
-
-    }
-
-    /**
-     * TypeCategory@show
-     * Return a single system type category
-     * @param id type category id (required)
-     * @return FetchTypeCategories200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchTypeCategories200Response fetchTypeCategories(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<FetchTypeCategories200Response> localVarResp = fetchTypeCategoriesWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TypeCategory@show
-     * Return a single system type category
-     * @param id type category id (required)
-     * @return ApiResponse&lt;FetchTypeCategories200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchTypeCategories200Response> fetchTypeCategoriesWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = fetchTypeCategoriesValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<FetchTypeCategories200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TypeCategory@show (asynchronously)
-     * Return a single system type category
-     * @param id type category id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchTypeCategoriesAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<FetchTypeCategories200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchTypeCategoriesValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<FetchTypeCategories200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

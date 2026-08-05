@@ -14,12 +14,11 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateWidget201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateWidget400Response;
 import uk.ac.hdruk.gatewayapi.model.CreateWidgetRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllWidgets200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchWidget200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchWidgetDataSources200Response;
@@ -27,6 +26,7 @@ import uk.ac.hdruk.gatewayapi.model.FetchWidgetDataSources400Response;
 import uk.ac.hdruk.gatewayapi.model.RetrieveWidgetData200Response;
 import uk.ac.hdruk.gatewayapi.model.RetrieveWidgetData403Response;
 import uk.ac.hdruk.gatewayapi.model.TrackWidgetEventRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateWidget200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateWidgetRequest;
 import uk.ac.hdruk.gatewayapi.model.WidgetAnalytics200Response;
@@ -72,7 +72,7 @@ public class WidgetsApiTest {
     public void deleteWidgetTest() throws ApiException {
         Integer teamId = null;
         Integer id = null;
-        DeleteAliases200Response response = api.deleteWidget(teamId, id);
+        DeleteApplications200Response response = api.deleteWidget(teamId, id);
         // TODO: test validations
     }
 

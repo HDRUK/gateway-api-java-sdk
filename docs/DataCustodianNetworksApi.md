@@ -18,7 +18,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createDataCustodianNetwork"></a>
 # **createDataCustodianNetwork**
-> CreateCategories200Response createDataCustodianNetwork(createDataProviderCollRequest)
+> CreateDarIntegration201Response createDataCustodianNetwork(createDataProviderCollRequest)
 
 DataCustodianNetworks@store
 
@@ -46,7 +46,7 @@ public class Example {
     DataCustodianNetworksApi apiInstance = new DataCustodianNetworksApi(defaultClient);
     CreateDataProviderCollRequest createDataProviderCollRequest = new CreateDataProviderCollRequest(); // CreateDataProviderCollRequest | DataCustodianNetwork definition
     try {
-      CreateCategories200Response result = apiInstance.createDataCustodianNetwork(createDataProviderCollRequest);
+      CreateDarIntegration201Response result = apiInstance.createDataCustodianNetwork(createDataProviderCollRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataCustodianNetworksApi#createDataCustodianNetwork");
@@ -67,7 +67,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ public class Example {
 
 <a id="deleteDataCustodianNetwork"></a>
 # **deleteDataCustodianNetwork**
-> DeleteAliases200Response deleteDataCustodianNetwork(id)
+> DeleteApplications200Response deleteDataCustodianNetwork(id)
 
 DataCustodianNetworks@destroy
 
@@ -114,7 +114,7 @@ public class Example {
     DataCustodianNetworksApi apiInstance = new DataCustodianNetworksApi(defaultClient);
     Integer id = 1; // Integer | DataCustodianNetwork ID
     try {
-      DeleteAliases200Response result = apiInstance.deleteDataCustodianNetwork(id);
+      DeleteApplications200Response result = apiInstance.deleteDataCustodianNetwork(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataCustodianNetworksApi#deleteDataCustodianNetwork");
@@ -135,7 +135,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

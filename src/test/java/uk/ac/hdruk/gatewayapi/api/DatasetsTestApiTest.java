@@ -14,10 +14,10 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.DatasetsTestRequest;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +44,7 @@ public class DatasetsTestApiTest {
     @Test
     public void datasetsTestTest() throws ApiException {
         DatasetsTestRequest datasetsTestRequest = null;
-        CreateCategories200Response response = api.datasetsTest(datasetsTestRequest);
+        CreateDarIntegration201Response response = api.datasetsTest(datasetsTestRequest);
         // TODO: test validations
     }
 

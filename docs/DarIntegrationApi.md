@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createDarIntegration"></a>
 # **createDarIntegration**
-> CreateCategories200Response createDarIntegration(id, updateDarIntegrationRequest)
+> CreateDarIntegration201Response createDarIntegration(id, updateDarIntegrationRequest)
 
 DarIntegration@store
 
@@ -43,7 +43,7 @@ public class Example {
     Integer id = 1; // Integer | dar integration id
     UpdateDarIntegrationRequest updateDarIntegrationRequest = new UpdateDarIntegrationRequest(); // UpdateDarIntegrationRequest | DarIntegration definition
     try {
-      CreateCategories200Response result = apiInstance.createDarIntegration(id, updateDarIntegrationRequest);
+      CreateDarIntegration201Response result = apiInstance.createDarIntegration(id, updateDarIntegrationRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DarIntegrationApi#createDarIntegration");
@@ -65,7 +65,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ public class Example {
 
 <a id="deleteDarIntegration"></a>
 # **deleteDarIntegration**
-> DeleteAliases200Response deleteDarIntegration(id)
+> DeleteApplications200Response deleteDarIntegration(id)
 
 DarIntegration@destroy
 
@@ -113,7 +113,7 @@ public class Example {
     DarIntegrationApi apiInstance = new DarIntegrationApi(defaultClient);
     Integer id = 1; // Integer | dar integration id
     try {
-      DeleteAliases200Response result = apiInstance.deleteDarIntegration(id);
+      DeleteApplications200Response result = apiInstance.deleteDarIntegration(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DarIntegrationApi#deleteDarIntegration");
@@ -134,7 +134,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

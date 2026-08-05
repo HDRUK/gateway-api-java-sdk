@@ -14,12 +14,12 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateFederationTeamRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationByFederationIdAndTeamId200Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationHistory200Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationTeamId200Response;
@@ -52,7 +52,7 @@ public class TeamFederationsApiTest {
     public void createFederationTeamTest() throws ApiException {
         Integer teamId = null;
         CreateFederationTeamRequest createFederationTeamRequest = null;
-        CreateCategories200Response response = api.createFederationTeam(teamId, createFederationTeamRequest);
+        CreateDarIntegration201Response response = api.createFederationTeam(teamId, createFederationTeamRequest);
         // TODO: test validations
     }
 
@@ -83,7 +83,7 @@ public class TeamFederationsApiTest {
         Integer teamId = null;
         Integer federationId = null;
         CreateFederationTeamRequest createFederationTeamRequest = null;
-        CreateCategories200Response response = api.editFederationTeam(teamId, federationId, createFederationTeamRequest);
+        CreateDarIntegration201Response response = api.editFederationTeam(teamId, federationId, createFederationTeamRequest);
         // TODO: test validations
     }
 
@@ -173,7 +173,7 @@ public class TeamFederationsApiTest {
         Integer teamId = null;
         Integer federationId = null;
         UpdateFederationTeamRequest updateFederationTeamRequest = null;
-        CreateCategories200Response response = api.updateFederationTeam(teamId, federationId, updateFederationTeamRequest);
+        CreateDarIntegration201Response response = api.updateFederationTeam(teamId, federationId, updateFederationTeamRequest);
         // TODO: test validations
     }
 

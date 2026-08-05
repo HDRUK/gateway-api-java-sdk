@@ -27,15 +27,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDarTemplateRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDarTemplate200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDarTemplates200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDarTemplate200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDarTemplateRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDarTemplateRequest;
 
 import java.lang.reflect.Type;
@@ -155,7 +155,7 @@ public class DataAccessTemplateApi {
      * DataAccessTemplate@store
      * Creates a new DAR template
      * @param createDarTemplateRequest DataAccessTemplate definition (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -165,8 +165,8 @@ public class DataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createDarTemplate(@javax.annotation.Nonnull CreateDarTemplateRequest createDarTemplateRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDarTemplateWithHttpInfo(createDarTemplateRequest);
+    public CreateDarIntegration201Response createDarTemplate(@javax.annotation.Nonnull CreateDarTemplateRequest createDarTemplateRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createDarTemplateWithHttpInfo(createDarTemplateRequest);
         return localVarResp.getData();
     }
 
@@ -174,7 +174,7 @@ public class DataAccessTemplateApi {
      * DataAccessTemplate@store
      * Creates a new DAR template
      * @param createDarTemplateRequest DataAccessTemplate definition (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -184,9 +184,9 @@ public class DataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createDarTemplateWithHttpInfo(@javax.annotation.Nonnull CreateDarTemplateRequest createDarTemplateRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createDarTemplateWithHttpInfo(@javax.annotation.Nonnull CreateDarTemplateRequest createDarTemplateRequest) throws ApiException {
         okhttp3.Call localVarCall = createDarTemplateValidateBeforeCall(createDarTemplateRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -205,10 +205,10 @@ public class DataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDarTemplateAsync(@javax.annotation.Nonnull CreateDarTemplateRequest createDarTemplateRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createDarTemplateAsync(@javax.annotation.Nonnull CreateDarTemplateRequest createDarTemplateRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDarTemplateValidateBeforeCall(createDarTemplateRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -287,7 +287,7 @@ public class DataAccessTemplateApi {
      * DataAccessTemplate@destroy
      * Delete a system DAR template
      * @param id DAR template id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -298,8 +298,8 @@ public class DataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteDarTemplate(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDarTemplateWithHttpInfo(id);
+    public DeleteApplications200Response deleteDarTemplate(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDarTemplateWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -307,7 +307,7 @@ public class DataAccessTemplateApi {
      * DataAccessTemplate@destroy
      * Delete a system DAR template
      * @param id DAR template id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -318,9 +318,9 @@ public class DataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteDarTemplateWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDarTemplateWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDarTemplateValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -340,139 +340,11 @@ public class DataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDarTemplateAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDarTemplateAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDarTemplateValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for downloadDarTemplateFile
-     * @param id DAR template id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call downloadDarTemplateFileCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/dar/templates/{id}/download"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "file",
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call downloadDarTemplateFileValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling downloadDarTemplateFile(Async)");
-        }
-
-        return downloadDarTemplateFileCall(id, _callback);
-
-    }
-
-    /**
-     * DataAccessTemplate@downloadFile
-     * Download the template for a file based DAR application
-     * @param id DAR template id (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public void downloadDarTemplateFile(@javax.annotation.Nonnull Integer id) throws ApiException {
-        downloadDarTemplateFileWithHttpInfo(id);
-    }
-
-    /**
-     * DataAccessTemplate@downloadFile
-     * Download the template for a file based DAR application
-     * @param id DAR template id (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> downloadDarTemplateFileWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = downloadDarTemplateFileValidateBeforeCall(id, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * DataAccessTemplate@downloadFile (asynchronously)
-     * Download the template for a file based DAR application
-     * @param id DAR template id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call downloadDarTemplateFileAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = downloadDarTemplateFileValidateBeforeCall(id, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

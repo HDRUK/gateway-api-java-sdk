@@ -14,15 +14,15 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDataProviderCollRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditDataProviderCollRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataProviderColl200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataProviderCollSummary200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataProviderColls200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDataProviderColl200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDataProviderCollRequest;
 import org.junit.jupiter.api.Disabled;
@@ -51,7 +51,7 @@ public class DataProviderCollApiTest {
     @Test
     public void createDataProviderCollTest() throws ApiException {
         CreateDataProviderCollRequest createDataProviderCollRequest = null;
-        CreateCategories200Response response = api.createDataProviderColl(createDataProviderCollRequest);
+        CreateDarIntegration201Response response = api.createDataProviderColl(createDataProviderCollRequest);
         // TODO: test validations
     }
 
@@ -65,7 +65,7 @@ public class DataProviderCollApiTest {
     @Test
     public void deleteDataProviderCollTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDataProviderColl(id);
+        DeleteApplications200Response response = api.deleteDataProviderColl(id);
         // TODO: test validations
     }
 

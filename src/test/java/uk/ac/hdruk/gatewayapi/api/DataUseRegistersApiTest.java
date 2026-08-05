@@ -14,18 +14,17 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDurRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.ExportMockDataset404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDur200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDurV2200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDurById200Response;
 import uk.ac.hdruk.gatewayapi.model.ProjectTitleAscupdatedAtAsc;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDur200Response;
 import uk.ac.hdruk.gatewayapi.model.UploadDurRequest;
 import org.junit.jupiter.api.Disabled;
@@ -45,21 +44,6 @@ public class DataUseRegistersApiTest {
     private final DataUseRegistersApi api = new DataUseRegistersApi();
 
     /**
-     * TeamDurController@count
-     *
-     * Get team counts for distinct entries of a field in the model
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countTeamUniqueFieldsDurV2Test() throws ApiException {
-        Integer teamId = null;
-        String field = null;
-        CountUniqueFieldsCollections200Response response = api.countTeamUniqueFieldsDurV2(teamId, field);
-        // TODO: test validations
-    }
-
-    /**
      * DurController@store
      *
      * Create a new dur
@@ -69,7 +53,7 @@ public class DataUseRegistersApiTest {
     @Test
     public void createDurTest() throws ApiException {
         CreateDurRequest createDurRequest = null;
-        CreateCategories200Response response = api.createDur(createDurRequest);
+        CreateDarIntegration201Response response = api.createDur(createDurRequest);
         // TODO: test validations
     }
 
@@ -84,7 +68,7 @@ public class DataUseRegistersApiTest {
     public void createDurByTeamV2Test() throws ApiException {
         Integer teamId = null;
         CreateDurRequest createDurRequest = null;
-        CreateCategories200Response response = api.createDurByTeamV2(teamId, createDurRequest);
+        CreateDarIntegration201Response response = api.createDurByTeamV2(teamId, createDurRequest);
         // TODO: test validations
     }
 
@@ -98,7 +82,7 @@ public class DataUseRegistersApiTest {
     @Test
     public void deleteDurTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDur(id);
+        DeleteApplications200Response response = api.deleteDur(id);
         // TODO: test validations
     }
 
@@ -113,7 +97,7 @@ public class DataUseRegistersApiTest {
     public void deleteDursV2ByTeamIdTest() throws ApiException {
         Integer teamId = null;
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDursV2ByTeamId(teamId, id);
+        DeleteApplications200Response response = api.deleteDursV2ByTeamId(teamId, id);
         // TODO: test validations
     }
 
@@ -223,25 +207,6 @@ public class DataUseRegistersApiTest {
     }
 
     /**
-     * TeamDurController@indexStatus
-     *
-     * Returns a list of dur owned by this team with given status
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllTeamDurStatusTest() throws ApiException {
-        Integer teamId = null;
-        String status = null;
-        ProjectTitleAscupdatedAtAsc sort = null;
-        String projectTitle = null;
-        Integer perPage = null;
-        Boolean withRelated = null;
-        FetchAllDur200Response response = api.fetchAllTeamDurStatus(teamId, status, sort, projectTitle, perPage, withRelated);
-        // TODO: test validations
-    }
-
-    /**
      * DurController@show
      *
      * Get dur by id
@@ -266,21 +231,6 @@ public class DataUseRegistersApiTest {
     public void fetchDurByIdV2Test() throws ApiException {
         Integer id = null;
         UpdateDur200Response response = api.fetchDurByIdV2(id);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamDurController@show
-     *
-     * Get dur by team id and by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchDurByTeamAndByIdV2Test() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        UpdateDur200Response response = api.fetchDurByTeamAndByIdV2(teamId, id);
         // TODO: test validations
     }
 
@@ -325,7 +275,7 @@ public class DataUseRegistersApiTest {
     @Test
     public void uploadDurTest() throws ApiException {
         UploadDurRequest uploadDurRequest = null;
-        CreateCategories200Response response = api.uploadDur(uploadDurRequest);
+        CreateDarIntegration201Response response = api.uploadDur(uploadDurRequest);
         // TODO: test validations
     }
 

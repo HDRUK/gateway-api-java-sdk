@@ -27,14 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateReviewsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllReviews200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateReviews200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateReviewsRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -79,141 +76,6 @@ public class ReviewsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createReviews
-     * @param createReviewsRequest Pass user credentials (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createReviewsCall(@javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = createReviewsRequest;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/reviews";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createReviewsValidateBeforeCall(@javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'createReviewsRequest' is set
-        if (createReviewsRequest == null) {
-            throw new ApiException("Missing the required parameter 'createReviewsRequest' when calling createReviews(Async)");
-        }
-
-        return createReviewsCall(createReviewsRequest, _callback);
-
-    }
-
-    /**
-     * ReviewController@store
-     * Create a new review
-     * @param createReviewsRequest Pass user credentials (required)
-     * @return CreateCategories200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateCategories200Response createReviews(@javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createReviewsWithHttpInfo(createReviewsRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * ReviewController@store
-     * Create a new review
-     * @param createReviewsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateCategories200Response> createReviewsWithHttpInfo(@javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest) throws ApiException {
-        okhttp3.Call localVarCall = createReviewsValidateBeforeCall(createReviewsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * ReviewController@store (asynchronously)
-     * Create a new review
-     * @param createReviewsRequest Pass user credentials (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createReviewsAsync(@javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createReviewsValidateBeforeCall(createReviewsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for deleteReviews
      * @param id review id (required)
@@ -289,7 +151,7 @@ public class ReviewsApi {
      * Delete a review
      * Delete a review
      * @param id review id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -300,8 +162,8 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteReviews(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteReviewsWithHttpInfo(id);
+    public DeleteApplications200Response deleteReviews(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteReviewsWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -309,7 +171,7 @@ public class ReviewsApi {
      * Delete a review
      * Delete a review
      * @param id review id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -320,9 +182,9 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteReviewsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteReviewsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteReviewsValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -342,17 +204,17 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteReviewsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteReviewsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteReviewsValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for editReviews
      * @param id review id (required)
-     * @param createReviewsRequest Pass user credentials (required)
+     * @param updateReviewsRequest Pass user credentials (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -365,7 +227,7 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editReviewsCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editReviewsCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -379,7 +241,7 @@ public class ReviewsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createReviewsRequest;
+        Object localVarPostBody = updateReviewsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/reviews/{id}"
@@ -412,18 +274,18 @@ public class ReviewsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editReviewsValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call editReviewsValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling editReviews(Async)");
         }
 
-        // verify the required parameter 'createReviewsRequest' is set
-        if (createReviewsRequest == null) {
-            throw new ApiException("Missing the required parameter 'createReviewsRequest' when calling editReviews(Async)");
+        // verify the required parameter 'updateReviewsRequest' is set
+        if (updateReviewsRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateReviewsRequest' when calling editReviews(Async)");
         }
 
-        return editReviewsCall(id, createReviewsRequest, _callback);
+        return editReviewsCall(id, updateReviewsRequest, _callback);
 
     }
 
@@ -431,7 +293,7 @@ public class ReviewsApi {
      * Edit a review
      * Edit a review
      * @param id review id (required)
-     * @param createReviewsRequest Pass user credentials (required)
+     * @param updateReviewsRequest Pass user credentials (required)
      * @return UpdateReviews200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -443,8 +305,8 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateReviews200Response editReviews(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest) throws ApiException {
-        ApiResponse<UpdateReviews200Response> localVarResp = editReviewsWithHttpInfo(id, createReviewsRequest);
+    public UpdateReviews200Response editReviews(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest) throws ApiException {
+        ApiResponse<UpdateReviews200Response> localVarResp = editReviewsWithHttpInfo(id, updateReviewsRequest);
         return localVarResp.getData();
     }
 
@@ -452,7 +314,7 @@ public class ReviewsApi {
      * Edit a review
      * Edit a review
      * @param id review id (required)
-     * @param createReviewsRequest Pass user credentials (required)
+     * @param updateReviewsRequest Pass user credentials (required)
      * @return ApiResponse&lt;UpdateReviews200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -464,8 +326,8 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateReviews200Response> editReviewsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest) throws ApiException {
-        okhttp3.Call localVarCall = editReviewsValidateBeforeCall(id, createReviewsRequest, null);
+    public ApiResponse<UpdateReviews200Response> editReviewsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest) throws ApiException {
+        okhttp3.Call localVarCall = editReviewsValidateBeforeCall(id, updateReviewsRequest, null);
         Type localVarReturnType = new TypeToken<UpdateReviews200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -474,7 +336,7 @@ public class ReviewsApi {
      * Edit a review (asynchronously)
      * Edit a review
      * @param id review id (required)
-     * @param createReviewsRequest Pass user credentials (required)
+     * @param updateReviewsRequest Pass user credentials (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -487,269 +349,17 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editReviewsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback<UpdateReviews200Response> _callback) throws ApiException {
+    public okhttp3.Call editReviewsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest, final ApiCallback<UpdateReviews200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editReviewsValidateBeforeCall(id, createReviewsRequest, _callback);
+        okhttp3.Call localVarCall = editReviewsValidateBeforeCall(id, updateReviewsRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdateReviews200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchAllReviews
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllReviewsCall(final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/reviews";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchAllReviewsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return fetchAllReviewsCall(_callback);
-
-    }
-
-    /**
-     * ReviewController@index
-     * Get All Reviews
-     * @return FetchAllReviews200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllReviews200Response fetchAllReviews() throws ApiException {
-        ApiResponse<FetchAllReviews200Response> localVarResp = fetchAllReviewsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * ReviewController@index
-     * Get All Reviews
-     * @return ApiResponse&lt;FetchAllReviews200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllReviews200Response> fetchAllReviewsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = fetchAllReviewsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<FetchAllReviews200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * ReviewController@index (asynchronously)
-     * Get All Reviews
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllReviewsAsync(final ApiCallback<FetchAllReviews200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchAllReviewsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<FetchAllReviews200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchReviews
-     * @param id review id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchReviewsCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/reviews/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchReviewsValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchReviews(Async)");
-        }
-
-        return fetchReviewsCall(id, _callback);
-
-    }
-
-    /**
-     * ReviewController@show
-     * Get review by id
-     * @param id review id (required)
-     * @return FetchAllReviews200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllReviews200Response fetchReviews(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<FetchAllReviews200Response> localVarResp = fetchReviewsWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * ReviewController@show
-     * Get review by id
-     * @param id review id (required)
-     * @return ApiResponse&lt;FetchAllReviews200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllReviews200Response> fetchReviewsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = fetchReviewsValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<FetchAllReviews200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * ReviewController@show (asynchronously)
-     * Get review by id
-     * @param id review id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchReviewsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<FetchAllReviews200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchReviewsValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<FetchAllReviews200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateReviews
      * @param id review id (required)
-     * @param createReviewsRequest Pass user credentials (required)
+     * @param updateReviewsRequest Pass user credentials (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -762,7 +372,7 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateReviewsCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateReviewsCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -776,7 +386,7 @@ public class ReviewsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createReviewsRequest;
+        Object localVarPostBody = updateReviewsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/reviews/{id}"
@@ -809,18 +419,18 @@ public class ReviewsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateReviewsValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateReviewsValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateReviews(Async)");
         }
 
-        // verify the required parameter 'createReviewsRequest' is set
-        if (createReviewsRequest == null) {
-            throw new ApiException("Missing the required parameter 'createReviewsRequest' when calling updateReviews(Async)");
+        // verify the required parameter 'updateReviewsRequest' is set
+        if (updateReviewsRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateReviewsRequest' when calling updateReviews(Async)");
         }
 
-        return updateReviewsCall(id, createReviewsRequest, _callback);
+        return updateReviewsCall(id, updateReviewsRequest, _callback);
 
     }
 
@@ -828,7 +438,7 @@ public class ReviewsApi {
      * Update a review
      * Update a review
      * @param id review id (required)
-     * @param createReviewsRequest Pass user credentials (required)
+     * @param updateReviewsRequest Pass user credentials (required)
      * @return UpdateReviews200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -840,8 +450,8 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateReviews200Response updateReviews(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest) throws ApiException {
-        ApiResponse<UpdateReviews200Response> localVarResp = updateReviewsWithHttpInfo(id, createReviewsRequest);
+    public UpdateReviews200Response updateReviews(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest) throws ApiException {
+        ApiResponse<UpdateReviews200Response> localVarResp = updateReviewsWithHttpInfo(id, updateReviewsRequest);
         return localVarResp.getData();
     }
 
@@ -849,7 +459,7 @@ public class ReviewsApi {
      * Update a review
      * Update a review
      * @param id review id (required)
-     * @param createReviewsRequest Pass user credentials (required)
+     * @param updateReviewsRequest Pass user credentials (required)
      * @return ApiResponse&lt;UpdateReviews200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -861,8 +471,8 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateReviews200Response> updateReviewsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateReviewsValidateBeforeCall(id, createReviewsRequest, null);
+    public ApiResponse<UpdateReviews200Response> updateReviewsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateReviewsValidateBeforeCall(id, updateReviewsRequest, null);
         Type localVarReturnType = new TypeToken<UpdateReviews200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -871,7 +481,7 @@ public class ReviewsApi {
      * Update a review (asynchronously)
      * Update a review
      * @param id review id (required)
-     * @param createReviewsRequest Pass user credentials (required)
+     * @param updateReviewsRequest Pass user credentials (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -884,9 +494,9 @@ public class ReviewsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateReviewsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateReviewsRequest createReviewsRequest, final ApiCallback<UpdateReviews200Response> _callback) throws ApiException {
+    public okhttp3.Call updateReviewsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateReviewsRequest updateReviewsRequest, final ApiCallback<UpdateReviews200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateReviewsValidateBeforeCall(id, createReviewsRequest, _callback);
+        okhttp3.Call localVarCall = updateReviewsValidateBeforeCall(id, updateReviewsRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdateReviews200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

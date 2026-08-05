@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createUserHasRoles"></a>
 # **createUserHasRoles**
-> DeleteAliases200Response createUserHasRoles(userId, createUserHasRolesRequest)
+> DeleteApplications200Response createUserHasRoles(userId, createUserHasRolesRequest)
 
 UserRoleController@store
 
@@ -40,7 +40,7 @@ public class Example {
     Integer userId = 1; // Integer | user id
     CreateUserHasRolesRequest createUserHasRolesRequest = new CreateUserHasRolesRequest(); // CreateUserHasRolesRequest | Pass user credentials
     try {
-      DeleteAliases200Response result = apiInstance.createUserHasRoles(userId, createUserHasRolesRequest);
+      DeleteApplications200Response result = apiInstance.createUserHasRoles(userId, createUserHasRolesRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserRolesApi#createUserHasRoles");
@@ -62,7 +62,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ public class Example {
 
 <a id="updateUserHasRoles"></a>
 # **updateUserHasRoles**
-> DeleteAliases200Response updateUserHasRoles(userId, updateUserHasRolesRequest)
+> DeleteApplications200Response updateUserHasRoles(userId, updateUserHasRolesRequest)
 
 UserRoleController@edit
 
@@ -181,7 +181,7 @@ public class Example {
     Integer userId = 1; // Integer | user id
     UpdateUserHasRolesRequest updateUserHasRolesRequest = new UpdateUserHasRolesRequest(); // UpdateUserHasRolesRequest | Pass user credentials
     try {
-      DeleteAliases200Response result = apiInstance.updateUserHasRoles(userId, updateUserHasRolesRequest);
+      DeleteApplications200Response result = apiInstance.updateUserHasRoles(userId, updateUserHasRolesRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserRolesApi#updateUserHasRoles");
@@ -203,7 +203,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

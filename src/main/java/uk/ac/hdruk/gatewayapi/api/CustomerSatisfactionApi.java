@@ -27,10 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateCsat422Response;
 import uk.ac.hdruk.gatewayapi.model.CreateCsatRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditCsat200Response;
 import uk.ac.hdruk.gatewayapi.model.EditCsatRequest;
 
@@ -152,7 +152,7 @@ public class CustomerSatisfactionApi {
      * Create Customer Satisfaction Score
      * Creates a customer satisfaction score between 0 and 5
      * @param createCsatRequest Customer Satisfaction score (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -163,8 +163,8 @@ public class CustomerSatisfactionApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response createCsat(@javax.annotation.Nonnull CreateCsatRequest createCsatRequest) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = createCsatWithHttpInfo(createCsatRequest);
+    public DeleteApplications200Response createCsat(@javax.annotation.Nonnull CreateCsatRequest createCsatRequest) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = createCsatWithHttpInfo(createCsatRequest);
         return localVarResp.getData();
     }
 
@@ -172,7 +172,7 @@ public class CustomerSatisfactionApi {
      * Create Customer Satisfaction Score
      * Creates a customer satisfaction score between 0 and 5
      * @param createCsatRequest Customer Satisfaction score (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -183,9 +183,9 @@ public class CustomerSatisfactionApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> createCsatWithHttpInfo(@javax.annotation.Nonnull CreateCsatRequest createCsatRequest) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> createCsatWithHttpInfo(@javax.annotation.Nonnull CreateCsatRequest createCsatRequest) throws ApiException {
         okhttp3.Call localVarCall = createCsatValidateBeforeCall(createCsatRequest, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -205,10 +205,10 @@ public class CustomerSatisfactionApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCsatAsync(@javax.annotation.Nonnull CreateCsatRequest createCsatRequest, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call createCsatAsync(@javax.annotation.Nonnull CreateCsatRequest createCsatRequest, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCsatValidateBeforeCall(createCsatRequest, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

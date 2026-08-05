@@ -27,18 +27,18 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateQuestionBankQuestionRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditQuestionBankQuestionRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchCustomQuestionBankQuestions200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchQuestionBankQuestion200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchQuestionBankQuestionVersion200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchQuestionBankQuestions200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchStandardQuestionBankQuestions200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamQuestionBankQuestionsBySection200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateQuestionBankQuestion200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateQuestionBankQuestionRequest;
 import uk.ac.hdruk.gatewayapi.model.UpdateQuestionBankQuestionStatus200Response;
@@ -160,7 +160,7 @@ public class QuestionBankApi {
      * QuestionBank@store
      * Create a new system question bank question with FE-helpful input format
      * @param createQuestionBankQuestionRequest QuestionBank definition (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -170,8 +170,8 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createQuestionBankQuestion(@javax.annotation.Nonnull CreateQuestionBankQuestionRequest createQuestionBankQuestionRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createQuestionBankQuestionWithHttpInfo(createQuestionBankQuestionRequest);
+    public CreateDarIntegration201Response createQuestionBankQuestion(@javax.annotation.Nonnull CreateQuestionBankQuestionRequest createQuestionBankQuestionRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createQuestionBankQuestionWithHttpInfo(createQuestionBankQuestionRequest);
         return localVarResp.getData();
     }
 
@@ -179,7 +179,7 @@ public class QuestionBankApi {
      * QuestionBank@store
      * Create a new system question bank question with FE-helpful input format
      * @param createQuestionBankQuestionRequest QuestionBank definition (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -189,9 +189,9 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createQuestionBankQuestionWithHttpInfo(@javax.annotation.Nonnull CreateQuestionBankQuestionRequest createQuestionBankQuestionRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createQuestionBankQuestionWithHttpInfo(@javax.annotation.Nonnull CreateQuestionBankQuestionRequest createQuestionBankQuestionRequest) throws ApiException {
         okhttp3.Call localVarCall = createQuestionBankQuestionValidateBeforeCall(createQuestionBankQuestionRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -210,10 +210,10 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createQuestionBankQuestionAsync(@javax.annotation.Nonnull CreateQuestionBankQuestionRequest createQuestionBankQuestionRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createQuestionBankQuestionAsync(@javax.annotation.Nonnull CreateQuestionBankQuestionRequest createQuestionBankQuestionRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createQuestionBankQuestionValidateBeforeCall(createQuestionBankQuestionRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -292,7 +292,7 @@ public class QuestionBankApi {
      * QuestionBank@destroy
      * Delete a system question bank question
      * @param id question bank question id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -303,8 +303,8 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteQuestionBankQuestion(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteQuestionBankQuestionWithHttpInfo(id);
+    public DeleteApplications200Response deleteQuestionBankQuestion(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteQuestionBankQuestionWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -312,7 +312,7 @@ public class QuestionBankApi {
      * QuestionBank@destroy
      * Delete a system question bank question
      * @param id question bank question id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -323,9 +323,9 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteQuestionBankQuestionWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteQuestionBankQuestionWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteQuestionBankQuestionValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -345,10 +345,10 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteQuestionBankQuestionAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteQuestionBankQuestionAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteQuestionBankQuestionValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -435,7 +435,7 @@ public class QuestionBankApi {
      * Download a system question bank question
      * @param id question bank question id (required)
      * @param fileId file uuid (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -446,8 +446,8 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response downloadQuestionBankQuestionFile(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = downloadQuestionBankQuestionFileWithHttpInfo(id, fileId);
+    public DeleteApplications200Response downloadQuestionBankQuestionFile(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = downloadQuestionBankQuestionFileWithHttpInfo(id, fileId);
         return localVarResp.getData();
     }
 
@@ -456,7 +456,7 @@ public class QuestionBankApi {
      * Download a system question bank question
      * @param id question bank question id (required)
      * @param fileId file uuid (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -467,9 +467,9 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> downloadQuestionBankQuestionFileWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> downloadQuestionBankQuestionFileWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId) throws ApiException {
         okhttp3.Call localVarCall = downloadQuestionBankQuestionFileValidateBeforeCall(id, fileId, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -490,10 +490,10 @@ public class QuestionBankApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadQuestionBankQuestionFileAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call downloadQuestionBankQuestionFileAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull Integer fileId, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = downloadQuestionBankQuestionFileValidateBeforeCall(id, fileId, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

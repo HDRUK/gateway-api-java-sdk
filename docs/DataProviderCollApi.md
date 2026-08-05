@@ -15,7 +15,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createDataProviderColl"></a>
 # **createDataProviderColl**
-> CreateCategories200Response createDataProviderColl(createDataProviderCollRequest)
+> CreateDarIntegration201Response createDataProviderColl(createDataProviderCollRequest)
 
 DataProviderColl@store
 
@@ -43,7 +43,7 @@ public class Example {
     DataProviderCollApi apiInstance = new DataProviderCollApi(defaultClient);
     CreateDataProviderCollRequest createDataProviderCollRequest = new CreateDataProviderCollRequest(); // CreateDataProviderCollRequest | DataProviderColl definition
     try {
-      CreateCategories200Response result = apiInstance.createDataProviderColl(createDataProviderCollRequest);
+      CreateDarIntegration201Response result = apiInstance.createDataProviderColl(createDataProviderCollRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataProviderCollApi#createDataProviderColl");
@@ -64,7 +64,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ public class Example {
 
 <a id="deleteDataProviderColl"></a>
 # **deleteDataProviderColl**
-> DeleteAliases200Response deleteDataProviderColl(id)
+> DeleteApplications200Response deleteDataProviderColl(id)
 
 DataProviderColl@destroy
 
@@ -111,7 +111,7 @@ public class Example {
     DataProviderCollApi apiInstance = new DataProviderCollApi(defaultClient);
     Integer id = 1; // Integer | DataProviderColl ID
     try {
-      DeleteAliases200Response result = apiInstance.deleteDataProviderColl(id);
+      DeleteApplications200Response result = apiInstance.deleteDataProviderColl(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataProviderCollApi#deleteDataProviderColl");
@@ -132,7 +132,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

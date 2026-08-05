@@ -27,16 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategoriesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.EditCategoriesRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllProgrammingLanguages200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchProgrammingLanguages200Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateCategoriesRequest;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
+import uk.ac.hdruk.gatewayapi.model.CreateProgrammingLanguagesRequest;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.EditProgrammingLanguagesRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateProgrammingLanguages200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateProgrammingLanguagesRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -83,7 +81,7 @@ public class ProgrammingLanguageApi {
 
     /**
      * Build call for createProgrammingLanguages
-     * @param createCategoriesRequest Programming language definition (required)
+     * @param createProgrammingLanguagesRequest Programming language definition (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +93,7 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProgrammingLanguagesCall(@javax.annotation.Nonnull CreateCategoriesRequest createCategoriesRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createProgrammingLanguagesCall(@javax.annotation.Nonnull CreateProgrammingLanguagesRequest createProgrammingLanguagesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,7 +107,7 @@ public class ProgrammingLanguageApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createCategoriesRequest;
+        Object localVarPostBody = createProgrammingLanguagesRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/programming_languages";
@@ -141,21 +139,21 @@ public class ProgrammingLanguageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createProgrammingLanguagesValidateBeforeCall(@javax.annotation.Nonnull CreateCategoriesRequest createCategoriesRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'createCategoriesRequest' is set
-        if (createCategoriesRequest == null) {
-            throw new ApiException("Missing the required parameter 'createCategoriesRequest' when calling createProgrammingLanguages(Async)");
+    private okhttp3.Call createProgrammingLanguagesValidateBeforeCall(@javax.annotation.Nonnull CreateProgrammingLanguagesRequest createProgrammingLanguagesRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createProgrammingLanguagesRequest' is set
+        if (createProgrammingLanguagesRequest == null) {
+            throw new ApiException("Missing the required parameter 'createProgrammingLanguagesRequest' when calling createProgrammingLanguages(Async)");
         }
 
-        return createProgrammingLanguagesCall(createCategoriesRequest, _callback);
+        return createProgrammingLanguagesCall(createProgrammingLanguagesRequest, _callback);
 
     }
 
     /**
      * ProgrammingLanguage@store
      * Creates a new system programming language
-     * @param createCategoriesRequest Programming language definition (required)
-     * @return CreateCategories200Response
+     * @param createProgrammingLanguagesRequest Programming language definition (required)
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -165,16 +163,16 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createProgrammingLanguages(@javax.annotation.Nonnull CreateCategoriesRequest createCategoriesRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createProgrammingLanguagesWithHttpInfo(createCategoriesRequest);
+    public CreateDarIntegration201Response createProgrammingLanguages(@javax.annotation.Nonnull CreateProgrammingLanguagesRequest createProgrammingLanguagesRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createProgrammingLanguagesWithHttpInfo(createProgrammingLanguagesRequest);
         return localVarResp.getData();
     }
 
     /**
      * ProgrammingLanguage@store
      * Creates a new system programming language
-     * @param createCategoriesRequest Programming language definition (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @param createProgrammingLanguagesRequest Programming language definition (required)
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -184,16 +182,16 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull CreateCategoriesRequest createCategoriesRequest) throws ApiException {
-        okhttp3.Call localVarCall = createProgrammingLanguagesValidateBeforeCall(createCategoriesRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+    public ApiResponse<CreateDarIntegration201Response> createProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull CreateProgrammingLanguagesRequest createProgrammingLanguagesRequest) throws ApiException {
+        okhttp3.Call localVarCall = createProgrammingLanguagesValidateBeforeCall(createProgrammingLanguagesRequest, null);
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * ProgrammingLanguage@store (asynchronously)
      * Creates a new system programming language
-     * @param createCategoriesRequest Programming language definition (required)
+     * @param createProgrammingLanguagesRequest Programming language definition (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -205,10 +203,10 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProgrammingLanguagesAsync(@javax.annotation.Nonnull CreateCategoriesRequest createCategoriesRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createProgrammingLanguagesAsync(@javax.annotation.Nonnull CreateProgrammingLanguagesRequest createProgrammingLanguagesRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createProgrammingLanguagesValidateBeforeCall(createCategoriesRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        okhttp3.Call localVarCall = createProgrammingLanguagesValidateBeforeCall(createProgrammingLanguagesRequest, _callback);
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -287,7 +285,7 @@ public class ProgrammingLanguageApi {
      * ProgrammingLanguage@destroy
      * Delete a system programming language
      * @param id programming language id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -298,8 +296,8 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteProgrammingLanguages(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteProgrammingLanguagesWithHttpInfo(id);
+    public DeleteApplications200Response deleteProgrammingLanguages(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteProgrammingLanguagesWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -307,7 +305,7 @@ public class ProgrammingLanguageApi {
      * ProgrammingLanguage@destroy
      * Delete a system programming language
      * @param id programming language id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -318,9 +316,9 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteProgrammingLanguagesValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -340,17 +338,17 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteProgrammingLanguagesAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteProgrammingLanguagesAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteProgrammingLanguagesValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for editProgrammingLanguages
      * @param id programming language id (required)
-     * @param editCategoriesRequest ProgrammingLanguage definition (required)
+     * @param editProgrammingLanguagesRequest ProgrammingLanguage definition (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -363,7 +361,7 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editProgrammingLanguagesCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editProgrammingLanguagesCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -377,7 +375,7 @@ public class ProgrammingLanguageApi {
             basePath = null;
         }
 
-        Object localVarPostBody = editCategoriesRequest;
+        Object localVarPostBody = editProgrammingLanguagesRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/programming_languages/{id}"
@@ -410,18 +408,18 @@ public class ProgrammingLanguageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editProgrammingLanguagesValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call editProgrammingLanguagesValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling editProgrammingLanguages(Async)");
         }
 
-        // verify the required parameter 'editCategoriesRequest' is set
-        if (editCategoriesRequest == null) {
-            throw new ApiException("Missing the required parameter 'editCategoriesRequest' when calling editProgrammingLanguages(Async)");
+        // verify the required parameter 'editProgrammingLanguagesRequest' is set
+        if (editProgrammingLanguagesRequest == null) {
+            throw new ApiException("Missing the required parameter 'editProgrammingLanguagesRequest' when calling editProgrammingLanguages(Async)");
         }
 
-        return editProgrammingLanguagesCall(id, editCategoriesRequest, _callback);
+        return editProgrammingLanguagesCall(id, editProgrammingLanguagesRequest, _callback);
 
     }
 
@@ -429,7 +427,7 @@ public class ProgrammingLanguageApi {
      * ProgrammingLanguage@update
      * Edit a system programming language
      * @param id programming language id (required)
-     * @param editCategoriesRequest ProgrammingLanguage definition (required)
+     * @param editProgrammingLanguagesRequest ProgrammingLanguage definition (required)
      * @return UpdateProgrammingLanguages200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -441,8 +439,8 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateProgrammingLanguages200Response editProgrammingLanguages(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest) throws ApiException {
-        ApiResponse<UpdateProgrammingLanguages200Response> localVarResp = editProgrammingLanguagesWithHttpInfo(id, editCategoriesRequest);
+    public UpdateProgrammingLanguages200Response editProgrammingLanguages(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest) throws ApiException {
+        ApiResponse<UpdateProgrammingLanguages200Response> localVarResp = editProgrammingLanguagesWithHttpInfo(id, editProgrammingLanguagesRequest);
         return localVarResp.getData();
     }
 
@@ -450,7 +448,7 @@ public class ProgrammingLanguageApi {
      * ProgrammingLanguage@update
      * Edit a system programming language
      * @param id programming language id (required)
-     * @param editCategoriesRequest ProgrammingLanguage definition (required)
+     * @param editProgrammingLanguagesRequest ProgrammingLanguage definition (required)
      * @return ApiResponse&lt;UpdateProgrammingLanguages200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -462,8 +460,8 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateProgrammingLanguages200Response> editProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest) throws ApiException {
-        okhttp3.Call localVarCall = editProgrammingLanguagesValidateBeforeCall(id, editCategoriesRequest, null);
+    public ApiResponse<UpdateProgrammingLanguages200Response> editProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest) throws ApiException {
+        okhttp3.Call localVarCall = editProgrammingLanguagesValidateBeforeCall(id, editProgrammingLanguagesRequest, null);
         Type localVarReturnType = new TypeToken<UpdateProgrammingLanguages200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -472,7 +470,7 @@ public class ProgrammingLanguageApi {
      * ProgrammingLanguage@update (asynchronously)
      * Edit a system programming language
      * @param id programming language id (required)
-     * @param editCategoriesRequest ProgrammingLanguage definition (required)
+     * @param editProgrammingLanguagesRequest ProgrammingLanguage definition (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -485,265 +483,17 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editProgrammingLanguagesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditCategoriesRequest editCategoriesRequest, final ApiCallback<UpdateProgrammingLanguages200Response> _callback) throws ApiException {
+    public okhttp3.Call editProgrammingLanguagesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull EditProgrammingLanguagesRequest editProgrammingLanguagesRequest, final ApiCallback<UpdateProgrammingLanguages200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editProgrammingLanguagesValidateBeforeCall(id, editCategoriesRequest, _callback);
+        okhttp3.Call localVarCall = editProgrammingLanguagesValidateBeforeCall(id, editProgrammingLanguagesRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdateProgrammingLanguages200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchAllProgrammingLanguages
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllProgrammingLanguagesCall(final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/programming_languages";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchAllProgrammingLanguagesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return fetchAllProgrammingLanguagesCall(_callback);
-
-    }
-
-    /**
-     * ProgrammingLanguage@index
-     * Returns a list of programming languages enabled on the system
-     * @return FetchAllProgrammingLanguages200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllProgrammingLanguages200Response fetchAllProgrammingLanguages() throws ApiException {
-        ApiResponse<FetchAllProgrammingLanguages200Response> localVarResp = fetchAllProgrammingLanguagesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * ProgrammingLanguage@index
-     * Returns a list of programming languages enabled on the system
-     * @return ApiResponse&lt;FetchAllProgrammingLanguages200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllProgrammingLanguages200Response> fetchAllProgrammingLanguagesWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = fetchAllProgrammingLanguagesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<FetchAllProgrammingLanguages200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * ProgrammingLanguage@index (asynchronously)
-     * Returns a list of programming languages enabled on the system
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllProgrammingLanguagesAsync(final ApiCallback<FetchAllProgrammingLanguages200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchAllProgrammingLanguagesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<FetchAllProgrammingLanguages200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchProgrammingLanguages
-     * @param id programming language id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchProgrammingLanguagesCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/programming_languages/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchProgrammingLanguagesValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchProgrammingLanguages(Async)");
-        }
-
-        return fetchProgrammingLanguagesCall(id, _callback);
-
-    }
-
-    /**
-     * ProgrammingLanguage@show
-     * Return a single system programming language
-     * @param id programming language id (required)
-     * @return FetchProgrammingLanguages200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchProgrammingLanguages200Response fetchProgrammingLanguages(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<FetchProgrammingLanguages200Response> localVarResp = fetchProgrammingLanguagesWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * ProgrammingLanguage@show
-     * Return a single system programming language
-     * @param id programming language id (required)
-     * @return ApiResponse&lt;FetchProgrammingLanguages200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchProgrammingLanguages200Response> fetchProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = fetchProgrammingLanguagesValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<FetchProgrammingLanguages200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * ProgrammingLanguage@show (asynchronously)
-     * Return a single system programming language
-     * @param id programming language id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchProgrammingLanguagesAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<FetchProgrammingLanguages200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchProgrammingLanguagesValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<FetchProgrammingLanguages200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateProgrammingLanguages
      * @param id programming language id (required)
-     * @param updateCategoriesRequest ProgrammingLanguage definition (required)
+     * @param updateProgrammingLanguagesRequest ProgrammingLanguage definition (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -756,7 +506,7 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProgrammingLanguagesCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateCategoriesRequest updateCategoriesRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateProgrammingLanguagesCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateProgrammingLanguagesRequest updateProgrammingLanguagesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -770,7 +520,7 @@ public class ProgrammingLanguageApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateCategoriesRequest;
+        Object localVarPostBody = updateProgrammingLanguagesRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/programming_languages/{id}"
@@ -803,18 +553,18 @@ public class ProgrammingLanguageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateProgrammingLanguagesValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateCategoriesRequest updateCategoriesRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateProgrammingLanguagesValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateProgrammingLanguagesRequest updateProgrammingLanguagesRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateProgrammingLanguages(Async)");
         }
 
-        // verify the required parameter 'updateCategoriesRequest' is set
-        if (updateCategoriesRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateCategoriesRequest' when calling updateProgrammingLanguages(Async)");
+        // verify the required parameter 'updateProgrammingLanguagesRequest' is set
+        if (updateProgrammingLanguagesRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateProgrammingLanguagesRequest' when calling updateProgrammingLanguages(Async)");
         }
 
-        return updateProgrammingLanguagesCall(id, updateCategoriesRequest, _callback);
+        return updateProgrammingLanguagesCall(id, updateProgrammingLanguagesRequest, _callback);
 
     }
 
@@ -822,7 +572,7 @@ public class ProgrammingLanguageApi {
      * ProgrammingLanguage@update
      * Update a system programming language
      * @param id programming language id (required)
-     * @param updateCategoriesRequest ProgrammingLanguage definition (required)
+     * @param updateProgrammingLanguagesRequest ProgrammingLanguage definition (required)
      * @return UpdateProgrammingLanguages200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -834,8 +584,8 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateProgrammingLanguages200Response updateProgrammingLanguages(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateCategoriesRequest updateCategoriesRequest) throws ApiException {
-        ApiResponse<UpdateProgrammingLanguages200Response> localVarResp = updateProgrammingLanguagesWithHttpInfo(id, updateCategoriesRequest);
+    public UpdateProgrammingLanguages200Response updateProgrammingLanguages(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateProgrammingLanguagesRequest updateProgrammingLanguagesRequest) throws ApiException {
+        ApiResponse<UpdateProgrammingLanguages200Response> localVarResp = updateProgrammingLanguagesWithHttpInfo(id, updateProgrammingLanguagesRequest);
         return localVarResp.getData();
     }
 
@@ -843,7 +593,7 @@ public class ProgrammingLanguageApi {
      * ProgrammingLanguage@update
      * Update a system programming language
      * @param id programming language id (required)
-     * @param updateCategoriesRequest ProgrammingLanguage definition (required)
+     * @param updateProgrammingLanguagesRequest ProgrammingLanguage definition (required)
      * @return ApiResponse&lt;UpdateProgrammingLanguages200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -855,8 +605,8 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateProgrammingLanguages200Response> updateProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateCategoriesRequest updateCategoriesRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateProgrammingLanguagesValidateBeforeCall(id, updateCategoriesRequest, null);
+    public ApiResponse<UpdateProgrammingLanguages200Response> updateProgrammingLanguagesWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateProgrammingLanguagesRequest updateProgrammingLanguagesRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateProgrammingLanguagesValidateBeforeCall(id, updateProgrammingLanguagesRequest, null);
         Type localVarReturnType = new TypeToken<UpdateProgrammingLanguages200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -865,7 +615,7 @@ public class ProgrammingLanguageApi {
      * ProgrammingLanguage@update (asynchronously)
      * Update a system programming language
      * @param id programming language id (required)
-     * @param updateCategoriesRequest ProgrammingLanguage definition (required)
+     * @param updateProgrammingLanguagesRequest ProgrammingLanguage definition (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -878,9 +628,9 @@ public class ProgrammingLanguageApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProgrammingLanguagesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateCategoriesRequest updateCategoriesRequest, final ApiCallback<UpdateProgrammingLanguages200Response> _callback) throws ApiException {
+    public okhttp3.Call updateProgrammingLanguagesAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateProgrammingLanguagesRequest updateProgrammingLanguagesRequest, final ApiCallback<UpdateProgrammingLanguages200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateProgrammingLanguagesValidateBeforeCall(id, updateCategoriesRequest, _callback);
+        okhttp3.Call localVarCall = updateProgrammingLanguagesValidateBeforeCall(id, updateProgrammingLanguagesRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdateProgrammingLanguages200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

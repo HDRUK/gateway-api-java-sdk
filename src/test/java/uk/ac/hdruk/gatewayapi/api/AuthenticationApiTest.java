@@ -64,19 +64,6 @@ public class AuthenticationApiTest {
     }
 
     /**
-     * AuthController@refreshToken
-     *
-     * Regenerate jwt token
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void refreshTokenTest() throws ApiException {
-        Authentication200Response response = api.refreshToken();
-        // TODO: test validations
-    }
-
-    /**
      * AuthController@register
      *
      * Register a new user with email and password

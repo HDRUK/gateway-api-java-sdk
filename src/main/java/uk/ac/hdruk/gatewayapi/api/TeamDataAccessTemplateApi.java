@@ -28,9 +28,9 @@ import java.io.IOException;
 
 
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDarTemplates200Response;
 
 import java.lang.reflect.Type;
@@ -167,7 +167,7 @@ public class TeamDataAccessTemplateApi {
      * @param teamId Team id (required)
      * @param id DAR template id (required)
      * @param fileId File id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -178,8 +178,8 @@ public class TeamDataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteTeamDarTemplateFile(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteTeamDarTemplateFileWithHttpInfo(teamId, id, fileId);
+    public DeleteApplications200Response deleteTeamDarTemplateFile(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteTeamDarTemplateFileWithHttpInfo(teamId, id, fileId);
         return localVarResp.getData();
     }
 
@@ -189,7 +189,7 @@ public class TeamDataAccessTemplateApi {
      * @param teamId Team id (required)
      * @param id DAR template id (required)
      * @param fileId File id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -200,9 +200,9 @@ public class TeamDataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteTeamDarTemplateFileWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteTeamDarTemplateFileWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId) throws ApiException {
         okhttp3.Call localVarCall = deleteTeamDarTemplateFileValidateBeforeCall(teamId, id, fileId, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -224,10 +224,10 @@ public class TeamDataAccessTemplateApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTeamDarTemplateFileAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteTeamDarTemplateFileAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull String fileId, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTeamDarTemplateFileValidateBeforeCall(teamId, id, fileId, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

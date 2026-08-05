@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**countTeamUniqueFieldsDatasetsV2**](DatasetsApi.md#countTeamUniqueFieldsDatasetsV2) | **GET** /api/v2/teams/{teamId}/datasets/count/{field} | TeamDatasetController@count |
 | [**countUniqueFields**](DatasetsApi.md#countUniqueFields) | **GET** /api/v1/datasets/count/{field} | DatasetController@count |
 | [**createDatasets**](DatasetsApi.md#createDatasets) | **POST** /api/v1/datasets | DatasetController@store |
 | [**createDatasetsIntegrations**](DatasetsApi.md#createDatasetsIntegrations) | **POST** /api/v1/integrations/datasets | IntegrationDatasetController@store |
@@ -27,8 +26,6 @@ All URIs are relative to *http://localhost*
 | [**fetchDatasets**](DatasetsApi.md#fetchDatasets) | **GET** /api/v1/datasets/{id} | DatasetController@show |
 | [**fetchDatasetsIntegrations**](DatasetsApi.md#fetchDatasetsIntegrations) | **GET** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@show |
 | [**fetchDatasetsV2**](DatasetsApi.md#fetchDatasetsV2) | **GET** /api/v2/datasets/{id} | DatasetController@showActive |
-| [**fetchTeamDatasetsStatus**](DatasetsApi.md#fetchTeamDatasetsStatus) | **GET** /api/v2/teams/{teamId}/datasets/status/{status} | TeamDatasetController@indexStatus |
-| [**fetchTeamDatasetsV2**](DatasetsApi.md#fetchTeamDatasetsV2) | **GET** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@show |
 | [**patchDatasets**](DatasetsApi.md#patchDatasets) | **PATCH** /api/v1/datasets/{id} | DatasetController@edit |
 | [**patchDatasetsIntegrations**](DatasetsApi.md#patchDatasetsIntegrations) | **PATCH** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@edit |
 | [**patchDatasetsV2**](DatasetsApi.md#patchDatasetsV2) | **PATCH** /api/v2/datasets/{id} | DatasetController@edit |
@@ -38,75 +35,6 @@ All URIs are relative to *http://localhost*
 | [**updateDatasetsV2**](DatasetsApi.md#updateDatasetsV2) | **PUT** /api/v2/datasets/{id} | DatasetController@update |
 | [**updateTeamDatasetsV2**](DatasetsApi.md#updateTeamDatasetsV2) | **PUT** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@update |
 
-
-<a id="countTeamUniqueFieldsDatasetsV2"></a>
-# **countTeamUniqueFieldsDatasetsV2**
-> CountUniqueFieldsCollections200Response countTeamUniqueFieldsDatasetsV2(teamId, field)
-
-TeamDatasetController@count
-
-Get team counts for distinct entries of a field in the model
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    Integer teamId = 1; // Integer | team id
-    String field = "status"; // String | name of the field to perform a count on
-    try {
-      CountUniqueFieldsCollections200Response result = apiInstance.countTeamUniqueFieldsDatasetsV2(teamId, field);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#countTeamUniqueFieldsDatasetsV2");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **teamId** | **Integer**| team id | |
-| **field** | **String**| name of the field to perform a count on | |
-
-### Return type
-
-[**CountUniqueFieldsCollections200Response**](CountUniqueFieldsCollections200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response |  -  |
 
 <a id="countUniqueFields"></a>
 # **countUniqueFields**
@@ -179,7 +107,7 @@ public class Example {
 
 <a id="createDatasets"></a>
 # **createDatasets**
-> CreateCategories200Response createDatasets(createDatasetsRequest)
+> CreateDarIntegration201Response createDatasets(createDatasetsRequest)
 
 DatasetController@store
 
@@ -207,7 +135,7 @@ public class Example {
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
     CreateDatasetsRequest createDatasetsRequest = new CreateDatasetsRequest(); // CreateDatasetsRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.createDatasets(createDatasetsRequest);
+      CreateDarIntegration201Response result = apiInstance.createDatasets(createDatasetsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#createDatasets");
@@ -228,7 +156,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -248,7 +176,7 @@ public class Example {
 
 <a id="createDatasetsIntegrations"></a>
 # **createDatasetsIntegrations**
-> CreateCategories200Response createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion)
+> CreateDarIntegration201Response createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion)
 
 IntegrationDatasetController@store
 
@@ -278,7 +206,7 @@ public class Example {
     String inputSchema = "HDRUK"; // String | Input schema model.
     String inputVersion = "3.0.0"; // String | Input schema version.
     try {
-      CreateCategories200Response result = apiInstance.createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion);
+      CreateDarIntegration201Response result = apiInstance.createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#createDatasetsIntegrations");
@@ -301,7 +229,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -453,7 +381,7 @@ No authorization required
 
 <a id="createDatasetsV2"></a>
 # **createDatasetsV2**
-> CreateCategories200Response createDatasetsV2(createDatasetsV2Request)
+> CreateDarIntegration201Response createDatasetsV2(createDatasetsV2Request)
 
 DatasetController@store
 
@@ -481,7 +409,7 @@ public class Example {
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
     CreateDatasetsV2Request createDatasetsV2Request = new CreateDatasetsV2Request(); // CreateDatasetsV2Request | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.createDatasetsV2(createDatasetsV2Request);
+      CreateDarIntegration201Response result = apiInstance.createDatasetsV2(createDatasetsV2Request);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#createDatasetsV2");
@@ -502,7 +430,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -522,7 +450,7 @@ public class Example {
 
 <a id="createTeamDatasetsV2"></a>
 # **createTeamDatasetsV2**
-> CreateCategories200Response createTeamDatasetsV2(teamId, createTeamDatasetsV2Request)
+> CreateDarIntegration201Response createTeamDatasetsV2(teamId, createTeamDatasetsV2Request)
 
 TeamDatasetController@store
 
@@ -551,7 +479,7 @@ public class Example {
     Integer teamId = 1; // Integer | team id
     CreateTeamDatasetsV2Request createTeamDatasetsV2Request = new CreateTeamDatasetsV2Request(); // CreateTeamDatasetsV2Request | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.createTeamDatasetsV2(teamId, createTeamDatasetsV2Request);
+      CreateDarIntegration201Response result = apiInstance.createTeamDatasetsV2(teamId, createTeamDatasetsV2Request);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#createTeamDatasetsV2");
@@ -573,7 +501,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -593,7 +521,7 @@ public class Example {
 
 <a id="deleteDatasets"></a>
 # **deleteDatasets**
-> DeleteAliases200Response deleteDatasets(id)
+> DeleteApplications200Response deleteDatasets(id)
 
 DatasetController@destroy
 
@@ -621,7 +549,7 @@ public class Example {
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
     Integer id = 1; // Integer | dataset id
     try {
-      DeleteAliases200Response result = apiInstance.deleteDatasets(id);
+      DeleteApplications200Response result = apiInstance.deleteDatasets(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#deleteDatasets");
@@ -642,7 +570,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -662,7 +590,7 @@ public class Example {
 
 <a id="deleteDatasetsIntegrations"></a>
 # **deleteDatasetsIntegrations**
-> DeleteAliases200Response deleteDatasetsIntegrations(id)
+> DeleteApplications200Response deleteDatasetsIntegrations(id)
 
 IntegrationDatasetController@destroy
 
@@ -690,7 +618,7 @@ public class Example {
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
     Integer id = 1; // Integer | dataset id
     try {
-      DeleteAliases200Response result = apiInstance.deleteDatasetsIntegrations(id);
+      DeleteApplications200Response result = apiInstance.deleteDatasetsIntegrations(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#deleteDatasetsIntegrations");
@@ -711,7 +639,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -731,7 +659,7 @@ public class Example {
 
 <a id="deleteDatasetsV2"></a>
 # **deleteDatasetsV2**
-> DeleteAliases200Response deleteDatasetsV2(id)
+> DeleteApplications200Response deleteDatasetsV2(id)
 
 Delete a dataset
 
@@ -759,7 +687,7 @@ public class Example {
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
     Integer id = 1; // Integer | dataset id
     try {
-      DeleteAliases200Response result = apiInstance.deleteDatasetsV2(id);
+      DeleteApplications200Response result = apiInstance.deleteDatasetsV2(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#deleteDatasetsV2");
@@ -780,7 +708,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -800,7 +728,7 @@ public class Example {
 
 <a id="deleteTeamDatasetsV2"></a>
 # **deleteTeamDatasetsV2**
-> DeleteAliases200Response deleteTeamDatasetsV2(teamId, id)
+> DeleteApplications200Response deleteTeamDatasetsV2(teamId, id)
 
 TeamDatasetController@destroy
 
@@ -829,7 +757,7 @@ public class Example {
     Integer teamId = 1; // Integer | team id
     Integer id = 1; // Integer | dataset id
     try {
-      DeleteAliases200Response result = apiInstance.deleteTeamDatasetsV2(teamId, id);
+      DeleteApplications200Response result = apiInstance.deleteTeamDatasetsV2(teamId, id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#deleteTeamDatasetsV2");
@@ -851,7 +779,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -1663,159 +1591,9 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **404** | Not found response |  -  |
 
-<a id="fetchTeamDatasetsStatus"></a>
-# **fetchTeamDatasetsStatus**
-> FetchAllDatasets200Response fetchTeamDatasetsStatus(teamId, status, sort, withMetadata)
-
-TeamDatasetController@indexStatus
-
-Returns a list of a team&#39;s datasets with the given status
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    Integer teamId = 1; // Integer | ID of the team to filter by
-    String status = "active"; // String | Status of the dataset (active, draft, or archived). Defaults to active if not provided.
-    String sort = "created:desc"; // String | Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>
-    String withMetadata = "true"; // String | Boolean whether to return dataset metadata
-    try {
-      FetchAllDatasets200Response result = apiInstance.fetchTeamDatasetsStatus(teamId, status, sort, withMetadata);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#fetchTeamDatasetsStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **teamId** | **Integer**| ID of the team to filter by | |
-| **status** | **String**| Status of the dataset (active, draft, or archived). Defaults to active if not provided. | [default to active] [enum: active, draft, archived] |
-| **sort** | **String**| Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; | [optional] |
-| **withMetadata** | **String**| Boolean whether to return dataset metadata | [optional] |
-
-### Return type
-
-[**FetchAllDatasets200Response**](FetchAllDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response |  -  |
-
-<a id="fetchTeamDatasetsV2"></a>
-# **fetchTeamDatasetsV2**
-> FetchDatasets200Response fetchTeamDatasetsV2(teamId, id, export, schemaModel, schemaVersion)
-
-TeamDatasetController@show
-
-Get dataset by id
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    Integer teamId = 1; // Integer | team id
-    Integer id = 1; // Integer | dataset id
-    String export = "structuralMetadata"; // String | Alternative output schema model.
-    String schemaModel = "schemaModel_example"; // String | Alternative output schema model.
-    String schemaVersion = "schemaVersion_example"; // String | Alternative output schema version.
-    try {
-      FetchDatasets200Response result = apiInstance.fetchTeamDatasetsV2(teamId, id, export, schemaModel, schemaVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#fetchTeamDatasetsV2");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **teamId** | **Integer**| team id | |
-| **id** | **Integer**| dataset id | |
-| **export** | **String**| Alternative output schema model. | [optional] |
-| **schemaModel** | **String**| Alternative output schema model. | [optional] |
-| **schemaVersion** | **String**| Alternative output schema version. | [optional] |
-
-### Return type
-
-[**FetchDatasets200Response**](FetchDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not found response |  -  |
-
 <a id="patchDatasets"></a>
 # **patchDatasets**
-> DeleteAliases200Response patchDatasets(id, unarchive)
+> DeleteApplications200Response patchDatasets(id, unarchive)
 
 DatasetController@edit
 
@@ -1844,7 +1622,7 @@ public class Example {
     Integer id = 1; // Integer | dataset id
     String unarchive = "unarchive_example"; // String | Unarchive a dataset
     try {
-      DeleteAliases200Response result = apiInstance.patchDatasets(id, unarchive);
+      DeleteApplications200Response result = apiInstance.patchDatasets(id, unarchive);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#patchDatasets");
@@ -1866,7 +1644,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -1885,7 +1663,7 @@ public class Example {
 
 <a id="patchDatasetsIntegrations"></a>
 # **patchDatasetsIntegrations**
-> DeleteAliases200Response patchDatasetsIntegrations(id, unarchive)
+> DeleteApplications200Response patchDatasetsIntegrations(id, unarchive)
 
 IntegrationDatasetController@edit
 
@@ -1914,7 +1692,7 @@ public class Example {
     Integer id = 1; // Integer | dataset id
     String unarchive = "unarchive_example"; // String | Unarchive a dataset
     try {
-      DeleteAliases200Response result = apiInstance.patchDatasetsIntegrations(id, unarchive);
+      DeleteApplications200Response result = apiInstance.patchDatasetsIntegrations(id, unarchive);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#patchDatasetsIntegrations");
@@ -1936,7 +1714,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -1955,7 +1733,7 @@ public class Example {
 
 <a id="patchDatasetsV2"></a>
 # **patchDatasetsV2**
-> DeleteAliases200Response patchDatasetsV2(id, patchDatasetsV2Request)
+> DeleteApplications200Response patchDatasetsV2(id, patchDatasetsV2Request)
 
 DatasetController@edit
 
@@ -1984,7 +1762,7 @@ public class Example {
     Integer id = 1; // Integer | dataset id
     PatchDatasetsV2Request patchDatasetsV2Request = new PatchDatasetsV2Request(); // PatchDatasetsV2Request | 
     try {
-      DeleteAliases200Response result = apiInstance.patchDatasetsV2(id, patchDatasetsV2Request);
+      DeleteApplications200Response result = apiInstance.patchDatasetsV2(id, patchDatasetsV2Request);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#patchDatasetsV2");
@@ -2006,7 +1784,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -2025,7 +1803,7 @@ public class Example {
 
 <a id="patchTeamDatasetsV2"></a>
 # **patchTeamDatasetsV2**
-> DeleteAliases200Response patchTeamDatasetsV2(teamId, id, patchDatasetsV2Request)
+> DeleteApplications200Response patchTeamDatasetsV2(teamId, id, patchDatasetsV2Request)
 
 TeamDatasetController@edit
 
@@ -2055,7 +1833,7 @@ public class Example {
     Integer id = 1; // Integer | dataset id
     PatchDatasetsV2Request patchDatasetsV2Request = new PatchDatasetsV2Request(); // PatchDatasetsV2Request | Pass user credentials
     try {
-      DeleteAliases200Response result = apiInstance.patchTeamDatasetsV2(teamId, id, patchDatasetsV2Request);
+      DeleteApplications200Response result = apiInstance.patchTeamDatasetsV2(teamId, id, patchDatasetsV2Request);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#patchTeamDatasetsV2");
@@ -2078,7 +1856,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -2097,7 +1875,7 @@ public class Example {
 
 <a id="updateDatasets"></a>
 # **updateDatasets**
-> CreateCategories200Response updateDatasets(id, updateDatasetsRequest)
+> CreateDarIntegration201Response updateDatasets(id, updateDatasetsRequest)
 
 DatasetController@update
 
@@ -2126,7 +1904,7 @@ public class Example {
     Integer id = 1; // Integer | dataset id
     UpdateDatasetsRequest updateDatasetsRequest = new UpdateDatasetsRequest(); // UpdateDatasetsRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.updateDatasets(id, updateDatasetsRequest);
+      CreateDarIntegration201Response result = apiInstance.updateDatasets(id, updateDatasetsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#updateDatasets");
@@ -2148,7 +1926,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -2243,7 +2021,7 @@ public class Example {
 
 <a id="updateDatasetsV2"></a>
 # **updateDatasetsV2**
-> CreateCategories200Response updateDatasetsV2(id, updateDatasetsRequest)
+> CreateDarIntegration201Response updateDatasetsV2(id, updateDatasetsRequest)
 
 DatasetController@update
 
@@ -2272,7 +2050,7 @@ public class Example {
     Integer id = 1; // Integer | dataset id
     UpdateDatasetsRequest updateDatasetsRequest = new UpdateDatasetsRequest(); // UpdateDatasetsRequest | 
     try {
-      CreateCategories200Response result = apiInstance.updateDatasetsV2(id, updateDatasetsRequest);
+      CreateDarIntegration201Response result = apiInstance.updateDatasetsV2(id, updateDatasetsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#updateDatasetsV2");
@@ -2294,7 +2072,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -2314,7 +2092,7 @@ public class Example {
 
 <a id="updateTeamDatasetsV2"></a>
 # **updateTeamDatasetsV2**
-> CreateCategories200Response updateTeamDatasetsV2(teamId, id, patchDatasetsV2Request)
+> CreateDarIntegration201Response updateTeamDatasetsV2(teamId, id, patchDatasetsV2Request)
 
 TeamDatasetController@update
 
@@ -2344,7 +2122,7 @@ public class Example {
     Integer id = 1; // Integer | dataset id
     PatchDatasetsV2Request patchDatasetsV2Request = new PatchDatasetsV2Request(); // PatchDatasetsV2Request | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.updateTeamDatasetsV2(teamId, id, patchDatasetsV2Request);
+      CreateDarIntegration201Response result = apiInstance.updateTeamDatasetsV2(teamId, id, patchDatasetsV2Request);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#updateTeamDatasetsV2");
@@ -2367,7 +2145,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

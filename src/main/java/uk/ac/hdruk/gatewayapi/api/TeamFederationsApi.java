@@ -27,12 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateFederationTeamRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationByFederationIdAndTeamId200Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationHistory200Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationTeamId200Response;
@@ -165,7 +165,7 @@ public class TeamFederationsApi {
      * Create federation
      * @param teamId team id (required)
      * @param createFederationTeamRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -176,8 +176,8 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createFederationTeam(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createFederationTeamWithHttpInfo(teamId, createFederationTeamRequest);
+    public CreateDarIntegration201Response createFederationTeam(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createFederationTeamWithHttpInfo(teamId, createFederationTeamRequest);
         return localVarResp.getData();
     }
 
@@ -186,7 +186,7 @@ public class TeamFederationsApi {
      * Create federation
      * @param teamId team id (required)
      * @param createFederationTeamRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -197,9 +197,9 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createFederationTeamWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createFederationTeamWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest) throws ApiException {
         okhttp3.Call localVarCall = createFederationTeamValidateBeforeCall(teamId, createFederationTeamRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -220,10 +220,10 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFederationTeamAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createFederationTeamAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createFederationTeamValidateBeforeCall(teamId, createFederationTeamRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -467,7 +467,7 @@ public class TeamFederationsApi {
      * @param teamId team id (required)
      * @param federationId federation id (required)
      * @param createFederationTeamRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -478,8 +478,8 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response editFederationTeam(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = editFederationTeamWithHttpInfo(teamId, federationId, createFederationTeamRequest);
+    public CreateDarIntegration201Response editFederationTeam(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = editFederationTeamWithHttpInfo(teamId, federationId, createFederationTeamRequest);
         return localVarResp.getData();
     }
 
@@ -489,7 +489,7 @@ public class TeamFederationsApi {
      * @param teamId team id (required)
      * @param federationId federation id (required)
      * @param createFederationTeamRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -500,9 +500,9 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> editFederationTeamWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> editFederationTeamWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest) throws ApiException {
         okhttp3.Call localVarCall = editFederationTeamValidateBeforeCall(teamId, federationId, createFederationTeamRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -524,10 +524,10 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editFederationTeamAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call editFederationTeamAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull CreateFederationTeamRequest createFederationTeamRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = editFederationTeamValidateBeforeCall(teamId, federationId, createFederationTeamRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1295,7 +1295,7 @@ public class TeamFederationsApi {
      * @param teamId team id (required)
      * @param federationId federation id (required)
      * @param updateFederationTeamRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1306,8 +1306,8 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response updateFederationTeam(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull UpdateFederationTeamRequest updateFederationTeamRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = updateFederationTeamWithHttpInfo(teamId, federationId, updateFederationTeamRequest);
+    public CreateDarIntegration201Response updateFederationTeam(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull UpdateFederationTeamRequest updateFederationTeamRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = updateFederationTeamWithHttpInfo(teamId, federationId, updateFederationTeamRequest);
         return localVarResp.getData();
     }
 
@@ -1317,7 +1317,7 @@ public class TeamFederationsApi {
      * @param teamId team id (required)
      * @param federationId federation id (required)
      * @param updateFederationTeamRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1328,9 +1328,9 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> updateFederationTeamWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull UpdateFederationTeamRequest updateFederationTeamRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> updateFederationTeamWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull UpdateFederationTeamRequest updateFederationTeamRequest) throws ApiException {
         okhttp3.Call localVarCall = updateFederationTeamValidateBeforeCall(teamId, federationId, updateFederationTeamRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1352,10 +1352,10 @@ public class TeamFederationsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateFederationTeamAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull UpdateFederationTeamRequest updateFederationTeamRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call updateFederationTeamAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, @javax.annotation.Nonnull UpdateFederationTeamRequest updateFederationTeamRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateFederationTeamValidateBeforeCall(teamId, federationId, updateFederationTeamRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -27,14 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditDarIntegrationRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations200ResponseDataInner;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDarIntegration200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDarIntegrationRequest;
 
@@ -164,7 +164,7 @@ public class DarIntegrationApi {
      * Creates a new DAR integration enabled on the system
      * @param id dar integration id (required)
      * @param updateDarIntegrationRequest DarIntegration definition (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -175,8 +175,8 @@ public class DarIntegrationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createDarIntegration(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDarIntegrationRequest updateDarIntegrationRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDarIntegrationWithHttpInfo(id, updateDarIntegrationRequest);
+    public CreateDarIntegration201Response createDarIntegration(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDarIntegrationRequest updateDarIntegrationRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createDarIntegrationWithHttpInfo(id, updateDarIntegrationRequest);
         return localVarResp.getData();
     }
 
@@ -185,7 +185,7 @@ public class DarIntegrationApi {
      * Creates a new DAR integration enabled on the system
      * @param id dar integration id (required)
      * @param updateDarIntegrationRequest DarIntegration definition (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -196,9 +196,9 @@ public class DarIntegrationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createDarIntegrationWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDarIntegrationRequest updateDarIntegrationRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createDarIntegrationWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDarIntegrationRequest updateDarIntegrationRequest) throws ApiException {
         okhttp3.Call localVarCall = createDarIntegrationValidateBeforeCall(id, updateDarIntegrationRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -219,10 +219,10 @@ public class DarIntegrationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDarIntegrationAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDarIntegrationRequest updateDarIntegrationRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createDarIntegrationAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDarIntegrationRequest updateDarIntegrationRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDarIntegrationValidateBeforeCall(id, updateDarIntegrationRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -301,7 +301,7 @@ public class DarIntegrationApi {
      * DarIntegration@destroy
      * Delete a system Dar Integration
      * @param id dar integration id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -312,8 +312,8 @@ public class DarIntegrationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteDarIntegration(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDarIntegrationWithHttpInfo(id);
+    public DeleteApplications200Response deleteDarIntegration(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDarIntegrationWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -321,7 +321,7 @@ public class DarIntegrationApi {
      * DarIntegration@destroy
      * Delete a system Dar Integration
      * @param id dar integration id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -332,9 +332,9 @@ public class DarIntegrationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteDarIntegrationWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDarIntegrationWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDarIntegrationValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -354,10 +354,10 @@ public class DarIntegrationApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDarIntegrationAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDarIntegrationAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDarIntegrationValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

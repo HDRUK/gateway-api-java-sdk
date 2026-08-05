@@ -27,14 +27,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDarSectionRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchDarSection200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchDarSections200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDarSectionRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateDarSection200Response;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -153,7 +152,7 @@ public class DataAccessSectionApi {
      * DataAccessSection@store
      * Creates a new DAR section
      * @param createDarSectionRequest DataAccessSection definition (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -163,8 +162,8 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createDarSection(@javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDarSectionWithHttpInfo(createDarSectionRequest);
+    public CreateDarIntegration201Response createDarSection(@javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createDarSectionWithHttpInfo(createDarSectionRequest);
         return localVarResp.getData();
     }
 
@@ -172,7 +171,7 @@ public class DataAccessSectionApi {
      * DataAccessSection@store
      * Creates a new DAR section
      * @param createDarSectionRequest DataAccessSection definition (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -182,9 +181,9 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createDarSectionWithHttpInfo(@javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createDarSectionWithHttpInfo(@javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest) throws ApiException {
         okhttp3.Call localVarCall = createDarSectionValidateBeforeCall(createDarSectionRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -203,10 +202,10 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDarSectionAsync(@javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createDarSectionAsync(@javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDarSectionValidateBeforeCall(createDarSectionRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -285,7 +284,7 @@ public class DataAccessSectionApi {
      * DataAccessSection@destroy
      * Delete a system DAR section
      * @param id DAR section id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -296,8 +295,8 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteDarSection(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDarSectionWithHttpInfo(id);
+    public DeleteApplications200Response deleteDarSection(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDarSectionWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -305,7 +304,7 @@ public class DataAccessSectionApi {
      * DataAccessSection@destroy
      * Delete a system DAR section
      * @param id DAR section id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -316,9 +315,9 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteDarSectionWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDarSectionWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDarSectionValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -338,266 +337,10 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDarSectionAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDarSectionAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDarSectionValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchDarSection
-     * @param id DAR section id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchDarSectionCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/dar/sections/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchDarSectionValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchDarSection(Async)");
-        }
-
-        return fetchDarSectionCall(id, _callback);
-
-    }
-
-    /**
-     * DataAccessSection@show
-     * Return a single DAR section
-     * @param id DAR section id (required)
-     * @return FetchDarSection200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchDarSection200Response fetchDarSection(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<FetchDarSection200Response> localVarResp = fetchDarSectionWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * DataAccessSection@show
-     * Return a single DAR section
-     * @param id DAR section id (required)
-     * @return ApiResponse&lt;FetchDarSection200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchDarSection200Response> fetchDarSectionWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = fetchDarSectionValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<FetchDarSection200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * DataAccessSection@show (asynchronously)
-     * Return a single DAR section
-     * @param id DAR section id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchDarSectionAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<FetchDarSection200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchDarSectionValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<FetchDarSection200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchDarSections
-     * @param perPage per page (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchDarSectionsCall(@javax.annotation.Nullable Integer perPage, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/dar/sections";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (perPage != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("per_page", perPage));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchDarSectionsValidateBeforeCall(@javax.annotation.Nullable Integer perPage, final ApiCallback _callback) throws ApiException {
-        return fetchDarSectionsCall(perPage, _callback);
-
-    }
-
-    /**
-     * DataAccessSection@index
-     * List of DAR sections
-     * @param perPage per page (optional)
-     * @return FetchDarSections200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchDarSections200Response fetchDarSections(@javax.annotation.Nullable Integer perPage) throws ApiException {
-        ApiResponse<FetchDarSections200Response> localVarResp = fetchDarSectionsWithHttpInfo(perPage);
-        return localVarResp.getData();
-    }
-
-    /**
-     * DataAccessSection@index
-     * List of DAR sections
-     * @param perPage per page (optional)
-     * @return ApiResponse&lt;FetchDarSections200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchDarSections200Response> fetchDarSectionsWithHttpInfo(@javax.annotation.Nullable Integer perPage) throws ApiException {
-        okhttp3.Call localVarCall = fetchDarSectionsValidateBeforeCall(perPage, null);
-        Type localVarReturnType = new TypeToken<FetchDarSections200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * DataAccessSection@index (asynchronously)
-     * List of DAR sections
-     * @param perPage per page (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchDarSectionsAsync(@javax.annotation.Nullable Integer perPage, final ApiCallback<FetchDarSections200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchDarSectionsValidateBeforeCall(perPage, _callback);
-        Type localVarReturnType = new TypeToken<FetchDarSections200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -684,7 +427,7 @@ public class DataAccessSectionApi {
      * Edit a system DAR section
      * @param id DAR section id (required)
      * @param patchDarSectionRequest DataAccessSection definition (required)
-     * @return FetchDarSection200Response
+     * @return UpdateDarSection200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -695,8 +438,8 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public FetchDarSection200Response patchDarSection(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDarSectionRequest patchDarSectionRequest) throws ApiException {
-        ApiResponse<FetchDarSection200Response> localVarResp = patchDarSectionWithHttpInfo(id, patchDarSectionRequest);
+    public UpdateDarSection200Response patchDarSection(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDarSectionRequest patchDarSectionRequest) throws ApiException {
+        ApiResponse<UpdateDarSection200Response> localVarResp = patchDarSectionWithHttpInfo(id, patchDarSectionRequest);
         return localVarResp.getData();
     }
 
@@ -705,7 +448,7 @@ public class DataAccessSectionApi {
      * Edit a system DAR section
      * @param id DAR section id (required)
      * @param patchDarSectionRequest DataAccessSection definition (required)
-     * @return ApiResponse&lt;FetchDarSection200Response&gt;
+     * @return ApiResponse&lt;UpdateDarSection200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -716,9 +459,9 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FetchDarSection200Response> patchDarSectionWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDarSectionRequest patchDarSectionRequest) throws ApiException {
+    public ApiResponse<UpdateDarSection200Response> patchDarSectionWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDarSectionRequest patchDarSectionRequest) throws ApiException {
         okhttp3.Call localVarCall = patchDarSectionValidateBeforeCall(id, patchDarSectionRequest, null);
-        Type localVarReturnType = new TypeToken<FetchDarSection200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdateDarSection200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -739,10 +482,10 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDarSectionAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDarSectionRequest patchDarSectionRequest, final ApiCallback<FetchDarSection200Response> _callback) throws ApiException {
+    public okhttp3.Call patchDarSectionAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDarSectionRequest patchDarSectionRequest, final ApiCallback<UpdateDarSection200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchDarSectionValidateBeforeCall(id, patchDarSectionRequest, _callback);
-        Type localVarReturnType = new TypeToken<FetchDarSection200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdateDarSection200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -829,7 +572,7 @@ public class DataAccessSectionApi {
      * Update a system DAR section
      * @param id DAR section id (required)
      * @param createDarSectionRequest DataAccessSection definition (required)
-     * @return FetchDarSection200Response
+     * @return UpdateDarSection200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -840,8 +583,8 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public FetchDarSection200Response updateDarSection(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest) throws ApiException {
-        ApiResponse<FetchDarSection200Response> localVarResp = updateDarSectionWithHttpInfo(id, createDarSectionRequest);
+    public UpdateDarSection200Response updateDarSection(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest) throws ApiException {
+        ApiResponse<UpdateDarSection200Response> localVarResp = updateDarSectionWithHttpInfo(id, createDarSectionRequest);
         return localVarResp.getData();
     }
 
@@ -850,7 +593,7 @@ public class DataAccessSectionApi {
      * Update a system DAR section
      * @param id DAR section id (required)
      * @param createDarSectionRequest DataAccessSection definition (required)
-     * @return ApiResponse&lt;FetchDarSection200Response&gt;
+     * @return ApiResponse&lt;UpdateDarSection200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -861,9 +604,9 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FetchDarSection200Response> updateDarSectionWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest) throws ApiException {
+    public ApiResponse<UpdateDarSection200Response> updateDarSectionWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest) throws ApiException {
         okhttp3.Call localVarCall = updateDarSectionValidateBeforeCall(id, createDarSectionRequest, null);
-        Type localVarReturnType = new TypeToken<FetchDarSection200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdateDarSection200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -884,10 +627,10 @@ public class DataAccessSectionApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDarSectionAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest, final ApiCallback<FetchDarSection200Response> _callback) throws ApiException {
+    public okhttp3.Call updateDarSectionAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateDarSectionRequest createDarSectionRequest, final ApiCallback<UpdateDarSection200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateDarSectionValidateBeforeCall(id, createDarSectionRequest, _callback);
-        Type localVarReturnType = new TypeToken<FetchDarSection200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdateDarSection200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -84,7 +84,7 @@ public class Example {
 
 <a id="deleteApplications"></a>
 # **deleteApplications**
-> DeleteAliases200Response deleteApplications(id)
+> DeleteApplications200Response deleteApplications(id)
 
 ApplicationController@delete
 
@@ -112,7 +112,7 @@ public class Example {
     ApplicationApi apiInstance = new ApplicationApi(defaultClient);
     Integer id = 1; // Integer | application id
     try {
-      DeleteAliases200Response result = apiInstance.deleteApplications(id);
+      DeleteApplications200Response result = apiInstance.deleteApplications(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApplicationApi#deleteApplications");
@@ -133,7 +133,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

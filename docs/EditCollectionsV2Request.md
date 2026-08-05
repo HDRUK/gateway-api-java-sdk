@@ -12,9 +12,9 @@
 |**imageLink** | **String** |  |  [optional] |
 |**enabled** | **Boolean** |  |  [optional] |
 |**keywords** | **List&lt;String&gt;** |  |  [optional] |
-|**datasets** | [**List&lt;CreateTeamCollectionsRequestDatasetsInner&gt;**](CreateTeamCollectionsRequestDatasetsInner.md) |  |  [optional] |
-|**dur** | [**List&lt;CreateTeamCollectionsRequestDatasetsInner&gt;**](CreateTeamCollectionsRequestDatasetsInner.md) |  |  [optional] |
-|**publications** | [**List&lt;CreateTeamCollectionsRequestDatasetsInner&gt;**](CreateTeamCollectionsRequestDatasetsInner.md) |  |  [optional] |
+|**datasets** | [**List&lt;CreateCollectionsIntegrationsRequestDatasetsInner&gt;**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  |  [optional] |
+|**dur** | [**List&lt;CreateCollectionsIntegrationsRequestDatasetsInner&gt;**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  |  [optional] |
+|**publications** | [**List&lt;CreateCollectionsIntegrationsRequestDatasetsInner&gt;**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  |  [optional] |
 |**collaborators** | **List&lt;Integer&gt;** |  |  [optional] |
 |**_public** | **Boolean** |  |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |

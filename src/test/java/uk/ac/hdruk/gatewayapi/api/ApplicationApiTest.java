@@ -14,16 +14,16 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateApplicationsRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditApplicationsRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllSitemap200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateApplicationsRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -65,7 +65,7 @@ public class ApplicationApiTest {
     @Test
     public void deleteApplicationsTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteApplications(id);
+        DeleteApplications200Response response = api.deleteApplications(id);
         // TODO: test validations
     }
 

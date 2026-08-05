@@ -6,7 +6,6 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**createDarTemplate**](DataAccessTemplateApi.md#createDarTemplate) | **POST** /api/v1/dar/templates | DataAccessTemplate@store |
 | [**deleteDarTemplate**](DataAccessTemplateApi.md#deleteDarTemplate) | **DELETE** /api/v1/dar/templates/{id} | DataAccessTemplate@destroy |
-| [**downloadDarTemplateFile**](DataAccessTemplateApi.md#downloadDarTemplateFile) | **GET** /api/v1/dar/templates/{id}/download | DataAccessTemplate@downloadFile |
 | [**fetchDarTemplate**](DataAccessTemplateApi.md#fetchDarTemplate) | **GET** /api/v1/dar/templates/{id} | DataAccessTemplate@show |
 | [**fetchDarTemplates**](DataAccessTemplateApi.md#fetchDarTemplates) | **GET** /api/v1/dar/templates | DataAccessTemplate@index |
 | [**patchDarTemplate**](DataAccessTemplateApi.md#patchDarTemplate) | **PATCH** /api/v1/dar/templates/{id} | DataAccessTemplate@update |
@@ -15,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createDarTemplate"></a>
 # **createDarTemplate**
-> CreateCategories200Response createDarTemplate(createDarTemplateRequest)
+> CreateDarIntegration201Response createDarTemplate(createDarTemplateRequest)
 
 DataAccessTemplate@store
 
@@ -43,7 +42,7 @@ public class Example {
     DataAccessTemplateApi apiInstance = new DataAccessTemplateApi(defaultClient);
     CreateDarTemplateRequest createDarTemplateRequest = new CreateDarTemplateRequest(); // CreateDarTemplateRequest | DataAccessTemplate definition
     try {
-      CreateCategories200Response result = apiInstance.createDarTemplate(createDarTemplateRequest);
+      CreateDarIntegration201Response result = apiInstance.createDarTemplate(createDarTemplateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataAccessTemplateApi#createDarTemplate");
@@ -64,7 +63,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -83,7 +82,7 @@ public class Example {
 
 <a id="deleteDarTemplate"></a>
 # **deleteDarTemplate**
-> DeleteAliases200Response deleteDarTemplate(id)
+> DeleteApplications200Response deleteDarTemplate(id)
 
 DataAccessTemplate@destroy
 
@@ -111,7 +110,7 @@ public class Example {
     DataAccessTemplateApi apiInstance = new DataAccessTemplateApi(defaultClient);
     Integer id = 1; // Integer | DAR template id
     try {
-      DeleteAliases200Response result = apiInstance.deleteDarTemplate(id);
+      DeleteApplications200Response result = apiInstance.deleteDarTemplate(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataAccessTemplateApi#deleteDarTemplate");
@@ -132,7 +131,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -149,73 +148,6 @@ public class Example {
 | **404** | Not found response |  -  |
 | **200** | Success |  -  |
 | **500** | Error |  -  |
-
-<a id="downloadDarTemplateFile"></a>
-# **downloadDarTemplateFile**
-> downloadDarTemplateFile(id)
-
-DataAccessTemplate@downloadFile
-
-Download the template for a file based DAR application
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DataAccessTemplateApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DataAccessTemplateApi apiInstance = new DataAccessTemplateApi(defaultClient);
-    Integer id = 1; // Integer | DAR template id
-    try {
-      apiInstance.downloadDarTemplateFile(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DataAccessTemplateApi#downloadDarTemplateFile");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| DAR template id | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: file, application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Not found response |  -  |
 
 <a id="fetchDarTemplate"></a>
 # **fetchDarTemplate**

@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'uk.ac.hdruk.gatewayapi'
-version = '0.0.0-test4'
+version = '0.0.0-test5'
 
 buildscript {
     repositories {

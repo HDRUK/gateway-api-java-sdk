@@ -14,19 +14,14 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDarApplicationsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplication200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplicationAnswers200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplicationFiles200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplicationStatusHistory200Response;
-import uk.ac.hdruk.gatewayapi.model.PatchUserDarApplicationRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateTeamDarApplicationRequest;
-import uk.ac.hdruk.gatewayapi.model.UpdateUserDarApplicationRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -44,20 +39,6 @@ public class DataAccessApplicationApiTest {
     private final DataAccessApplicationApi api = new DataAccessApplicationApi();
 
     /**
-     * DataAccessApplication@store
-     *
-     * Creates a new DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createDarApplicationsTest() throws ApiException {
-        CreateDarApplicationsRequest createDarApplicationsRequest = null;
-        CreateCategories200Response response = api.createDarApplications(createDarApplicationsRequest);
-        // TODO: test validations
-    }
-
-    /**
      * DataAccessApplication@destroyFile
      *
      * Delete a file associated with a DAR application
@@ -68,7 +49,7 @@ public class DataAccessApplicationApiTest {
     public void deleteDarApplicationFilesTest() throws ApiException {
         Integer id = null;
         String fileId = null;
-        DeleteAliases200Response response = api.deleteDarApplicationFiles(id, fileId);
+        DeleteApplications200Response response = api.deleteDarApplicationFiles(id, fileId);
         // TODO: test validations
     }
 
@@ -82,7 +63,7 @@ public class DataAccessApplicationApiTest {
     @Test
     public void deleteDarApplicationsTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDarApplications(id);
+        DeleteApplications200Response response = api.deleteDarApplications(id);
         // TODO: test validations
     }
 
@@ -98,38 +79,7 @@ public class DataAccessApplicationApiTest {
         Integer teamId = null;
         Integer id = null;
         Integer fileId = null;
-        DeleteAliases200Response response = api.deleteTeamDarApplicationFile(teamId, id, fileId);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplication@destroy
-     *
-     * Delete a users DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteUserDarApplicationTest() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        DeleteAliases200Response response = api.deleteUserDarApplication(userId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplication@destroyFile
-     *
-     * Delete a file associated with a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteUserDarApplicationFileTest() throws ApiException {
-        Integer id = null;
-        Integer userId = null;
-        String fileId = null;
-        DeleteAliases200Response response = api.deleteUserDarApplicationFile(id, userId, fileId);
+        DeleteApplications200Response response = api.deleteTeamDarApplicationFile(teamId, id, fileId);
         // TODO: test validations
     }
 
@@ -210,53 +160,6 @@ public class DataAccessApplicationApiTest {
     }
 
     /**
-     * DataAccessApplication@downloadFile
-     *
-     * Download a file associated with a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUserDarApplicationFileTest() throws ApiException {
-        Integer id = null;
-        Integer userId = null;
-        String fileId = null;
-        api.fetchUserDarApplicationFile(id, userId, fileId);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplication@showFiles
-     *
-     * Return a list of files associated with a DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUserDarApplicationFilesTest() throws ApiException {
-        Integer id = null;
-        Integer userId = null;
-        FetchTeamDarApplicationFiles200Response response = api.fetchUserDarApplicationFiles(id, userId);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplication@update
-     *
-     * Edit a system DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void patchUserDarApplicationTest() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        PatchUserDarApplicationRequest patchUserDarApplicationRequest = null;
-        FetchTeamDarApplication200Response response = api.patchUserDarApplication(userId, id, patchUserDarApplicationRequest);
-        // TODO: test validations
-    }
-
-    /**
      * DataAccessApplication@update
      *
      * Edit a system DAR application
@@ -269,22 +172,6 @@ public class DataAccessApplicationApiTest {
         Integer id = null;
         UpdateTeamDarApplicationRequest updateTeamDarApplicationRequest = null;
         FetchTeamDarApplication200Response response = api.updateTeamDarApplication(teamId, id, updateTeamDarApplicationRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessApplication@update
-     *
-     * Update a system DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateUserDarApplicationTest() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        UpdateUserDarApplicationRequest updateUserDarApplicationRequest = null;
-        FetchTeamDarApplication200Response response = api.updateUserDarApplication(userId, id, updateUserDarApplicationRequest);
         // TODO: test validations
     }
 

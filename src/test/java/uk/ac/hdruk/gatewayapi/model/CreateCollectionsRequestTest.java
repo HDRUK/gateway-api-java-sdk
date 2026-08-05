@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollectionsRequestDatasetsInner;
+import uk.ac.hdruk.gatewayapi.model.CreateCollectionsIntegrationsRequestDatasetsInner;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

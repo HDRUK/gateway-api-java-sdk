@@ -14,14 +14,14 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditDarIntegrationRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations200ResponseDataInner;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDarIntegration200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDarIntegrationRequest;
 import org.junit.jupiter.api.Disabled;
@@ -51,7 +51,7 @@ public class DarIntegrationApiTest {
     public void createDarIntegrationTest() throws ApiException {
         Integer id = null;
         UpdateDarIntegrationRequest updateDarIntegrationRequest = null;
-        CreateCategories200Response response = api.createDarIntegration(id, updateDarIntegrationRequest);
+        CreateDarIntegration201Response response = api.createDarIntegration(id, updateDarIntegrationRequest);
         // TODO: test validations
     }
 
@@ -65,7 +65,7 @@ public class DarIntegrationApiTest {
     @Test
     public void deleteDarIntegrationTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDarIntegration(id);
+        DeleteApplications200Response response = api.deleteDarIntegration(id);
         // TODO: test validations
     }
 

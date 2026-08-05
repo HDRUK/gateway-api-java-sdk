@@ -14,13 +14,13 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateLicensesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllLicenses200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchLicenses200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateLicenses200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -48,7 +48,7 @@ public class LicenseApiTest {
     @Test
     public void createLicensesTest() throws ApiException {
         CreateLicensesRequest createLicensesRequest = null;
-        CreateCategories200Response response = api.createLicenses(createLicensesRequest);
+        CreateDarIntegration201Response response = api.createLicenses(createLicensesRequest);
         // TODO: test validations
     }
 
@@ -62,7 +62,7 @@ public class LicenseApiTest {
     @Test
     public void deleteLicensesTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteLicenses(id);
+        DeleteApplications200Response response = api.deleteLicenses(id);
         // TODO: test validations
     }
 

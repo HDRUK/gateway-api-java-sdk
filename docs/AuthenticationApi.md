@@ -6,7 +6,6 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**authentication**](AuthenticationApi.md#authentication) | **POST** /api/v1/auth | AuthController@checkAuthorization |
 | [**login**](AuthenticationApi.md#login) | **POST** /api/v1/auth/login | AuthController@login |
-| [**refreshToken**](AuthenticationApi.md#refreshToken) | **POST** /api/v1/refresh_token | AuthController@refreshToken |
 | [**register**](AuthenticationApi.md#register) | **POST** /api/v1/auth/register | AuthController@register |
 
 
@@ -136,70 +135,6 @@ No authorization required
 | **200** | Success response |  -  |
 | **400** | Validation error |  -  |
 | **401** | Invalid credentials |  -  |
-
-<a id="refreshToken"></a>
-# **refreshToken**
-> Authentication200Response refreshToken()
-
-AuthController@refreshToken
-
-Regenerate jwt token
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.AuthenticationApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    try {
-      Authentication200Response result = apiInstance.refreshToken();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#refreshToken");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Authentication200Response**](Authentication200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response |  -  |
-| **401** | Missing Property |  -  |
 
 <a id="register"></a>
 # **register**

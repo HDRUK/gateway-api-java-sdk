@@ -28,8 +28,8 @@ import java.io.IOException;
 
 
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsLinkageExtraction200Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsLinkageExtractionRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsRequest;
@@ -37,16 +37,16 @@ import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtraction200Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtraction500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtractionRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsV2Request;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
 import uk.ac.hdruk.gatewayapi.model.CreateTeamDatasetsV2Request;
 import uk.ac.hdruk.gatewayapi.model.DatasetsTestRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.ExportDatasetMetadata400Response;
 import uk.ac.hdruk.gatewayapi.model.ExportMockDataset404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDatasets200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDatasets200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDatasetsV2Request;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDatasetsRequest;
 
 import java.lang.reflect.Type;
@@ -92,143 +92,6 @@ public class DatasetsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for countTeamUniqueFieldsDatasetsV2
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call countTeamUniqueFieldsDatasetsV2Call(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/teams/{teamId}/datasets/count/{field}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "field" + "}", localVarApiClient.escapeString(field.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call countTeamUniqueFieldsDatasetsV2ValidateBeforeCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling countTeamUniqueFieldsDatasetsV2(Async)");
-        }
-
-        // verify the required parameter 'field' is set
-        if (field == null) {
-            throw new ApiException("Missing the required parameter 'field' when calling countTeamUniqueFieldsDatasetsV2(Async)");
-        }
-
-        return countTeamUniqueFieldsDatasetsV2Call(teamId, field, _callback);
-
-    }
-
-    /**
-     * TeamDatasetController@count
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @return CountUniqueFieldsCollections200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public CountUniqueFieldsCollections200Response countTeamUniqueFieldsDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field) throws ApiException {
-        ApiResponse<CountUniqueFieldsCollections200Response> localVarResp = countTeamUniqueFieldsDatasetsV2WithHttpInfo(teamId, field);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamDatasetController@count
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @return ApiResponse&lt;CountUniqueFieldsCollections200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CountUniqueFieldsCollections200Response> countTeamUniqueFieldsDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field) throws ApiException {
-        okhttp3.Call localVarCall = countTeamUniqueFieldsDatasetsV2ValidateBeforeCall(teamId, field, null);
-        Type localVarReturnType = new TypeToken<CountUniqueFieldsCollections200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamDatasetController@count (asynchronously)
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call countTeamUniqueFieldsDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback<CountUniqueFieldsCollections200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = countTeamUniqueFieldsDatasetsV2ValidateBeforeCall(teamId, field, _callback);
-        Type localVarReturnType = new TypeToken<CountUniqueFieldsCollections200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for countUniqueFields
      * @param field name of the field to perform a count on (required)
@@ -456,7 +319,7 @@ public class DatasetsApi {
      * DatasetController@store
      * Create a new dataset
      * @param createDatasetsRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -469,8 +332,8 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public CreateCategories200Response createDatasets(@javax.annotation.Nonnull CreateDatasetsRequest createDatasetsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDatasetsWithHttpInfo(createDatasetsRequest);
+    public CreateDarIntegration201Response createDatasets(@javax.annotation.Nonnull CreateDatasetsRequest createDatasetsRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createDatasetsWithHttpInfo(createDatasetsRequest);
         return localVarResp.getData();
     }
 
@@ -478,7 +341,7 @@ public class DatasetsApi {
      * DatasetController@store
      * Create a new dataset
      * @param createDatasetsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -491,9 +354,9 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<CreateCategories200Response> createDatasetsWithHttpInfo(@javax.annotation.Nonnull CreateDatasetsRequest createDatasetsRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createDatasetsWithHttpInfo(@javax.annotation.Nonnull CreateDatasetsRequest createDatasetsRequest) throws ApiException {
         okhttp3.Call localVarCall = createDatasetsValidateBeforeCall(createDatasetsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -515,10 +378,10 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call createDatasetsAsync(@javax.annotation.Nonnull CreateDatasetsRequest createDatasetsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createDatasetsAsync(@javax.annotation.Nonnull CreateDatasetsRequest createDatasetsRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDatasetsValidateBeforeCall(createDatasetsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -612,7 +475,7 @@ public class DatasetsApi {
      * @param datasetsTestRequest Pass user credentials (required)
      * @param inputSchema Input schema model. (optional)
      * @param inputVersion Input schema version. (optional)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -625,8 +488,8 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public CreateCategories200Response createDatasetsIntegrations(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, @javax.annotation.Nullable String inputSchema, @javax.annotation.Nullable String inputVersion) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDatasetsIntegrationsWithHttpInfo(datasetsTestRequest, inputSchema, inputVersion);
+    public CreateDarIntegration201Response createDatasetsIntegrations(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, @javax.annotation.Nullable String inputSchema, @javax.annotation.Nullable String inputVersion) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createDatasetsIntegrationsWithHttpInfo(datasetsTestRequest, inputSchema, inputVersion);
         return localVarResp.getData();
     }
 
@@ -636,7 +499,7 @@ public class DatasetsApi {
      * @param datasetsTestRequest Pass user credentials (required)
      * @param inputSchema Input schema model. (optional)
      * @param inputVersion Input schema version. (optional)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -649,9 +512,9 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<CreateCategories200Response> createDatasetsIntegrationsWithHttpInfo(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, @javax.annotation.Nullable String inputSchema, @javax.annotation.Nullable String inputVersion) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createDatasetsIntegrationsWithHttpInfo(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, @javax.annotation.Nullable String inputSchema, @javax.annotation.Nullable String inputVersion) throws ApiException {
         okhttp3.Call localVarCall = createDatasetsIntegrationsValidateBeforeCall(datasetsTestRequest, inputSchema, inputVersion, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -675,10 +538,10 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call createDatasetsIntegrationsAsync(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, @javax.annotation.Nullable String inputSchema, @javax.annotation.Nullable String inputVersion, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createDatasetsIntegrationsAsync(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, @javax.annotation.Nullable String inputSchema, @javax.annotation.Nullable String inputVersion, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDatasetsIntegrationsValidateBeforeCall(datasetsTestRequest, inputSchema, inputVersion, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1061,7 +924,7 @@ public class DatasetsApi {
      * DatasetController@store
      * Create a new dataset
      * @param createDatasetsV2Request Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1072,8 +935,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createDatasetsV2(@javax.annotation.Nonnull CreateDatasetsV2Request createDatasetsV2Request) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDatasetsV2WithHttpInfo(createDatasetsV2Request);
+    public CreateDarIntegration201Response createDatasetsV2(@javax.annotation.Nonnull CreateDatasetsV2Request createDatasetsV2Request) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createDatasetsV2WithHttpInfo(createDatasetsV2Request);
         return localVarResp.getData();
     }
 
@@ -1081,7 +944,7 @@ public class DatasetsApi {
      * DatasetController@store
      * Create a new dataset
      * @param createDatasetsV2Request Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1092,9 +955,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createDatasetsV2WithHttpInfo(@javax.annotation.Nonnull CreateDatasetsV2Request createDatasetsV2Request) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createDatasetsV2WithHttpInfo(@javax.annotation.Nonnull CreateDatasetsV2Request createDatasetsV2Request) throws ApiException {
         okhttp3.Call localVarCall = createDatasetsV2ValidateBeforeCall(createDatasetsV2Request, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1114,10 +977,10 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDatasetsV2Async(@javax.annotation.Nonnull CreateDatasetsV2Request createDatasetsV2Request, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createDatasetsV2Async(@javax.annotation.Nonnull CreateDatasetsV2Request createDatasetsV2Request, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDatasetsV2ValidateBeforeCall(createDatasetsV2Request, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1204,7 +1067,7 @@ public class DatasetsApi {
      * Create a new dataset for a team
      * @param teamId team id (required)
      * @param createTeamDatasetsV2Request Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1215,8 +1078,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateTeamDatasetsV2Request createTeamDatasetsV2Request) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createTeamDatasetsV2WithHttpInfo(teamId, createTeamDatasetsV2Request);
+    public CreateDarIntegration201Response createTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateTeamDatasetsV2Request createTeamDatasetsV2Request) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createTeamDatasetsV2WithHttpInfo(teamId, createTeamDatasetsV2Request);
         return localVarResp.getData();
     }
 
@@ -1225,7 +1088,7 @@ public class DatasetsApi {
      * Create a new dataset for a team
      * @param teamId team id (required)
      * @param createTeamDatasetsV2Request Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1236,9 +1099,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateTeamDatasetsV2Request createTeamDatasetsV2Request) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateTeamDatasetsV2Request createTeamDatasetsV2Request) throws ApiException {
         okhttp3.Call localVarCall = createTeamDatasetsV2ValidateBeforeCall(teamId, createTeamDatasetsV2Request, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1259,10 +1122,10 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateTeamDatasetsV2Request createTeamDatasetsV2Request, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateTeamDatasetsV2Request createTeamDatasetsV2Request, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTeamDatasetsV2ValidateBeforeCall(teamId, createTeamDatasetsV2Request, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1344,7 +1207,7 @@ public class DatasetsApi {
      * DatasetController@destroy
      * Delete a dataset
      * @param id dataset id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1357,8 +1220,8 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public DeleteAliases200Response deleteDatasets(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDatasetsWithHttpInfo(id);
+    public DeleteApplications200Response deleteDatasets(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDatasetsWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -1366,7 +1229,7 @@ public class DatasetsApi {
      * DatasetController@destroy
      * Delete a dataset
      * @param id dataset id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1379,9 +1242,9 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<DeleteAliases200Response> deleteDatasetsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDatasetsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDatasetsValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1403,10 +1266,10 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call deleteDatasetsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDatasetsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDatasetsValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1488,7 +1351,7 @@ public class DatasetsApi {
      * IntegrationDatasetController@destroy
      * Delete a dataset
      * @param id dataset id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1501,8 +1364,8 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public DeleteAliases200Response deleteDatasetsIntegrations(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDatasetsIntegrationsWithHttpInfo(id);
+    public DeleteApplications200Response deleteDatasetsIntegrations(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDatasetsIntegrationsWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -1510,7 +1373,7 @@ public class DatasetsApi {
      * IntegrationDatasetController@destroy
      * Delete a dataset
      * @param id dataset id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1523,9 +1386,9 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<DeleteAliases200Response> deleteDatasetsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDatasetsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDatasetsIntegrationsValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1547,10 +1410,10 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call deleteDatasetsIntegrationsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDatasetsIntegrationsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDatasetsIntegrationsValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1629,7 +1492,7 @@ public class DatasetsApi {
      * Delete a dataset
      * Delete a dataset
      * @param id dataset id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1640,8 +1503,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteDatasetsV2(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDatasetsV2WithHttpInfo(id);
+    public DeleteApplications200Response deleteDatasetsV2(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDatasetsV2WithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -1649,7 +1512,7 @@ public class DatasetsApi {
      * Delete a dataset
      * Delete a dataset
      * @param id dataset id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1660,9 +1523,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDatasetsV2ValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1682,10 +1545,10 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDatasetsV2Async(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDatasetsV2Async(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDatasetsV2ValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1772,7 +1635,7 @@ public class DatasetsApi {
      * Delete a team&#39;s dataset
      * @param teamId team id (required)
      * @param id dataset id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1783,8 +1646,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteTeamDatasetsV2WithHttpInfo(teamId, id);
+    public DeleteApplications200Response deleteTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteTeamDatasetsV2WithHttpInfo(teamId, id);
         return localVarResp.getData();
     }
 
@@ -1793,7 +1656,7 @@ public class DatasetsApi {
      * Delete a team&#39;s dataset
      * @param teamId team id (required)
      * @param id dataset id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1804,9 +1667,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteTeamDatasetsV2ValidateBeforeCall(teamId, id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1827,10 +1690,10 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTeamDatasetsV2ValidateBeforeCall(teamId, id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3522,328 +3385,6 @@ public class DatasetsApi {
         return localVarCall;
     }
     /**
-     * Build call for fetchTeamDatasetsStatus
-     * @param teamId ID of the team to filter by (required)
-     * @param status Status of the dataset (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param sort Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; (optional)
-     * @param withMetadata Boolean whether to return dataset metadata (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchTeamDatasetsStatusCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String withMetadata, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/teams/{teamId}/datasets/status/{status}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "status" + "}", localVarApiClient.escapeString(status.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (sort != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
-        }
-
-        if (withMetadata != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("with_metadata", withMetadata));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchTeamDatasetsStatusValidateBeforeCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String withMetadata, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling fetchTeamDatasetsStatus(Async)");
-        }
-
-        // verify the required parameter 'status' is set
-        if (status == null) {
-            throw new ApiException("Missing the required parameter 'status' when calling fetchTeamDatasetsStatus(Async)");
-        }
-
-        return fetchTeamDatasetsStatusCall(teamId, status, sort, withMetadata, _callback);
-
-    }
-
-    /**
-     * TeamDatasetController@indexStatus
-     * Returns a list of a team&#39;s datasets with the given status
-     * @param teamId ID of the team to filter by (required)
-     * @param status Status of the dataset (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param sort Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; (optional)
-     * @param withMetadata Boolean whether to return dataset metadata (optional)
-     * @return FetchAllDatasets200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllDatasets200Response fetchTeamDatasetsStatus(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String withMetadata) throws ApiException {
-        ApiResponse<FetchAllDatasets200Response> localVarResp = fetchTeamDatasetsStatusWithHttpInfo(teamId, status, sort, withMetadata);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamDatasetController@indexStatus
-     * Returns a list of a team&#39;s datasets with the given status
-     * @param teamId ID of the team to filter by (required)
-     * @param status Status of the dataset (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param sort Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; (optional)
-     * @param withMetadata Boolean whether to return dataset metadata (optional)
-     * @return ApiResponse&lt;FetchAllDatasets200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllDatasets200Response> fetchTeamDatasetsStatusWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String withMetadata) throws ApiException {
-        okhttp3.Call localVarCall = fetchTeamDatasetsStatusValidateBeforeCall(teamId, status, sort, withMetadata, null);
-        Type localVarReturnType = new TypeToken<FetchAllDatasets200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamDatasetController@indexStatus (asynchronously)
-     * Returns a list of a team&#39;s datasets with the given status
-     * @param teamId ID of the team to filter by (required)
-     * @param status Status of the dataset (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param sort Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; (optional)
-     * @param withMetadata Boolean whether to return dataset metadata (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchTeamDatasetsStatusAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String withMetadata, final ApiCallback<FetchAllDatasets200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchTeamDatasetsStatusValidateBeforeCall(teamId, status, sort, withMetadata, _callback);
-        Type localVarReturnType = new TypeToken<FetchAllDatasets200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchTeamDatasetsV2
-     * @param teamId team id (required)
-     * @param id dataset id (required)
-     * @param export Alternative output schema model. (optional)
-     * @param schemaModel Alternative output schema model. (optional)
-     * @param schemaVersion Alternative output schema version. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchTeamDatasetsV2Call(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String export, @javax.annotation.Nullable String schemaModel, @javax.annotation.Nullable String schemaVersion, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/teams/{teamId}/datasets/{id}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (export != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
-        }
-
-        if (schemaModel != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("schema_model", schemaModel));
-        }
-
-        if (schemaVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("schema_version", schemaVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchTeamDatasetsV2ValidateBeforeCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String export, @javax.annotation.Nullable String schemaModel, @javax.annotation.Nullable String schemaVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling fetchTeamDatasetsV2(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchTeamDatasetsV2(Async)");
-        }
-
-        return fetchTeamDatasetsV2Call(teamId, id, export, schemaModel, schemaVersion, _callback);
-
-    }
-
-    /**
-     * TeamDatasetController@show
-     * Get dataset by id
-     * @param teamId team id (required)
-     * @param id dataset id (required)
-     * @param export Alternative output schema model. (optional)
-     * @param schemaModel Alternative output schema model. (optional)
-     * @param schemaVersion Alternative output schema version. (optional)
-     * @return FetchDatasets200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchDatasets200Response fetchTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String export, @javax.annotation.Nullable String schemaModel, @javax.annotation.Nullable String schemaVersion) throws ApiException {
-        ApiResponse<FetchDatasets200Response> localVarResp = fetchTeamDatasetsV2WithHttpInfo(teamId, id, export, schemaModel, schemaVersion);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamDatasetController@show
-     * Get dataset by id
-     * @param teamId team id (required)
-     * @param id dataset id (required)
-     * @param export Alternative output schema model. (optional)
-     * @param schemaModel Alternative output schema model. (optional)
-     * @param schemaVersion Alternative output schema version. (optional)
-     * @return ApiResponse&lt;FetchDatasets200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchDatasets200Response> fetchTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String export, @javax.annotation.Nullable String schemaModel, @javax.annotation.Nullable String schemaVersion) throws ApiException {
-        okhttp3.Call localVarCall = fetchTeamDatasetsV2ValidateBeforeCall(teamId, id, export, schemaModel, schemaVersion, null);
-        Type localVarReturnType = new TypeToken<FetchDatasets200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamDatasetController@show (asynchronously)
-     * Get dataset by id
-     * @param teamId team id (required)
-     * @param id dataset id (required)
-     * @param export Alternative output schema model. (optional)
-     * @param schemaModel Alternative output schema model. (optional)
-     * @param schemaVersion Alternative output schema version. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String export, @javax.annotation.Nullable String schemaModel, @javax.annotation.Nullable String schemaVersion, final ApiCallback<FetchDatasets200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchTeamDatasetsV2ValidateBeforeCall(teamId, id, export, schemaModel, schemaVersion, _callback);
-        Type localVarReturnType = new TypeToken<FetchDatasets200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for patchDatasets
      * @param id dataset id (required)
      * @param unarchive Unarchive a dataset (optional)
@@ -3926,7 +3467,7 @@ public class DatasetsApi {
      * Patch dataset by id
      * @param id dataset id (required)
      * @param unarchive Unarchive a dataset (optional)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -3938,8 +3479,8 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public DeleteAliases200Response patchDatasets(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = patchDatasetsWithHttpInfo(id, unarchive);
+    public DeleteApplications200Response patchDatasets(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = patchDatasetsWithHttpInfo(id, unarchive);
         return localVarResp.getData();
     }
 
@@ -3948,7 +3489,7 @@ public class DatasetsApi {
      * Patch dataset by id
      * @param id dataset id (required)
      * @param unarchive Unarchive a dataset (optional)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -3960,9 +3501,9 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<DeleteAliases200Response> patchDatasetsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> patchDatasetsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive) throws ApiException {
         okhttp3.Call localVarCall = patchDatasetsValidateBeforeCall(id, unarchive, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3984,10 +3525,10 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call patchDatasetsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call patchDatasetsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchDatasetsValidateBeforeCall(id, unarchive, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4074,7 +3615,7 @@ public class DatasetsApi {
      * Patch dataset by id
      * @param id dataset id (required)
      * @param unarchive Unarchive a dataset (optional)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4086,8 +3627,8 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public DeleteAliases200Response patchDatasetsIntegrations(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = patchDatasetsIntegrationsWithHttpInfo(id, unarchive);
+    public DeleteApplications200Response patchDatasetsIntegrations(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = patchDatasetsIntegrationsWithHttpInfo(id, unarchive);
         return localVarResp.getData();
     }
 
@@ -4096,7 +3637,7 @@ public class DatasetsApi {
      * Patch dataset by id
      * @param id dataset id (required)
      * @param unarchive Unarchive a dataset (optional)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4108,9 +3649,9 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<DeleteAliases200Response> patchDatasetsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> patchDatasetsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive) throws ApiException {
         okhttp3.Call localVarCall = patchDatasetsIntegrationsValidateBeforeCall(id, unarchive, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4132,10 +3673,10 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call patchDatasetsIntegrationsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call patchDatasetsIntegrationsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String unarchive, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchDatasetsIntegrationsValidateBeforeCall(id, unarchive, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4221,7 +3762,7 @@ public class DatasetsApi {
      * Patch dataset by id
      * @param id dataset id (required)
      * @param patchDatasetsV2Request  (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4231,8 +3772,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response patchDatasetsV2(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = patchDatasetsV2WithHttpInfo(id, patchDatasetsV2Request);
+    public DeleteApplications200Response patchDatasetsV2(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = patchDatasetsV2WithHttpInfo(id, patchDatasetsV2Request);
         return localVarResp.getData();
     }
 
@@ -4241,7 +3782,7 @@ public class DatasetsApi {
      * Patch dataset by id
      * @param id dataset id (required)
      * @param patchDatasetsV2Request  (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4251,9 +3792,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> patchDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> patchDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
         okhttp3.Call localVarCall = patchDatasetsV2ValidateBeforeCall(id, patchDatasetsV2Request, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4273,10 +3814,10 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDatasetsV2Async(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call patchDatasetsV2Async(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchDatasetsV2ValidateBeforeCall(id, patchDatasetsV2Request, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4370,7 +3911,7 @@ public class DatasetsApi {
      * @param teamId team id (required)
      * @param id dataset id (required)
      * @param patchDatasetsV2Request Pass user credentials (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4380,8 +3921,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response patchTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = patchTeamDatasetsV2WithHttpInfo(teamId, id, patchDatasetsV2Request);
+    public DeleteApplications200Response patchTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = patchTeamDatasetsV2WithHttpInfo(teamId, id, patchDatasetsV2Request);
         return localVarResp.getData();
     }
 
@@ -4391,7 +3932,7 @@ public class DatasetsApi {
      * @param teamId team id (required)
      * @param id dataset id (required)
      * @param patchDatasetsV2Request Pass user credentials (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4401,9 +3942,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> patchTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> patchTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
         okhttp3.Call localVarCall = patchTeamDatasetsV2ValidateBeforeCall(teamId, id, patchDatasetsV2Request, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4424,10 +3965,10 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call patchTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchTeamDatasetsV2ValidateBeforeCall(teamId, id, patchDatasetsV2Request, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4517,7 +4058,7 @@ public class DatasetsApi {
      * Update a dataset with a new dataset version
      * @param id dataset id (required)
      * @param updateDatasetsRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4530,8 +4071,8 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public CreateCategories200Response updateDatasets(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = updateDatasetsWithHttpInfo(id, updateDatasetsRequest);
+    public CreateDarIntegration201Response updateDatasets(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = updateDatasetsWithHttpInfo(id, updateDatasetsRequest);
         return localVarResp.getData();
     }
 
@@ -4540,7 +4081,7 @@ public class DatasetsApi {
      * Update a dataset with a new dataset version
      * @param id dataset id (required)
      * @param updateDatasetsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4553,9 +4094,9 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<CreateCategories200Response> updateDatasetsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> updateDatasetsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
         okhttp3.Call localVarCall = updateDatasetsValidateBeforeCall(id, updateDatasetsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4578,10 +4119,10 @@ public class DatasetsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call updateDatasetsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call updateDatasetsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateDatasetsValidateBeforeCall(id, updateDatasetsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4838,7 +4379,7 @@ public class DatasetsApi {
      * Update a dataset with a new dataset version
      * @param id dataset id (required)
      * @param updateDatasetsRequest  (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4849,8 +4390,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response updateDatasetsV2(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = updateDatasetsV2WithHttpInfo(id, updateDatasetsRequest);
+    public CreateDarIntegration201Response updateDatasetsV2(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = updateDatasetsV2WithHttpInfo(id, updateDatasetsRequest);
         return localVarResp.getData();
     }
 
@@ -4859,7 +4400,7 @@ public class DatasetsApi {
      * Update a dataset with a new dataset version
      * @param id dataset id (required)
      * @param updateDatasetsRequest  (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4870,9 +4411,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> updateDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> updateDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
         okhttp3.Call localVarCall = updateDatasetsV2ValidateBeforeCall(id, updateDatasetsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4893,10 +4434,10 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDatasetsV2Async(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call updateDatasetsV2Async(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateDatasetsV2ValidateBeforeCall(id, updateDatasetsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4991,7 +4532,7 @@ public class DatasetsApi {
      * @param teamId team id (required)
      * @param id dataset id (required)
      * @param patchDatasetsV2Request Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -5002,8 +4543,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response updateTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = updateTeamDatasetsV2WithHttpInfo(teamId, id, patchDatasetsV2Request);
+    public CreateDarIntegration201Response updateTeamDatasetsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = updateTeamDatasetsV2WithHttpInfo(teamId, id, patchDatasetsV2Request);
         return localVarResp.getData();
     }
 
@@ -5013,7 +4554,7 @@ public class DatasetsApi {
      * @param teamId team id (required)
      * @param id dataset id (required)
      * @param patchDatasetsV2Request Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -5024,9 +4565,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> updateTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> updateTeamDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request) throws ApiException {
         okhttp3.Call localVarCall = updateTeamDatasetsV2ValidateBeforeCall(teamId, id, patchDatasetsV2Request, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -5048,10 +4589,10 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call updateTeamDatasetsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull PatchDatasetsV2Request patchDatasetsV2Request, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTeamDatasetsV2ValidateBeforeCall(teamId, id, patchDatasetsV2Request, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

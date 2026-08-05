@@ -27,10 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.DatasetsTestRequest;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -150,7 +150,7 @@ public class DatasetsTestApi {
      * DatasetController@datasetTest
      * Datasets test
      * @param datasetsTestRequest Pass datasets payload (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -161,8 +161,8 @@ public class DatasetsTestApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response datasetsTest(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = datasetsTestWithHttpInfo(datasetsTestRequest);
+    public CreateDarIntegration201Response datasetsTest(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = datasetsTestWithHttpInfo(datasetsTestRequest);
         return localVarResp.getData();
     }
 
@@ -170,7 +170,7 @@ public class DatasetsTestApi {
      * DatasetController@datasetTest
      * Datasets test
      * @param datasetsTestRequest Pass datasets payload (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -181,9 +181,9 @@ public class DatasetsTestApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> datasetsTestWithHttpInfo(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> datasetsTestWithHttpInfo(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest) throws ApiException {
         okhttp3.Call localVarCall = datasetsTestValidateBeforeCall(datasetsTestRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -203,10 +203,10 @@ public class DatasetsTestApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call datasetsTestAsync(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call datasetsTestAsync(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = datasetsTestValidateBeforeCall(datasetsTestRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

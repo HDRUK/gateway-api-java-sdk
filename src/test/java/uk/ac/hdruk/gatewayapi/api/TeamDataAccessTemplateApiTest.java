@@ -15,9 +15,9 @@ package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDarTemplates200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -47,7 +47,7 @@ public class TeamDataAccessTemplateApiTest {
         Integer teamId = null;
         Integer id = null;
         String fileId = null;
-        DeleteAliases200Response response = api.deleteTeamDarTemplateFile(teamId, id, fileId);
+        DeleteApplications200Response response = api.deleteTeamDarTemplateFile(teamId, id, fileId);
         // TODO: test validations
     }
 

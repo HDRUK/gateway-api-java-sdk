@@ -14,16 +14,14 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategoriesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.EditCategoriesRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllProgrammingLanguages200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchProgrammingLanguages200Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateCategoriesRequest;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
+import uk.ac.hdruk.gatewayapi.model.CreateProgrammingLanguagesRequest;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.EditProgrammingLanguagesRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateProgrammingLanguages200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateProgrammingLanguagesRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -49,8 +47,8 @@ public class ProgrammingLanguageApiTest {
      */
     @Test
     public void createProgrammingLanguagesTest() throws ApiException {
-        CreateCategoriesRequest createCategoriesRequest = null;
-        CreateCategories200Response response = api.createProgrammingLanguages(createCategoriesRequest);
+        CreateProgrammingLanguagesRequest createProgrammingLanguagesRequest = null;
+        CreateDarIntegration201Response response = api.createProgrammingLanguages(createProgrammingLanguagesRequest);
         // TODO: test validations
     }
 
@@ -64,7 +62,7 @@ public class ProgrammingLanguageApiTest {
     @Test
     public void deleteProgrammingLanguagesTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteProgrammingLanguages(id);
+        DeleteApplications200Response response = api.deleteProgrammingLanguages(id);
         // TODO: test validations
     }
 
@@ -78,35 +76,8 @@ public class ProgrammingLanguageApiTest {
     @Test
     public void editProgrammingLanguagesTest() throws ApiException {
         Integer id = null;
-        EditCategoriesRequest editCategoriesRequest = null;
-        UpdateProgrammingLanguages200Response response = api.editProgrammingLanguages(id, editCategoriesRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * ProgrammingLanguage@index
-     *
-     * Returns a list of programming languages enabled on the system
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllProgrammingLanguagesTest() throws ApiException {
-        FetchAllProgrammingLanguages200Response response = api.fetchAllProgrammingLanguages();
-        // TODO: test validations
-    }
-
-    /**
-     * ProgrammingLanguage@show
-     *
-     * Return a single system programming language
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchProgrammingLanguagesTest() throws ApiException {
-        Integer id = null;
-        FetchProgrammingLanguages200Response response = api.fetchProgrammingLanguages(id);
+        EditProgrammingLanguagesRequest editProgrammingLanguagesRequest = null;
+        UpdateProgrammingLanguages200Response response = api.editProgrammingLanguages(id, editProgrammingLanguagesRequest);
         // TODO: test validations
     }
 
@@ -120,8 +91,8 @@ public class ProgrammingLanguageApiTest {
     @Test
     public void updateProgrammingLanguagesTest() throws ApiException {
         Integer id = null;
-        UpdateCategoriesRequest updateCategoriesRequest = null;
-        UpdateProgrammingLanguages200Response response = api.updateProgrammingLanguages(id, updateCategoriesRequest);
+        UpdateProgrammingLanguagesRequest updateProgrammingLanguagesRequest = null;
+        UpdateProgrammingLanguages200Response response = api.updateProgrammingLanguages(id, updateProgrammingLanguagesRequest);
         // TODO: test validations
     }
 

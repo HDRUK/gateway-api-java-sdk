@@ -14,12 +14,12 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateUserHasRolesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateUserHasRolesRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -48,7 +48,7 @@ public class UserRolesApiTest {
     public void createUserHasRolesTest() throws ApiException {
         Integer userId = null;
         CreateUserHasRolesRequest createUserHasRolesRequest = null;
-        DeleteAliases200Response response = api.createUserHasRoles(userId, createUserHasRolesRequest);
+        DeleteApplications200Response response = api.createUserHasRoles(userId, createUserHasRolesRequest);
         // TODO: test validations
     }
 
@@ -77,7 +77,7 @@ public class UserRolesApiTest {
     public void updateUserHasRolesTest() throws ApiException {
         Integer userId = null;
         UpdateUserHasRolesRequest updateUserHasRolesRequest = null;
-        DeleteAliases200Response response = api.updateUserHasRoles(userId, updateUserHasRolesRequest);
+        DeleteApplications200Response response = api.updateUserHasRoles(userId, updateUserHasRolesRequest);
         // TODO: test validations
     }
 

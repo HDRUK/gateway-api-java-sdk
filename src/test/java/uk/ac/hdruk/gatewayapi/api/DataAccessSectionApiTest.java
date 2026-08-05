@@ -14,14 +14,13 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDarSectionRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchDarSection200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchDarSections200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDarSectionRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateDarSection200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -48,7 +47,7 @@ public class DataAccessSectionApiTest {
     @Test
     public void createDarSectionTest() throws ApiException {
         CreateDarSectionRequest createDarSectionRequest = null;
-        CreateCategories200Response response = api.createDarSection(createDarSectionRequest);
+        CreateDarIntegration201Response response = api.createDarSection(createDarSectionRequest);
         // TODO: test validations
     }
 
@@ -62,35 +61,7 @@ public class DataAccessSectionApiTest {
     @Test
     public void deleteDarSectionTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDarSection(id);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessSection@show
-     *
-     * Return a single DAR section
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchDarSectionTest() throws ApiException {
-        Integer id = null;
-        FetchDarSection200Response response = api.fetchDarSection(id);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessSection@index
-     *
-     * List of DAR sections
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchDarSectionsTest() throws ApiException {
-        Integer perPage = null;
-        FetchDarSections200Response response = api.fetchDarSections(perPage);
+        DeleteApplications200Response response = api.deleteDarSection(id);
         // TODO: test validations
     }
 
@@ -105,7 +76,7 @@ public class DataAccessSectionApiTest {
     public void patchDarSectionTest() throws ApiException {
         Integer id = null;
         PatchDarSectionRequest patchDarSectionRequest = null;
-        FetchDarSection200Response response = api.patchDarSection(id, patchDarSectionRequest);
+        UpdateDarSection200Response response = api.patchDarSection(id, patchDarSectionRequest);
         // TODO: test validations
     }
 
@@ -120,7 +91,7 @@ public class DataAccessSectionApiTest {
     public void updateDarSectionTest() throws ApiException {
         Integer id = null;
         CreateDarSectionRequest createDarSectionRequest = null;
-        FetchDarSection200Response response = api.updateDarSection(id, createDarSectionRequest);
+        UpdateDarSection200Response response = api.updateDarSection(id, createDarSectionRequest);
         // TODO: test validations
     }
 

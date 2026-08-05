@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**countTeamUniqueFieldsDurV2**](DataUseRegistersApi.md#countTeamUniqueFieldsDurV2) | **GET** /api/v2/teams/{teamId}/dur/count/{field} | TeamDurController@count |
 | [**createDur**](DataUseRegistersApi.md#createDur) | **POST** /api/v1/dur | DurController@store |
 | [**createDurByTeamV2**](DataUseRegistersApi.md#createDurByTeamV2) | **POST** /api/v2/teams/{teamId}/dur | TeamDurController@store |
 | [**deleteDur**](DataUseRegistersApi.md#deleteDur) | **DELETE** /api/v1/dur/{id} | Delete a dur |
@@ -16,87 +15,16 @@ All URIs are relative to *http://localhost*
 | [**exportDurV2**](DataUseRegistersApi.md#exportDurV2) | **GET** /api/v2/dur/export | DurController@export |
 | [**fetchAllDur**](DataUseRegistersApi.md#fetchAllDur) | **GET** /api/v1/dur | DurController@index |
 | [**fetchAllDurV2**](DataUseRegistersApi.md#fetchAllDurV2) | **GET** /api/v2/dur | DurController@indexActive |
-| [**fetchAllTeamDurStatus**](DataUseRegistersApi.md#fetchAllTeamDurStatus) | **GET** /api/v2/teams/{teamId}/dur/status/{status} | TeamDurController@indexStatus |
 | [**fetchDurById**](DataUseRegistersApi.md#fetchDurById) | **GET** /api/v1/dur/{id} | DurController@show |
 | [**fetchDurByIdV2**](DataUseRegistersApi.md#fetchDurByIdV2) | **GET** /api/v2/dur/{id} | DurController@showActive |
-| [**fetchDurByTeamAndByIdV2**](DataUseRegistersApi.md#fetchDurByTeamAndByIdV2) | **GET** /api/v1/teams/{teamId}/dur/{id} | TeamDurController@show |
 | [**updateDur**](DataUseRegistersApi.md#updateDur) | **PUT** /api/v1/dur/{id} | Update a dur by id |
 | [**updateDurV2ByTeamId**](DataUseRegistersApi.md#updateDurV2ByTeamId) | **PUT** /api/v2/teams/{teamId}/dur/{id} | TeamDurController@update |
 | [**uploadDur**](DataUseRegistersApi.md#uploadDur) | **POST** /api/v1/dur/upload | DurController@upload |
 
 
-<a id="countTeamUniqueFieldsDurV2"></a>
-# **countTeamUniqueFieldsDurV2**
-> CountUniqueFieldsCollections200Response countTeamUniqueFieldsDurV2(teamId, field)
-
-TeamDurController@count
-
-Get team counts for distinct entries of a field in the model
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DataUseRegistersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DataUseRegistersApi apiInstance = new DataUseRegistersApi(defaultClient);
-    Integer teamId = 1; // Integer | team id
-    String field = "status"; // String | name of the field to perform a count on
-    try {
-      CountUniqueFieldsCollections200Response result = apiInstance.countTeamUniqueFieldsDurV2(teamId, field);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DataUseRegistersApi#countTeamUniqueFieldsDurV2");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **teamId** | **Integer**| team id | |
-| **field** | **String**| name of the field to perform a count on | |
-
-### Return type
-
-[**CountUniqueFieldsCollections200Response**](CountUniqueFieldsCollections200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response |  -  |
-
 <a id="createDur"></a>
 # **createDur**
-> CreateCategories200Response createDur(createDurRequest)
+> CreateDarIntegration201Response createDur(createDurRequest)
 
 DurController@store
 
@@ -124,7 +52,7 @@ public class Example {
     DataUseRegistersApi apiInstance = new DataUseRegistersApi(defaultClient);
     CreateDurRequest createDurRequest = new CreateDurRequest(); // CreateDurRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.createDur(createDurRequest);
+      CreateDarIntegration201Response result = apiInstance.createDur(createDurRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataUseRegistersApi#createDur");
@@ -145,7 +73,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -165,7 +93,7 @@ public class Example {
 
 <a id="createDurByTeamV2"></a>
 # **createDurByTeamV2**
-> CreateCategories200Response createDurByTeamV2(teamId, createDurRequest)
+> CreateDarIntegration201Response createDurByTeamV2(teamId, createDurRequest)
 
 TeamDurController@store
 
@@ -194,7 +122,7 @@ public class Example {
     Integer teamId = 1; // Integer | team id
     CreateDurRequest createDurRequest = new CreateDurRequest(); // CreateDurRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.createDurByTeamV2(teamId, createDurRequest);
+      CreateDarIntegration201Response result = apiInstance.createDurByTeamV2(teamId, createDurRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataUseRegistersApi#createDurByTeamV2");
@@ -216,7 +144,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -236,7 +164,7 @@ public class Example {
 
 <a id="deleteDur"></a>
 # **deleteDur**
-> DeleteAliases200Response deleteDur(id)
+> DeleteApplications200Response deleteDur(id)
 
 Delete a dur
 
@@ -264,7 +192,7 @@ public class Example {
     DataUseRegistersApi apiInstance = new DataUseRegistersApi(defaultClient);
     Integer id = 1; // Integer | dur id
     try {
-      DeleteAliases200Response result = apiInstance.deleteDur(id);
+      DeleteApplications200Response result = apiInstance.deleteDur(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataUseRegistersApi#deleteDur");
@@ -285,7 +213,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -305,7 +233,7 @@ public class Example {
 
 <a id="deleteDursV2ByTeamId"></a>
 # **deleteDursV2ByTeamId**
-> DeleteAliases200Response deleteDursV2ByTeamId(teamId, id)
+> DeleteApplications200Response deleteDursV2ByTeamId(teamId, id)
 
 TeamDurController@destroy
 
@@ -334,7 +262,7 @@ public class Example {
     Integer teamId = 1; // Integer | team id
     Integer id = 1; // Integer | dur id
     try {
-      DeleteAliases200Response result = apiInstance.deleteDursV2ByTeamId(teamId, id);
+      DeleteApplications200Response result = apiInstance.deleteDursV2ByTeamId(teamId, id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataUseRegistersApi#deleteDursV2ByTeamId");
@@ -356,7 +284,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -852,79 +780,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-<a id="fetchAllTeamDurStatus"></a>
-# **fetchAllTeamDurStatus**
-> FetchAllDur200Response fetchAllTeamDurStatus(teamId, status, sort, projectTitle, perPage, withRelated)
-
-TeamDurController@indexStatus
-
-Returns a list of dur owned by this team with given status
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DataUseRegistersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-
-    DataUseRegistersApi apiInstance = new DataUseRegistersApi(defaultClient);
-    Integer teamId = 1; // Integer | team id
-    String status = "active"; // String | Status of the DUR (active, draft, or archived). Defaults to active if not provided.
-    ProjectTitleAscupdatedAtAsc sort = new ProjectTitleAscupdatedAtAsc(); // ProjectTitleAscupdatedAtAsc | Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc
-    String projectTitle = "projectTitle_example"; // String | Filter dur by project title
-    Integer perPage = 1; // Integer | per page
-    Boolean withRelated = true; // Boolean | Show related entities
-    try {
-      FetchAllDur200Response result = apiInstance.fetchAllTeamDurStatus(teamId, status, sort, projectTitle, perPage, withRelated);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DataUseRegistersApi#fetchAllTeamDurStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **teamId** | **Integer**| team id | |
-| **status** | **String**| Status of the DUR (active, draft, or archived). Defaults to active if not provided. | [default to active] [enum: active, draft, archived] |
-| **sort** | [**ProjectTitleAscupdatedAtAsc**](.md)| Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc | [optional] |
-| **projectTitle** | **String**| Filter dur by project title | [optional] |
-| **perPage** | **Integer**| per page | [optional] |
-| **withRelated** | **Boolean**| Show related entities | [optional] |
-
-### Return type
-
-[**FetchAllDur200Response**](FetchAllDur200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Not Found |  -  |
-
 <a id="fetchDurById"></a>
 # **fetchDurById**
 > FetchDurById200Response fetchDurById(id)
@@ -1039,75 +894,6 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| data use register id | |
-
-### Return type
-
-[**UpdateDur200Response**](UpdateDur200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response |  -  |
-
-<a id="fetchDurByTeamAndByIdV2"></a>
-# **fetchDurByTeamAndByIdV2**
-> UpdateDur200Response fetchDurByTeamAndByIdV2(teamId, id)
-
-TeamDurController@show
-
-Get dur by team id and by id
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DataUseRegistersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DataUseRegistersApi apiInstance = new DataUseRegistersApi(defaultClient);
-    Integer teamId = 1; // Integer | team id
-    Integer id = 1; // Integer | data use register id
-    try {
-      UpdateDur200Response result = apiInstance.fetchDurByTeamAndByIdV2(teamId, id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DataUseRegistersApi#fetchDurByTeamAndByIdV2");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **teamId** | **Integer**| team id | |
 | **id** | **Integer**| data use register id | |
 
 ### Return type
@@ -1274,7 +1060,7 @@ public class Example {
 
 <a id="uploadDur"></a>
 # **uploadDur**
-> CreateCategories200Response uploadDur(uploadDurRequest)
+> CreateDarIntegration201Response uploadDur(uploadDurRequest)
 
 DurController@upload
 
@@ -1302,7 +1088,7 @@ public class Example {
     DataUseRegistersApi apiInstance = new DataUseRegistersApi(defaultClient);
     UploadDurRequest uploadDurRequest = new UploadDurRequest(); // UploadDurRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.uploadDur(uploadDurRequest);
+      CreateDarIntegration201Response result = apiInstance.uploadDur(uploadDurRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataUseRegistersApi#uploadDur");
@@ -1323,7 +1109,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

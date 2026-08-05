@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 <a id="integrationsDatasetsTest"></a>
 # **integrationsDatasetsTest**
-> CreateCategories200Response integrationsDatasetsTest(datasetsTestRequest)
+> CreateDarIntegration201Response integrationsDatasetsTest(datasetsTestRequest)
 
 IntegrationDatasetController@datasetTest
 
@@ -32,7 +32,7 @@ public class Example {
     IntegrationsDatasetsTestApi apiInstance = new IntegrationsDatasetsTestApi(defaultClient);
     DatasetsTestRequest datasetsTestRequest = new DatasetsTestRequest(); // DatasetsTestRequest | Pass datasets payload
     try {
-      CreateCategories200Response result = apiInstance.integrationsDatasetsTest(datasetsTestRequest);
+      CreateDarIntegration201Response result = apiInstance.integrationsDatasetsTest(datasetsTestRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationsDatasetsTestApi#integrationsDatasetsTest");
@@ -53,7 +53,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

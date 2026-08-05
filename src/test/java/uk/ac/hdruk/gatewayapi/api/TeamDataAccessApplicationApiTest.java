@@ -15,10 +15,9 @@ package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplication200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplicationHeader200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamDarApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -76,21 +75,6 @@ public class TeamDataAccessApplicationApiTest {
         Integer teamId = null;
         Integer id = null;
         FetchTeamDarApplication200Response response = api.fetchTeamDarApplication(teamId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamDataAccessApplicationController@showHeader
-     *
-     * Get header information about a specific DAR
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchTeamDarApplicationHeaderTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        FetchTeamDarApplicationHeader200Response response = api.fetchTeamDarApplicationHeader(teamId, id);
         // TODO: test validations
     }
 

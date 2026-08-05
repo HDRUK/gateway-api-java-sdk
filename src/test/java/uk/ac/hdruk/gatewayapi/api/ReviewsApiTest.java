@@ -14,14 +14,11 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateReviewsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllReviews200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateReviews200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateReviewsRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -39,20 +36,6 @@ public class ReviewsApiTest {
     private final ReviewsApi api = new ReviewsApi();
 
     /**
-     * ReviewController@store
-     *
-     * Create a new review
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createReviewsTest() throws ApiException {
-        CreateReviewsRequest createReviewsRequest = null;
-        CreateCategories200Response response = api.createReviews(createReviewsRequest);
-        // TODO: test validations
-    }
-
-    /**
      * Delete a review
      *
      * Delete a review
@@ -62,7 +45,7 @@ public class ReviewsApiTest {
     @Test
     public void deleteReviewsTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteReviews(id);
+        DeleteApplications200Response response = api.deleteReviews(id);
         // TODO: test validations
     }
 
@@ -76,35 +59,8 @@ public class ReviewsApiTest {
     @Test
     public void editReviewsTest() throws ApiException {
         Integer id = null;
-        CreateReviewsRequest createReviewsRequest = null;
-        UpdateReviews200Response response = api.editReviews(id, createReviewsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * ReviewController@index
-     *
-     * Get All Reviews
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllReviewsTest() throws ApiException {
-        FetchAllReviews200Response response = api.fetchAllReviews();
-        // TODO: test validations
-    }
-
-    /**
-     * ReviewController@show
-     *
-     * Get review by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchReviewsTest() throws ApiException {
-        Integer id = null;
-        FetchAllReviews200Response response = api.fetchReviews(id);
+        UpdateReviewsRequest updateReviewsRequest = null;
+        UpdateReviews200Response response = api.editReviews(id, updateReviewsRequest);
         // TODO: test validations
     }
 
@@ -118,8 +74,8 @@ public class ReviewsApiTest {
     @Test
     public void updateReviewsTest() throws ApiException {
         Integer id = null;
-        CreateReviewsRequest createReviewsRequest = null;
-        UpdateReviews200Response response = api.updateReviews(id, createReviewsRequest);
+        UpdateReviewsRequest updateReviewsRequest = null;
+        UpdateReviews200Response response = api.updateReviews(id, updateReviewsRequest);
         // TODO: test validations
     }
 

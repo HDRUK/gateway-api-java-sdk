@@ -27,14 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateCollectionsIntegrationsRequest;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllCollections200Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateTeamCollectionsRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -81,7 +81,7 @@ public class IntegrationCollectionsApi {
 
     /**
      * Build call for createCollectionsIntegrations
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -94,7 +94,7 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCollectionsIntegrationsCall(@javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCollectionsIntegrationsCall(@javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,7 +108,7 @@ public class IntegrationCollectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateTeamCollectionsRequest;
+        Object localVarPostBody = createCollectionsIntegrationsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/integrations/collections";
@@ -140,21 +140,21 @@ public class IntegrationCollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCollectionsIntegrationsValidateBeforeCall(@javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'updateTeamCollectionsRequest' is set
-        if (updateTeamCollectionsRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateTeamCollectionsRequest' when calling createCollectionsIntegrations(Async)");
+    private okhttp3.Call createCollectionsIntegrationsValidateBeforeCall(@javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createCollectionsIntegrationsRequest' is set
+        if (createCollectionsIntegrationsRequest == null) {
+            throw new ApiException("Missing the required parameter 'createCollectionsIntegrationsRequest' when calling createCollectionsIntegrations(Async)");
         }
 
-        return createCollectionsIntegrationsCall(updateTeamCollectionsRequest, _callback);
+        return createCollectionsIntegrationsCall(createCollectionsIntegrationsRequest, _callback);
 
     }
 
     /**
      * IntegrationCollectionController@store
      * Create a new collection
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -165,16 +165,16 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createCollectionsIntegrations(@javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createCollectionsIntegrationsWithHttpInfo(updateTeamCollectionsRequest);
+    public CreateDarIntegration201Response createCollectionsIntegrations(@javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createCollectionsIntegrationsWithHttpInfo(createCollectionsIntegrationsRequest);
         return localVarResp.getData();
     }
 
     /**
      * IntegrationCollectionController@store
      * Create a new collection
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -185,16 +185,16 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createCollectionsIntegrationsWithHttpInfo(@javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest) throws ApiException {
-        okhttp3.Call localVarCall = createCollectionsIntegrationsValidateBeforeCall(updateTeamCollectionsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+    public ApiResponse<CreateDarIntegration201Response> createCollectionsIntegrationsWithHttpInfo(@javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = createCollectionsIntegrationsValidateBeforeCall(createCollectionsIntegrationsRequest, null);
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * IntegrationCollectionController@store (asynchronously)
      * Create a new collection
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -207,10 +207,10 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCollectionsIntegrationsAsync(@javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createCollectionsIntegrationsAsync(@javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCollectionsIntegrationsValidateBeforeCall(updateTeamCollectionsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        okhttp3.Call localVarCall = createCollectionsIntegrationsValidateBeforeCall(createCollectionsIntegrationsRequest, _callback);
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -289,7 +289,7 @@ public class IntegrationCollectionsApi {
      * Delete a collection
      * Delete a collection
      * @param id collection id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -300,8 +300,8 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteCollectionsIntegrations(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteCollectionsIntegrationsWithHttpInfo(id);
+    public DeleteApplications200Response deleteCollectionsIntegrations(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteCollectionsIntegrationsWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -309,7 +309,7 @@ public class IntegrationCollectionsApi {
      * Delete a collection
      * Delete a collection
      * @param id collection id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -320,9 +320,9 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteCollectionsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteCollectionsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionsIntegrationsValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -342,17 +342,17 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionsIntegrationsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionsIntegrationsAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionsIntegrationsValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for editCollectionsIntegrations
      * @param id collection id (required)
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -365,7 +365,7 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editCollectionsIntegrationsCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editCollectionsIntegrationsCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -379,7 +379,7 @@ public class IntegrationCollectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateTeamCollectionsRequest;
+        Object localVarPostBody = createCollectionsIntegrationsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/integrations/collections/{id}"
@@ -412,18 +412,18 @@ public class IntegrationCollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editCollectionsIntegrationsValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call editCollectionsIntegrationsValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling editCollectionsIntegrations(Async)");
         }
 
-        // verify the required parameter 'updateTeamCollectionsRequest' is set
-        if (updateTeamCollectionsRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateTeamCollectionsRequest' when calling editCollectionsIntegrations(Async)");
+        // verify the required parameter 'createCollectionsIntegrationsRequest' is set
+        if (createCollectionsIntegrationsRequest == null) {
+            throw new ApiException("Missing the required parameter 'createCollectionsIntegrationsRequest' when calling editCollectionsIntegrations(Async)");
         }
 
-        return editCollectionsIntegrationsCall(id, updateTeamCollectionsRequest, _callback);
+        return editCollectionsIntegrationsCall(id, createCollectionsIntegrationsRequest, _callback);
 
     }
 
@@ -431,7 +431,7 @@ public class IntegrationCollectionsApi {
      * Edit a collection
      * Edit a collection
      * @param id collection id (required)
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @return FetchCollections200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -443,8 +443,8 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public FetchCollections200Response editCollectionsIntegrations(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest) throws ApiException {
-        ApiResponse<FetchCollections200Response> localVarResp = editCollectionsIntegrationsWithHttpInfo(id, updateTeamCollectionsRequest);
+    public FetchCollections200Response editCollectionsIntegrations(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest) throws ApiException {
+        ApiResponse<FetchCollections200Response> localVarResp = editCollectionsIntegrationsWithHttpInfo(id, createCollectionsIntegrationsRequest);
         return localVarResp.getData();
     }
 
@@ -452,7 +452,7 @@ public class IntegrationCollectionsApi {
      * Edit a collection
      * Edit a collection
      * @param id collection id (required)
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @return ApiResponse&lt;FetchCollections200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -464,8 +464,8 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FetchCollections200Response> editCollectionsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest) throws ApiException {
-        okhttp3.Call localVarCall = editCollectionsIntegrationsValidateBeforeCall(id, updateTeamCollectionsRequest, null);
+    public ApiResponse<FetchCollections200Response> editCollectionsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = editCollectionsIntegrationsValidateBeforeCall(id, createCollectionsIntegrationsRequest, null);
         Type localVarReturnType = new TypeToken<FetchCollections200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -474,7 +474,7 @@ public class IntegrationCollectionsApi {
      * Edit a collection (asynchronously)
      * Edit a collection
      * @param id collection id (required)
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -487,9 +487,9 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editCollectionsIntegrationsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback<FetchCollections200Response> _callback) throws ApiException {
+    public okhttp3.Call editCollectionsIntegrationsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback<FetchCollections200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editCollectionsIntegrationsValidateBeforeCall(id, updateTeamCollectionsRequest, _callback);
+        okhttp3.Call localVarCall = editCollectionsIntegrationsValidateBeforeCall(id, createCollectionsIntegrationsRequest, _callback);
         Type localVarReturnType = new TypeToken<FetchCollections200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -757,7 +757,7 @@ public class IntegrationCollectionsApi {
     /**
      * Build call for updateCollectionsIntegrations
      * @param id collection id (required)
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -770,7 +770,7 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionsIntegrationsCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCollectionsIntegrationsCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -784,7 +784,7 @@ public class IntegrationCollectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateTeamCollectionsRequest;
+        Object localVarPostBody = createCollectionsIntegrationsRequest;
 
         // create path and map variables
         String localVarPath = "/api/v1/integrations/collections/{id}"
@@ -817,18 +817,18 @@ public class IntegrationCollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCollectionsIntegrationsValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCollectionsIntegrationsValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateCollectionsIntegrations(Async)");
         }
 
-        // verify the required parameter 'updateTeamCollectionsRequest' is set
-        if (updateTeamCollectionsRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateTeamCollectionsRequest' when calling updateCollectionsIntegrations(Async)");
+        // verify the required parameter 'createCollectionsIntegrationsRequest' is set
+        if (createCollectionsIntegrationsRequest == null) {
+            throw new ApiException("Missing the required parameter 'createCollectionsIntegrationsRequest' when calling updateCollectionsIntegrations(Async)");
         }
 
-        return updateCollectionsIntegrationsCall(id, updateTeamCollectionsRequest, _callback);
+        return updateCollectionsIntegrationsCall(id, createCollectionsIntegrationsRequest, _callback);
 
     }
 
@@ -836,7 +836,7 @@ public class IntegrationCollectionsApi {
      * Update a collection
      * Update a collection
      * @param id collection id (required)
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @return FetchCollections200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -848,8 +848,8 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public FetchCollections200Response updateCollectionsIntegrations(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest) throws ApiException {
-        ApiResponse<FetchCollections200Response> localVarResp = updateCollectionsIntegrationsWithHttpInfo(id, updateTeamCollectionsRequest);
+    public FetchCollections200Response updateCollectionsIntegrations(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest) throws ApiException {
+        ApiResponse<FetchCollections200Response> localVarResp = updateCollectionsIntegrationsWithHttpInfo(id, createCollectionsIntegrationsRequest);
         return localVarResp.getData();
     }
 
@@ -857,7 +857,7 @@ public class IntegrationCollectionsApi {
      * Update a collection
      * Update a collection
      * @param id collection id (required)
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @return ApiResponse&lt;FetchCollections200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -869,8 +869,8 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FetchCollections200Response> updateCollectionsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateCollectionsIntegrationsValidateBeforeCall(id, updateTeamCollectionsRequest, null);
+    public ApiResponse<FetchCollections200Response> updateCollectionsIntegrationsWithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCollectionsIntegrationsValidateBeforeCall(id, createCollectionsIntegrationsRequest, null);
         Type localVarReturnType = new TypeToken<FetchCollections200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -879,7 +879,7 @@ public class IntegrationCollectionsApi {
      * Update a collection (asynchronously)
      * Update a collection
      * @param id collection id (required)
-     * @param updateTeamCollectionsRequest Pass user credentials (required)
+     * @param createCollectionsIntegrationsRequest Pass user credentials (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -892,9 +892,9 @@ public class IntegrationCollectionsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionsIntegrationsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateTeamCollectionsRequest updateTeamCollectionsRequest, final ApiCallback<FetchCollections200Response> _callback) throws ApiException {
+    public okhttp3.Call updateCollectionsIntegrationsAsync(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest, final ApiCallback<FetchCollections200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCollectionsIntegrationsValidateBeforeCall(id, updateTeamCollectionsRequest, _callback);
+        okhttp3.Call localVarCall = updateCollectionsIntegrationsValidateBeforeCall(id, createCollectionsIntegrationsRequest, _callback);
         Type localVarReturnType = new TypeToken<FetchCollections200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

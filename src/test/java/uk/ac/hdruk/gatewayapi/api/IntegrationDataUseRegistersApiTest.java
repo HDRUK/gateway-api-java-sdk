@@ -14,15 +14,15 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDurIntegrationsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDurIntegrations200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDurByIdIntegrations200Response;
 import uk.ac.hdruk.gatewayapi.model.ProjectTitleAscupdatedAtAsc;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDurIntegrations200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -50,7 +50,7 @@ public class IntegrationDataUseRegistersApiTest {
     @Test
     public void createDurIntegrationsTest() throws ApiException {
         CreateDurIntegrationsRequest createDurIntegrationsRequest = null;
-        CreateCategories200Response response = api.createDurIntegrations(createDurIntegrationsRequest);
+        CreateDarIntegration201Response response = api.createDurIntegrations(createDurIntegrationsRequest);
         // TODO: test validations
     }
 
@@ -64,7 +64,7 @@ public class IntegrationDataUseRegistersApiTest {
     @Test
     public void deleteDurIntegrationsTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDurIntegrations(id);
+        DeleteApplications200Response response = api.deleteDurIntegrations(id);
         // TODO: test validations
     }
 

@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollectionsRequestDatasetsInner;
+import uk.ac.hdruk.gatewayapi.model.CreateCollectionsIntegrationsRequestDatasetsInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +51,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * UpdateCollectionsV2Request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-31T14:18:38.823591782Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-05T08:10:35.893968671Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class UpdateCollectionsV2Request {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -81,17 +81,17 @@ public class UpdateCollectionsV2Request {
   public static final String SERIALIZED_NAME_DATASETS = "datasets";
   @SerializedName(SERIALIZED_NAME_DATASETS)
   @javax.annotation.Nullable
-  private List<CreateTeamCollectionsRequestDatasetsInner> datasets = new ArrayList<>();
+  private List<CreateCollectionsIntegrationsRequestDatasetsInner> datasets = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DUR = "dur";
   @SerializedName(SERIALIZED_NAME_DUR)
   @javax.annotation.Nullable
-  private List<CreateTeamCollectionsRequestDatasetsInner> dur = new ArrayList<>();
+  private List<CreateCollectionsIntegrationsRequestDatasetsInner> dur = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PUBLICATIONS = "publications";
   @SerializedName(SERIALIZED_NAME_PUBLICATIONS)
   @javax.annotation.Nullable
-  private List<CreateTeamCollectionsRequestDatasetsInner> publications = new ArrayList<>();
+  private List<CreateCollectionsIntegrationsRequestDatasetsInner> publications = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COLLABORATORS = "collaborators";
   @SerializedName(SERIALIZED_NAME_COLLABORATORS)
@@ -209,12 +209,12 @@ public class UpdateCollectionsV2Request {
   }
 
 
-  public UpdateCollectionsV2Request datasets(@javax.annotation.Nullable List<CreateTeamCollectionsRequestDatasetsInner> datasets) {
+  public UpdateCollectionsV2Request datasets(@javax.annotation.Nullable List<CreateCollectionsIntegrationsRequestDatasetsInner> datasets) {
     this.datasets = datasets;
     return this;
   }
 
-  public UpdateCollectionsV2Request addDatasetsItem(CreateTeamCollectionsRequestDatasetsInner datasetsItem) {
+  public UpdateCollectionsV2Request addDatasetsItem(CreateCollectionsIntegrationsRequestDatasetsInner datasetsItem) {
     if (this.datasets == null) {
       this.datasets = new ArrayList<>();
     }
@@ -227,21 +227,21 @@ public class UpdateCollectionsV2Request {
    * @return datasets
    */
   @javax.annotation.Nullable
-  public List<CreateTeamCollectionsRequestDatasetsInner> getDatasets() {
+  public List<CreateCollectionsIntegrationsRequestDatasetsInner> getDatasets() {
     return datasets;
   }
 
-  public void setDatasets(@javax.annotation.Nullable List<CreateTeamCollectionsRequestDatasetsInner> datasets) {
+  public void setDatasets(@javax.annotation.Nullable List<CreateCollectionsIntegrationsRequestDatasetsInner> datasets) {
     this.datasets = datasets;
   }
 
 
-  public UpdateCollectionsV2Request dur(@javax.annotation.Nullable List<CreateTeamCollectionsRequestDatasetsInner> dur) {
+  public UpdateCollectionsV2Request dur(@javax.annotation.Nullable List<CreateCollectionsIntegrationsRequestDatasetsInner> dur) {
     this.dur = dur;
     return this;
   }
 
-  public UpdateCollectionsV2Request addDurItem(CreateTeamCollectionsRequestDatasetsInner durItem) {
+  public UpdateCollectionsV2Request addDurItem(CreateCollectionsIntegrationsRequestDatasetsInner durItem) {
     if (this.dur == null) {
       this.dur = new ArrayList<>();
     }
@@ -254,21 +254,21 @@ public class UpdateCollectionsV2Request {
    * @return dur
    */
   @javax.annotation.Nullable
-  public List<CreateTeamCollectionsRequestDatasetsInner> getDur() {
+  public List<CreateCollectionsIntegrationsRequestDatasetsInner> getDur() {
     return dur;
   }
 
-  public void setDur(@javax.annotation.Nullable List<CreateTeamCollectionsRequestDatasetsInner> dur) {
+  public void setDur(@javax.annotation.Nullable List<CreateCollectionsIntegrationsRequestDatasetsInner> dur) {
     this.dur = dur;
   }
 
 
-  public UpdateCollectionsV2Request publications(@javax.annotation.Nullable List<CreateTeamCollectionsRequestDatasetsInner> publications) {
+  public UpdateCollectionsV2Request publications(@javax.annotation.Nullable List<CreateCollectionsIntegrationsRequestDatasetsInner> publications) {
     this.publications = publications;
     return this;
   }
 
-  public UpdateCollectionsV2Request addPublicationsItem(CreateTeamCollectionsRequestDatasetsInner publicationsItem) {
+  public UpdateCollectionsV2Request addPublicationsItem(CreateCollectionsIntegrationsRequestDatasetsInner publicationsItem) {
     if (this.publications == null) {
       this.publications = new ArrayList<>();
     }
@@ -281,11 +281,11 @@ public class UpdateCollectionsV2Request {
    * @return publications
    */
   @javax.annotation.Nullable
-  public List<CreateTeamCollectionsRequestDatasetsInner> getPublications() {
+  public List<CreateCollectionsIntegrationsRequestDatasetsInner> getPublications() {
     return publications;
   }
 
-  public void setPublications(@javax.annotation.Nullable List<CreateTeamCollectionsRequestDatasetsInner> publications) {
+  public void setPublications(@javax.annotation.Nullable List<CreateCollectionsIntegrationsRequestDatasetsInner> publications) {
     this.publications = publications;
   }
 
@@ -445,7 +445,7 @@ public class UpdateCollectionsV2Request {
 
           // validate the optional field `datasets` (array)
           for (int i = 0; i < jsonArraydatasets.size(); i++) {
-            CreateTeamCollectionsRequestDatasetsInner.validateJsonElement(jsonArraydatasets.get(i));
+            CreateCollectionsIntegrationsRequestDatasetsInner.validateJsonElement(jsonArraydatasets.get(i));
           };
         }
       }
@@ -459,7 +459,7 @@ public class UpdateCollectionsV2Request {
 
           // validate the optional field `dur` (array)
           for (int i = 0; i < jsonArraydur.size(); i++) {
-            CreateTeamCollectionsRequestDatasetsInner.validateJsonElement(jsonArraydur.get(i));
+            CreateCollectionsIntegrationsRequestDatasetsInner.validateJsonElement(jsonArraydur.get(i));
           };
         }
       }
@@ -473,7 +473,7 @@ public class UpdateCollectionsV2Request {
 
           // validate the optional field `publications` (array)
           for (int i = 0; i < jsonArraypublications.size(); i++) {
-            CreateTeamCollectionsRequestDatasetsInner.validateJsonElement(jsonArraypublications.get(i));
+            CreateCollectionsIntegrationsRequestDatasetsInner.validateJsonElement(jsonArraypublications.get(i));
           };
         }
       }

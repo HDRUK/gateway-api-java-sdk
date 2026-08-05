@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 
 <a id="deleteTeamDarTemplateFile"></a>
 # **deleteTeamDarTemplateFile**
-> DeleteAliases200Response deleteTeamDarTemplateFile(teamId, id, fileId)
+> DeleteApplications200Response deleteTeamDarTemplateFile(teamId, id, fileId)
 
 TeamDataAccessTemplateController@destroyFile
 
@@ -41,7 +41,7 @@ public class Example {
     Integer id = 1; // Integer | DAR template id
     String fileId = "1"; // String | File id
     try {
-      DeleteAliases200Response result = apiInstance.deleteTeamDarTemplateFile(teamId, id, fileId);
+      DeleteApplications200Response result = apiInstance.deleteTeamDarTemplateFile(teamId, id, fileId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamDataAccessTemplateApi#deleteTeamDarTemplateFile");
@@ -64,7 +64,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

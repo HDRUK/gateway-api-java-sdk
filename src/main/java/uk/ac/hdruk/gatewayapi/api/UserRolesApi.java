@@ -27,12 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateUserHasRolesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateUserHasRolesRequest;
 
 import java.lang.reflect.Type;
@@ -161,7 +161,7 @@ public class UserRolesApi {
      * Create user has roles
      * @param userId user id (required)
      * @param createUserHasRolesRequest Pass user credentials (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -172,8 +172,8 @@ public class UserRolesApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response createUserHasRoles(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateUserHasRolesRequest createUserHasRolesRequest) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = createUserHasRolesWithHttpInfo(userId, createUserHasRolesRequest);
+    public DeleteApplications200Response createUserHasRoles(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateUserHasRolesRequest createUserHasRolesRequest) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = createUserHasRolesWithHttpInfo(userId, createUserHasRolesRequest);
         return localVarResp.getData();
     }
 
@@ -182,7 +182,7 @@ public class UserRolesApi {
      * Create user has roles
      * @param userId user id (required)
      * @param createUserHasRolesRequest Pass user credentials (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -193,9 +193,9 @@ public class UserRolesApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> createUserHasRolesWithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateUserHasRolesRequest createUserHasRolesRequest) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> createUserHasRolesWithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateUserHasRolesRequest createUserHasRolesRequest) throws ApiException {
         okhttp3.Call localVarCall = createUserHasRolesValidateBeforeCall(userId, createUserHasRolesRequest, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -216,10 +216,10 @@ public class UserRolesApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createUserHasRolesAsync(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateUserHasRolesRequest createUserHasRolesRequest, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call createUserHasRolesAsync(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateUserHasRolesRequest createUserHasRolesRequest, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createUserHasRolesValidateBeforeCall(userId, createUserHasRolesRequest, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -445,7 +445,7 @@ public class UserRolesApi {
      * Update user has roles
      * @param userId user id (required)
      * @param updateUserHasRolesRequest Pass user credentials (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -456,8 +456,8 @@ public class UserRolesApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response updateUserHasRoles(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull UpdateUserHasRolesRequest updateUserHasRolesRequest) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = updateUserHasRolesWithHttpInfo(userId, updateUserHasRolesRequest);
+    public DeleteApplications200Response updateUserHasRoles(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull UpdateUserHasRolesRequest updateUserHasRolesRequest) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = updateUserHasRolesWithHttpInfo(userId, updateUserHasRolesRequest);
         return localVarResp.getData();
     }
 
@@ -466,7 +466,7 @@ public class UserRolesApi {
      * Update user has roles
      * @param userId user id (required)
      * @param updateUserHasRolesRequest Pass user credentials (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -477,9 +477,9 @@ public class UserRolesApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> updateUserHasRolesWithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull UpdateUserHasRolesRequest updateUserHasRolesRequest) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> updateUserHasRolesWithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull UpdateUserHasRolesRequest updateUserHasRolesRequest) throws ApiException {
         okhttp3.Call localVarCall = updateUserHasRolesValidateBeforeCall(userId, updateUserHasRolesRequest, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -500,10 +500,10 @@ public class UserRolesApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserHasRolesAsync(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull UpdateUserHasRolesRequest updateUserHasRolesRequest, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call updateUserHasRolesAsync(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull UpdateUserHasRolesRequest updateUserHasRolesRequest, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateUserHasRolesValidateBeforeCall(userId, updateUserHasRolesRequest, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

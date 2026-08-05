@@ -17,7 +17,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createFederationTeam"></a>
 # **createFederationTeam**
-> CreateCategories200Response createFederationTeam(teamId, createFederationTeamRequest)
+> CreateDarIntegration201Response createFederationTeam(teamId, createFederationTeamRequest)
 
 FederationController@store
 
@@ -46,7 +46,7 @@ public class Example {
     Integer teamId = 1; // Integer | team id
     CreateFederationTeamRequest createFederationTeamRequest = new CreateFederationTeamRequest(); // CreateFederationTeamRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.createFederationTeam(teamId, createFederationTeamRequest);
+      CreateDarIntegration201Response result = apiInstance.createFederationTeam(teamId, createFederationTeamRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamFederationsApi#createFederationTeam");
@@ -68,7 +68,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ public class Example {
 
 <a id="editFederationTeam"></a>
 # **editFederationTeam**
-> CreateCategories200Response editFederationTeam(teamId, federationId, createFederationTeamRequest)
+> CreateDarIntegration201Response editFederationTeam(teamId, federationId, createFederationTeamRequest)
 
 FederationController@edit
 
@@ -190,7 +190,7 @@ public class Example {
     Integer federationId = 1; // Integer | federation id
     CreateFederationTeamRequest createFederationTeamRequest = new CreateFederationTeamRequest(); // CreateFederationTeamRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.editFederationTeam(teamId, federationId, createFederationTeamRequest);
+      CreateDarIntegration201Response result = apiInstance.editFederationTeam(teamId, federationId, createFederationTeamRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamFederationsApi#editFederationTeam");
@@ -213,7 +213,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -576,7 +576,7 @@ public class Example {
 
 <a id="updateFederationTeam"></a>
 # **updateFederationTeam**
-> CreateCategories200Response updateFederationTeam(teamId, federationId, updateFederationTeamRequest)
+> CreateDarIntegration201Response updateFederationTeam(teamId, federationId, updateFederationTeamRequest)
 
 FederationController@update
 
@@ -606,7 +606,7 @@ public class Example {
     Integer federationId = 1; // Integer | federation id
     UpdateFederationTeamRequest updateFederationTeamRequest = new UpdateFederationTeamRequest(); // UpdateFederationTeamRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.updateFederationTeam(teamId, federationId, updateFederationTeamRequest);
+      CreateDarIntegration201Response result = apiInstance.updateFederationTeam(teamId, federationId, updateFederationTeamRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamFederationsApi#updateFederationTeam");
@@ -629,7 +629,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

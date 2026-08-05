@@ -15,19 +15,19 @@ package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrations400Response;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrationsRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsRequest;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllTools200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllTools500Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllToolsIntegrations200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchToolsIntegrations200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateQuestionBankQuestionStatus200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateToolsIntegrationsRequest;
 import uk.ac.hdruk.gatewayapi.model.UpdateToolsRequest;
@@ -48,21 +48,6 @@ public class ToolsApiTest {
     private final ToolsApi api = new ToolsApi();
 
     /**
-     * TeamToolController@count
-     *
-     * Get team counts for distinct entries of a field in the model
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countTeamUniqueFieldsToolsV2Test() throws ApiException {
-        Integer teamId = null;
-        String field = null;
-        CountUniqueFieldsCollections200Response response = api.countTeamUniqueFieldsToolsV2(teamId, field);
-        // TODO: test validations
-    }
-
-    /**
      * ToolController@count
      *
      * Get Counts for distinct entries of a field in the model
@@ -78,21 +63,6 @@ public class ToolsApiTest {
     }
 
     /**
-     * UserToolController@count
-     *
-     * Get user counts for distinct entries of a field in the model
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countUserUniqueFieldsToolsV2Test() throws ApiException {
-        Integer userId = null;
-        String field = null;
-        CountUniqueFieldsCollections200Response response = api.countUserUniqueFieldsToolsV2(userId, field);
-        // TODO: test validations
-    }
-
-    /**
      * ToolController@store
      *
      * Create a new tool
@@ -102,7 +72,7 @@ public class ToolsApiTest {
     @Test
     public void createToolsTest() throws ApiException {
         CreateToolsRequest createToolsRequest = null;
-        CreateCategories200Response response = api.createTools(createToolsRequest);
+        CreateDarIntegration201Response response = api.createTools(createToolsRequest);
         // TODO: test validations
     }
 
@@ -117,22 +87,7 @@ public class ToolsApiTest {
     public void createToolsByTeamV2Test() throws ApiException {
         Integer teamId = null;
         CreateToolsRequest createToolsRequest = null;
-        CreateCategories200Response response = api.createToolsByTeamV2(teamId, createToolsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * UserToolController@store
-     *
-     * Create a new tool by user v2
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createToolsByUserV2Test() throws ApiException {
-        Integer userId = null;
-        CreateToolsRequest createToolsRequest = null;
-        CreateCategories200Response response = api.createToolsByUserV2(userId, createToolsRequest);
+        CreateDarIntegration201Response response = api.createToolsByTeamV2(teamId, createToolsRequest);
         // TODO: test validations
     }
 
@@ -146,7 +101,7 @@ public class ToolsApiTest {
     @Test
     public void createToolsIntegrationsTest() throws ApiException {
         CreateToolsIntegrationsRequest createToolsIntegrationsRequest = null;
-        CreateCategories200Response response = api.createToolsIntegrations(createToolsIntegrationsRequest);
+        CreateDarIntegration201Response response = api.createToolsIntegrations(createToolsIntegrationsRequest);
         // TODO: test validations
     }
 
@@ -176,21 +131,6 @@ public class ToolsApiTest {
         Integer teamId = null;
         Integer id = null;
         DeleteFederation200Response response = api.deleteToolsByTeamidV2(teamId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * UserToolController@destroy
-     *
-     * Delete tool by id and by user
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteToolsByUserV2Test() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        DeleteFederation200Response response = api.deleteToolsByUserV2(userId, id);
         // TODO: test validations
     }
 
@@ -241,22 +181,6 @@ public class ToolsApiTest {
     }
 
     /**
-     * UserToolController@edit
-     *
-     * Edit tool by id and by user
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editToolsByUserV2Test() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        UpdateToolsRequest updateToolsRequest = null;
-        FetchToolsIntegrations200Response response = api.editToolsByUserV2(userId, id, updateToolsRequest);
-        // TODO: test validations
-    }
-
-    /**
      * IntegrationToolController@edit
      *
      * Edit tool by id
@@ -268,36 +192,6 @@ public class ToolsApiTest {
         Integer id = null;
         UpdateToolsIntegrationsRequest updateToolsIntegrationsRequest = null;
         FetchToolsIntegrations200Response response = api.editToolsIntegrations(id, updateToolsIntegrationsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamToolController@indexStatus
-     *
-     * Returns a list of a teams tools with given status
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllToolByTeamAndStatusV2Test() throws ApiException {
-        Long teamId = null;
-        String status = null;
-        FetchAllToolsIntegrations200Response response = api.fetchAllToolByTeamAndStatusV2(teamId, status);
-        // TODO: test validations
-    }
-
-    /**
-     * UserToolController@indexStatus
-     *
-     * Returns a list of a user tools
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllToolByUserAndStatusV2Test() throws ApiException {
-        Long userId = null;
-        String status = null;
-        FetchAllToolsIntegrations200Response response = api.fetchAllToolByUserAndStatusV2(userId, status);
         // TODO: test validations
     }
 
@@ -363,38 +257,6 @@ public class ToolsApiTest {
     }
 
     /**
-     * TeamToolController@show
-     *
-     * Get tool by team id and by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchToolsByTeamAndByIdV2Test() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        String viewType = null;
-        FetchToolsIntegrations200Response response = api.fetchToolsByTeamAndByIdV2(teamId, id, viewType);
-        // TODO: test validations
-    }
-
-    /**
-     * UserToolController@show
-     *
-     * Get tool by user id and by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchToolsByUserAndByIdV2Test() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        String viewType = null;
-        FetchToolsIntegrations200Response response = api.fetchToolsByUserAndByIdV2(userId, id, viewType);
-        // TODO: test validations
-    }
-
-    /**
      * IntegrationToolController@show
      *
      * Get tool by id
@@ -450,22 +312,6 @@ public class ToolsApiTest {
         Integer id = null;
         UpdateToolsRequest updateToolsRequest = null;
         FetchToolsIntegrations200Response response = api.updateToolsByTeamidV2(teamId, id, updateToolsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * UserToolController@update
-     *
-     * Update tools by user id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateToolsByUserV2Test() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        UpdateToolsRequest updateToolsRequest = null;
-        FetchToolsIntegrations200Response response = api.updateToolsByUserV2(userId, id, updateToolsRequest);
         // TODO: test validations
     }
 

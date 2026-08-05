@@ -15,16 +15,16 @@ package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreatePublicationsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrations400Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllPublications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchPublications200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdatePublicationsRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -43,21 +43,6 @@ public class PublicationApiTest {
     private final PublicationApi api = new PublicationApi();
 
     /**
-     * TeamPublicationController@count
-     *
-     * Get team counts for distinct entries of a field in the model
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countTeamUniqueFieldsPublicationV2Test() throws ApiException {
-        Integer teamId = null;
-        String field = null;
-        CountUniqueFieldsCollections200Response response = api.countTeamUniqueFieldsPublicationV2(teamId, field);
-        // TODO: test validations
-    }
-
-    /**
      * PublicationController@count
      *
      * Get Counts for distinct entries of a field in the model
@@ -74,21 +59,6 @@ public class PublicationApiTest {
     }
 
     /**
-     * UserPublicationController@count
-     *
-     * Get user counts for distinct entries of a field in the model
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countUserUniqueFieldsPublicationV2Test() throws ApiException {
-        Integer userId = null;
-        String field = null;
-        CountUniqueFieldsCollections200Response response = api.countUserUniqueFieldsPublicationV2(userId, field);
-        // TODO: test validations
-    }
-
-    /**
      * PublicationController@store
      *
      * Create a new publication
@@ -98,37 +68,7 @@ public class PublicationApiTest {
     @Test
     public void createPublicationsTest() throws ApiException {
         CreatePublicationsRequest createPublicationsRequest = null;
-        CreateCategories200Response response = api.createPublications(createPublicationsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamPublicationController@store
-     *
-     * Create a new publication by team id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createPublicationsV2ByTeamIdTest() throws ApiException {
-        Integer teamId = null;
-        CreatePublicationsRequest createPublicationsRequest = null;
-        CreateCategories200Response response = api.createPublicationsV2ByTeamId(teamId, createPublicationsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * UserPublicationController@store
-     *
-     * Create a new publication by user id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createPublicationsV2ByUserIdTest() throws ApiException {
-        Long userId = null;
-        CreatePublicationsRequest createPublicationsRequest = null;
-        CreateCategories200Response response = api.createPublicationsV2ByUserId(userId, createPublicationsRequest);
+        CreateDarIntegration201Response response = api.createPublications(createPublicationsRequest);
         // TODO: test validations
     }
 
@@ -143,36 +83,6 @@ public class PublicationApiTest {
     public void deletePublicationsTest() throws ApiException {
         Integer id = null;
         DeleteFederation200Response response = api.deletePublications(id);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamPublicationController@destroy
-     *
-     * Delete publication by team id and id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deletePublicationsV2ByTeamIdTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        DeleteFederation200Response response = api.deletePublicationsV2ByTeamId(teamId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * UserPublicationController@destroy
-     *
-     * Delete publication by user id and id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deletePublicationsV2ByUserIdTest() throws ApiException {
-        Long userId = null;
-        Integer id = null;
-        DeleteFederation200Response response = api.deletePublicationsV2ByUserId(userId, id);
         // TODO: test validations
     }
 
@@ -193,38 +103,6 @@ public class PublicationApiTest {
     }
 
     /**
-     * TeamPublicationController@edit
-     *
-     * Edit publications by team id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editPublicationsV2ByTeamIdTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        UpdatePublicationsRequest updatePublicationsRequest = null;
-        FetchPublications200Response response = api.editPublicationsV2ByTeamId(teamId, id, updatePublicationsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * UserPublicationController@edit
-     *
-     * Edit publications by user id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editPublicationsV2ByUserIdTest() throws ApiException {
-        Long userId = null;
-        Integer id = null;
-        UpdatePublicationsRequest updatePublicationsRequest = null;
-        FetchPublications200Response response = api.editPublicationsV2ByUserId(userId, id, updatePublicationsRequest);
-        // TODO: test validations
-    }
-
-    /**
      * PublicationController@index
      *
      * Get All Publications
@@ -238,38 +116,6 @@ public class PublicationApiTest {
         Integer teamId = null;
         String status = null;
         FetchAllPublications200Response response = api.fetchAllPublications(paperTitle, ownerId, teamId, status);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamPublicationController@indexStatus
-     *
-     * Returns a list of a teams publications
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllPublicationsByTeamAndStatusV2Test() throws ApiException {
-        Long teamId = null;
-        String status = null;
-        String paperTitle = null;
-        FetchAllPublications200Response response = api.fetchAllPublicationsByTeamAndStatusV2(teamId, status, paperTitle);
-        // TODO: test validations
-    }
-
-    /**
-     * UserPublicationController@indexStatus
-     *
-     * Returns a list of a users publications
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllPublicationsByUserAndStatusV2Test() throws ApiException {
-        Long userId = null;
-        String status = null;
-        String paperTitle = null;
-        FetchAllPublications200Response response = api.fetchAllPublicationsByUserAndStatusV2(userId, status, paperTitle);
         // TODO: test validations
     }
 
@@ -304,36 +150,6 @@ public class PublicationApiTest {
     }
 
     /**
-     * TeamPublicationController@show
-     *
-     * Get publication by team id and by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchPublicationsByTeamAndByIdV2Test() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        FetchPublications200Response response = api.fetchPublicationsByTeamAndByIdV2(teamId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * UserPublicationController@show
-     *
-     * Get publication by user id and by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchPublicationsByUserAndByIdV2Test() throws ApiException {
-        Long userId = null;
-        Integer id = null;
-        FetchPublications200Response response = api.fetchPublicationsByUserAndByIdV2(userId, id);
-        // TODO: test validations
-    }
-
-    /**
      * PublicationController@showActive
      *
      * Get publication by id
@@ -359,38 +175,6 @@ public class PublicationApiTest {
         Integer id = null;
         UpdatePublicationsRequest updatePublicationsRequest = null;
         FetchPublications200Response response = api.updatePublications(id, updatePublicationsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamPublicationController@update
-     *
-     * Update publications by team id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updatePublicationsV2ByTeamIdTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        UpdatePublicationsRequest updatePublicationsRequest = null;
-        FetchPublications200Response response = api.updatePublicationsV2ByTeamId(teamId, id, updatePublicationsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * UserPublicationController@update
-     *
-     * Update publications by user id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updatePublicationsV2ByUserIdTest() throws ApiException {
-        Long userId = null;
-        Integer id = null;
-        UpdatePublicationsRequest updatePublicationsRequest = null;
-        FetchPublications200Response response = api.updatePublicationsV2ByUserId(userId, id, updatePublicationsRequest);
         // TODO: test validations
     }
 

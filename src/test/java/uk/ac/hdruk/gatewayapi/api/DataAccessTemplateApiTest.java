@@ -14,15 +14,15 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDarTemplateRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDarTemplate200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDarTemplates200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDarTemplate200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDarTemplateRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDarTemplateRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -50,7 +50,7 @@ public class DataAccessTemplateApiTest {
     @Test
     public void createDarTemplateTest() throws ApiException {
         CreateDarTemplateRequest createDarTemplateRequest = null;
-        CreateCategories200Response response = api.createDarTemplate(createDarTemplateRequest);
+        CreateDarIntegration201Response response = api.createDarTemplate(createDarTemplateRequest);
         // TODO: test validations
     }
 
@@ -64,21 +64,7 @@ public class DataAccessTemplateApiTest {
     @Test
     public void deleteDarTemplateTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDarTemplate(id);
-        // TODO: test validations
-    }
-
-    /**
-     * DataAccessTemplate@downloadFile
-     *
-     * Download the template for a file based DAR application
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void downloadDarTemplateFileTest() throws ApiException {
-        Integer id = null;
-        api.downloadDarTemplateFile(id);
+        DeleteApplications200Response response = api.deleteDarTemplate(id);
         // TODO: test validations
     }
 

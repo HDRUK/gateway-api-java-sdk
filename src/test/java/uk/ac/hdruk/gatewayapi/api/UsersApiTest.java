@@ -14,19 +14,15 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrations400Response;
 import uk.ac.hdruk.gatewayapi.model.CreateUsersRequest;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllUsers200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchUsers200Response;
-import uk.ac.hdruk.gatewayapi.model.ResendSecondaryVerificationEmail200Response;
-import uk.ac.hdruk.gatewayapi.model.ResendSecondaryVerificationEmail404Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateUsersRequest;
+import uk.ac.hdruk.gatewayapi.model.EditUsers200Response;
+import uk.ac.hdruk.gatewayapi.model.EditUsersRequest;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail200Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail400Response;
 import uk.ac.hdruk.gatewayapi.model.VerifySecondaryEmail404Response;
@@ -56,7 +52,7 @@ public class UsersApiTest {
     @Test
     public void createUsersTest() throws ApiException {
         CreateUsersRequest createUsersRequest = null;
-        CreateCategories200Response response = api.createUsers(createUsersRequest);
+        CreateDarIntegration201Response response = api.createUsers(createUsersRequest);
         // TODO: test validations
     }
 
@@ -84,65 +80,8 @@ public class UsersApiTest {
     @Test
     public void editUsersTest() throws ApiException {
         Integer id = null;
-        UpdateUsersRequest updateUsersRequest = null;
-        FetchUsers200Response response = api.editUsers(id, updateUsersRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * UserController@index
-     *
-     * Get All Users
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllUsersTest() throws ApiException {
-        String filterNames = null;
-        FetchAllUsers200Response response = api.fetchAllUsers(filterNames);
-        // TODO: test validations
-    }
-
-    /**
-     * UserController@show
-     *
-     * Get users by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUsersTest() throws ApiException {
-        Integer id = null;
-        FetchUsers200Response response = api.fetchUsers(id);
-        // TODO: test validations
-    }
-
-    /**
-     * Resend secondary email verification
-     *
-     * Resends the verification email for the secondary email address. Old tokens are expired.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void resendSecondaryVerificationEmailTest() throws ApiException {
-        Integer id = null;
-        ResendSecondaryVerificationEmail200Response response = api.resendSecondaryVerificationEmail(id);
-        // TODO: test validations
-    }
-
-    /**
-     * UserController@update
-     *
-     * Update user
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateUsersTest() throws ApiException {
-        Integer id = null;
-        UpdateUsersRequest updateUsersRequest = null;
-        FetchUsers200Response response = api.updateUsers(id, updateUsersRequest);
+        EditUsersRequest editUsersRequest = null;
+        EditUsers200Response response = api.editUsers(id, editUsersRequest);
         // TODO: test validations
     }
 

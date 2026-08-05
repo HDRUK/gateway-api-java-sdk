@@ -14,15 +14,9 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateNotificationsRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.EditNotificationsRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllNotifications200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchNotifications200Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateNotifications200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -40,20 +34,6 @@ public class NotificationApiTest {
     private final NotificationApi api = new NotificationApi();
 
     /**
-     * Notification@store
-     *
-     * Creates a new notification
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createNotificationsTest() throws ApiException {
-        CreateNotificationsRequest createNotificationsRequest = null;
-        CreateCategories200Response response = api.createNotifications(createNotificationsRequest);
-        // TODO: test validations
-    }
-
-    /**
      * Notification@destroy
      *
      * Delete a notification
@@ -63,64 +43,7 @@ public class NotificationApiTest {
     @Test
     public void deleteNotificationsTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteNotifications(id);
-        // TODO: test validations
-    }
-
-    /**
-     * Notification@edit
-     *
-     * Edit a notification
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editNotificationsTest() throws ApiException {
-        Integer id = null;
-        EditNotificationsRequest editNotificationsRequest = null;
-        UpdateNotifications200Response response = api.editNotifications(id, editNotificationsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Notification@index
-     *
-     * Returns a list of notifications enabled on the system
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllNotificationsTest() throws ApiException {
-        FetchAllNotifications200Response response = api.fetchAllNotifications();
-        // TODO: test validations
-    }
-
-    /**
-     * Notification@show
-     *
-     * Return a single notification
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchNotificationsTest() throws ApiException {
-        Integer id = null;
-        FetchNotifications200Response response = api.fetchNotifications(id);
-        // TODO: test validations
-    }
-
-    /**
-     * Notification@update
-     *
-     * Update a notification
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateNotificationsTest() throws ApiException {
-        Integer id = null;
-        CreateNotificationsRequest createNotificationsRequest = null;
-        UpdateNotifications200Response response = api.updateNotifications(id, createNotificationsRequest);
+        DeleteApplications200Response response = api.deleteNotifications(id);
         // TODO: test validations
     }
 

@@ -14,14 +14,12 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateTypeCategoriesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.EditCategoriesRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAllTypeCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchTypeCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
+import uk.ac.hdruk.gatewayapi.model.EditProgrammingLanguagesRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateTypeCategories200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateTypeCategoriesRequest;
 import org.junit.jupiter.api.Disabled;
@@ -50,7 +48,7 @@ public class TypeCategoryApiTest {
     @Test
     public void createTypeCategoriesTest() throws ApiException {
         CreateTypeCategoriesRequest createTypeCategoriesRequest = null;
-        CreateCategories200Response response = api.createTypeCategories(createTypeCategoriesRequest);
+        CreateDarIntegration201Response response = api.createTypeCategories(createTypeCategoriesRequest);
         // TODO: test validations
     }
 
@@ -64,7 +62,7 @@ public class TypeCategoryApiTest {
     @Test
     public void deleteTypeCategoriesTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteTypeCategories(id);
+        DeleteApplications200Response response = api.deleteTypeCategories(id);
         // TODO: test validations
     }
 
@@ -78,35 +76,8 @@ public class TypeCategoryApiTest {
     @Test
     public void editTypeCategoriesTest() throws ApiException {
         Integer id = null;
-        EditCategoriesRequest editCategoriesRequest = null;
-        UpdateTypeCategories200Response response = api.editTypeCategories(id, editCategoriesRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * TypeCategory@index
-     *
-     * Returns a list of type categories enabled on the system
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllTypeCategoriesTest() throws ApiException {
-        FetchAllTypeCategories200Response response = api.fetchAllTypeCategories();
-        // TODO: test validations
-    }
-
-    /**
-     * TypeCategory@show
-     *
-     * Return a single system type category
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchTypeCategoriesTest() throws ApiException {
-        Integer id = null;
-        FetchTypeCategories200Response response = api.fetchTypeCategories(id);
+        EditProgrammingLanguagesRequest editProgrammingLanguagesRequest = null;
+        UpdateTypeCategories200Response response = api.editTypeCategories(id, editProgrammingLanguagesRequest);
         // TODO: test validations
     }
 

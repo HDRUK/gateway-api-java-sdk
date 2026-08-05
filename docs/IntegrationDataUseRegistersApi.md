@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createDurIntegrations"></a>
 # **createDurIntegrations**
-> CreateCategories200Response createDurIntegrations(createDurIntegrationsRequest)
+> CreateDarIntegration201Response createDurIntegrations(createDurIntegrationsRequest)
 
 IntegrationDurController@store
 
@@ -42,7 +42,7 @@ public class Example {
     IntegrationDataUseRegistersApi apiInstance = new IntegrationDataUseRegistersApi(defaultClient);
     CreateDurIntegrationsRequest createDurIntegrationsRequest = new CreateDurIntegrationsRequest(); // CreateDurIntegrationsRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.createDurIntegrations(createDurIntegrationsRequest);
+      CreateDarIntegration201Response result = apiInstance.createDurIntegrations(createDurIntegrationsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationDataUseRegistersApi#createDurIntegrations");
@@ -63,7 +63,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ public class Example {
 
 <a id="deleteDurIntegrations"></a>
 # **deleteDurIntegrations**
-> DeleteAliases200Response deleteDurIntegrations(id)
+> DeleteApplications200Response deleteDurIntegrations(id)
 
 Delete a dur
 
@@ -111,7 +111,7 @@ public class Example {
     IntegrationDataUseRegistersApi apiInstance = new IntegrationDataUseRegistersApi(defaultClient);
     Integer id = 1; // Integer | dur id
     try {
-      DeleteAliases200Response result = apiInstance.deleteDurIntegrations(id);
+      DeleteApplications200Response result = apiInstance.deleteDurIntegrations(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationDataUseRegistersApi#deleteDurIntegrations");
@@ -132,7 +132,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

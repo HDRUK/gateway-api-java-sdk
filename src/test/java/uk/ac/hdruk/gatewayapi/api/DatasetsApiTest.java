@@ -15,8 +15,8 @@ package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsLinkageExtraction200Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsLinkageExtractionRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsRequest;
@@ -24,16 +24,16 @@ import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtraction200Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtraction500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsTermExtractionRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsV2Request;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
 import uk.ac.hdruk.gatewayapi.model.CreateTeamDatasetsV2Request;
 import uk.ac.hdruk.gatewayapi.model.DatasetsTestRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.ExportDatasetMetadata400Response;
 import uk.ac.hdruk.gatewayapi.model.ExportMockDataset404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDatasets200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDatasets200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDatasetsV2Request;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDatasetsRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -50,21 +50,6 @@ import java.util.Map;
 public class DatasetsApiTest {
 
     private final DatasetsApi api = new DatasetsApi();
-
-    /**
-     * TeamDatasetController@count
-     *
-     * Get team counts for distinct entries of a field in the model
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countTeamUniqueFieldsDatasetsV2Test() throws ApiException {
-        Integer teamId = null;
-        String field = null;
-        CountUniqueFieldsCollections200Response response = api.countTeamUniqueFieldsDatasetsV2(teamId, field);
-        // TODO: test validations
-    }
 
     /**
      * DatasetController@count
@@ -91,7 +76,7 @@ public class DatasetsApiTest {
     @Test
     public void createDatasetsTest() throws ApiException {
         CreateDatasetsRequest createDatasetsRequest = null;
-        CreateCategories200Response response = api.createDatasets(createDatasetsRequest);
+        CreateDarIntegration201Response response = api.createDatasets(createDatasetsRequest);
         // TODO: test validations
     }
 
@@ -107,7 +92,7 @@ public class DatasetsApiTest {
         DatasetsTestRequest datasetsTestRequest = null;
         String inputSchema = null;
         String inputVersion = null;
-        CreateCategories200Response response = api.createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion);
+        CreateDarIntegration201Response response = api.createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion);
         // TODO: test validations
     }
 
@@ -152,7 +137,7 @@ public class DatasetsApiTest {
     @Test
     public void createDatasetsV2Test() throws ApiException {
         CreateDatasetsV2Request createDatasetsV2Request = null;
-        CreateCategories200Response response = api.createDatasetsV2(createDatasetsV2Request);
+        CreateDarIntegration201Response response = api.createDatasetsV2(createDatasetsV2Request);
         // TODO: test validations
     }
 
@@ -167,7 +152,7 @@ public class DatasetsApiTest {
     public void createTeamDatasetsV2Test() throws ApiException {
         Integer teamId = null;
         CreateTeamDatasetsV2Request createTeamDatasetsV2Request = null;
-        CreateCategories200Response response = api.createTeamDatasetsV2(teamId, createTeamDatasetsV2Request);
+        CreateDarIntegration201Response response = api.createTeamDatasetsV2(teamId, createTeamDatasetsV2Request);
         // TODO: test validations
     }
 
@@ -181,7 +166,7 @@ public class DatasetsApiTest {
     @Test
     public void deleteDatasetsTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDatasets(id);
+        DeleteApplications200Response response = api.deleteDatasets(id);
         // TODO: test validations
     }
 
@@ -195,7 +180,7 @@ public class DatasetsApiTest {
     @Test
     public void deleteDatasetsIntegrationsTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDatasetsIntegrations(id);
+        DeleteApplications200Response response = api.deleteDatasetsIntegrations(id);
         // TODO: test validations
     }
 
@@ -209,7 +194,7 @@ public class DatasetsApiTest {
     @Test
     public void deleteDatasetsV2Test() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDatasetsV2(id);
+        DeleteApplications200Response response = api.deleteDatasetsV2(id);
         // TODO: test validations
     }
 
@@ -224,7 +209,7 @@ public class DatasetsApiTest {
     public void deleteTeamDatasetsV2Test() throws ApiException {
         Integer teamId = null;
         Integer id = null;
-        DeleteAliases200Response response = api.deleteTeamDatasetsV2(teamId, id);
+        DeleteApplications200Response response = api.deleteTeamDatasetsV2(teamId, id);
         // TODO: test validations
     }
 
@@ -405,41 +390,6 @@ public class DatasetsApiTest {
     }
 
     /**
-     * TeamDatasetController@indexStatus
-     *
-     * Returns a list of a team&#39;s datasets with the given status
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchTeamDatasetsStatusTest() throws ApiException {
-        Integer teamId = null;
-        String status = null;
-        String sort = null;
-        String withMetadata = null;
-        FetchAllDatasets200Response response = api.fetchTeamDatasetsStatus(teamId, status, sort, withMetadata);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamDatasetController@show
-     *
-     * Get dataset by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchTeamDatasetsV2Test() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        String export = null;
-        String schemaModel = null;
-        String schemaVersion = null;
-        FetchDatasets200Response response = api.fetchTeamDatasetsV2(teamId, id, export, schemaModel, schemaVersion);
-        // TODO: test validations
-    }
-
-    /**
      * DatasetController@edit
      *
      * Patch dataset by id
@@ -450,7 +400,7 @@ public class DatasetsApiTest {
     public void patchDatasetsTest() throws ApiException {
         Integer id = null;
         String unarchive = null;
-        DeleteAliases200Response response = api.patchDatasets(id, unarchive);
+        DeleteApplications200Response response = api.patchDatasets(id, unarchive);
         // TODO: test validations
     }
 
@@ -465,7 +415,7 @@ public class DatasetsApiTest {
     public void patchDatasetsIntegrationsTest() throws ApiException {
         Integer id = null;
         String unarchive = null;
-        DeleteAliases200Response response = api.patchDatasetsIntegrations(id, unarchive);
+        DeleteApplications200Response response = api.patchDatasetsIntegrations(id, unarchive);
         // TODO: test validations
     }
 
@@ -480,7 +430,7 @@ public class DatasetsApiTest {
     public void patchDatasetsV2Test() throws ApiException {
         Integer id = null;
         PatchDatasetsV2Request patchDatasetsV2Request = null;
-        DeleteAliases200Response response = api.patchDatasetsV2(id, patchDatasetsV2Request);
+        DeleteApplications200Response response = api.patchDatasetsV2(id, patchDatasetsV2Request);
         // TODO: test validations
     }
 
@@ -496,7 +446,7 @@ public class DatasetsApiTest {
         Integer teamId = null;
         Integer id = null;
         PatchDatasetsV2Request patchDatasetsV2Request = null;
-        DeleteAliases200Response response = api.patchTeamDatasetsV2(teamId, id, patchDatasetsV2Request);
+        DeleteApplications200Response response = api.patchTeamDatasetsV2(teamId, id, patchDatasetsV2Request);
         // TODO: test validations
     }
 
@@ -511,7 +461,7 @@ public class DatasetsApiTest {
     public void updateDatasetsTest() throws ApiException {
         Integer id = null;
         UpdateDatasetsRequest updateDatasetsRequest = null;
-        CreateCategories200Response response = api.updateDatasets(id, updateDatasetsRequest);
+        CreateDarIntegration201Response response = api.updateDatasets(id, updateDatasetsRequest);
         // TODO: test validations
     }
 
@@ -543,7 +493,7 @@ public class DatasetsApiTest {
     public void updateDatasetsV2Test() throws ApiException {
         Integer id = null;
         UpdateDatasetsRequest updateDatasetsRequest = null;
-        CreateCategories200Response response = api.updateDatasetsV2(id, updateDatasetsRequest);
+        CreateDarIntegration201Response response = api.updateDatasetsV2(id, updateDatasetsRequest);
         // TODO: test validations
     }
 
@@ -559,7 +509,7 @@ public class DatasetsApiTest {
         Integer teamId = null;
         Integer id = null;
         PatchDatasetsV2Request patchDatasetsV2Request = null;
-        CreateCategories200Response response = api.updateTeamDatasetsV2(teamId, id, patchDatasetsV2Request);
+        CreateDarIntegration201Response response = api.updateTeamDatasetsV2(teamId, id, patchDatasetsV2Request);
         // TODO: test validations
     }
 

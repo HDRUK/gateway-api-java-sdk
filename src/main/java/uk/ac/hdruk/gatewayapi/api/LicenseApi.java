@@ -27,13 +27,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateLicensesRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllLicenses200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchLicenses200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateLicenses200Response;
 
 import java.lang.reflect.Type;
@@ -153,7 +153,7 @@ public class LicenseApi {
      * License@store
      * Creates a new license
      * @param createLicensesRequest License definition (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -163,8 +163,8 @@ public class LicenseApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createLicenses(@javax.annotation.Nonnull CreateLicensesRequest createLicensesRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createLicensesWithHttpInfo(createLicensesRequest);
+    public CreateDarIntegration201Response createLicenses(@javax.annotation.Nonnull CreateLicensesRequest createLicensesRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createLicensesWithHttpInfo(createLicensesRequest);
         return localVarResp.getData();
     }
 
@@ -172,7 +172,7 @@ public class LicenseApi {
      * License@store
      * Creates a new license
      * @param createLicensesRequest License definition (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -182,9 +182,9 @@ public class LicenseApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createLicensesWithHttpInfo(@javax.annotation.Nonnull CreateLicensesRequest createLicensesRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createLicensesWithHttpInfo(@javax.annotation.Nonnull CreateLicensesRequest createLicensesRequest) throws ApiException {
         okhttp3.Call localVarCall = createLicensesValidateBeforeCall(createLicensesRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -203,10 +203,10 @@ public class LicenseApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createLicensesAsync(@javax.annotation.Nonnull CreateLicensesRequest createLicensesRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createLicensesAsync(@javax.annotation.Nonnull CreateLicensesRequest createLicensesRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createLicensesValidateBeforeCall(createLicensesRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -285,7 +285,7 @@ public class LicenseApi {
      * License@destroy
      * Delete a License
      * @param id License id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -296,8 +296,8 @@ public class LicenseApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteLicenses(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteLicensesWithHttpInfo(id);
+    public DeleteApplications200Response deleteLicenses(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteLicensesWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -305,7 +305,7 @@ public class LicenseApi {
      * License@destroy
      * Delete a License
      * @param id License id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -316,9 +316,9 @@ public class LicenseApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteLicensesWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteLicensesWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteLicensesValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -338,10 +338,10 @@ public class LicenseApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteLicensesAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteLicensesAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteLicensesValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

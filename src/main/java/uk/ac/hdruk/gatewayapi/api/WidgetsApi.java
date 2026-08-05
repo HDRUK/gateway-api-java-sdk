@@ -27,12 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateWidget201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateWidget400Response;
 import uk.ac.hdruk.gatewayapi.model.CreateWidgetRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllWidgets200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchWidget200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchWidgetDataSources200Response;
@@ -40,6 +39,7 @@ import uk.ac.hdruk.gatewayapi.model.FetchWidgetDataSources400Response;
 import uk.ac.hdruk.gatewayapi.model.RetrieveWidgetData200Response;
 import uk.ac.hdruk.gatewayapi.model.RetrieveWidgetData403Response;
 import uk.ac.hdruk.gatewayapi.model.TrackWidgetEventRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateWidget200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateWidgetRequest;
 import uk.ac.hdruk.gatewayapi.model.WidgetAnalytics200Response;
@@ -315,7 +315,7 @@ public class WidgetsApi {
      * Soft delete a widget belonging to a specific team
      * @param teamId Team ID (required)
      * @param id Widget ID (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -326,8 +326,8 @@ public class WidgetsApi {
         <tr><td> 500 </td><td> Server error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteWidget(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteWidgetWithHttpInfo(teamId, id);
+    public DeleteApplications200Response deleteWidget(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteWidgetWithHttpInfo(teamId, id);
         return localVarResp.getData();
     }
 
@@ -336,7 +336,7 @@ public class WidgetsApi {
      * Soft delete a widget belonging to a specific team
      * @param teamId Team ID (required)
      * @param id Widget ID (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -347,9 +347,9 @@ public class WidgetsApi {
         <tr><td> 500 </td><td> Server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteWidgetWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteWidgetWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteWidgetValidateBeforeCall(teamId, id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -370,10 +370,10 @@ public class WidgetsApi {
         <tr><td> 500 </td><td> Server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteWidgetAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteWidgetAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteWidgetValidateBeforeCall(teamId, id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -14,18 +14,18 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateQuestionBankQuestionRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditQuestionBankQuestionRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchCustomQuestionBankQuestions200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchQuestionBankQuestion200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchQuestionBankQuestionVersion200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchQuestionBankQuestions200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchStandardQuestionBankQuestions200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchTeamQuestionBankQuestionsBySection200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateQuestionBankQuestion200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateQuestionBankQuestionRequest;
 import uk.ac.hdruk.gatewayapi.model.UpdateQuestionBankQuestionStatus200Response;
@@ -55,7 +55,7 @@ public class QuestionBankApiTest {
     @Test
     public void createQuestionBankQuestionTest() throws ApiException {
         CreateQuestionBankQuestionRequest createQuestionBankQuestionRequest = null;
-        CreateCategories200Response response = api.createQuestionBankQuestion(createQuestionBankQuestionRequest);
+        CreateDarIntegration201Response response = api.createQuestionBankQuestion(createQuestionBankQuestionRequest);
         // TODO: test validations
     }
 
@@ -69,7 +69,7 @@ public class QuestionBankApiTest {
     @Test
     public void deleteQuestionBankQuestionTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteQuestionBankQuestion(id);
+        DeleteApplications200Response response = api.deleteQuestionBankQuestion(id);
         // TODO: test validations
     }
 
@@ -84,7 +84,7 @@ public class QuestionBankApiTest {
     public void downloadQuestionBankQuestionFileTest() throws ApiException {
         Integer id = null;
         Integer fileId = null;
-        DeleteAliases200Response response = api.downloadQuestionBankQuestionFile(id, fileId);
+        DeleteApplications200Response response = api.downloadQuestionBankQuestionFile(id, fileId);
         // TODO: test validations
     }
 

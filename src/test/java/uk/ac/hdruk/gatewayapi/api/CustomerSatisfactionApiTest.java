@@ -14,10 +14,10 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateCsat422Response;
 import uk.ac.hdruk.gatewayapi.model.CreateCsatRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditCsat200Response;
 import uk.ac.hdruk.gatewayapi.model.EditCsatRequest;
 import org.junit.jupiter.api.Disabled;
@@ -46,7 +46,7 @@ public class CustomerSatisfactionApiTest {
     @Test
     public void createCsatTest() throws ApiException {
         CreateCsatRequest createCsatRequest = null;
-        DeleteAliases200Response response = api.createCsat(createCsatRequest);
+        DeleteApplications200Response response = api.createCsat(createCsatRequest);
         // TODO: test validations
     }
 

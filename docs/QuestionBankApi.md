@@ -21,7 +21,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createQuestionBankQuestion"></a>
 # **createQuestionBankQuestion**
-> CreateCategories200Response createQuestionBankQuestion(createQuestionBankQuestionRequest)
+> CreateDarIntegration201Response createQuestionBankQuestion(createQuestionBankQuestionRequest)
 
 QuestionBank@store
 
@@ -49,7 +49,7 @@ public class Example {
     QuestionBankApi apiInstance = new QuestionBankApi(defaultClient);
     CreateQuestionBankQuestionRequest createQuestionBankQuestionRequest = new CreateQuestionBankQuestionRequest(); // CreateQuestionBankQuestionRequest | QuestionBank definition
     try {
-      CreateCategories200Response result = apiInstance.createQuestionBankQuestion(createQuestionBankQuestionRequest);
+      CreateDarIntegration201Response result = apiInstance.createQuestionBankQuestion(createQuestionBankQuestionRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuestionBankApi#createQuestionBankQuestion");
@@ -70,7 +70,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ public class Example {
 
 <a id="deleteQuestionBankQuestion"></a>
 # **deleteQuestionBankQuestion**
-> DeleteAliases200Response deleteQuestionBankQuestion(id)
+> DeleteApplications200Response deleteQuestionBankQuestion(id)
 
 QuestionBank@destroy
 
@@ -117,7 +117,7 @@ public class Example {
     QuestionBankApi apiInstance = new QuestionBankApi(defaultClient);
     Integer id = 1; // Integer | question bank question id
     try {
-      DeleteAliases200Response result = apiInstance.deleteQuestionBankQuestion(id);
+      DeleteApplications200Response result = apiInstance.deleteQuestionBankQuestion(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuestionBankApi#deleteQuestionBankQuestion");
@@ -138,7 +138,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ public class Example {
 
 <a id="downloadQuestionBankQuestionFile"></a>
 # **downloadQuestionBankQuestionFile**
-> DeleteAliases200Response downloadQuestionBankQuestionFile(id, fileId)
+> DeleteApplications200Response downloadQuestionBankQuestionFile(id, fileId)
 
 QuestionBank@destroyFile
 
@@ -187,7 +187,7 @@ public class Example {
     Integer id = 1; // Integer | question bank question id
     Integer fileId = 1; // Integer | file uuid
     try {
-      DeleteAliases200Response result = apiInstance.downloadQuestionBankQuestionFile(id, fileId);
+      DeleteApplications200Response result = apiInstance.downloadQuestionBankQuestionFile(id, fileId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuestionBankApi#downloadQuestionBankQuestionFile");
@@ -209,7 +209,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

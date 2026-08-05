@@ -14,18 +14,18 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDataProviderCollRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditDataProviderCollRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetwork200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworkCustodiansSummary200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworkDatasetsSummary200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworkEntitiesSummary200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworkInfo200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDataCustodianNetworks200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDataCustodianNetwork200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDataProviderCollRequest;
 import org.junit.jupiter.api.Disabled;
@@ -54,7 +54,7 @@ public class DataCustodianNetworksApiTest {
     @Test
     public void createDataCustodianNetworkTest() throws ApiException {
         CreateDataProviderCollRequest createDataProviderCollRequest = null;
-        CreateCategories200Response response = api.createDataCustodianNetwork(createDataProviderCollRequest);
+        CreateDarIntegration201Response response = api.createDataCustodianNetwork(createDataProviderCollRequest);
         // TODO: test validations
     }
 
@@ -68,7 +68,7 @@ public class DataCustodianNetworksApiTest {
     @Test
     public void deleteDataCustodianNetworkTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteDataCustodianNetwork(id);
+        DeleteApplications200Response response = api.deleteDataCustodianNetwork(id);
         // TODO: test validations
     }
 

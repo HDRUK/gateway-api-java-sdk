@@ -28,19 +28,19 @@ import java.io.IOException;
 
 
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrations400Response;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrationsRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateToolsRequest;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.DeleteFederation404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllTools200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllTools500Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllToolsIntegrations200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchToolsIntegrations200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateQuestionBankQuestionStatus200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateToolsIntegrationsRequest;
 import uk.ac.hdruk.gatewayapi.model.UpdateToolsRequest;
@@ -88,143 +88,6 @@ public class ToolsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for countTeamUniqueFieldsToolsV2
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call countTeamUniqueFieldsToolsV2Call(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/teams/{teamId}/tools/count/{field}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "field" + "}", localVarApiClient.escapeString(field.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call countTeamUniqueFieldsToolsV2ValidateBeforeCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling countTeamUniqueFieldsToolsV2(Async)");
-        }
-
-        // verify the required parameter 'field' is set
-        if (field == null) {
-            throw new ApiException("Missing the required parameter 'field' when calling countTeamUniqueFieldsToolsV2(Async)");
-        }
-
-        return countTeamUniqueFieldsToolsV2Call(teamId, field, _callback);
-
-    }
-
-    /**
-     * TeamToolController@count
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @return CountUniqueFieldsCollections200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public CountUniqueFieldsCollections200Response countTeamUniqueFieldsToolsV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field) throws ApiException {
-        ApiResponse<CountUniqueFieldsCollections200Response> localVarResp = countTeamUniqueFieldsToolsV2WithHttpInfo(teamId, field);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamToolController@count
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @return ApiResponse&lt;CountUniqueFieldsCollections200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CountUniqueFieldsCollections200Response> countTeamUniqueFieldsToolsV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field) throws ApiException {
-        okhttp3.Call localVarCall = countTeamUniqueFieldsToolsV2ValidateBeforeCall(teamId, field, null);
-        Type localVarReturnType = new TypeToken<CountUniqueFieldsCollections200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamToolController@count (asynchronously)
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call countTeamUniqueFieldsToolsV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback<CountUniqueFieldsCollections200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = countTeamUniqueFieldsToolsV2ValidateBeforeCall(teamId, field, _callback);
-        Type localVarReturnType = new TypeToken<CountUniqueFieldsCollections200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for countUniqueFieldsTools
      * @param field name of the field to perform a count on (required)
@@ -375,143 +238,6 @@ public class ToolsApi {
         return localVarCall;
     }
     /**
-     * Build call for countUserUniqueFieldsToolsV2
-     * @param userId user id (required)
-     * @param field name of the field to perform a count on (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call countUserUniqueFieldsToolsV2Call(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String field, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/users/{userId}/tools/count/{field}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "field" + "}", localVarApiClient.escapeString(field.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call countUserUniqueFieldsToolsV2ValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String field, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling countUserUniqueFieldsToolsV2(Async)");
-        }
-
-        // verify the required parameter 'field' is set
-        if (field == null) {
-            throw new ApiException("Missing the required parameter 'field' when calling countUserUniqueFieldsToolsV2(Async)");
-        }
-
-        return countUserUniqueFieldsToolsV2Call(userId, field, _callback);
-
-    }
-
-    /**
-     * UserToolController@count
-     * Get user counts for distinct entries of a field in the model
-     * @param userId user id (required)
-     * @param field name of the field to perform a count on (required)
-     * @return CountUniqueFieldsCollections200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public CountUniqueFieldsCollections200Response countUserUniqueFieldsToolsV2(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String field) throws ApiException {
-        ApiResponse<CountUniqueFieldsCollections200Response> localVarResp = countUserUniqueFieldsToolsV2WithHttpInfo(userId, field);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserToolController@count
-     * Get user counts for distinct entries of a field in the model
-     * @param userId user id (required)
-     * @param field name of the field to perform a count on (required)
-     * @return ApiResponse&lt;CountUniqueFieldsCollections200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CountUniqueFieldsCollections200Response> countUserUniqueFieldsToolsV2WithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String field) throws ApiException {
-        okhttp3.Call localVarCall = countUserUniqueFieldsToolsV2ValidateBeforeCall(userId, field, null);
-        Type localVarReturnType = new TypeToken<CountUniqueFieldsCollections200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserToolController@count (asynchronously)
-     * Get user counts for distinct entries of a field in the model
-     * @param userId user id (required)
-     * @param field name of the field to perform a count on (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call countUserUniqueFieldsToolsV2Async(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull String field, final ApiCallback<CountUniqueFieldsCollections200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = countUserUniqueFieldsToolsV2ValidateBeforeCall(userId, field, _callback);
-        Type localVarReturnType = new TypeToken<CountUniqueFieldsCollections200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for createTools
      * @param createToolsRequest Pass user credentials (required)
      * @param _callback Callback for upload/download progress
@@ -590,7 +316,7 @@ public class ToolsApi {
      * ToolController@store
      * Create a new tool
      * @param createToolsRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -604,8 +330,8 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public CreateCategories200Response createTools(@javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createToolsWithHttpInfo(createToolsRequest);
+    public CreateDarIntegration201Response createTools(@javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createToolsWithHttpInfo(createToolsRequest);
         return localVarResp.getData();
     }
 
@@ -613,7 +339,7 @@ public class ToolsApi {
      * ToolController@store
      * Create a new tool
      * @param createToolsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -627,9 +353,9 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<CreateCategories200Response> createToolsWithHttpInfo(@javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createToolsWithHttpInfo(@javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
         okhttp3.Call localVarCall = createToolsValidateBeforeCall(createToolsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -652,10 +378,10 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call createToolsAsync(@javax.annotation.Nonnull CreateToolsRequest createToolsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createToolsAsync(@javax.annotation.Nonnull CreateToolsRequest createToolsRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createToolsValidateBeforeCall(createToolsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -743,7 +469,7 @@ public class ToolsApi {
      * Create a new tool by team v2
      * @param teamId team id (required)
      * @param createToolsRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -755,8 +481,8 @@ public class ToolsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createToolsByTeamV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createToolsByTeamV2WithHttpInfo(teamId, createToolsRequest);
+    public CreateDarIntegration201Response createToolsByTeamV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createToolsByTeamV2WithHttpInfo(teamId, createToolsRequest);
         return localVarResp.getData();
     }
 
@@ -765,7 +491,7 @@ public class ToolsApi {
      * Create a new tool by team v2
      * @param teamId team id (required)
      * @param createToolsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -777,9 +503,9 @@ public class ToolsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createToolsByTeamV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createToolsByTeamV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
         okhttp3.Call localVarCall = createToolsByTeamV2ValidateBeforeCall(teamId, createToolsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -801,159 +527,10 @@ public class ToolsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createToolsByTeamV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createToolsByTeamV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createToolsByTeamV2ValidateBeforeCall(teamId, createToolsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createToolsByUserV2
-     * @param userId user id (required)
-     * @param createToolsRequest Pass user credentials (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createToolsByUserV2Call(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = createToolsRequest;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/users/{userId}/tools"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createToolsByUserV2ValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling createToolsByUserV2(Async)");
-        }
-
-        // verify the required parameter 'createToolsRequest' is set
-        if (createToolsRequest == null) {
-            throw new ApiException("Missing the required parameter 'createToolsRequest' when calling createToolsByUserV2(Async)");
-        }
-
-        return createToolsByUserV2Call(userId, createToolsRequest, _callback);
-
-    }
-
-    /**
-     * UserToolController@store
-     * Create a new tool by user v2
-     * @param userId user id (required)
-     * @param createToolsRequest Pass user credentials (required)
-     * @return CreateCategories200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateCategories200Response createToolsByUserV2(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createToolsByUserV2WithHttpInfo(userId, createToolsRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserToolController@store
-     * Create a new tool by user v2
-     * @param userId user id (required)
-     * @param createToolsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateCategories200Response> createToolsByUserV2WithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest) throws ApiException {
-        okhttp3.Call localVarCall = createToolsByUserV2ValidateBeforeCall(userId, createToolsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserToolController@store (asynchronously)
-     * Create a new tool by user v2
-     * @param userId user id (required)
-     * @param createToolsRequest Pass user credentials (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createToolsByUserV2Async(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull CreateToolsRequest createToolsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createToolsByUserV2ValidateBeforeCall(userId, createToolsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1036,7 +613,7 @@ public class ToolsApi {
      * IntegrationToolController@store
      * Create a new tool
      * @param createToolsIntegrationsRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1050,8 +627,8 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public CreateCategories200Response createToolsIntegrations(@javax.annotation.Nonnull CreateToolsIntegrationsRequest createToolsIntegrationsRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createToolsIntegrationsWithHttpInfo(createToolsIntegrationsRequest);
+    public CreateDarIntegration201Response createToolsIntegrations(@javax.annotation.Nonnull CreateToolsIntegrationsRequest createToolsIntegrationsRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createToolsIntegrationsWithHttpInfo(createToolsIntegrationsRequest);
         return localVarResp.getData();
     }
 
@@ -1059,7 +636,7 @@ public class ToolsApi {
      * IntegrationToolController@store
      * Create a new tool
      * @param createToolsIntegrationsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1073,9 +650,9 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<CreateCategories200Response> createToolsIntegrationsWithHttpInfo(@javax.annotation.Nonnull CreateToolsIntegrationsRequest createToolsIntegrationsRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createToolsIntegrationsWithHttpInfo(@javax.annotation.Nonnull CreateToolsIntegrationsRequest createToolsIntegrationsRequest) throws ApiException {
         okhttp3.Call localVarCall = createToolsIntegrationsValidateBeforeCall(createToolsIntegrationsRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1098,10 +675,10 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call createToolsIntegrationsAsync(@javax.annotation.Nonnull CreateToolsIntegrationsRequest createToolsIntegrationsRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createToolsIntegrationsAsync(@javax.annotation.Nonnull CreateToolsIntegrationsRequest createToolsIntegrationsRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createToolsIntegrationsValidateBeforeCall(createToolsIntegrationsRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1398,155 +975,6 @@ public class ToolsApi {
     public okhttp3.Call deleteToolsByTeamidV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteFederation200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteToolsByTeamidV2ValidateBeforeCall(teamId, id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteFederation200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteToolsByUserV2
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Error response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteToolsByUserV2Call(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/users/{userId}/tools/{id}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteToolsByUserV2ValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling deleteToolsByUserV2(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling deleteToolsByUserV2(Async)");
-        }
-
-        return deleteToolsByUserV2Call(userId, id, _callback);
-
-    }
-
-    /**
-     * UserToolController@destroy
-     * Delete tool by id and by user
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @return DeleteFederation200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Error response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public DeleteFederation200Response deleteToolsByUserV2(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteFederation200Response> localVarResp = deleteToolsByUserV2WithHttpInfo(userId, id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserToolController@destroy
-     * Delete tool by id and by user
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @return ApiResponse&lt;DeleteFederation200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Error response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<DeleteFederation200Response> deleteToolsByUserV2WithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = deleteToolsByUserV2ValidateBeforeCall(userId, id, null);
-        Type localVarReturnType = new TypeToken<DeleteFederation200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserToolController@destroy (asynchronously)
-     * Delete tool by id and by user
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Error response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteToolsByUserV2Async(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteFederation200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteToolsByUserV2ValidateBeforeCall(userId, id, _callback);
         Type localVarReturnType = new TypeToken<DeleteFederation200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2025,165 +1453,6 @@ public class ToolsApi {
         return localVarCall;
     }
     /**
-     * Build call for editToolsByUserV2
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param updateToolsRequest Pass user credentials (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call editToolsByUserV2Call(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = updateToolsRequest;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/users/{userId}/tools/{id}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call editToolsByUserV2ValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling editToolsByUserV2(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling editToolsByUserV2(Async)");
-        }
-
-        // verify the required parameter 'updateToolsRequest' is set
-        if (updateToolsRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateToolsRequest' when calling editToolsByUserV2(Async)");
-        }
-
-        return editToolsByUserV2Call(userId, id, updateToolsRequest, _callback);
-
-    }
-
-    /**
-     * UserToolController@edit
-     * Edit tool by id and by user
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param updateToolsRequest Pass user credentials (required)
-     * @return FetchToolsIntegrations200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchToolsIntegrations200Response editToolsByUserV2(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest) throws ApiException {
-        ApiResponse<FetchToolsIntegrations200Response> localVarResp = editToolsByUserV2WithHttpInfo(userId, id, updateToolsRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserToolController@edit
-     * Edit tool by id and by user
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param updateToolsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;FetchToolsIntegrations200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchToolsIntegrations200Response> editToolsByUserV2WithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest) throws ApiException {
-        okhttp3.Call localVarCall = editToolsByUserV2ValidateBeforeCall(userId, id, updateToolsRequest, null);
-        Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserToolController@edit (asynchronously)
-     * Edit tool by id and by user
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param updateToolsRequest Pass user credentials (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call editToolsByUserV2Async(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest, final ApiCallback<FetchToolsIntegrations200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = editToolsByUserV2ValidateBeforeCall(userId, id, updateToolsRequest, _callback);
-        Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for editToolsIntegrations
      * @param id tool id (required)
      * @param updateToolsIntegrationsRequest Pass user credentials (required)
@@ -2338,288 +1607,6 @@ public class ToolsApi {
 
         okhttp3.Call localVarCall = editToolsIntegrationsValidateBeforeCall(id, updateToolsIntegrationsRequest, _callback);
         Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchAllToolByTeamAndStatusV2
-     * @param teamId ID of the team (required)
-     * @param status Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllToolByTeamAndStatusV2Call(@javax.annotation.Nonnull Long teamId, @javax.annotation.Nonnull String status, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/teams/{teamId}/tools/status/{status}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "status" + "}", localVarApiClient.escapeString(status.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchAllToolByTeamAndStatusV2ValidateBeforeCall(@javax.annotation.Nonnull Long teamId, @javax.annotation.Nonnull String status, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling fetchAllToolByTeamAndStatusV2(Async)");
-        }
-
-        // verify the required parameter 'status' is set
-        if (status == null) {
-            throw new ApiException("Missing the required parameter 'status' when calling fetchAllToolByTeamAndStatusV2(Async)");
-        }
-
-        return fetchAllToolByTeamAndStatusV2Call(teamId, status, _callback);
-
-    }
-
-    /**
-     * TeamToolController@indexStatus
-     * Returns a list of a teams tools with given status
-     * @param teamId ID of the team (required)
-     * @param status Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-     * @return FetchAllToolsIntegrations200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllToolsIntegrations200Response fetchAllToolByTeamAndStatusV2(@javax.annotation.Nonnull Long teamId, @javax.annotation.Nonnull String status) throws ApiException {
-        ApiResponse<FetchAllToolsIntegrations200Response> localVarResp = fetchAllToolByTeamAndStatusV2WithHttpInfo(teamId, status);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamToolController@indexStatus
-     * Returns a list of a teams tools with given status
-     * @param teamId ID of the team (required)
-     * @param status Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-     * @return ApiResponse&lt;FetchAllToolsIntegrations200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllToolsIntegrations200Response> fetchAllToolByTeamAndStatusV2WithHttpInfo(@javax.annotation.Nonnull Long teamId, @javax.annotation.Nonnull String status) throws ApiException {
-        okhttp3.Call localVarCall = fetchAllToolByTeamAndStatusV2ValidateBeforeCall(teamId, status, null);
-        Type localVarReturnType = new TypeToken<FetchAllToolsIntegrations200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamToolController@indexStatus (asynchronously)
-     * Returns a list of a teams tools with given status
-     * @param teamId ID of the team (required)
-     * @param status Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllToolByTeamAndStatusV2Async(@javax.annotation.Nonnull Long teamId, @javax.annotation.Nonnull String status, final ApiCallback<FetchAllToolsIntegrations200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchAllToolByTeamAndStatusV2ValidateBeforeCall(teamId, status, _callback);
-        Type localVarReturnType = new TypeToken<FetchAllToolsIntegrations200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchAllToolByUserAndStatusV2
-     * @param userId ID of the user (required)
-     * @param status Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllToolByUserAndStatusV2Call(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull String status, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/users/{userId}/tools/status/{status}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "status" + "}", localVarApiClient.escapeString(status.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchAllToolByUserAndStatusV2ValidateBeforeCall(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull String status, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling fetchAllToolByUserAndStatusV2(Async)");
-        }
-
-        // verify the required parameter 'status' is set
-        if (status == null) {
-            throw new ApiException("Missing the required parameter 'status' when calling fetchAllToolByUserAndStatusV2(Async)");
-        }
-
-        return fetchAllToolByUserAndStatusV2Call(userId, status, _callback);
-
-    }
-
-    /**
-     * UserToolController@indexStatus
-     * Returns a list of a user tools
-     * @param userId ID of the user (required)
-     * @param status Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-     * @return FetchAllToolsIntegrations200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllToolsIntegrations200Response fetchAllToolByUserAndStatusV2(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull String status) throws ApiException {
-        ApiResponse<FetchAllToolsIntegrations200Response> localVarResp = fetchAllToolByUserAndStatusV2WithHttpInfo(userId, status);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserToolController@indexStatus
-     * Returns a list of a user tools
-     * @param userId ID of the user (required)
-     * @param status Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-     * @return ApiResponse&lt;FetchAllToolsIntegrations200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllToolsIntegrations200Response> fetchAllToolByUserAndStatusV2WithHttpInfo(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull String status) throws ApiException {
-        okhttp3.Call localVarCall = fetchAllToolByUserAndStatusV2ValidateBeforeCall(userId, status, null);
-        Type localVarReturnType = new TypeToken<FetchAllToolsIntegrations200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserToolController@indexStatus (asynchronously)
-     * Returns a list of a user tools
-     * @param userId ID of the user (required)
-     * @param status Status of the tool (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllToolByUserAndStatusV2Async(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull String status, final ApiCallback<FetchAllToolsIntegrations200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchAllToolByUserAndStatusV2ValidateBeforeCall(userId, status, _callback);
-        Type localVarReturnType = new TypeToken<FetchAllToolsIntegrations200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3217,312 +2204,6 @@ public class ToolsApi {
         return localVarCall;
     }
     /**
-     * Build call for fetchToolsByTeamAndByIdV2
-     * @param teamId team id (required)
-     * @param id tool id (required)
-     * @param viewType Query flag to show full tool data or a trimmed version (defaults to full). (optional, default to full)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchToolsByTeamAndByIdV2Call(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/teams/{teamId}/tools/{id}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (viewType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("view_type", viewType));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchToolsByTeamAndByIdV2ValidateBeforeCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling fetchToolsByTeamAndByIdV2(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchToolsByTeamAndByIdV2(Async)");
-        }
-
-        return fetchToolsByTeamAndByIdV2Call(teamId, id, viewType, _callback);
-
-    }
-
-    /**
-     * TeamToolController@show
-     * Get tool by team id and by id
-     * @param teamId team id (required)
-     * @param id tool id (required)
-     * @param viewType Query flag to show full tool data or a trimmed version (defaults to full). (optional, default to full)
-     * @return FetchToolsIntegrations200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchToolsIntegrations200Response fetchToolsByTeamAndByIdV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType) throws ApiException {
-        ApiResponse<FetchToolsIntegrations200Response> localVarResp = fetchToolsByTeamAndByIdV2WithHttpInfo(teamId, id, viewType);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamToolController@show
-     * Get tool by team id and by id
-     * @param teamId team id (required)
-     * @param id tool id (required)
-     * @param viewType Query flag to show full tool data or a trimmed version (defaults to full). (optional, default to full)
-     * @return ApiResponse&lt;FetchToolsIntegrations200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchToolsIntegrations200Response> fetchToolsByTeamAndByIdV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType) throws ApiException {
-        okhttp3.Call localVarCall = fetchToolsByTeamAndByIdV2ValidateBeforeCall(teamId, id, viewType, null);
-        Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamToolController@show (asynchronously)
-     * Get tool by team id and by id
-     * @param teamId team id (required)
-     * @param id tool id (required)
-     * @param viewType Query flag to show full tool data or a trimmed version (defaults to full). (optional, default to full)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchToolsByTeamAndByIdV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType, final ApiCallback<FetchToolsIntegrations200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchToolsByTeamAndByIdV2ValidateBeforeCall(teamId, id, viewType, _callback);
-        Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchToolsByUserAndByIdV2
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param viewType Query flag to show full tool data or a trimmed version (defaults to full). (optional, default to full)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchToolsByUserAndByIdV2Call(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/users/{userId}/tools/{id}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (viewType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("view_type", viewType));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchToolsByUserAndByIdV2ValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling fetchToolsByUserAndByIdV2(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchToolsByUserAndByIdV2(Async)");
-        }
-
-        return fetchToolsByUserAndByIdV2Call(userId, id, viewType, _callback);
-
-    }
-
-    /**
-     * UserToolController@show
-     * Get tool by user id and by id
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param viewType Query flag to show full tool data or a trimmed version (defaults to full). (optional, default to full)
-     * @return FetchToolsIntegrations200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchToolsIntegrations200Response fetchToolsByUserAndByIdV2(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType) throws ApiException {
-        ApiResponse<FetchToolsIntegrations200Response> localVarResp = fetchToolsByUserAndByIdV2WithHttpInfo(userId, id, viewType);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserToolController@show
-     * Get tool by user id and by id
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param viewType Query flag to show full tool data or a trimmed version (defaults to full). (optional, default to full)
-     * @return ApiResponse&lt;FetchToolsIntegrations200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchToolsIntegrations200Response> fetchToolsByUserAndByIdV2WithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType) throws ApiException {
-        okhttp3.Call localVarCall = fetchToolsByUserAndByIdV2ValidateBeforeCall(userId, id, viewType, null);
-        Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserToolController@show (asynchronously)
-     * Get tool by user id and by id
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param viewType Query flag to show full tool data or a trimmed version (defaults to full). (optional, default to full)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not found response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchToolsByUserAndByIdV2Async(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nullable String viewType, final ApiCallback<FetchToolsIntegrations200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchToolsByUserAndByIdV2ValidateBeforeCall(userId, id, viewType, _callback);
-        Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for fetchToolsIntegrations
      * @param id tool id (required)
      * @param _callback Callback for upload/download progress
@@ -4114,165 +2795,6 @@ public class ToolsApi {
     public okhttp3.Call updateToolsByTeamidV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest, final ApiCallback<FetchToolsIntegrations200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateToolsByTeamidV2ValidateBeforeCall(teamId, id, updateToolsRequest, _callback);
-        Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateToolsByUserV2
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param updateToolsRequest Pass user credentials (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateToolsByUserV2Call(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = updateToolsRequest;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/users/{userId}/tools/{id}"
-            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateToolsByUserV2ValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling updateToolsByUserV2(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling updateToolsByUserV2(Async)");
-        }
-
-        // verify the required parameter 'updateToolsRequest' is set
-        if (updateToolsRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateToolsRequest' when calling updateToolsByUserV2(Async)");
-        }
-
-        return updateToolsByUserV2Call(userId, id, updateToolsRequest, _callback);
-
-    }
-
-    /**
-     * UserToolController@update
-     * Update tools by user id
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param updateToolsRequest Pass user credentials (required)
-     * @return FetchToolsIntegrations200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchToolsIntegrations200Response updateToolsByUserV2(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest) throws ApiException {
-        ApiResponse<FetchToolsIntegrations200Response> localVarResp = updateToolsByUserV2WithHttpInfo(userId, id, updateToolsRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * UserToolController@update
-     * Update tools by user id
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param updateToolsRequest Pass user credentials (required)
-     * @return ApiResponse&lt;FetchToolsIntegrations200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchToolsIntegrations200Response> updateToolsByUserV2WithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateToolsByUserV2ValidateBeforeCall(userId, id, updateToolsRequest, null);
-        Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * UserToolController@update (asynchronously)
-     * Update tools by user id
-     * @param userId user id (required)
-     * @param id tool id (required)
-     * @param updateToolsRequest Pass user credentials (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateToolsByUserV2Async(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateToolsRequest updateToolsRequest, final ApiCallback<FetchToolsIntegrations200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateToolsByUserV2ValidateBeforeCall(userId, id, updateToolsRequest, _callback);
         Type localVarReturnType = new TypeToken<FetchToolsIntegrations200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

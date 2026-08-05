@@ -88,7 +88,7 @@ public class Example {
 
 <a id="deleteWidget"></a>
 # **deleteWidget**
-> DeleteAliases200Response deleteWidget(teamId, id)
+> DeleteApplications200Response deleteWidget(teamId, id)
 
 Delete a widget
 
@@ -117,7 +117,7 @@ public class Example {
     Integer teamId = 5; // Integer | Team ID
     Integer id = 1; // Integer | Widget ID
     try {
-      DeleteAliases200Response result = apiInstance.deleteWidget(teamId, id);
+      DeleteApplications200Response result = apiInstance.deleteWidget(teamId, id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WidgetsApi#deleteWidget");
@@ -139,7 +139,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

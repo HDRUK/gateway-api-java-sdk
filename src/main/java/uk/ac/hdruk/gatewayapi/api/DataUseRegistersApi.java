@@ -27,18 +27,17 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDurRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.ExportMockDataset404Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDur200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDurV2200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDurById200Response;
 import uk.ac.hdruk.gatewayapi.model.ProjectTitleAscupdatedAtAsc;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDur200Response;
 import uk.ac.hdruk.gatewayapi.model.UploadDurRequest;
 
@@ -85,143 +84,6 @@ public class DataUseRegistersApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for countTeamUniqueFieldsDurV2
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call countTeamUniqueFieldsDurV2Call(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/teams/{teamId}/dur/count/{field}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "field" + "}", localVarApiClient.escapeString(field.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call countTeamUniqueFieldsDurV2ValidateBeforeCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling countTeamUniqueFieldsDurV2(Async)");
-        }
-
-        // verify the required parameter 'field' is set
-        if (field == null) {
-            throw new ApiException("Missing the required parameter 'field' when calling countTeamUniqueFieldsDurV2(Async)");
-        }
-
-        return countTeamUniqueFieldsDurV2Call(teamId, field, _callback);
-
-    }
-
-    /**
-     * TeamDurController@count
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @return CountUniqueFieldsCollections200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public CountUniqueFieldsCollections200Response countTeamUniqueFieldsDurV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field) throws ApiException {
-        ApiResponse<CountUniqueFieldsCollections200Response> localVarResp = countTeamUniqueFieldsDurV2WithHttpInfo(teamId, field);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamDurController@count
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @return ApiResponse&lt;CountUniqueFieldsCollections200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CountUniqueFieldsCollections200Response> countTeamUniqueFieldsDurV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field) throws ApiException {
-        okhttp3.Call localVarCall = countTeamUniqueFieldsDurV2ValidateBeforeCall(teamId, field, null);
-        Type localVarReturnType = new TypeToken<CountUniqueFieldsCollections200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamDurController@count (asynchronously)
-     * Get team counts for distinct entries of a field in the model
-     * @param teamId team id (required)
-     * @param field name of the field to perform a count on (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call countTeamUniqueFieldsDurV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String field, final ApiCallback<CountUniqueFieldsCollections200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = countTeamUniqueFieldsDurV2ValidateBeforeCall(teamId, field, _callback);
-        Type localVarReturnType = new TypeToken<CountUniqueFieldsCollections200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for createDur
      * @param createDurRequest Pass user credentials (required)
@@ -300,7 +162,7 @@ public class DataUseRegistersApi {
      * DurController@store
      * Create a new dur
      * @param createDurRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -313,8 +175,8 @@ public class DataUseRegistersApi {
      * @deprecated
      */
     @Deprecated
-    public CreateCategories200Response createDur(@javax.annotation.Nonnull CreateDurRequest createDurRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDurWithHttpInfo(createDurRequest);
+    public CreateDarIntegration201Response createDur(@javax.annotation.Nonnull CreateDurRequest createDurRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createDurWithHttpInfo(createDurRequest);
         return localVarResp.getData();
     }
 
@@ -322,7 +184,7 @@ public class DataUseRegistersApi {
      * DurController@store
      * Create a new dur
      * @param createDurRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -335,9 +197,9 @@ public class DataUseRegistersApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<CreateCategories200Response> createDurWithHttpInfo(@javax.annotation.Nonnull CreateDurRequest createDurRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createDurWithHttpInfo(@javax.annotation.Nonnull CreateDurRequest createDurRequest) throws ApiException {
         okhttp3.Call localVarCall = createDurValidateBeforeCall(createDurRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -359,10 +221,10 @@ public class DataUseRegistersApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call createDurAsync(@javax.annotation.Nonnull CreateDurRequest createDurRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createDurAsync(@javax.annotation.Nonnull CreateDurRequest createDurRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDurValidateBeforeCall(createDurRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -449,7 +311,7 @@ public class DataUseRegistersApi {
      * Create a new dur by team v2
      * @param teamId team id (required)
      * @param createDurRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -460,8 +322,8 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response createDurByTeamV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateDurRequest createDurRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = createDurByTeamV2WithHttpInfo(teamId, createDurRequest);
+    public CreateDarIntegration201Response createDurByTeamV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateDurRequest createDurRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = createDurByTeamV2WithHttpInfo(teamId, createDurRequest);
         return localVarResp.getData();
     }
 
@@ -470,7 +332,7 @@ public class DataUseRegistersApi {
      * Create a new dur by team v2
      * @param teamId team id (required)
      * @param createDurRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -481,9 +343,9 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> createDurByTeamV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateDurRequest createDurRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> createDurByTeamV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateDurRequest createDurRequest) throws ApiException {
         okhttp3.Call localVarCall = createDurByTeamV2ValidateBeforeCall(teamId, createDurRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -504,10 +366,10 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDurByTeamV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateDurRequest createDurRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call createDurByTeamV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull CreateDurRequest createDurRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createDurByTeamV2ValidateBeforeCall(teamId, createDurRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -589,7 +451,7 @@ public class DataUseRegistersApi {
      * Delete a dur
      * Delete a dur
      * @param id dur id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -602,8 +464,8 @@ public class DataUseRegistersApi {
      * @deprecated
      */
     @Deprecated
-    public DeleteAliases200Response deleteDur(@javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDurWithHttpInfo(id);
+    public DeleteApplications200Response deleteDur(@javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDurWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -611,7 +473,7 @@ public class DataUseRegistersApi {
      * Delete a dur
      * Delete a dur
      * @param id dur id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -624,9 +486,9 @@ public class DataUseRegistersApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<DeleteAliases200Response> deleteDurWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDurWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDurValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -648,10 +510,10 @@ public class DataUseRegistersApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call deleteDurAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDurAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDurValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -738,7 +600,7 @@ public class DataUseRegistersApi {
      * Delete a dur by team and id v2
      * @param teamId team id (required)
      * @param id dur id (required)
-     * @return DeleteAliases200Response
+     * @return DeleteApplications200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -749,8 +611,8 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public DeleteAliases200Response deleteDursV2ByTeamId(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<DeleteAliases200Response> localVarResp = deleteDursV2ByTeamIdWithHttpInfo(teamId, id);
+    public DeleteApplications200Response deleteDursV2ByTeamId(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
+        ApiResponse<DeleteApplications200Response> localVarResp = deleteDursV2ByTeamIdWithHttpInfo(teamId, id);
         return localVarResp.getData();
     }
 
@@ -759,7 +621,7 @@ public class DataUseRegistersApi {
      * Delete a dur by team and id v2
      * @param teamId team id (required)
      * @param id dur id (required)
-     * @return ApiResponse&lt;DeleteAliases200Response&gt;
+     * @return ApiResponse&lt;DeleteApplications200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -770,9 +632,9 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeleteAliases200Response> deleteDursV2ByTeamIdWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
+    public ApiResponse<DeleteApplications200Response> deleteDursV2ByTeamIdWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = deleteDursV2ByTeamIdValidateBeforeCall(teamId, id, null);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -793,10 +655,10 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDursV2ByTeamIdAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteAliases200Response> _callback) throws ApiException {
+    public okhttp3.Call deleteDursV2ByTeamIdAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback<DeleteApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDursV2ByTeamIdValidateBeforeCall(teamId, id, _callback);
-        Type localVarReturnType = new TypeToken<DeleteAliases200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteApplications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1799,179 +1661,6 @@ public class DataUseRegistersApi {
         return localVarCall;
     }
     /**
-     * Build call for fetchAllTeamDurStatus
-     * @param teamId team id (required)
-     * @param status Status of the DUR (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param sort Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc (optional)
-     * @param projectTitle Filter dur by project title (optional)
-     * @param perPage per page (optional)
-     * @param withRelated Show related entities (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllTeamDurStatusCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable ProjectTitleAscupdatedAtAsc sort, @javax.annotation.Nullable String projectTitle, @javax.annotation.Nullable Integer perPage, @javax.annotation.Nullable Boolean withRelated, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/teams/{teamId}/dur/status/{status}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "status" + "}", localVarApiClient.escapeString(status.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (sort != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
-        }
-
-        if (projectTitle != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("project_title", projectTitle));
-        }
-
-        if (perPage != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("per_page", perPage));
-        }
-
-        if (withRelated != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("with_related", withRelated));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchAllTeamDurStatusValidateBeforeCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable ProjectTitleAscupdatedAtAsc sort, @javax.annotation.Nullable String projectTitle, @javax.annotation.Nullable Integer perPage, @javax.annotation.Nullable Boolean withRelated, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling fetchAllTeamDurStatus(Async)");
-        }
-
-        // verify the required parameter 'status' is set
-        if (status == null) {
-            throw new ApiException("Missing the required parameter 'status' when calling fetchAllTeamDurStatus(Async)");
-        }
-
-        return fetchAllTeamDurStatusCall(teamId, status, sort, projectTitle, perPage, withRelated, _callback);
-
-    }
-
-    /**
-     * TeamDurController@indexStatus
-     * Returns a list of dur owned by this team with given status
-     * @param teamId team id (required)
-     * @param status Status of the DUR (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param sort Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc (optional)
-     * @param projectTitle Filter dur by project title (optional)
-     * @param perPage per page (optional)
-     * @param withRelated Show related entities (optional)
-     * @return FetchAllDur200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public FetchAllDur200Response fetchAllTeamDurStatus(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable ProjectTitleAscupdatedAtAsc sort, @javax.annotation.Nullable String projectTitle, @javax.annotation.Nullable Integer perPage, @javax.annotation.Nullable Boolean withRelated) throws ApiException {
-        ApiResponse<FetchAllDur200Response> localVarResp = fetchAllTeamDurStatusWithHttpInfo(teamId, status, sort, projectTitle, perPage, withRelated);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamDurController@indexStatus
-     * Returns a list of dur owned by this team with given status
-     * @param teamId team id (required)
-     * @param status Status of the DUR (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param sort Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc (optional)
-     * @param projectTitle Filter dur by project title (optional)
-     * @param perPage per page (optional)
-     * @param withRelated Show related entities (optional)
-     * @return ApiResponse&lt;FetchAllDur200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FetchAllDur200Response> fetchAllTeamDurStatusWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable ProjectTitleAscupdatedAtAsc sort, @javax.annotation.Nullable String projectTitle, @javax.annotation.Nullable Integer perPage, @javax.annotation.Nullable Boolean withRelated) throws ApiException {
-        okhttp3.Call localVarCall = fetchAllTeamDurStatusValidateBeforeCall(teamId, status, sort, projectTitle, perPage, withRelated, null);
-        Type localVarReturnType = new TypeToken<FetchAllDur200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamDurController@indexStatus (asynchronously)
-     * Returns a list of dur owned by this team with given status
-     * @param teamId team id (required)
-     * @param status Status of the DUR (active, draft, or archived). Defaults to active if not provided. (required)
-     * @param sort Sort fields in the format field:direction, e.g., project_title:asc,updated_at:asc (optional)
-     * @param projectTitle Filter dur by project title (optional)
-     * @param perPage per page (optional)
-     * @param withRelated Show related entities (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchAllTeamDurStatusAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull String status, @javax.annotation.Nullable ProjectTitleAscupdatedAtAsc sort, @javax.annotation.Nullable String projectTitle, @javax.annotation.Nullable Integer perPage, @javax.annotation.Nullable Boolean withRelated, final ApiCallback<FetchAllDur200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchAllTeamDurStatusValidateBeforeCall(teamId, status, sort, projectTitle, perPage, withRelated, _callback);
-        Type localVarReturnType = new TypeToken<FetchAllDur200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for fetchDurById
      * @param id data use register id (required)
      * @param _callback Callback for upload/download progress
@@ -2230,143 +1919,6 @@ public class DataUseRegistersApi {
     public okhttp3.Call fetchDurByIdV2Async(@javax.annotation.Nonnull Integer id, final ApiCallback<UpdateDur200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = fetchDurByIdV2ValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<UpdateDur200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchDurByTeamAndByIdV2
-     * @param teamId team id (required)
-     * @param id data use register id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchDurByTeamAndByIdV2Call(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v1/teams/{teamId}/dur/{id}"
-            .replace("{" + "teamId" + "}", localVarApiClient.escapeString(teamId.toString()))
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchDurByTeamAndByIdV2ValidateBeforeCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'teamId' is set
-        if (teamId == null) {
-            throw new ApiException("Missing the required parameter 'teamId' when calling fetchDurByTeamAndByIdV2(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchDurByTeamAndByIdV2(Async)");
-        }
-
-        return fetchDurByTeamAndByIdV2Call(teamId, id, _callback);
-
-    }
-
-    /**
-     * TeamDurController@show
-     * Get dur by team id and by id
-     * @param teamId team id (required)
-     * @param id data use register id (required)
-     * @return UpdateDur200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public UpdateDur200Response fetchDurByTeamAndByIdV2(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        ApiResponse<UpdateDur200Response> localVarResp = fetchDurByTeamAndByIdV2WithHttpInfo(teamId, id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * TeamDurController@show
-     * Get dur by team id and by id
-     * @param teamId team id (required)
-     * @param id data use register id (required)
-     * @return ApiResponse&lt;UpdateDur200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<UpdateDur200Response> fetchDurByTeamAndByIdV2WithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id) throws ApiException {
-        okhttp3.Call localVarCall = fetchDurByTeamAndByIdV2ValidateBeforeCall(teamId, id, null);
-        Type localVarReturnType = new TypeToken<UpdateDur200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * TeamDurController@show (asynchronously)
-     * Get dur by team id and by id
-     * @param teamId team id (required)
-     * @param id data use register id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchDurByTeamAndByIdV2Async(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer id, final ApiCallback<UpdateDur200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchDurByTeamAndByIdV2ValidateBeforeCall(teamId, id, _callback);
         Type localVarReturnType = new TypeToken<UpdateDur200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2755,7 +2307,7 @@ public class DataUseRegistersApi {
      * DurController@upload
      * Create a new dur with upload data
      * @param uploadDurRequest Pass user credentials (required)
-     * @return CreateCategories200Response
+     * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -2766,8 +2318,8 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCategories200Response uploadDur(@javax.annotation.Nonnull UploadDurRequest uploadDurRequest) throws ApiException {
-        ApiResponse<CreateCategories200Response> localVarResp = uploadDurWithHttpInfo(uploadDurRequest);
+    public CreateDarIntegration201Response uploadDur(@javax.annotation.Nonnull UploadDurRequest uploadDurRequest) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = uploadDurWithHttpInfo(uploadDurRequest);
         return localVarResp.getData();
     }
 
@@ -2775,7 +2327,7 @@ public class DataUseRegistersApi {
      * DurController@upload
      * Create a new dur with upload data
      * @param uploadDurRequest Pass user credentials (required)
-     * @return ApiResponse&lt;CreateCategories200Response&gt;
+     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -2786,9 +2338,9 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCategories200Response> uploadDurWithHttpInfo(@javax.annotation.Nonnull UploadDurRequest uploadDurRequest) throws ApiException {
+    public ApiResponse<CreateDarIntegration201Response> uploadDurWithHttpInfo(@javax.annotation.Nonnull UploadDurRequest uploadDurRequest) throws ApiException {
         okhttp3.Call localVarCall = uploadDurValidateBeforeCall(uploadDurRequest, null);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2808,10 +2360,10 @@ public class DataUseRegistersApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadDurAsync(@javax.annotation.Nonnull UploadDurRequest uploadDurRequest, final ApiCallback<CreateCategories200Response> _callback) throws ApiException {
+    public okhttp3.Call uploadDurAsync(@javax.annotation.Nonnull UploadDurRequest uploadDurRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadDurValidateBeforeCall(uploadDurRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateCategories200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

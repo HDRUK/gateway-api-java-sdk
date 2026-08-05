@@ -15,19 +15,16 @@ package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateCollectionsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollectionsRequest;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.EditCollectionsV2Request;
-import uk.ac.hdruk.gatewayapi.model.EditTeamCollectionsRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllCollections200Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchCollections200Response;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateCollectionsV2Request;
-import uk.ac.hdruk.gatewayapi.model.UpdateTeamCollectionsRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,21 +40,6 @@ import java.util.Map;
 public class CollectionsApiTest {
 
     private final CollectionsApi api = new CollectionsApi();
-
-    /**
-     * TeamCollectionController@count
-     *
-     * Get user counts for distinct entries of a field in the model
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countTeamUniqueFieldsCollectionV2Test() throws ApiException {
-        Integer teamId = null;
-        String field = null;
-        CountUniqueFieldsCollections200Response response = api.countTeamUniqueFieldsCollectionV2(teamId, field);
-        // TODO: test validations
-    }
 
     /**
      * CollectionController@count
@@ -90,21 +72,6 @@ public class CollectionsApiTest {
     }
 
     /**
-     * UserCollectionController@count
-     *
-     * Get user counts for distinct entries of a field in the model
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countUserUniqueFieldsCollectionV2Test() throws ApiException {
-        Integer userId = null;
-        String field = null;
-        CountUniqueFieldsCollections200Response response = api.countUserUniqueFieldsCollectionV2(userId, field);
-        // TODO: test validations
-    }
-
-    /**
      * CollectionController@store
      *
      * Create a new collection owned by an individual
@@ -114,51 +81,7 @@ public class CollectionsApiTest {
     @Test
     public void createCollectionsTest() throws ApiException {
         CreateCollectionsRequest createCollectionsRequest = null;
-        CreateCategories200Response response = api.createCollections(createCollectionsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * CollectionController@store
-     *
-     * Create a new collection for a team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createTeamCollectionsTest() throws ApiException {
-        Integer teamId = null;
-        CreateTeamCollectionsRequest createTeamCollectionsRequest = null;
-        CreateCategories200Response response = api.createTeamCollections(teamId, createTeamCollectionsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamCollectionController@store
-     *
-     * Create a new collection for a team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createTeamCollectionsV2Test() throws ApiException {
-        Integer teamId = null;
-        CreateTeamCollectionsRequest createTeamCollectionsRequest = null;
-        CreateCategories200Response response = api.createTeamCollectionsV2(teamId, createTeamCollectionsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * UserCollectionController@store
-     *
-     * Create a new collection owned by an individual
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createUserCollectionsTest() throws ApiException {
-        CreateCollectionsRequest createCollectionsRequest = null;
-        CreateCategories200Response response = api.createUserCollections(createCollectionsRequest);
+        CreateDarIntegration201Response response = api.createCollections(createCollectionsRequest);
         // TODO: test validations
     }
 
@@ -172,52 +95,7 @@ public class CollectionsApiTest {
     @Test
     public void deleteCollectionsV2Test() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteCollectionsV2(id);
-        // TODO: test validations
-    }
-
-    /**
-     * Delete a collection
-     *
-     * Delete a collection owned by a team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteTeamCollectionsTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        DeleteAliases200Response response = api.deleteTeamCollections(teamId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * Delete a collection
-     *
-     * Delete a collection owned by a team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteTeamCollectionsV2Test() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        DeleteAliases200Response response = api.deleteTeamCollectionsV2(teamId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * Delete a collection
-     *
-     * Delete a collection
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteUserCollectionsV2Test() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        DeleteAliases200Response response = api.deleteUserCollectionsV2(userId, id);
+        DeleteApplications200Response response = api.deleteCollectionsV2(id);
         // TODO: test validations
     }
 
@@ -234,55 +112,6 @@ public class CollectionsApiTest {
         EditCollectionsV2Request editCollectionsV2Request = null;
         String unarchive = null;
         FetchCollections200Response response = api.editCollectionsV2(id, editCollectionsV2Request, unarchive);
-        // TODO: test validations
-    }
-
-    /**
-     * Edit a collection
-     *
-     * Edit a collection owned by a team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editTeamCollectionsTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        EditTeamCollectionsRequest editTeamCollectionsRequest = null;
-        String unarchive = null;
-        FetchCollections200Response response = api.editTeamCollections(teamId, id, editTeamCollectionsRequest, unarchive);
-        // TODO: test validations
-    }
-
-    /**
-     * Edit a collection
-     *
-     * Edit a collection owned by a team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editTeamCollectionsV2Test() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        EditTeamCollectionsRequest editTeamCollectionsRequest = null;
-        FetchCollections200Response response = api.editTeamCollectionsV2(teamId, id, editTeamCollectionsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Edit a collection
-     *
-     * Edit a collection
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editUserCollectionsV2Test() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        EditCollectionsV2Request editCollectionsV2Request = null;
-        FetchCollections200Response response = api.editUserCollectionsV2(userId, id, editCollectionsV2Request);
         // TODO: test validations
     }
 
@@ -349,120 +178,6 @@ public class CollectionsApiTest {
     }
 
     /**
-     * TeamCollectionController@indexActive
-     *
-     * Returns a list of a teams collections
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchTeamActiveCollectionsV2Test() throws ApiException {
-        Integer teamId = null;
-        FetchAllCollections200Response response = api.fetchTeamActiveCollectionsV2(teamId);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamCollectionController@indexArchived
-     *
-     * Returns a list of a teams archived collections
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchTeamArchivedCollectionsV2Test() throws ApiException {
-        Integer teamId = null;
-        FetchAllCollections200Response response = api.fetchTeamArchivedCollectionsV2(teamId);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamCollectionController@show
-     *
-     * Get collection by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchTeamCollectionV2Test() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        FetchCollections200Response response = api.fetchTeamCollectionV2(teamId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * TeamCollectionController@indexDraft
-     *
-     * Returns a list of a teams draft collections
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchTeamDraftCollectionsV2Test() throws ApiException {
-        Integer teamId = null;
-        FetchAllCollections200Response response = api.fetchTeamDraftCollectionsV2(teamId);
-        // TODO: test validations
-    }
-
-    /**
-     * UserCollectionController@indexArchived
-     *
-     * Returns a list of a users archived collections
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUserArchivedCollectionsV2Test() throws ApiException {
-        Integer userId = null;
-        FetchAllCollections200Response response = api.fetchUserArchivedCollectionsV2(userId);
-        // TODO: test validations
-    }
-
-    /**
-     * CollectionController@show
-     *
-     * Get collection by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUserCollectionV2Test() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        FetchCollections200Response response = api.fetchUserCollectionV2(userId, id);
-        // TODO: test validations
-    }
-
-    /**
-     * UserCollectionController@indexActive
-     *
-     * Returns a list of a users collections
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUserCollectionsV2Test() throws ApiException {
-        Integer userId = null;
-        FetchAllCollections200Response response = api.fetchUserCollectionsV2(userId);
-        // TODO: test validations
-    }
-
-    /**
-     * UserCollectionController@indexDraft
-     *
-     * Returns a list of a users draft collections
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchUserDraftCollectionsV2Test() throws ApiException {
-        Integer userId = null;
-        FetchAllCollections200Response response = api.fetchUserDraftCollectionsV2(userId);
-        // TODO: test validations
-    }
-
-    /**
      * Update a collection
      *
      * Update a collection owned by an individual
@@ -474,54 +189,6 @@ public class CollectionsApiTest {
         Integer id = null;
         UpdateCollectionsV2Request updateCollectionsV2Request = null;
         FetchCollections200Response response = api.updateCollectionsV2(id, updateCollectionsV2Request);
-        // TODO: test validations
-    }
-
-    /**
-     * Update a collection
-     *
-     * Update a collection owned by a team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateTeamCollectionsTest() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        UpdateTeamCollectionsRequest updateTeamCollectionsRequest = null;
-        FetchCollections200Response response = api.updateTeamCollections(teamId, id, updateTeamCollectionsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Update a collection
-     *
-     * Update a collection owned by a team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateTeamCollectionsV2Test() throws ApiException {
-        Integer teamId = null;
-        Integer id = null;
-        UpdateTeamCollectionsRequest updateTeamCollectionsRequest = null;
-        FetchCollections200Response response = api.updateTeamCollectionsV2(teamId, id, updateTeamCollectionsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Update a collection
-     *
-     * Update a collection owned by an individual
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateUserCollectionsV2Test() throws ApiException {
-        Integer userId = null;
-        Integer id = null;
-        UpdateCollectionsV2Request updateCollectionsV2Request = null;
-        FetchCollections200Response response = api.updateUserCollectionsV2(userId, id, updateCollectionsV2Request);
         // TODO: test validations
     }
 

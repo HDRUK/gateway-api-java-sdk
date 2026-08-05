@@ -9,19 +9,15 @@ All URIs are relative to *http://localhost*
 | [**deleteTeamDarApplicationQuestionReview**](DataAccessApplicationReviewApi.md#deleteTeamDarApplicationQuestionReview) | **DELETE** /api/v1/teams/{team_id}/dar/applications/{id}/questions/{questionId}/reviews/{reviewId} | DataAccessApplicationReview@destroy |
 | [**deleteTeamDarApplicationReview**](DataAccessApplicationReviewApi.md#deleteTeamDarApplicationReview) | **DELETE** /api/v1/teams/{team_id}/dar/applications/{id}/reviews/{reviewId} | DataAccessApplicationReview@destroyGlobal |
 | [**deleteTeamDarApplicationReviewFile**](DataAccessApplicationReviewApi.md#deleteTeamDarApplicationReviewFile) | **DELETE** /api/v1/teams/{teamId}/dar/applications/{id}/reviews/{reviewId}/files/{fileId} | DataAccessApplicationReview@destroyFile |
-| [**fetchTeamDarApplicationReviewFile**](DataAccessApplicationReviewApi.md#fetchTeamDarApplicationReviewFile) | **GET** /ap1/v1/teams/{teamId}/dar/applications/{id}/reviews/{reviewId}/download/{fileId} | DataAccessApplicationReview@downloadFile |
+| [**fetchTeamDarApplicationReviewFile**](DataAccessApplicationReviewApi.md#fetchTeamDarApplicationReviewFile) | **GET** /api/v1/teams/{teamId}/dar/applications/{id}/reviews/{reviewId}/download/{fileId} | DataAccessApplicationReview@downloadFile |
 | [**fetchTeamDarApplicationReviews**](DataAccessApplicationReviewApi.md#fetchTeamDarApplicationReviews) | **GET** /api/v1/teams/{team_id}/dar/applications/{id}/reviews | DataAccessApplicationReview@index |
-| [**fetchUserDarApplicationReviewFile**](DataAccessApplicationReviewApi.md#fetchUserDarApplicationReviewFile) | **GET** /ap1/v1/users/{userId}/dar/applications/{id}/reviews/{reviewId}/download/{fileId} | DataAccessApplicationReview@downloadUserFile |
-| [**fetchUserDarApplicationReviews**](DataAccessApplicationReviewApi.md#fetchUserDarApplicationReviews) | **GET** /api/v1/users/{userId}/dar/applications/{id}/reviews | DataAccessApplicationReview@index |
 | [**updateTeamDarApplicationQuestionReview**](DataAccessApplicationReviewApi.md#updateTeamDarApplicationQuestionReview) | **PUT** /api/v1/teams/{team_id}/dar/applications/{id}/questions/{questionId}/reviews/{reviewId} | DataAccessApplicationReview@update |
 | [**updateTeamDarApplicationReview**](DataAccessApplicationReviewApi.md#updateTeamDarApplicationReview) | **PUT** /api/v1/teams/{team_id}/dar/applications/{id}/reviews/{reviewId} | DataAccessApplicationReview@updateGlobal |
-| [**updateUserDarApplicationQuestionReview**](DataAccessApplicationReviewApi.md#updateUserDarApplicationQuestionReview) | **PUT** /api/v1/users/{userId}/dar/applications/{id}/questions/{questionId}/reviews/{reviewId} | DataAccessApplicationReview@userUpdate |
-| [**updateUserDarApplicationReview**](DataAccessApplicationReviewApi.md#updateUserDarApplicationReview) | **PUT** /api/v1/users/{userId}/dar/applications/{id}/reviews/{reviewId} | DataAccessApplicationReview@userUpdateGlobal |
 
 
 <a id="createTeamDarApplicationQuestionReview"></a>
 # **createTeamDarApplicationQuestionReview**
-> CreateCategories200Response createTeamDarApplicationQuestionReview(teamId, id, questionId, createTeamDarApplicationReviewRequest)
+> CreateDarIntegration201Response createTeamDarApplicationQuestionReview(teamId, id, questionId, createTeamDarApplicationReviewRequest)
 
 DataAccessApplicationReview@store
 
@@ -52,7 +48,7 @@ public class Example {
     Integer questionId = 1; // Integer | DAR application question id
     CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = new CreateTeamDarApplicationReviewRequest(); // CreateTeamDarApplicationReviewRequest | DataAccessApplicationReview definition
     try {
-      CreateCategories200Response result = apiInstance.createTeamDarApplicationQuestionReview(teamId, id, questionId, createTeamDarApplicationReviewRequest);
+      CreateDarIntegration201Response result = apiInstance.createTeamDarApplicationQuestionReview(teamId, id, questionId, createTeamDarApplicationReviewRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataAccessApplicationReviewApi#createTeamDarApplicationQuestionReview");
@@ -76,7 +72,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -95,7 +91,7 @@ public class Example {
 
 <a id="createTeamDarApplicationReview"></a>
 # **createTeamDarApplicationReview**
-> CreateCategories200Response createTeamDarApplicationReview(teamId, id, createTeamDarApplicationReviewRequest)
+> CreateDarIntegration201Response createTeamDarApplicationReview(teamId, id, createTeamDarApplicationReviewRequest)
 
 DataAccessApplicationReview@storeGlobal
 
@@ -125,7 +121,7 @@ public class Example {
     Integer id = 1; // Integer | DAR application id
     CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = new CreateTeamDarApplicationReviewRequest(); // CreateTeamDarApplicationReviewRequest | DataAccessApplicationReview definition
     try {
-      CreateCategories200Response result = apiInstance.createTeamDarApplicationReview(teamId, id, createTeamDarApplicationReviewRequest);
+      CreateDarIntegration201Response result = apiInstance.createTeamDarApplicationReview(teamId, id, createTeamDarApplicationReviewRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataAccessApplicationReviewApi#createTeamDarApplicationReview");
@@ -148,7 +144,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -167,7 +163,7 @@ public class Example {
 
 <a id="deleteTeamDarApplicationQuestionReview"></a>
 # **deleteTeamDarApplicationQuestionReview**
-> DeleteAliases200Response deleteTeamDarApplicationQuestionReview(teamId, id, questionId, reviewId)
+> DeleteApplications200Response deleteTeamDarApplicationQuestionReview(teamId, id, questionId, reviewId)
 
 DataAccessApplicationReview@destroy
 
@@ -198,7 +194,7 @@ public class Example {
     Integer questionId = 1; // Integer | DAR application question id
     Integer reviewId = 1; // Integer | DAR application review id
     try {
-      DeleteAliases200Response result = apiInstance.deleteTeamDarApplicationQuestionReview(teamId, id, questionId, reviewId);
+      DeleteApplications200Response result = apiInstance.deleteTeamDarApplicationQuestionReview(teamId, id, questionId, reviewId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataAccessApplicationReviewApi#deleteTeamDarApplicationQuestionReview");
@@ -222,7 +218,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -242,7 +238,7 @@ public class Example {
 
 <a id="deleteTeamDarApplicationReview"></a>
 # **deleteTeamDarApplicationReview**
-> DeleteAliases200Response deleteTeamDarApplicationReview(teamId, id, reviewId)
+> DeleteApplications200Response deleteTeamDarApplicationReview(teamId, id, reviewId)
 
 DataAccessApplicationReview@destroyGlobal
 
@@ -272,7 +268,7 @@ public class Example {
     Integer id = 1; // Integer | DAR application id
     Integer reviewId = 1; // Integer | DAR application review id
     try {
-      DeleteAliases200Response result = apiInstance.deleteTeamDarApplicationReview(teamId, id, reviewId);
+      DeleteApplications200Response result = apiInstance.deleteTeamDarApplicationReview(teamId, id, reviewId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataAccessApplicationReviewApi#deleteTeamDarApplicationReview");
@@ -295,7 +291,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -315,7 +311,7 @@ public class Example {
 
 <a id="deleteTeamDarApplicationReviewFile"></a>
 # **deleteTeamDarApplicationReviewFile**
-> DeleteAliases200Response deleteTeamDarApplicationReviewFile(teamId, id, reviewId, fileId)
+> DeleteApplications200Response deleteTeamDarApplicationReviewFile(teamId, id, reviewId, fileId)
 
 DataAccessApplicationReview@destroyFile
 
@@ -346,7 +342,7 @@ public class Example {
     Integer reviewId = 1; // Integer | Review id
     String fileId = "1"; // String | File uuid
     try {
-      DeleteAliases200Response result = apiInstance.deleteTeamDarApplicationReviewFile(teamId, id, reviewId, fileId);
+      DeleteApplications200Response result = apiInstance.deleteTeamDarApplicationReviewFile(teamId, id, reviewId, fileId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataAccessApplicationReviewApi#deleteTeamDarApplicationReviewFile");
@@ -370,7 +366,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -531,149 +527,6 @@ public class Example {
 | **200** | Success |  -  |
 | **404** | Not found response |  -  |
 
-<a id="fetchUserDarApplicationReviewFile"></a>
-# **fetchUserDarApplicationReviewFile**
-> fetchUserDarApplicationReviewFile(userId, id, reviewId, fileId)
-
-DataAccessApplicationReview@downloadUserFile
-
-Download a file associated with a DAR application review
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DataAccessApplicationReviewApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DataAccessApplicationReviewApi apiInstance = new DataAccessApplicationReviewApi(defaultClient);
-    Integer userId = 1; // Integer | User id
-    Integer id = 1; // Integer | DAR application id
-    Integer reviewId = 1; // Integer | DAR application review id
-    String fileId = "1"; // String | File uuid
-    try {
-      apiInstance.fetchUserDarApplicationReviewFile(userId, id, reviewId, fileId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DataAccessApplicationReviewApi#fetchUserDarApplicationReviewFile");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **userId** | **Integer**| User id | |
-| **id** | **Integer**| DAR application id | |
-| **reviewId** | **Integer**| DAR application review id | |
-| **fileId** | **String**| File uuid | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: file, application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Not found response |  -  |
-
-<a id="fetchUserDarApplicationReviews"></a>
-# **fetchUserDarApplicationReviews**
-> FetchTeamDarApplicationReviews200Response fetchUserDarApplicationReviews(userId, id)
-
-DataAccessApplicationReview@index
-
-Return all reviews on a DAR application
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DataAccessApplicationReviewApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DataAccessApplicationReviewApi apiInstance = new DataAccessApplicationReviewApi(defaultClient);
-    Integer userId = 1; // Integer | User id
-    Integer id = 1; // Integer | DAR application id
-    try {
-      FetchTeamDarApplicationReviews200Response result = apiInstance.fetchUserDarApplicationReviews(userId, id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DataAccessApplicationReviewApi#fetchUserDarApplicationReviews");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **userId** | **Integer**| User id | |
-| **id** | **Integer**| DAR application id | |
-
-### Return type
-
-[**FetchTeamDarApplicationReviews200Response**](FetchTeamDarApplicationReviews200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Not found response |  -  |
-
 <a id="updateTeamDarApplicationQuestionReview"></a>
 # **updateTeamDarApplicationQuestionReview**
 > UpdateTeamDarApplicationQuestionReview200Response updateTeamDarApplicationQuestionReview(teamId, id, questionId, reviewId, createTeamDarApplicationReviewRequest)
@@ -802,158 +655,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **teamId** | **Integer**| Team id | |
-| **id** | **Integer**| DAR application id | |
-| **reviewId** | **Integer**| DAR application review id | |
-| **createTeamDarApplicationReviewRequest** | [**CreateTeamDarApplicationReviewRequest**](CreateTeamDarApplicationReviewRequest.md)| DataAccessApplicationReview definition | |
-
-### Return type
-
-[**UpdateTeamDarApplicationQuestionReview200Response**](UpdateTeamDarApplicationQuestionReview200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not found response |  -  |
-| **200** | Success |  -  |
-| **500** | Error |  -  |
-
-<a id="updateUserDarApplicationQuestionReview"></a>
-# **updateUserDarApplicationQuestionReview**
-> UpdateTeamDarApplicationQuestionReview200Response updateUserDarApplicationQuestionReview(userId, id, questionId, reviewId, createTeamDarApplicationReviewRequest)
-
-DataAccessApplicationReview@userUpdate
-
-User endpoint to update a review comment on a question in a DAR application
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DataAccessApplicationReviewApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DataAccessApplicationReviewApi apiInstance = new DataAccessApplicationReviewApi(defaultClient);
-    Integer userId = 1; // Integer | User id
-    Integer id = 1; // Integer | DAR application id
-    Integer questionId = 1; // Integer | DAR application question id
-    Integer reviewId = 1; // Integer | DAR application review id
-    CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = new CreateTeamDarApplicationReviewRequest(); // CreateTeamDarApplicationReviewRequest | DataAccessApplicationReview definition
-    try {
-      UpdateTeamDarApplicationQuestionReview200Response result = apiInstance.updateUserDarApplicationQuestionReview(userId, id, questionId, reviewId, createTeamDarApplicationReviewRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DataAccessApplicationReviewApi#updateUserDarApplicationQuestionReview");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **userId** | **Integer**| User id | |
-| **id** | **Integer**| DAR application id | |
-| **questionId** | **Integer**| DAR application question id | |
-| **reviewId** | **Integer**| DAR application review id | |
-| **createTeamDarApplicationReviewRequest** | [**CreateTeamDarApplicationReviewRequest**](CreateTeamDarApplicationReviewRequest.md)| DataAccessApplicationReview definition | |
-
-### Return type
-
-[**UpdateTeamDarApplicationQuestionReview200Response**](UpdateTeamDarApplicationQuestionReview200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not found response |  -  |
-| **200** | Success |  -  |
-| **500** | Error |  -  |
-
-<a id="updateUserDarApplicationReview"></a>
-# **updateUserDarApplicationReview**
-> UpdateTeamDarApplicationQuestionReview200Response updateUserDarApplicationReview(userId, id, reviewId, createTeamDarApplicationReviewRequest)
-
-DataAccessApplicationReview@userUpdateGlobal
-
-User endpoint to update a review comment on a DAR application
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DataAccessApplicationReviewApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DataAccessApplicationReviewApi apiInstance = new DataAccessApplicationReviewApi(defaultClient);
-    Integer userId = 1; // Integer | User id
-    Integer id = 1; // Integer | DAR application id
-    Integer reviewId = 1; // Integer | DAR application review id
-    CreateTeamDarApplicationReviewRequest createTeamDarApplicationReviewRequest = new CreateTeamDarApplicationReviewRequest(); // CreateTeamDarApplicationReviewRequest | DataAccessApplicationReview definition
-    try {
-      UpdateTeamDarApplicationQuestionReview200Response result = apiInstance.updateUserDarApplicationReview(userId, id, reviewId, createTeamDarApplicationReviewRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DataAccessApplicationReviewApi#updateUserDarApplicationReview");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **userId** | **Integer**| User id | |
 | **id** | **Integer**| DAR application id | |
 | **reviewId** | **Integer**| DAR application review id | |
 | **createTeamDarApplicationReviewRequest** | [**CreateTeamDarApplicationReviewRequest**](CreateTeamDarApplicationReviewRequest.md)| DataAccessApplicationReview definition | |

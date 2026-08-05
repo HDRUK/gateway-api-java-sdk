@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createCsat"></a>
 # **createCsat**
-> DeleteAliases200Response createCsat(createCsatRequest)
+> DeleteApplications200Response createCsat(createCsatRequest)
 
 Create Customer Satisfaction Score
 
@@ -38,7 +38,7 @@ public class Example {
     CustomerSatisfactionApi apiInstance = new CustomerSatisfactionApi(defaultClient);
     CreateCsatRequest createCsatRequest = new CreateCsatRequest(); // CreateCsatRequest | Customer Satisfaction score
     try {
-      DeleteAliases200Response result = apiInstance.createCsat(createCsatRequest);
+      DeleteApplications200Response result = apiInstance.createCsat(createCsatRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomerSatisfactionApi#createCsat");
@@ -59,7 +59,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

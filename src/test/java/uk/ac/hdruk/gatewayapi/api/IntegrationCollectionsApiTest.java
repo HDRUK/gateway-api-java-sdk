@@ -14,14 +14,14 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateAliases500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateCategories200Response;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamCollections401Response;
-import uk.ac.hdruk.gatewayapi.model.DeleteAliases200Response;
-import uk.ac.hdruk.gatewayapi.model.FetchAliases404Response;
+import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
+import uk.ac.hdruk.gatewayapi.model.CreateCollectionsIntegrationsRequest;
+import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
+import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllCollections200Response;
+import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchCollections200Response;
-import uk.ac.hdruk.gatewayapi.model.UpdateTeamCollectionsRequest;
+import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -47,8 +47,8 @@ public class IntegrationCollectionsApiTest {
      */
     @Test
     public void createCollectionsIntegrationsTest() throws ApiException {
-        UpdateTeamCollectionsRequest updateTeamCollectionsRequest = null;
-        CreateCategories200Response response = api.createCollectionsIntegrations(updateTeamCollectionsRequest);
+        CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest = null;
+        CreateDarIntegration201Response response = api.createCollectionsIntegrations(createCollectionsIntegrationsRequest);
         // TODO: test validations
     }
 
@@ -62,7 +62,7 @@ public class IntegrationCollectionsApiTest {
     @Test
     public void deleteCollectionsIntegrationsTest() throws ApiException {
         Integer id = null;
-        DeleteAliases200Response response = api.deleteCollectionsIntegrations(id);
+        DeleteApplications200Response response = api.deleteCollectionsIntegrations(id);
         // TODO: test validations
     }
 
@@ -76,8 +76,8 @@ public class IntegrationCollectionsApiTest {
     @Test
     public void editCollectionsIntegrationsTest() throws ApiException {
         Integer id = null;
-        UpdateTeamCollectionsRequest updateTeamCollectionsRequest = null;
-        FetchCollections200Response response = api.editCollectionsIntegrations(id, updateTeamCollectionsRequest);
+        CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest = null;
+        FetchCollections200Response response = api.editCollectionsIntegrations(id, createCollectionsIntegrationsRequest);
         // TODO: test validations
     }
 
@@ -120,8 +120,8 @@ public class IntegrationCollectionsApiTest {
     @Test
     public void updateCollectionsIntegrationsTest() throws ApiException {
         Integer id = null;
-        UpdateTeamCollectionsRequest updateTeamCollectionsRequest = null;
-        FetchCollections200Response response = api.updateCollectionsIntegrations(id, updateTeamCollectionsRequest);
+        CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest = null;
+        FetchCollections200Response response = api.updateCollectionsIntegrations(id, createCollectionsIntegrationsRequest);
         // TODO: test validations
     }
 

@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createCollectionsIntegrations"></a>
 # **createCollectionsIntegrations**
-> CreateCategories200Response createCollectionsIntegrations(updateTeamCollectionsRequest)
+> CreateDarIntegration201Response createCollectionsIntegrations(createCollectionsIntegrationsRequest)
 
 IntegrationCollectionController@store
 
@@ -40,9 +40,9 @@ public class Example {
     bearerAuth.setBearerToken("BEARER TOKEN");
 
     IntegrationCollectionsApi apiInstance = new IntegrationCollectionsApi(defaultClient);
-    UpdateTeamCollectionsRequest updateTeamCollectionsRequest = new UpdateTeamCollectionsRequest(); // UpdateTeamCollectionsRequest | Pass user credentials
+    CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest = new CreateCollectionsIntegrationsRequest(); // CreateCollectionsIntegrationsRequest | Pass user credentials
     try {
-      CreateCategories200Response result = apiInstance.createCollectionsIntegrations(updateTeamCollectionsRequest);
+      CreateDarIntegration201Response result = apiInstance.createCollectionsIntegrations(createCollectionsIntegrationsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationCollectionsApi#createCollectionsIntegrations");
@@ -59,11 +59,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateTeamCollectionsRequest** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md)| Pass user credentials | |
+| **createCollectionsIntegrationsRequest** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md)| Pass user credentials | |
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ public class Example {
 
 <a id="deleteCollectionsIntegrations"></a>
 # **deleteCollectionsIntegrations**
-> DeleteAliases200Response deleteCollectionsIntegrations(id)
+> DeleteApplications200Response deleteCollectionsIntegrations(id)
 
 Delete a collection
 
@@ -111,7 +111,7 @@ public class Example {
     IntegrationCollectionsApi apiInstance = new IntegrationCollectionsApi(defaultClient);
     Integer id = 1; // Integer | collection id
     try {
-      DeleteAliases200Response result = apiInstance.deleteCollectionsIntegrations(id);
+      DeleteApplications200Response result = apiInstance.deleteCollectionsIntegrations(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationCollectionsApi#deleteCollectionsIntegrations");
@@ -132,7 +132,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ public class Example {
 
 <a id="editCollectionsIntegrations"></a>
 # **editCollectionsIntegrations**
-> FetchCollections200Response editCollectionsIntegrations(id, updateTeamCollectionsRequest)
+> FetchCollections200Response editCollectionsIntegrations(id, createCollectionsIntegrationsRequest)
 
 Edit a collection
 
@@ -179,9 +179,9 @@ public class Example {
 
     IntegrationCollectionsApi apiInstance = new IntegrationCollectionsApi(defaultClient);
     Integer id = 1; // Integer | collection id
-    UpdateTeamCollectionsRequest updateTeamCollectionsRequest = new UpdateTeamCollectionsRequest(); // UpdateTeamCollectionsRequest | Pass user credentials
+    CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest = new CreateCollectionsIntegrationsRequest(); // CreateCollectionsIntegrationsRequest | Pass user credentials
     try {
-      FetchCollections200Response result = apiInstance.editCollectionsIntegrations(id, updateTeamCollectionsRequest);
+      FetchCollections200Response result = apiInstance.editCollectionsIntegrations(id, createCollectionsIntegrationsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationCollectionsApi#editCollectionsIntegrations");
@@ -199,7 +199,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| collection id | |
-| **updateTeamCollectionsRequest** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md)| Pass user credentials | |
+| **createCollectionsIntegrationsRequest** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md)| Pass user credentials | |
 
 ### Return type
 
@@ -359,7 +359,7 @@ public class Example {
 
 <a id="updateCollectionsIntegrations"></a>
 # **updateCollectionsIntegrations**
-> FetchCollections200Response updateCollectionsIntegrations(id, updateTeamCollectionsRequest)
+> FetchCollections200Response updateCollectionsIntegrations(id, createCollectionsIntegrationsRequest)
 
 Update a collection
 
@@ -386,9 +386,9 @@ public class Example {
 
     IntegrationCollectionsApi apiInstance = new IntegrationCollectionsApi(defaultClient);
     Integer id = 1; // Integer | collection id
-    UpdateTeamCollectionsRequest updateTeamCollectionsRequest = new UpdateTeamCollectionsRequest(); // UpdateTeamCollectionsRequest | Pass user credentials
+    CreateCollectionsIntegrationsRequest createCollectionsIntegrationsRequest = new CreateCollectionsIntegrationsRequest(); // CreateCollectionsIntegrationsRequest | Pass user credentials
     try {
-      FetchCollections200Response result = apiInstance.updateCollectionsIntegrations(id, updateTeamCollectionsRequest);
+      FetchCollections200Response result = apiInstance.updateCollectionsIntegrations(id, createCollectionsIntegrationsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationCollectionsApi#updateCollectionsIntegrations");
@@ -406,7 +406,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| collection id | |
-| **updateTeamCollectionsRequest** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md)| Pass user credentials | |
+| **createCollectionsIntegrationsRequest** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md)| Pass user credentials | |
 
 ### Return type
 
