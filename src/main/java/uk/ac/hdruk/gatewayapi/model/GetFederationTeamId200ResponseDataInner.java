@@ -52,7 +52,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * GetFederationTeamId200ResponseDataInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-05T08:39:33.604456851Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T10:39:25.187533033Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GetFederationTeamId200ResponseDataInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -103,6 +103,11 @@ public class GetFederationTeamId200ResponseDataInner {
   @SerializedName(SERIALIZED_NAME_ENABLED)
   @javax.annotation.Nullable
   private Boolean enabled;
+
+  public static final String SERIALIZED_NAME_ENABLED_AT = "enabled_at";
+  @SerializedName(SERIALIZED_NAME_ENABLED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime enabledAt;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -332,6 +337,25 @@ public class GetFederationTeamId200ResponseDataInner {
   }
 
 
+  public GetFederationTeamId200ResponseDataInner enabledAt(@javax.annotation.Nullable OffsetDateTime enabledAt) {
+    this.enabledAt = enabledAt;
+    return this;
+  }
+
+  /**
+   * Get enabledAt
+   * @return enabledAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getEnabledAt() {
+    return enabledAt;
+  }
+
+  public void setEnabledAt(@javax.annotation.Nullable OffsetDateTime enabledAt) {
+    this.enabledAt = enabledAt;
+  }
+
+
   public GetFederationTeamId200ResponseDataInner createdAt(@javax.annotation.Nullable OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
@@ -493,6 +517,7 @@ public class GetFederationTeamId200ResponseDataInner {
         Objects.equals(this.runTimeHour, getFederationTeamId200ResponseDataInner.runTimeHour) &&
         Objects.equals(this.runTimeMinute, getFederationTeamId200ResponseDataInner.runTimeMinute) &&
         Objects.equals(this.enabled, getFederationTeamId200ResponseDataInner.enabled) &&
+        Objects.equals(this.enabledAt, getFederationTeamId200ResponseDataInner.enabledAt) &&
         Objects.equals(this.createdAt, getFederationTeamId200ResponseDataInner.createdAt) &&
         Objects.equals(this.updatedAt, getFederationTeamId200ResponseDataInner.updatedAt) &&
         Objects.equals(this.deletedAt, getFederationTeamId200ResponseDataInner.deletedAt) &&
@@ -508,7 +533,7 @@ public class GetFederationTeamId200ResponseDataInner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, federationType, authType, authSecretKey, endpointBaseurl, endpointDatasets, endpointDataset, runTimeHour, runTimeMinute, enabled, createdAt, updatedAt, deletedAt, tested, isRunning, notifications, lastRunAt);
+    return Objects.hash(id, federationType, authType, authSecretKey, endpointBaseurl, endpointDatasets, endpointDataset, runTimeHour, runTimeMinute, enabled, enabledAt, createdAt, updatedAt, deletedAt, tested, isRunning, notifications, lastRunAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -532,6 +557,7 @@ public class GetFederationTeamId200ResponseDataInner {
     sb.append("    runTimeHour: ").append(toIndentedString(runTimeHour)).append("\n");
     sb.append("    runTimeMinute: ").append(toIndentedString(runTimeMinute)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    enabledAt: ").append(toIndentedString(enabledAt)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
@@ -557,7 +583,7 @@ public class GetFederationTeamId200ResponseDataInner {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "created_at", "updated_at", "deleted_at", "tested", "is_running", "notifications", "last_run_at"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "created_at", "updated_at", "deleted_at", "tested", "is_running", "notifications", "last_run_at"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

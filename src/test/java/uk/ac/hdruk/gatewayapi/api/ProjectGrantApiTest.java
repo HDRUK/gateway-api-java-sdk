@@ -15,6 +15,7 @@ package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
 import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
+import uk.ac.hdruk.gatewayapi.model.CreateProjectGrant201Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllProjectGrants200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -31,6 +32,19 @@ import java.util.Map;
 public class ProjectGrantApiTest {
 
     private final ProjectGrantApi api = new ProjectGrantApi();
+
+    /**
+     * ProjectGrantController@store
+     *
+     * Create a project grant (and initial version)
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createProjectGrantTest() throws ApiException {
+        CreateProjectGrant201Response response = api.createProjectGrant();
+        // TODO: test validations
+    }
 
     /**
      * ProjectGrantController@index

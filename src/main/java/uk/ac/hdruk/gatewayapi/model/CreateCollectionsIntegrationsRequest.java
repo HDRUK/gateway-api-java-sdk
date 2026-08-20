@@ -51,7 +51,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * CreateCollectionsIntegrationsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-05T08:39:33.604456851Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T10:39:25.187533033Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreateCollectionsIntegrationsRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.FetchKeyMetricsV2200Response;
+import uk.ac.hdruk.gatewayapi.model.FetchDatasetLinkCheckResultsV2200Response;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -137,7 +137,7 @@ public class MetricsApi {
     /**
      * KeyMetricController@index
      * Get key metrics
-     * @return FetchKeyMetricsV2200Response
+     * @return FetchDatasetLinkCheckResultsV2200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -146,15 +146,15 @@ public class MetricsApi {
         <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
      </table>
      */
-    public FetchKeyMetricsV2200Response fetchKeyMetricsV2() throws ApiException {
-        ApiResponse<FetchKeyMetricsV2200Response> localVarResp = fetchKeyMetricsV2WithHttpInfo();
+    public FetchDatasetLinkCheckResultsV2200Response fetchKeyMetricsV2() throws ApiException {
+        ApiResponse<FetchDatasetLinkCheckResultsV2200Response> localVarResp = fetchKeyMetricsV2WithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * KeyMetricController@index
      * Get key metrics
-     * @return ApiResponse&lt;FetchKeyMetricsV2200Response&gt;
+     * @return ApiResponse&lt;FetchDatasetLinkCheckResultsV2200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -163,9 +163,9 @@ public class MetricsApi {
         <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FetchKeyMetricsV2200Response> fetchKeyMetricsV2WithHttpInfo() throws ApiException {
+    public ApiResponse<FetchDatasetLinkCheckResultsV2200Response> fetchKeyMetricsV2WithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = fetchKeyMetricsV2ValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<FetchKeyMetricsV2200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<FetchDatasetLinkCheckResultsV2200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -182,10 +182,10 @@ public class MetricsApi {
         <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call fetchKeyMetricsV2Async(final ApiCallback<FetchKeyMetricsV2200Response> _callback) throws ApiException {
+    public okhttp3.Call fetchKeyMetricsV2Async(final ApiCallback<FetchDatasetLinkCheckResultsV2200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = fetchKeyMetricsV2ValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<FetchKeyMetricsV2200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<FetchDatasetLinkCheckResultsV2200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -124,6 +124,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDurRequestTeamInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDurRequestUsersInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateFederationTeamRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateProjectGrant201Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreatePublicationsRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreatePublicationsRequestDatasetsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreatePublicationsRequestToolsInner.CustomTypeAdapterFactory());
@@ -202,11 +203,11 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchDataProviderCollSummary200ResponseData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchDataProviderColls200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchDataProviderColls200ResponseDataInner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchDatasetLinkCheckResultsV2200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchDatasets200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchDurById200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchDurByIdIntegrations200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchDurByIdIntegrations200ResponseDataInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchKeyMetricsV2200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchLicenses200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchPublications200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.FetchQuestionBankQuestion200Response.CustomTypeAdapterFactory());

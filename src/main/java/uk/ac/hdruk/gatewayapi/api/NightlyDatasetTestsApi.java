@@ -27,10 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
-import uk.ac.hdruk.gatewayapi.model.DatasetsTestRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
+import uk.ac.hdruk.gatewayapi.model.FetchDatasetLinkCheckResultsV2200Response;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -38,16 +35,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class IntegrationsDatasetsTestApi {
+public class NightlyDatasetTestsApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public IntegrationsDatasetsTestApi() {
+    public NightlyDatasetTestsApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public IntegrationsDatasetsTestApi(ApiClient apiClient) {
+    public NightlyDatasetTestsApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
@@ -76,8 +73,7 @@ public class IntegrationsDatasetsTestApi {
     }
 
     /**
-     * Build call for integrationsDatasetsTest
-     * @param datasetsTestRequest Pass datasets payload (required)
+     * Build call for fetchNightlyDatasetTestsV2
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -85,14 +81,10 @@ public class IntegrationsDatasetsTestApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call integrationsDatasetsTestCall(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call fetchNightlyDatasetTestsV2Call(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -106,10 +98,10 @@ public class IntegrationsDatasetsTestApi {
             basePath = null;
         }
 
-        Object localVarPostBody = datasetsTestRequest;
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/v1/integrations/datasets/test";
+        String localVarPath = "/api/v2/nightly_dataset_tests";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -126,7 +118,6 @@ public class IntegrationsDatasetsTestApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -134,70 +125,53 @@ public class IntegrationsDatasetsTestApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
-    @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call integrationsDatasetsTestValidateBeforeCall(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'datasetsTestRequest' is set
-        if (datasetsTestRequest == null) {
-            throw new ApiException("Missing the required parameter 'datasetsTestRequest' when calling integrationsDatasetsTest(Async)");
-        }
-
-        return integrationsDatasetsTestCall(datasetsTestRequest, _callback);
+    private okhttp3.Call fetchNightlyDatasetTestsV2ValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return fetchNightlyDatasetTestsV2Call(_callback);
 
     }
 
     /**
-     * IntegrationDatasetController@datasetTest
-     * Integrations datasets test
-     * @param datasetsTestRequest Pass datasets payload (required)
-     * @return CreateDarIntegration201Response
+     * NightlyDatasetTestController@index
+     * Get the results of the nightly dataset reachability check, with a summary and a list of failures
+     * @return FetchDatasetLinkCheckResultsV2200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public CreateDarIntegration201Response integrationsDatasetsTest(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest) throws ApiException {
-        ApiResponse<CreateDarIntegration201Response> localVarResp = integrationsDatasetsTestWithHttpInfo(datasetsTestRequest);
+    public FetchDatasetLinkCheckResultsV2200Response fetchNightlyDatasetTestsV2() throws ApiException {
+        ApiResponse<FetchDatasetLinkCheckResultsV2200Response> localVarResp = fetchNightlyDatasetTestsV2WithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * IntegrationDatasetController@datasetTest
-     * Integrations datasets test
-     * @param datasetsTestRequest Pass datasets payload (required)
-     * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
+     * NightlyDatasetTestController@index
+     * Get the results of the nightly dataset reachability check, with a summary and a list of failures
+     * @return ApiResponse&lt;FetchDatasetLinkCheckResultsV2200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public ApiResponse<CreateDarIntegration201Response> integrationsDatasetsTestWithHttpInfo(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest) throws ApiException {
-        okhttp3.Call localVarCall = integrationsDatasetsTestValidateBeforeCall(datasetsTestRequest, null);
-        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
+    public ApiResponse<FetchDatasetLinkCheckResultsV2200Response> fetchNightlyDatasetTestsV2WithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = fetchNightlyDatasetTestsV2ValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<FetchDatasetLinkCheckResultsV2200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * IntegrationDatasetController@datasetTest (asynchronously)
-     * Integrations datasets test
-     * @param datasetsTestRequest Pass datasets payload (required)
+     * NightlyDatasetTestController@index (asynchronously)
+     * Get the results of the nightly dataset reachability check, with a summary and a list of failures
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -205,17 +179,13 @@ public class IntegrationsDatasetsTestApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call integrationsDatasetsTestAsync(@javax.annotation.Nonnull DatasetsTestRequest datasetsTestRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
+    public okhttp3.Call fetchNightlyDatasetTestsV2Async(final ApiCallback<FetchDatasetLinkCheckResultsV2200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = integrationsDatasetsTestValidateBeforeCall(datasetsTestRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
+        okhttp3.Call localVarCall = fetchNightlyDatasetTestsV2ValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<FetchDatasetLinkCheckResultsV2200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

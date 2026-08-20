@@ -72,22 +72,6 @@ public class TeamFederationsApiTest {
     }
 
     /**
-     * FederationController@edit
-     *
-     * Edit federation for team
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void editFederationTeamTest() throws ApiException {
-        Integer teamId = null;
-        Integer federationId = null;
-        CreateFederationTeamRequest createFederationTeamRequest = null;
-        CreateDarIntegration201Response response = api.editFederationTeam(teamId, federationId, createFederationTeamRequest);
-        // TODO: test validations
-    }
-
-    /**
      * FederationController@show
      *
      * Get federation by federation id from team id

@@ -17,6 +17,7 @@
 |**runTimeHour** | **Integer** |  |  [optional] |
 |**runTimeMinute** | **String** |  |  [optional] |
 |**enabled** | **Boolean** |  |  [optional] |
+|**enabledAt** | **OffsetDateTime** |  |  [optional] |
 |**counter** | **Integer** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |

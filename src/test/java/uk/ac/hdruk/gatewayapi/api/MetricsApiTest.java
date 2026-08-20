@@ -14,7 +14,7 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.FetchKeyMetricsV2200Response;
+import uk.ac.hdruk.gatewayapi.model.FetchDatasetLinkCheckResultsV2200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -40,7 +40,7 @@ public class MetricsApiTest {
      */
     @Test
     public void fetchKeyMetricsV2Test() throws ApiException {
-        FetchKeyMetricsV2200Response response = api.fetchKeyMetricsV2();
+        FetchDatasetLinkCheckResultsV2200Response response = api.fetchKeyMetricsV2();
         // TODO: test validations
     }
 

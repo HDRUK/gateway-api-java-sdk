@@ -26,17 +26,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for FetchKeyMetricsV2200Response
+ * Model tests for FetchDatasetLinkCheckResultsV2200Response
  */
-public class FetchKeyMetricsV2200ResponseTest {
-    private final FetchKeyMetricsV2200Response model = new FetchKeyMetricsV2200Response();
+public class FetchDatasetLinkCheckResultsV2200ResponseTest {
+    private final FetchDatasetLinkCheckResultsV2200Response model = new FetchDatasetLinkCheckResultsV2200Response();
 
     /**
-     * Model tests for FetchKeyMetricsV2200Response
+     * Model tests for FetchDatasetLinkCheckResultsV2200Response
      */
     @Test
-    public void testFetchKeyMetricsV2200Response() {
-        // TODO: test FetchKeyMetricsV2200Response
+    public void testFetchDatasetLinkCheckResultsV2200Response() {
+        // TODO: test FetchDatasetLinkCheckResultsV2200Response
     }
 
     /**

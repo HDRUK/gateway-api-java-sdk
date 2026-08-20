@@ -6,11 +6,9 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**countUniqueFields**](DatasetsApi.md#countUniqueFields) | **GET** /api/v1/datasets/count/{field} | DatasetController@count |
 | [**createDatasets**](DatasetsApi.md#createDatasets) | **POST** /api/v1/datasets | DatasetController@store |
-| [**createDatasetsIntegrations**](DatasetsApi.md#createDatasetsIntegrations) | **POST** /api/v1/integrations/datasets | IntegrationDatasetController@store |
 | [**createDatasetsV2**](DatasetsApi.md#createDatasetsV2) | **POST** /api/v2/datasets | DatasetController@store |
 | [**createTeamDatasetsV2**](DatasetsApi.md#createTeamDatasetsV2) | **POST** /api/v2/teams/{teamId}/datasets | TeamDatasetController@store |
 | [**deleteDatasets**](DatasetsApi.md#deleteDatasets) | **DELETE** /api/v1/datasets/{id} | DatasetController@destroy |
-| [**deleteDatasetsIntegrations**](DatasetsApi.md#deleteDatasetsIntegrations) | **DELETE** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@destroy |
 | [**deleteDatasetsV2**](DatasetsApi.md#deleteDatasetsV2) | **DELETE** /api/v2/datasets/{id} | Delete a dataset |
 | [**deleteTeamDatasetsV2**](DatasetsApi.md#deleteTeamDatasetsV2) | **DELETE** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@destroy |
 | [**exportDatasetMetadata**](DatasetsApi.md#exportDatasetMetadata) | **GET** /api/v1/datasets/export_metadata/{id} | DatasetController@exportMetadata |
@@ -19,17 +17,13 @@ All URIs are relative to *http://localhost*
 | [**exportMockDataset**](DatasetsApi.md#exportMockDataset) | **GET** /api/v1/datasets/export/mock | DatasetController@exportMock |
 | [**exportMockDatasetV2**](DatasetsApi.md#exportMockDatasetV2) | **GET** /api/v2/datasets/export/mock | DatasetController@exportMock |
 | [**fetchAllDatasets**](DatasetsApi.md#fetchAllDatasets) | **GET** /api/v1/datasets | DatasetController@index |
-| [**fetchAllDatasetsIntegrations**](DatasetsApi.md#fetchAllDatasetsIntegrations) | **GET** /api/v1/integrations/datasets | IntegrationDatasetController@index |
 | [**fetchAllDatasetsV2**](DatasetsApi.md#fetchAllDatasetsV2) | **GET** /api/v2/datasets | DatasetController@index |
 | [**fetchDatasets**](DatasetsApi.md#fetchDatasets) | **GET** /api/v1/datasets/{id} | DatasetController@show |
-| [**fetchDatasetsIntegrations**](DatasetsApi.md#fetchDatasetsIntegrations) | **GET** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@show |
 | [**fetchDatasetsV2**](DatasetsApi.md#fetchDatasetsV2) | **GET** /api/v2/datasets/{id} | DatasetController@showActive |
 | [**patchDatasets**](DatasetsApi.md#patchDatasets) | **PATCH** /api/v1/datasets/{id} | DatasetController@edit |
-| [**patchDatasetsIntegrations**](DatasetsApi.md#patchDatasetsIntegrations) | **PATCH** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@edit |
 | [**patchDatasetsV2**](DatasetsApi.md#patchDatasetsV2) | **PATCH** /api/v2/datasets/{id} | DatasetController@edit |
 | [**patchTeamDatasetsV2**](DatasetsApi.md#patchTeamDatasetsV2) | **PATCH** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@edit |
 | [**updateDatasets**](DatasetsApi.md#updateDatasets) | **PUT** /api/v1/datasets/{id} | DatasetController@update |
-| [**updateDatasetsIntegrations**](DatasetsApi.md#updateDatasetsIntegrations) | **PUT** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@update |
 | [**updateDatasetsV2**](DatasetsApi.md#updateDatasetsV2) | **PUT** /api/v2/datasets/{id} | DatasetController@update |
 | [**updateTeamDatasetsV2**](DatasetsApi.md#updateTeamDatasetsV2) | **PUT** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@update |
 
@@ -151,79 +145,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **createDatasetsRequest** | [**CreateDatasetsRequest**](CreateDatasetsRequest.md)| Pass user credentials | |
-
-### Return type
-
-[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **401** | Unauthorized |  -  |
-| **500** | Error |  -  |
-
-<a id="createDatasetsIntegrations"></a>
-# **createDatasetsIntegrations**
-> CreateDarIntegration201Response createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion)
-
-IntegrationDatasetController@store
-
-Create a new dataset
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    DatasetsTestRequest datasetsTestRequest = new DatasetsTestRequest(); // DatasetsTestRequest | Pass user credentials
-    String inputSchema = "HDRUK"; // String | Input schema model.
-    String inputVersion = "3.0.0"; // String | Input schema version.
-    try {
-      CreateDarIntegration201Response result = apiInstance.createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#createDatasetsIntegrations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **datasetsTestRequest** | [**DatasetsTestRequest**](DatasetsTestRequest.md)| Pass user credentials | |
-| **inputSchema** | **String**| Input schema model. | [optional] |
-| **inputVersion** | **String**| Input schema version. | [optional] |
 
 ### Return type
 
@@ -419,75 +340,6 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#deleteDatasets");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| dataset id | |
-
-### Return type
-
-[**DeleteApplications200Response**](DeleteApplications200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not found response |  -  |
-| **200** | Success |  -  |
-| **500** | Error |  -  |
-
-<a id="deleteDatasetsIntegrations"></a>
-# **deleteDatasetsIntegrations**
-> DeleteApplications200Response deleteDatasetsIntegrations(id)
-
-IntegrationDatasetController@destroy
-
-Delete a dataset
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    Integer id = 1; // Integer | dataset id
-    try {
-      DeleteApplications200Response result = apiInstance.deleteDatasetsIntegrations(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#deleteDatasetsIntegrations");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1086,81 +938,6 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success response |  -  |
 
-<a id="fetchAllDatasetsIntegrations"></a>
-# **fetchAllDatasetsIntegrations**
-> FetchAllDatasets200Response fetchAllDatasetsIntegrations(teamId, pid, sort, title, status)
-
-IntegrationDatasetController@index
-
-Get All Datasets
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    Integer teamId = 1; // Integer | team id
-    String pid = "aa588d1c-21e7-42d9-9b60-48e3d6b784a9"; // String | get based on a pid
-    String sort = "created:desc"; // String | Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>
-    String title = "hdr"; // String | Three or more characters to filter dataset titles by
-    String status = "ACTIVE"; // String | Dataset status to filter by ('ACTIVE', 'DRAFT', 'ARCHIVED')
-    try {
-      FetchAllDatasets200Response result = apiInstance.fetchAllDatasetsIntegrations(teamId, pid, sort, title, status);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#fetchAllDatasetsIntegrations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **teamId** | **Integer**| team id | |
-| **pid** | **String**| get based on a pid | [optional] |
-| **sort** | **String**| Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; | [optional] |
-| **title** | **String**| Three or more characters to filter dataset titles by | [optional] |
-| **status** | **String**| Dataset status to filter by (&#39;ACTIVE&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;) | [optional] |
-
-### Return type
-
-[**FetchAllDatasets200Response**](FetchAllDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response |  -  |
-
 <a id="fetchAllDatasetsV2"></a>
 # **fetchAllDatasetsV2**
 > FetchAllDatasets200Response fetchAllDatasetsV2(sort, title, status, withMetadata)
@@ -1309,79 +1086,6 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **404** | Not found response |  -  |
 
-<a id="fetchDatasetsIntegrations"></a>
-# **fetchDatasetsIntegrations**
-> FetchDatasets200Response fetchDatasetsIntegrations(id, schemaModel, schemaVersion)
-
-IntegrationDatasetController@show
-
-Get dataset by id
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    Integer id = 1; // Integer | dataset id
-    String schemaModel = "schemaModel_example"; // String | Alternative output schema model.
-    String schemaVersion = "schemaVersion_example"; // String | Alternative output schema version.
-    try {
-      FetchDatasets200Response result = apiInstance.fetchDatasetsIntegrations(id, schemaModel, schemaVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#fetchDatasetsIntegrations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| dataset id | |
-| **schemaModel** | **String**| Alternative output schema model. | [optional] |
-| **schemaVersion** | **String**| Alternative output schema version. | [optional] |
-
-### Return type
-
-[**FetchDatasets200Response**](FetchDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not found response |  -  |
-
 <a id="fetchDatasetsV2"></a>
 # **fetchDatasetsV2**
 > FetchDatasets200Response fetchDatasetsV2(id, export, schemaModel, schemaVersion)
@@ -1492,76 +1196,6 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#patchDatasets");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| dataset id | |
-| **unarchive** | **String**| Unarchive a dataset | [optional] |
-
-### Return type
-
-[**DeleteApplications200Response**](DeleteApplications200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **500** | Error |  -  |
-
-<a id="patchDatasetsIntegrations"></a>
-# **patchDatasetsIntegrations**
-> DeleteApplications200Response patchDatasetsIntegrations(id, unarchive)
-
-IntegrationDatasetController@edit
-
-Patch dataset by id
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    Integer id = 1; // Integer | dataset id
-    String unarchive = "unarchive_example"; // String | Unarchive a dataset
-    try {
-      DeleteApplications200Response result = apiInstance.patchDatasetsIntegrations(id, unarchive);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#patchDatasetsIntegrations");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1793,81 +1427,6 @@ public class Example {
 ### Return type
 
 [**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **401** | Unauthorized |  -  |
-| **500** | Error |  -  |
-
-<a id="updateDatasetsIntegrations"></a>
-# **updateDatasetsIntegrations**
-> FetchDatasets200Response updateDatasetsIntegrations(id, updateDatasetsRequest, inputSchema, inputVersion)
-
-IntegrationDatasetController@update
-
-Update a dataset with a new dataset version
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.DatasetsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    Integer id = 1; // Integer | dataset id
-    UpdateDatasetsRequest updateDatasetsRequest = new UpdateDatasetsRequest(); // UpdateDatasetsRequest | Pass user credentials
-    String inputSchema = "HDRUK"; // String | Input schema model.
-    String inputVersion = "3.0.0"; // String | Input schema version.
-    try {
-      FetchDatasets200Response result = apiInstance.updateDatasetsIntegrations(id, updateDatasetsRequest, inputSchema, inputVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DatasetsApi#updateDatasetsIntegrations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| dataset id | |
-| **updateDatasetsRequest** | [**UpdateDatasetsRequest**](UpdateDatasetsRequest.md)| Pass user credentials | |
-| **inputSchema** | **String**| Input schema model. | [optional] |
-| **inputVersion** | **String**| Input schema version. | [optional] |
-
-### Return type
-
-[**FetchDatasets200Response**](FetchDatasets200Response.md)
 
 ### Authorization
 

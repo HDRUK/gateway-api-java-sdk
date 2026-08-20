@@ -49,8 +49,6 @@ tags:
   name: Form Hydration
 - description: Integration Collections
   name: Integration Collections
-- description: Integrations datasets test
-  name: Integrations datasets test
 - description: Integration Data Use Registers
   name: Integration Data Use Registers
 - description: Tools
@@ -119,8 +117,12 @@ tags:
   name: DataCustodianNetworks
 - description: Admin-DataCustodianNetworks
   name: Admin-DataCustodianNetworks
+- description: DatasetLinkCheckResults
+  name: DatasetLinkCheckResults
 - description: Metrics
   name: Metrics
+- description: NightlyDatasetTests
+  name: NightlyDatasetTests
 - description: TeamDashboard
   name: TeamDashboard
 paths:
@@ -3129,64 +3131,6 @@ paths:
       - Team-Federations
       x-accepts:
       - application/json
-    patch:
-      description: Edit federation for team
-      operationId: edit_federation_team
-      parameters:
-      - description: team id
-        example: "1"
-        explode: false
-        in: path
-        name: teamId
-        required: true
-        schema:
-          description: team id
-          type: integer
-        style: simple
-      - description: federation id
-        example: "1"
-        explode: false
-        in: path
-        name: federationId
-        required: true
-        schema:
-          description: federation id
-          type: integer
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/create_federation_team_request"
-        description: Pass user credentials
-        required: true
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_dar_integration_201_response"
-          description: Created
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/fetch_all_dar_integrations_401_response"
-          description: Unauthorized
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_applications_500_response"
-          description: Error
-      security:
-      - bearerAuth: []
-      summary: FederationController@edit
-      tags:
-      - Team-Federations
-      x-content-type: application/json
-      x-accepts:
-      - application/json
     put:
       description: Update federation for team
       operationId: update_federation_team
@@ -3680,387 +3624,6 @@ paths:
       summary: Update a collection
       tags:
       - Integration Collections
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-  /api/v1/integrations/datasets:
-    get:
-      deprecated: true
-      description: Get All Datasets
-      operationId: fetch_all_datasets_integrations
-      parameters:
-      - description: team id
-        example: "1"
-        explode: true
-        in: query
-        name: team_id
-        required: true
-        schema:
-          description: team id
-          type: integer
-        style: form
-      - description: get based on a pid
-        example: aa588d1c-21e7-42d9-9b60-48e3d6b784a9
-        explode: true
-        in: query
-        name: pid
-        required: false
-        schema:
-          description: retrieve based on pid
-          type: string
-        style: form
-      - description: |-
-          Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>
-                  - ?sort=\<field\>:\<direction\> <br/>
-                  - \<direction\> can only be 'asc' or 'desc'  <br/>
-                  - \<field\> can only be a valid field for the dataset table that can be ordered on  <br/>
-                  - \<field\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>
-                      (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/>
-        example: created:desc
-        explode: true
-        in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Three or more characters to filter dataset titles by
-        example: hdr
-        explode: true
-        in: query
-        name: title
-        required: false
-        schema:
-          description: Three or more characters to filter dataset titles by
-          type: string
-        style: form
-      - description: "Dataset status to filter by ('ACTIVE', 'DRAFT', 'ARCHIVED')"
-        example: ACTIVE
-        explode: true
-        in: query
-        name: status
-        required: false
-        schema:
-          description: Dataset status to filter by
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/fetch_all_datasets_200_response"
-          description: Success response
-      security:
-      - bearerAuth: []
-      summary: IntegrationDatasetController@index
-      tags:
-      - Datasets
-      x-accepts:
-      - application/json
-    post:
-      deprecated: true
-      description: Create a new dataset
-      operationId: create_datasets_integrations
-      parameters:
-      - description: Input schema model.
-        example: HDRUK
-        explode: true
-        in: query
-        name: input_schema
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Input schema version.
-        example: 3.0.0
-        explode: true
-        in: query
-        name: input_version
-        required: false
-        schema:
-          type: string
-        style: form
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/datasets_test_request"
-        description: Pass user credentials
-        required: true
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_dar_integration_201_response"
-          description: Created
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/fetch_all_dar_integrations_401_response"
-          description: Unauthorized
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_applications_500_response"
-          description: Error
-      security:
-      - bearerAuth: []
-      summary: IntegrationDatasetController@store
-      tags:
-      - Datasets
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-  /api/v1/integrations/datasets/{id}:
-    delete:
-      deprecated: true
-      description: Delete a dataset
-      operationId: delete_datasets_integrations
-      parameters:
-      - description: dataset id
-        example: "1"
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          description: dataset id
-          type: integer
-        style: simple
-      responses:
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/update_applications_404_response"
-          description: Not found response
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/delete_applications_200_response"
-          description: Success
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_applications_500_response"
-          description: Error
-      security:
-      - bearerAuth: []
-      summary: IntegrationDatasetController@destroy
-      tags:
-      - Datasets
-      x-accepts:
-      - application/json
-    get:
-      deprecated: true
-      description: Get dataset by id
-      operationId: fetch_datasets_integrations
-      parameters:
-      - description: dataset id
-        example: "1"
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          description: dataset id
-          type: integer
-        style: simple
-      - description: Alternative output schema model.
-        explode: true
-        in: query
-        name: schema_model
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Alternative output schema version.
-        explode: true
-        in: query
-        name: schema_version
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/fetch_datasets_200_response"
-          description: Success response
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/fetch_all_dar_integrations_401_response"
-          description: Unauthorized
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/update_applications_404_response"
-          description: Not found response
-      security:
-      - bearerAuth: []
-      summary: IntegrationDatasetController@show
-      tags:
-      - Datasets
-      x-accepts:
-      - application/json
-    patch:
-      deprecated: true
-      description: Patch dataset by id
-      operationId: patch_datasets_integrations
-      parameters:
-      - description: dataset id
-        example: "1"
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          description: dataset id
-          type: integer
-        style: simple
-      - description: Unarchive a dataset
-        explode: true
-        in: query
-        name: unarchive
-        required: false
-        schema:
-          description: instruction to unarchive dataset
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/delete_applications_200_response"
-          description: Success
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_applications_500_response"
-          description: Error
-      security:
-      - bearerAuth: []
-      summary: IntegrationDatasetController@edit
-      tags:
-      - Datasets
-      x-accepts:
-      - application/json
-    put:
-      deprecated: true
-      description: Update a dataset with a new dataset version
-      operationId: update_datasets_integrations
-      parameters:
-      - description: dataset id
-        example: "1"
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          description: dataset id
-          type: integer
-        style: simple
-      - description: Input schema model.
-        example: HDRUK
-        explode: true
-        in: query
-        name: input_schema
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Input schema version.
-        example: 3.0.0
-        explode: true
-        in: query
-        name: input_version
-        required: false
-        schema:
-          type: string
-        style: form
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/update_datasets_request"
-        description: Pass user credentials
-        required: true
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/fetch_datasets_200_response"
-          description: Created
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/fetch_all_dar_integrations_401_response"
-          description: Unauthorized
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_applications_500_response"
-          description: Error
-      security:
-      - bearerAuth: []
-      summary: IntegrationDatasetController@update
-      tags:
-      - Datasets
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-  /api/v1/integrations/datasets/test:
-    post:
-      deprecated: true
-      description: Integrations datasets test
-      operationId: integrations_datasets_test
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/datasets_test_request"
-        description: Pass datasets payload
-        required: true
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_dar_integration_201_response"
-          description: Created
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/fetch_all_dar_integrations_401_response"
-          description: Unauthorized
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/create_applications_500_response"
-          description: Error
-      security:
-      - bearerAppAuth: []
-      summary: IntegrationDatasetController@datasetTest
-      tags:
-      - Integrations datasets test
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -4678,6 +4241,23 @@ paths:
                 $ref: "#/components/schemas/fetch_all_project_grants_200_response"
           description: Success response
       summary: ProjectGrantController@index
+      tags:
+      - Project Grant
+      x-accepts:
+      - application/json
+    post:
+      description: Create a project grant (and initial version)
+      operationId: create_project_grant
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/create_project_grant_201_response"
+          description: Created
+      security:
+      - bearerAuth: []
+      summary: ProjectGrantController@store
       tags:
       - Project Grant
       x-accepts:
@@ -8374,6 +7954,23 @@ paths:
       x-accepts:
       - application/json
       - text/csv
+  /api/v2/dataset_link_check_results:
+    get:
+      description: "Get the confirmed dead links (HTTP 404, verified across multiple\
+        \ checks) found in active dataset metadata by the nightly link check"
+      operationId: fetch_dataset_link_check_results_v2
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/fetch_dataset_link_check_results_v2_200_response"
+          description: Success response
+      summary: DatasetLinkCheckResultController@index
+      tags:
+      - DatasetLinkCheckResults
+      x-accepts:
+      - application/json
   /api/v2/dur:
     get:
       description: Returns a list of active dur
@@ -8529,11 +8126,28 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/fetch_key_metrics_v2_200_response"
+                $ref: "#/components/schemas/fetch_dataset_link_check_results_v2_200_response"
           description: Success response
       summary: KeyMetricController@index
       tags:
       - Metrics
+      x-accepts:
+      - application/json
+  /api/v2/nightly_dataset_tests:
+    get:
+      description: "Get the results of the nightly dataset reachability check, with\
+        \ a summary and a list of failures"
+      operationId: fetch_nightly_dataset_tests_v2
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/fetch_dataset_link_check_results_v2_200_response"
+          description: Success response
+      summary: NightlyDatasetTestController@index
+      tags:
+      - NightlyDatasetTests
       x-accepts:
       - application/json
   /api/v2/publications:
@@ -13165,6 +12779,7 @@ components:
         run_time_hour: 5
         run_time_minute: "00"
         enabled: false
+        enabled_at: 2000-01-23T04:56:07.000+00:00
         created_at: 2000-01-23T04:56:07.000+00:00
         updated_at: 2000-01-23T04:56:07.000+00:00
         deleted_at: 2000-01-23T04:56:07.000+00:00
@@ -13203,6 +12818,10 @@ components:
         enabled:
           example: false
           type: boolean
+        enabled_at:
+          format: date-time
+          nullable: true
+          type: string
         created_at:
           format: date-time
           type: string
@@ -13241,6 +12860,7 @@ components:
           run_time_hour: 5
           run_time_minute: "00"
           enabled: false
+          enabled_at: 2000-01-23T04:56:07.000+00:00
           created_at: 2000-01-23T04:56:07.000+00:00
           updated_at: 2000-01-23T04:56:07.000+00:00
           deleted_at: 2000-01-23T04:56:07.000+00:00
@@ -13258,6 +12878,7 @@ components:
           run_time_hour: 5
           run_time_minute: "00"
           enabled: false
+          enabled_at: 2000-01-23T04:56:07.000+00:00
           created_at: 2000-01-23T04:56:07.000+00:00
           updated_at: 2000-01-23T04:56:07.000+00:00
           deleted_at: 2000-01-23T04:56:07.000+00:00
@@ -13369,6 +12990,7 @@ components:
         run_time_hour: 5
         run_time_minute: "00"
         enabled: false
+        enabled_at: 2000-01-23T04:56:07.000+00:00
         counter: 34319
         created_at: 2000-01-23T04:56:07.000+00:00
         updated_at: 2000-01-23T04:56:07.000+00:00
@@ -13407,6 +13029,10 @@ components:
         enabled:
           example: false
           type: boolean
+        enabled_at:
+          format: date-time
+          nullable: true
+          type: string
         counter:
           example: 34319
           type: integer
@@ -13444,6 +13070,7 @@ components:
           run_time_hour: 5
           run_time_minute: "00"
           enabled: false
+          enabled_at: 2000-01-23T04:56:07.000+00:00
           counter: 34319
           created_at: 2000-01-23T04:56:07.000+00:00
           updated_at: 2000-01-23T04:56:07.000+00:00
@@ -15273,6 +14900,17 @@ components:
           items:
             type: object
           type: array
+      type: object
+    create_project_grant_201_response:
+      example:
+        message: created
+        data: "{}"
+      properties:
+        message:
+          example: created
+          type: string
+        data:
+          type: object
       type: object
     fetch_all_publications_200_response:
       example:
@@ -19035,6 +18673,21 @@ components:
         metadata:
           type: object
       type: object
+    fetch_dataset_link_check_results_v2_200_response:
+      example:
+        message: success
+        data: "[]"
+      properties:
+        message:
+          example: success
+          type: string
+        data:
+          example: "[]"
+          items:
+            items: {}
+            type: array
+          type: array
+      type: object
     fetch_all_dur_v2_200_response:
       example:
         message: message
@@ -19211,21 +18864,6 @@ components:
         total:
           example: 3
           type: integer
-      type: object
-    fetch_key_metrics_v2_200_response:
-      example:
-        message: success
-        data: "[]"
-      properties:
-        message:
-          example: success
-          type: string
-        data:
-          example: "[]"
-          items:
-            items: {}
-            type: array
-          type: array
       type: object
     create_team_datasets_v2_request:
       properties:

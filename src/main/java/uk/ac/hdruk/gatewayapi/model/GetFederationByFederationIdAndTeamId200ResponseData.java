@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * GetFederationByFederationIdAndTeamId200ResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-05T08:39:33.604456851Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T10:39:25.187533033Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GetFederationByFederationIdAndTeamId200ResponseData {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -102,6 +103,11 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
   @SerializedName(SERIALIZED_NAME_ENABLED)
   @javax.annotation.Nullable
   private Boolean enabled;
+
+  public static final String SERIALIZED_NAME_ENABLED_AT = "enabled_at";
+  @SerializedName(SERIALIZED_NAME_ENABLED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime enabledAt;
 
   public static final String SERIALIZED_NAME_COUNTER = "counter";
   @SerializedName(SERIALIZED_NAME_COUNTER)
@@ -331,6 +337,25 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
   }
 
 
+  public GetFederationByFederationIdAndTeamId200ResponseData enabledAt(@javax.annotation.Nullable OffsetDateTime enabledAt) {
+    this.enabledAt = enabledAt;
+    return this;
+  }
+
+  /**
+   * Get enabledAt
+   * @return enabledAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getEnabledAt() {
+    return enabledAt;
+  }
+
+  public void setEnabledAt(@javax.annotation.Nullable OffsetDateTime enabledAt) {
+    this.enabledAt = enabledAt;
+  }
+
+
   public GetFederationByFederationIdAndTeamId200ResponseData counter(@javax.annotation.Nullable Integer counter) {
     this.counter = counter;
     return this;
@@ -492,6 +517,7 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
         Objects.equals(this.runTimeHour, getFederationByFederationIdAndTeamId200ResponseData.runTimeHour) &&
         Objects.equals(this.runTimeMinute, getFederationByFederationIdAndTeamId200ResponseData.runTimeMinute) &&
         Objects.equals(this.enabled, getFederationByFederationIdAndTeamId200ResponseData.enabled) &&
+        Objects.equals(this.enabledAt, getFederationByFederationIdAndTeamId200ResponseData.enabledAt) &&
         Objects.equals(this.counter, getFederationByFederationIdAndTeamId200ResponseData.counter) &&
         Objects.equals(this.createdAt, getFederationByFederationIdAndTeamId200ResponseData.createdAt) &&
         Objects.equals(this.updatedAt, getFederationByFederationIdAndTeamId200ResponseData.updatedAt) &&
@@ -501,9 +527,20 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
         Objects.equals(this.isRunning, getFederationByFederationIdAndTeamId200ResponseData.isRunning);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, federationType, authType, authSecretKey, endpointBaseurl, endpointDatasets, endpointDataset, runTimeHour, runTimeMinute, enabled, counter, createdAt, updatedAt, deletedAt, tested, notifications, isRunning);
+    return Objects.hash(id, federationType, authType, authSecretKey, endpointBaseurl, endpointDatasets, endpointDataset, runTimeHour, runTimeMinute, enabled, enabledAt, counter, createdAt, updatedAt, deletedAt, tested, notifications, isRunning);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -520,6 +557,7 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
     sb.append("    runTimeHour: ").append(toIndentedString(runTimeHour)).append("\n");
     sb.append("    runTimeMinute: ").append(toIndentedString(runTimeMinute)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    enabledAt: ").append(toIndentedString(enabledAt)).append("\n");
     sb.append("    counter: ").append(toIndentedString(counter)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -545,7 +583,7 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "counter", "created_at", "updated_at", "deleted_at", "tested", "notifications", "is_running"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "counter", "created_at", "updated_at", "deleted_at", "tested", "notifications", "is_running"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

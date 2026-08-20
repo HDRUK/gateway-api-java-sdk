@@ -48,10 +48,10 @@ import java.util.Set;
 import uk.ac.hdruk.gatewayapi.JSON;
 
 /**
- * FetchKeyMetricsV2200Response
+ * FetchDatasetLinkCheckResultsV2200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-05T08:39:33.604456851Z[Etc/UTC]", comments = "Generator version: 7.24.0")
-public class FetchKeyMetricsV2200Response {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T10:39:25.187533033Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+public class FetchDatasetLinkCheckResultsV2200Response {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   @javax.annotation.Nullable
@@ -62,10 +62,10 @@ public class FetchKeyMetricsV2200Response {
   @javax.annotation.Nullable
   private List<List<Object>> data = new ArrayList<>();
 
-  public FetchKeyMetricsV2200Response() {
+  public FetchDatasetLinkCheckResultsV2200Response() {
   }
 
-  public FetchKeyMetricsV2200Response message(@javax.annotation.Nullable String message) {
+  public FetchDatasetLinkCheckResultsV2200Response message(@javax.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -84,12 +84,12 @@ public class FetchKeyMetricsV2200Response {
   }
 
 
-  public FetchKeyMetricsV2200Response data(@javax.annotation.Nullable List<List<Object>> data) {
+  public FetchDatasetLinkCheckResultsV2200Response data(@javax.annotation.Nullable List<List<Object>> data) {
     this.data = data;
     return this;
   }
 
-  public FetchKeyMetricsV2200Response addDataItem(List<Object> dataItem) {
+  public FetchDatasetLinkCheckResultsV2200Response addDataItem(List<Object> dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -120,9 +120,9 @@ public class FetchKeyMetricsV2200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FetchKeyMetricsV2200Response fetchKeyMetricsV2200Response = (FetchKeyMetricsV2200Response) o;
-    return Objects.equals(this.message, fetchKeyMetricsV2200Response.message) &&
-        Objects.equals(this.data, fetchKeyMetricsV2200Response.data);
+    FetchDatasetLinkCheckResultsV2200Response fetchDatasetLinkCheckResultsV2200Response = (FetchDatasetLinkCheckResultsV2200Response) o;
+    return Objects.equals(this.message, fetchDatasetLinkCheckResultsV2200Response.message) &&
+        Objects.equals(this.data, fetchDatasetLinkCheckResultsV2200Response.data);
   }
 
   @Override
@@ -133,7 +133,7 @@ public class FetchKeyMetricsV2200Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FetchKeyMetricsV2200Response {\n");
+    sb.append("class FetchDatasetLinkCheckResultsV2200Response {\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
@@ -164,20 +164,20 @@ public class FetchKeyMetricsV2200Response {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FetchKeyMetricsV2200Response
+   * @throws IOException if the JSON Element is invalid with respect to FetchDatasetLinkCheckResultsV2200Response
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FetchKeyMetricsV2200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FetchKeyMetricsV2200Response is not found in the empty JSON string", FetchKeyMetricsV2200Response.openapiRequiredFields.toString()));
+        if (!FetchDatasetLinkCheckResultsV2200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FetchDatasetLinkCheckResultsV2200Response is not found in the empty JSON string", FetchDatasetLinkCheckResultsV2200Response.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!FetchKeyMetricsV2200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FetchKeyMetricsV2200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!FetchDatasetLinkCheckResultsV2200Response.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FetchDatasetLinkCheckResultsV2200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -194,22 +194,22 @@ public class FetchKeyMetricsV2200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FetchKeyMetricsV2200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FetchKeyMetricsV2200Response' and its subtypes
+       if (!FetchDatasetLinkCheckResultsV2200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FetchDatasetLinkCheckResultsV2200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FetchKeyMetricsV2200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FetchKeyMetricsV2200Response.class));
+       final TypeAdapter<FetchDatasetLinkCheckResultsV2200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FetchDatasetLinkCheckResultsV2200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FetchKeyMetricsV2200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<FetchDatasetLinkCheckResultsV2200Response>() {
            @Override
-           public void write(JsonWriter out, FetchKeyMetricsV2200Response value) throws IOException {
+           public void write(JsonWriter out, FetchDatasetLinkCheckResultsV2200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public FetchKeyMetricsV2200Response read(JsonReader in) throws IOException {
+           public FetchDatasetLinkCheckResultsV2200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -220,18 +220,18 @@ public class FetchKeyMetricsV2200Response {
   }
 
   /**
-   * Create an instance of FetchKeyMetricsV2200Response given an JSON string
+   * Create an instance of FetchDatasetLinkCheckResultsV2200Response given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FetchKeyMetricsV2200Response
-   * @throws IOException if the JSON string is invalid with respect to FetchKeyMetricsV2200Response
+   * @return An instance of FetchDatasetLinkCheckResultsV2200Response
+   * @throws IOException if the JSON string is invalid with respect to FetchDatasetLinkCheckResultsV2200Response
    */
-  public static FetchKeyMetricsV2200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FetchKeyMetricsV2200Response.class);
+  public static FetchDatasetLinkCheckResultsV2200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FetchDatasetLinkCheckResultsV2200Response.class);
   }
 
   /**
-   * Convert an instance of FetchKeyMetricsV2200Response to an JSON string
+   * Convert an instance of FetchDatasetLinkCheckResultsV2200Response to an JSON string
    *
    * @return JSON string
    */

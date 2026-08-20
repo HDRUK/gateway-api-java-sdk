@@ -23,6 +23,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -118,6 +119,14 @@ public class GetFederationByFederationIdAndTeamId200ResponseDataTest {
     @Test
     public void enabledTest() {
         // TODO: test enabled
+    }
+
+    /**
+     * Test the property 'enabledAt'
+     */
+    @Test
+    public void enabledAtTest() {
+        // TODO: test enabledAt
     }
 
     /**

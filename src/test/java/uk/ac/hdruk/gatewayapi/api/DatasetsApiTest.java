@@ -20,7 +20,6 @@ import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsRequest;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsV2Request;
 import uk.ac.hdruk.gatewayapi.model.CreateTeamDatasetsV2Request;
-import uk.ac.hdruk.gatewayapi.model.DatasetsTestRequest;
 import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.ExportDatasetMetadata400Response;
 import uk.ac.hdruk.gatewayapi.model.ExportMockDataset404Response;
@@ -76,22 +75,6 @@ public class DatasetsApiTest {
     }
 
     /**
-     * IntegrationDatasetController@store
-     *
-     * Create a new dataset
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createDatasetsIntegrationsTest() throws ApiException {
-        DatasetsTestRequest datasetsTestRequest = null;
-        String inputSchema = null;
-        String inputVersion = null;
-        CreateDarIntegration201Response response = api.createDatasetsIntegrations(datasetsTestRequest, inputSchema, inputVersion);
-        // TODO: test validations
-    }
-
-    /**
      * DatasetController@store
      *
      * Create a new dataset
@@ -131,20 +114,6 @@ public class DatasetsApiTest {
     public void deleteDatasetsTest() throws ApiException {
         Integer id = null;
         DeleteApplications200Response response = api.deleteDatasets(id);
-        // TODO: test validations
-    }
-
-    /**
-     * IntegrationDatasetController@destroy
-     *
-     * Delete a dataset
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteDatasetsIntegrationsTest() throws ApiException {
-        Integer id = null;
-        DeleteApplications200Response response = api.deleteDatasetsIntegrations(id);
         // TODO: test validations
     }
 
@@ -269,24 +238,6 @@ public class DatasetsApiTest {
     }
 
     /**
-     * IntegrationDatasetController@index
-     *
-     * Get All Datasets
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchAllDatasetsIntegrationsTest() throws ApiException {
-        Integer teamId = null;
-        String pid = null;
-        String sort = null;
-        String title = null;
-        String status = null;
-        FetchAllDatasets200Response response = api.fetchAllDatasetsIntegrations(teamId, pid, sort, title, status);
-        // TODO: test validations
-    }
-
-    /**
      * DatasetController@index
      *
      * Returns a list of all datasets
@@ -321,22 +272,6 @@ public class DatasetsApiTest {
     }
 
     /**
-     * IntegrationDatasetController@show
-     *
-     * Get dataset by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void fetchDatasetsIntegrationsTest() throws ApiException {
-        Integer id = null;
-        String schemaModel = null;
-        String schemaVersion = null;
-        FetchDatasets200Response response = api.fetchDatasetsIntegrations(id, schemaModel, schemaVersion);
-        // TODO: test validations
-    }
-
-    /**
      * DatasetController@showActive
      *
      * Get publicly visible dataset by id
@@ -365,21 +300,6 @@ public class DatasetsApiTest {
         Integer id = null;
         String unarchive = null;
         DeleteApplications200Response response = api.patchDatasets(id, unarchive);
-        // TODO: test validations
-    }
-
-    /**
-     * IntegrationDatasetController@edit
-     *
-     * Patch dataset by id
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void patchDatasetsIntegrationsTest() throws ApiException {
-        Integer id = null;
-        String unarchive = null;
-        DeleteApplications200Response response = api.patchDatasetsIntegrations(id, unarchive);
         // TODO: test validations
     }
 
@@ -426,23 +346,6 @@ public class DatasetsApiTest {
         Integer id = null;
         UpdateDatasetsRequest updateDatasetsRequest = null;
         CreateDarIntegration201Response response = api.updateDatasets(id, updateDatasetsRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * IntegrationDatasetController@update
-     *
-     * Update a dataset with a new dataset version
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateDatasetsIntegrationsTest() throws ApiException {
-        Integer id = null;
-        UpdateDatasetsRequest updateDatasetsRequest = null;
-        String inputSchema = null;
-        String inputVersion = null;
-        FetchDatasets200Response response = api.updateDatasetsIntegrations(id, updateDatasetsRequest, inputSchema, inputVersion);
         // TODO: test validations
     }
 

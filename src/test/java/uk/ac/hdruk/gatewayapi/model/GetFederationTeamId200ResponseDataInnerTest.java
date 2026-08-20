@@ -122,6 +122,14 @@ public class GetFederationTeamId200ResponseDataInnerTest {
     }
 
     /**
+     * Test the property 'enabledAt'
+     */
+    @Test
+    public void enabledAtTest() {
+        // TODO: test enabledAt
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test

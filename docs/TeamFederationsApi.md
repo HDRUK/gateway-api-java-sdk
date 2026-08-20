@@ -6,7 +6,6 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**createFederationTeam**](TeamFederationsApi.md#createFederationTeam) | **POST** /api/v1/teams/{teamId}/federations | FederationController@store |
 | [**deleteFederation**](TeamFederationsApi.md#deleteFederation) | **DELETE** /api/v1/teams/{teamId}/federations/{federationId} | FederationController@destroy |
-| [**editFederationTeam**](TeamFederationsApi.md#editFederationTeam) | **PATCH** /api/v1/teams/{teamId}/federations/{federationId} | FederationController@edit |
 | [**getFederationByFederationIdAndTeamId**](TeamFederationsApi.md#getFederationByFederationIdAndTeamId) | **GET** /api/v1/teams/{teamId}/federations/{federationId} | FederationController@show |
 | [**getFederationHistory**](TeamFederationsApi.md#getFederationHistory) | **GET** /api/v1/teams/{teamId}/federations/{federationId}/history | FederationController@history |
 | [**getFederationTeamId**](TeamFederationsApi.md#getFederationTeamId) | **GET** /api/v1/teams/{teamId}/federations | FederationController@index |
@@ -155,79 +154,6 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success response |  -  |
 | **404** | Error response |  -  |
-| **401** | Unauthorized |  -  |
-| **500** | Error |  -  |
-
-<a id="editFederationTeam"></a>
-# **editFederationTeam**
-> CreateDarIntegration201Response editFederationTeam(teamId, federationId, createFederationTeamRequest)
-
-FederationController@edit
-
-Edit federation for team
-
-### Example
-```java
-// Import classes:
-import uk.ac.hdruk.gatewayapi.ApiClient;
-import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.Configuration;
-import uk.ac.hdruk.gatewayapi.auth.*;
-import uk.ac.hdruk.gatewayapi.models.*;
-import uk.ac.hdruk.gatewayapi.api.TeamFederationsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    TeamFederationsApi apiInstance = new TeamFederationsApi(defaultClient);
-    Integer teamId = 1; // Integer | team id
-    Integer federationId = 1; // Integer | federation id
-    CreateFederationTeamRequest createFederationTeamRequest = new CreateFederationTeamRequest(); // CreateFederationTeamRequest | Pass user credentials
-    try {
-      CreateDarIntegration201Response result = apiInstance.editFederationTeam(teamId, federationId, createFederationTeamRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TeamFederationsApi#editFederationTeam");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **teamId** | **Integer**| team id | |
-| **federationId** | **Integer**| federation id | |
-| **createFederationTeamRequest** | [**CreateFederationTeamRequest**](CreateFederationTeamRequest.md)| Pass user credentials | |
-
-### Return type
-
-[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
 | **401** | Unauthorized |  -  |
 | **500** | Error |  -  |
 

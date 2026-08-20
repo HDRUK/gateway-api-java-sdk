@@ -14,10 +14,7 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
-import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
-import uk.ac.hdruk.gatewayapi.model.DatasetsTestRequest;
-import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
+import uk.ac.hdruk.gatewayapi.model.FetchDatasetLinkCheckResultsV2200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -27,24 +24,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for IntegrationsDatasetsTestApi
+ * API tests for NightlyDatasetTestsApi
  */
 @Disabled
-public class IntegrationsDatasetsTestApiTest {
+public class NightlyDatasetTestsApiTest {
 
-    private final IntegrationsDatasetsTestApi api = new IntegrationsDatasetsTestApi();
+    private final NightlyDatasetTestsApi api = new NightlyDatasetTestsApi();
 
     /**
-     * IntegrationDatasetController@datasetTest
+     * NightlyDatasetTestController@index
      *
-     * Integrations datasets test
+     * Get the results of the nightly dataset reachability check, with a summary and a list of failures
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void integrationsDatasetsTestTest() throws ApiException {
-        DatasetsTestRequest datasetsTestRequest = null;
-        CreateDarIntegration201Response response = api.integrationsDatasetsTest(datasetsTestRequest);
+    public void fetchNightlyDatasetTestsV2Test() throws ApiException {
+        FetchDatasetLinkCheckResultsV2200Response response = api.fetchNightlyDatasetTestsV2();
         // TODO: test validations
     }
 

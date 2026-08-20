@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 <a id="fetchKeyMetricsV2"></a>
 # **fetchKeyMetricsV2**
-> FetchKeyMetricsV2200Response fetchKeyMetricsV2()
+> FetchDatasetLinkCheckResultsV2200Response fetchKeyMetricsV2()
 
 KeyMetricController@index
 
@@ -31,7 +31,7 @@ public class Example {
 
     MetricsApi apiInstance = new MetricsApi(defaultClient);
     try {
-      FetchKeyMetricsV2200Response result = apiInstance.fetchKeyMetricsV2();
+      FetchDatasetLinkCheckResultsV2200Response result = apiInstance.fetchKeyMetricsV2();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#fetchKeyMetricsV2");
@@ -49,7 +49,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FetchKeyMetricsV2200Response**](FetchKeyMetricsV2200Response.md)
+[**FetchDatasetLinkCheckResultsV2200Response**](FetchDatasetLinkCheckResultsV2200Response.md)
 
 ### Authorization
 

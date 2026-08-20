@@ -1,6 +1,6 @@
 
 
-# FetchKeyMetricsV2200Response
+# CreateProjectGrant201Response
 
 
 ## Properties
@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**message** | **String** |  |  [optional] |
-|**data** | **List&lt;List&lt;Object&gt;&gt;** |  |  [optional] |
+|**data** | **Object** |  |  [optional] |
 
 
 
