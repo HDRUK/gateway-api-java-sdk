@@ -48,7 +48,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * UpdateQuestionBankQuestionStatus200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T10:39:25.187533033Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T09:41:50.364090846Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class UpdateQuestionBankQuestionStatus200Response {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)

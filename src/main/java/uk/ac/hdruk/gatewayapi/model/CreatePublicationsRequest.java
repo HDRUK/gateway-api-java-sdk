@@ -52,7 +52,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * CreatePublicationsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T10:39:25.187533033Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T09:41:50.364090846Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreatePublicationsRequest {
   public static final String SERIALIZED_NAME_PAPER_TITLE = "paper_title";
   @SerializedName(SERIALIZED_NAME_PAPER_TITLE)

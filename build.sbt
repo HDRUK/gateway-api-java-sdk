@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "uk.ac.hdruk.gatewayapi",
     name := "gateway-api-sdk",
-    version := "2.48.0",
+    version := "2.49.0",
     scalaVersion := "2.11.12",
     scalacOptions ++= Seq("-feature"),
     compile / javacOptions ++= Seq("-Xlint:deprecation"),
