@@ -18,8 +18,6 @@ import uk.ac.hdruk.gatewayapi.model.CountUniqueFieldsCollections200Response;
 import uk.ac.hdruk.gatewayapi.model.CreateApplications500Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDarIntegration201Response;
 import uk.ac.hdruk.gatewayapi.model.CreateDatasetsRequest;
-import uk.ac.hdruk.gatewayapi.model.CreateDatasetsV2Request;
-import uk.ac.hdruk.gatewayapi.model.CreateTeamDatasetsV2Request;
 import uk.ac.hdruk.gatewayapi.model.DeleteApplications200Response;
 import uk.ac.hdruk.gatewayapi.model.ExportDatasetMetadata400Response;
 import uk.ac.hdruk.gatewayapi.model.ExportMockDataset404Response;
@@ -83,8 +81,8 @@ public class DatasetsApiTest {
      */
     @Test
     public void createDatasetsV2Test() throws ApiException {
-        CreateDatasetsV2Request createDatasetsV2Request = null;
-        CreateDarIntegration201Response response = api.createDatasetsV2(createDatasetsV2Request);
+        UpdateDatasetsRequest updateDatasetsRequest = null;
+        CreateDarIntegration201Response response = api.createDatasetsV2(updateDatasetsRequest);
         // TODO: test validations
     }
 
@@ -98,8 +96,8 @@ public class DatasetsApiTest {
     @Test
     public void createTeamDatasetsV2Test() throws ApiException {
         Integer teamId = null;
-        CreateTeamDatasetsV2Request createTeamDatasetsV2Request = null;
-        CreateDarIntegration201Response response = api.createTeamDatasetsV2(teamId, createTeamDatasetsV2Request);
+        PatchDatasetsV2Request patchDatasetsV2Request = null;
+        CreateDarIntegration201Response response = api.createTeamDatasetsV2(teamId, patchDatasetsV2Request);
         // TODO: test validations
     }
 

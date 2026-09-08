@@ -15,7 +15,6 @@
 |**journalName** | **String** |  |  [optional] |
 |**_abstract** | **String** |  |  [optional] |
 |**url** | **String** |  |  [optional] |
-|**mongoId** | **String** |  |  [optional] |
 |**datasets** | [**List&lt;CreatePublicationsRequestDatasetsInner&gt;**](CreatePublicationsRequestDatasetsInner.md) |  |  [optional] |
 |**tools** | [**List&lt;CreatePublicationsRequestToolsInner&gt;**](CreatePublicationsRequestToolsInner.md) |  |  [optional] |
 

@@ -51,7 +51,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * UpdateDurIntegrations200ResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T09:41:50.364090846Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-08T14:41:26.380213411Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class UpdateDurIntegrations200ResponseData {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -243,11 +243,6 @@ public class UpdateDurIntegrations200ResponseData {
   @javax.annotation.Nullable
   private String accessType;
 
-  public static final String SERIALIZED_NAME_MONGO_OBJECT_DAR_ID = "mongo_object_dar_id";
-  @SerializedName(SERIALIZED_NAME_MONGO_OBJECT_DAR_ID)
-  @javax.annotation.Nullable
-  private String mongoObjectDarId;
-
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   @javax.annotation.Nullable
@@ -262,16 +257,6 @@ public class UpdateDurIntegrations200ResponseData {
   @SerializedName(SERIALIZED_NAME_COUNTER)
   @javax.annotation.Nullable
   private Integer counter;
-
-  public static final String SERIALIZED_NAME_MONGO_OBJECT_ID = "mongo_object_id";
-  @SerializedName(SERIALIZED_NAME_MONGO_OBJECT_ID)
-  @javax.annotation.Nullable
-  private String mongoObjectId;
-
-  public static final String SERIALIZED_NAME_MONGO_ID = "mongo_id";
-  @SerializedName(SERIALIZED_NAME_MONGO_ID)
-  @javax.annotation.Nullable
-  private String mongoId;
 
   public static final String SERIALIZED_NAME_DATASETS = "datasets";
   @SerializedName(SERIALIZED_NAME_DATASETS)
@@ -1153,25 +1138,6 @@ public class UpdateDurIntegrations200ResponseData {
   }
 
 
-  public UpdateDurIntegrations200ResponseData mongoObjectDarId(@javax.annotation.Nullable String mongoObjectDarId) {
-    this.mongoObjectDarId = mongoObjectDarId;
-    return this;
-  }
-
-  /**
-   * Get mongoObjectDarId
-   * @return mongoObjectDarId
-   */
-  @javax.annotation.Nullable
-  public String getMongoObjectDarId() {
-    return mongoObjectDarId;
-  }
-
-  public void setMongoObjectDarId(@javax.annotation.Nullable String mongoObjectDarId) {
-    this.mongoObjectDarId = mongoObjectDarId;
-  }
-
-
   public UpdateDurIntegrations200ResponseData enabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -1226,44 +1192,6 @@ public class UpdateDurIntegrations200ResponseData {
 
   public void setCounter(@javax.annotation.Nullable Integer counter) {
     this.counter = counter;
-  }
-
-
-  public UpdateDurIntegrations200ResponseData mongoObjectId(@javax.annotation.Nullable String mongoObjectId) {
-    this.mongoObjectId = mongoObjectId;
-    return this;
-  }
-
-  /**
-   * Get mongoObjectId
-   * @return mongoObjectId
-   */
-  @javax.annotation.Nullable
-  public String getMongoObjectId() {
-    return mongoObjectId;
-  }
-
-  public void setMongoObjectId(@javax.annotation.Nullable String mongoObjectId) {
-    this.mongoObjectId = mongoObjectId;
-  }
-
-
-  public UpdateDurIntegrations200ResponseData mongoId(@javax.annotation.Nullable String mongoId) {
-    this.mongoId = mongoId;
-    return this;
-  }
-
-  /**
-   * Get mongoId
-   * @return mongoId
-   */
-  @javax.annotation.Nullable
-  public String getMongoId() {
-    return mongoId;
-  }
-
-  public void setMongoId(@javax.annotation.Nullable String mongoId) {
-    this.mongoId = mongoId;
   }
 
 
@@ -1542,12 +1470,9 @@ public class UpdateDurIntegrations200ResponseData {
         Objects.equals(this.requestCategoryType, updateDurIntegrations200ResponseData.requestCategoryType) &&
         Objects.equals(this.requestFrequency, updateDurIntegrations200ResponseData.requestFrequency) &&
         Objects.equals(this.accessType, updateDurIntegrations200ResponseData.accessType) &&
-        Objects.equals(this.mongoObjectDarId, updateDurIntegrations200ResponseData.mongoObjectDarId) &&
         Objects.equals(this.enabled, updateDurIntegrations200ResponseData.enabled) &&
         Objects.equals(this.lastActivity, updateDurIntegrations200ResponseData.lastActivity) &&
         Objects.equals(this.counter, updateDurIntegrations200ResponseData.counter) &&
-        Objects.equals(this.mongoObjectId, updateDurIntegrations200ResponseData.mongoObjectId) &&
-        Objects.equals(this.mongoId, updateDurIntegrations200ResponseData.mongoId) &&
         Objects.equals(this.datasets, updateDurIntegrations200ResponseData.datasets) &&
         Objects.equals(this.keywords, updateDurIntegrations200ResponseData.keywords) &&
         Objects.equals(this.users, updateDurIntegrations200ResponseData.users) &&
@@ -1561,7 +1486,7 @@ public class UpdateDurIntegrations200ResponseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, updatedAt, deletedAt, nonGatewayDatasets, nonGatewayApplicants, fundersAndSponsors, otherApprovalCommittees, gatewayOutputsTools, gatewayOutputsPapers, nonGatewayOutputs, projectTitle, projectIdText, organisationName, organisationSector, laySummary, technicalSummary, latestApprovalDate, manualUpload, rejectionReason, sublicenceArrangements, publicBenefitStatement, dataSensitivityLevel, projectStartDate, projectEndDate, accessDate, accreditedResearcherStatus, confidentialDataDescription, datasetLinkageDescription, dutyOfConfidentiality, legalBasisForDataArticle6, legalBasisForDataArticle9, nationalDataOptout, organisationId, privacyEnhancements, requestCategoryType, requestFrequency, accessType, mongoObjectDarId, enabled, lastActivity, counter, mongoObjectId, mongoId, datasets, keywords, users, applications, user, team, application, applicantId, status);
+    return Objects.hash(id, createdAt, updatedAt, deletedAt, nonGatewayDatasets, nonGatewayApplicants, fundersAndSponsors, otherApprovalCommittees, gatewayOutputsTools, gatewayOutputsPapers, nonGatewayOutputs, projectTitle, projectIdText, organisationName, organisationSector, laySummary, technicalSummary, latestApprovalDate, manualUpload, rejectionReason, sublicenceArrangements, publicBenefitStatement, dataSensitivityLevel, projectStartDate, projectEndDate, accessDate, accreditedResearcherStatus, confidentialDataDescription, datasetLinkageDescription, dutyOfConfidentiality, legalBasisForDataArticle6, legalBasisForDataArticle9, nationalDataOptout, organisationId, privacyEnhancements, requestCategoryType, requestFrequency, accessType, enabled, lastActivity, counter, datasets, keywords, users, applications, user, team, application, applicantId, status);
   }
 
   @Override
@@ -1606,12 +1531,9 @@ public class UpdateDurIntegrations200ResponseData {
     sb.append("    requestCategoryType: ").append(toIndentedString(requestCategoryType)).append("\n");
     sb.append("    requestFrequency: ").append(toIndentedString(requestFrequency)).append("\n");
     sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
-    sb.append("    mongoObjectDarId: ").append(toIndentedString(mongoObjectDarId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    lastActivity: ").append(toIndentedString(lastActivity)).append("\n");
     sb.append("    counter: ").append(toIndentedString(counter)).append("\n");
-    sb.append("    mongoObjectId: ").append(toIndentedString(mongoObjectId)).append("\n");
-    sb.append("    mongoId: ").append(toIndentedString(mongoId)).append("\n");
     sb.append("    datasets: ").append(toIndentedString(datasets)).append("\n");
     sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
@@ -1639,7 +1561,7 @@ public class UpdateDurIntegrations200ResponseData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created_at", "updated_at", "deleted_at", "non_gateway_datasets", "non_gateway_applicants", "funders_and_sponsors", "other_approval_committees", "gateway_outputs_tools", "gateway_outputs_papers", "non_gateway_outputs", "project_title", "project_id_text", "organisation_name", "organisation_sector", "lay_summary", "technical_summary", "latest_approval_date", "manual_upload", "rejection_reason", "sublicence_arrangements", "public_benefit_statement", "data_sensitivity_level", "project_start_date", "project_end_date", "access_date", "accredited_researcher_status", "confidential_data_description", "dataset_linkage_description", "duty_of_confidentiality", "legal_basis_for_data_article6", "legal_basis_for_data_article9", "national_data_optout", "organisation_id", "privacy_enhancements", "request_category_type", "request_frequency", "access_type", "mongo_object_dar_id", "enabled", "last_activity", "counter", "mongo_object_id", "mongo_id", "datasets", "keywords", "users", "applications", "user", "team", "application", "applicant_id", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created_at", "updated_at", "deleted_at", "non_gateway_datasets", "non_gateway_applicants", "funders_and_sponsors", "other_approval_committees", "gateway_outputs_tools", "gateway_outputs_papers", "non_gateway_outputs", "project_title", "project_id_text", "organisation_name", "organisation_sector", "lay_summary", "technical_summary", "latest_approval_date", "manual_upload", "rejection_reason", "sublicence_arrangements", "public_benefit_statement", "data_sensitivity_level", "project_start_date", "project_end_date", "access_date", "accredited_researcher_status", "confidential_data_description", "dataset_linkage_description", "duty_of_confidentiality", "legal_basis_for_data_article6", "legal_basis_for_data_article9", "national_data_optout", "organisation_id", "privacy_enhancements", "request_category_type", "request_frequency", "access_type", "enabled", "last_activity", "counter", "datasets", "keywords", "users", "applications", "user", "team", "application", "applicant_id", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1759,15 +1681,6 @@ public class UpdateDurIntegrations200ResponseData {
       }
       if ((jsonObj.get("access_type") != null && !jsonObj.get("access_type").isJsonNull()) && !jsonObj.get("access_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_type").toString()));
-      }
-      if ((jsonObj.get("mongo_object_dar_id") != null && !jsonObj.get("mongo_object_dar_id").isJsonNull()) && !jsonObj.get("mongo_object_dar_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongo_object_dar_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongo_object_dar_id").toString()));
-      }
-      if ((jsonObj.get("mongo_object_id") != null && !jsonObj.get("mongo_object_id").isJsonNull()) && !jsonObj.get("mongo_object_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongo_object_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongo_object_id").toString()));
-      }
-      if ((jsonObj.get("mongo_id") != null && !jsonObj.get("mongo_id").isJsonNull()) && !jsonObj.get("mongo_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongo_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongo_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("datasets") != null && !jsonObj.get("datasets").isJsonNull() && !jsonObj.get("datasets").isJsonArray()) {

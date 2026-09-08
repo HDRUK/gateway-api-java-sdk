@@ -740,7 +740,7 @@ public class Example {
 
 <a id="fetchAllTools"></a>
 # **fetchAllTools**
-> FetchAllTools200Response fetchAllTools(mongoId, teamId, userId, title, sort)
+> FetchAllTools200Response fetchAllTools(teamId, userId, title, sort)
 
 Fetch all tools
 
@@ -766,13 +766,12 @@ public class Example {
     bearerAuth.setBearerToken("BEARER TOKEN");
 
     ToolsApi apiInstance = new ToolsApi(defaultClient);
-    String mongoId = "mongoId_example"; // String | Filter tools by mongo ID
     Integer teamId = 56; // Integer | Filter tools by team ID
     Integer userId = 56; // Integer | Filter tools by user ID
     String title = "title_example"; // String | Filter tools by title
     String sort = "name:asc"; // String | Sort tools by a specific field and direction, e.g., 'name:asc' or 'created_at:desc'
     try {
-      FetchAllTools200Response result = apiInstance.fetchAllTools(mongoId, teamId, userId, title, sort);
+      FetchAllTools200Response result = apiInstance.fetchAllTools(teamId, userId, title, sort);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ToolsApi#fetchAllTools");
@@ -789,7 +788,6 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **mongoId** | **String**| Filter tools by mongo ID | [optional] |
 | **teamId** | **Integer**| Filter tools by team ID | [optional] |
 | **userId** | **Integer**| Filter tools by user ID | [optional] |
 | **title** | **String**| Filter tools by title | [optional] |

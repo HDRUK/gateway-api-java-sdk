@@ -168,7 +168,7 @@ public class Example {
 
 <a id="createDatasetsV2"></a>
 # **createDatasetsV2**
-> CreateDarIntegration201Response createDatasetsV2(createDatasetsV2Request)
+> CreateDarIntegration201Response createDatasetsV2(updateDatasetsRequest)
 
 DatasetController@store
 
@@ -194,9 +194,9 @@ public class Example {
     bearerAuth.setBearerToken("BEARER TOKEN");
 
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
-    CreateDatasetsV2Request createDatasetsV2Request = new CreateDatasetsV2Request(); // CreateDatasetsV2Request | Pass user credentials
+    UpdateDatasetsRequest updateDatasetsRequest = new UpdateDatasetsRequest(); // UpdateDatasetsRequest | Pass user credentials
     try {
-      CreateDarIntegration201Response result = apiInstance.createDatasetsV2(createDatasetsV2Request);
+      CreateDarIntegration201Response result = apiInstance.createDatasetsV2(updateDatasetsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#createDatasetsV2");
@@ -213,7 +213,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createDatasetsV2Request** | [**CreateDatasetsV2Request**](CreateDatasetsV2Request.md)| Pass user credentials | |
+| **updateDatasetsRequest** | [**UpdateDatasetsRequest**](UpdateDatasetsRequest.md)| Pass user credentials | |
 
 ### Return type
 
@@ -237,7 +237,7 @@ public class Example {
 
 <a id="createTeamDatasetsV2"></a>
 # **createTeamDatasetsV2**
-> CreateDarIntegration201Response createTeamDatasetsV2(teamId, createTeamDatasetsV2Request)
+> CreateDarIntegration201Response createTeamDatasetsV2(teamId, patchDatasetsV2Request)
 
 TeamDatasetController@store
 
@@ -264,9 +264,9 @@ public class Example {
 
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
     Integer teamId = 1; // Integer | team id
-    CreateTeamDatasetsV2Request createTeamDatasetsV2Request = new CreateTeamDatasetsV2Request(); // CreateTeamDatasetsV2Request | Pass user credentials
+    PatchDatasetsV2Request patchDatasetsV2Request = new PatchDatasetsV2Request(); // PatchDatasetsV2Request | Pass user credentials
     try {
-      CreateDarIntegration201Response result = apiInstance.createTeamDatasetsV2(teamId, createTeamDatasetsV2Request);
+      CreateDarIntegration201Response result = apiInstance.createTeamDatasetsV2(teamId, patchDatasetsV2Request);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#createTeamDatasetsV2");
@@ -284,7 +284,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **teamId** | **Integer**| team id | |
-| **createTeamDatasetsV2Request** | [**CreateTeamDatasetsV2Request**](CreateTeamDatasetsV2Request.md)| Pass user credentials | |
+| **patchDatasetsV2Request** | [**PatchDatasetsV2Request**](PatchDatasetsV2Request.md)| Pass user credentials | |
 
 ### Return type
 

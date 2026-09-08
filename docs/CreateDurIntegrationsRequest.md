@@ -41,12 +41,9 @@
 |**requestCategoryType** | **String** |  |  [optional] |
 |**requestFrequency** | **String** |  |  [optional] |
 |**accessType** | **String** |  |  [optional] |
-|**mongoObjectDarId** | **String** |  |  [optional] |
 |**enabled** | **Boolean** |  |  [optional] |
 |**lastActivity** | **OffsetDateTime** |  |  [optional] |
 |**counter** | **Integer** |  |  [optional] |
-|**mongoObjectId** | **String** |  |  [optional] |
-|**mongoId** | **String** |  |  [optional] |
 |**datasets** | **List&lt;Object&gt;** |  |  [optional] |
 |**keywords** | **List&lt;Object&gt;** |  |  [optional] |
 |**users** | **List&lt;Object&gt;** |  |  [optional] |

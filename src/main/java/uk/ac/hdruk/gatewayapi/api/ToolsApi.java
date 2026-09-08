@@ -1612,7 +1612,6 @@ public class ToolsApi {
     }
     /**
      * Build call for fetchAllTools
-     * @param mongoId Filter tools by mongo ID (optional)
      * @param teamId Filter tools by team ID (optional)
      * @param userId Filter tools by user ID (optional)
      * @param title Filter tools by title (optional)
@@ -1631,7 +1630,7 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call fetchAllToolsCall(@javax.annotation.Nullable String mongoId, @javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call fetchAllToolsCall(@javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1655,10 +1654,6 @@ public class ToolsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (mongoId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("mongo_id", mongoId));
-        }
 
         if (teamId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("team_id", teamId));
@@ -1697,15 +1692,14 @@ public class ToolsApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchAllToolsValidateBeforeCall(@javax.annotation.Nullable String mongoId, @javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
-        return fetchAllToolsCall(mongoId, teamId, userId, title, sort, _callback);
+    private okhttp3.Call fetchAllToolsValidateBeforeCall(@javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
+        return fetchAllToolsCall(teamId, userId, title, sort, _callback);
 
     }
 
     /**
      * Fetch all tools
      * Get all tools with optional filters and sorting
-     * @param mongoId Filter tools by mongo ID (optional)
      * @param teamId Filter tools by team ID (optional)
      * @param userId Filter tools by user ID (optional)
      * @param title Filter tools by title (optional)
@@ -1723,15 +1717,14 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public FetchAllTools200Response fetchAllTools(@javax.annotation.Nullable String mongoId, @javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort) throws ApiException {
-        ApiResponse<FetchAllTools200Response> localVarResp = fetchAllToolsWithHttpInfo(mongoId, teamId, userId, title, sort);
+    public FetchAllTools200Response fetchAllTools(@javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort) throws ApiException {
+        ApiResponse<FetchAllTools200Response> localVarResp = fetchAllToolsWithHttpInfo(teamId, userId, title, sort);
         return localVarResp.getData();
     }
 
     /**
      * Fetch all tools
      * Get all tools with optional filters and sorting
-     * @param mongoId Filter tools by mongo ID (optional)
      * @param teamId Filter tools by team ID (optional)
      * @param userId Filter tools by user ID (optional)
      * @param title Filter tools by title (optional)
@@ -1749,8 +1742,8 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<FetchAllTools200Response> fetchAllToolsWithHttpInfo(@javax.annotation.Nullable String mongoId, @javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort) throws ApiException {
-        okhttp3.Call localVarCall = fetchAllToolsValidateBeforeCall(mongoId, teamId, userId, title, sort, null);
+    public ApiResponse<FetchAllTools200Response> fetchAllToolsWithHttpInfo(@javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort) throws ApiException {
+        okhttp3.Call localVarCall = fetchAllToolsValidateBeforeCall(teamId, userId, title, sort, null);
         Type localVarReturnType = new TypeToken<FetchAllTools200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1758,7 +1751,6 @@ public class ToolsApi {
     /**
      * Fetch all tools (asynchronously)
      * Get all tools with optional filters and sorting
-     * @param mongoId Filter tools by mongo ID (optional)
      * @param teamId Filter tools by team ID (optional)
      * @param userId Filter tools by user ID (optional)
      * @param title Filter tools by title (optional)
@@ -1777,9 +1769,9 @@ public class ToolsApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call fetchAllToolsAsync(@javax.annotation.Nullable String mongoId, @javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort, final ApiCallback<FetchAllTools200Response> _callback) throws ApiException {
+    public okhttp3.Call fetchAllToolsAsync(@javax.annotation.Nullable Integer teamId, @javax.annotation.Nullable Integer userId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sort, final ApiCallback<FetchAllTools200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = fetchAllToolsValidateBeforeCall(mongoId, teamId, userId, title, sort, _callback);
+        okhttp3.Call localVarCall = fetchAllToolsValidateBeforeCall(teamId, userId, title, sort, _callback);
         Type localVarReturnType = new TypeToken<FetchAllTools200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

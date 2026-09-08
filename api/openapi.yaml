@@ -6739,14 +6739,6 @@ paths:
       description: Get all tools with optional filters and sorting
       operationId: fetch_all_tools
       parameters:
-      - description: Filter tools by mongo ID
-        explode: true
-        in: query
-        name: mongo_id
-        required: false
-        schema:
-          type: string
-        style: form
       - description: Filter tools by team ID
         explode: true
         in: query
@@ -7692,7 +7684,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/create_datasets_v2_request"
+              $ref: "#/components/schemas/update_datasets_request"
         description: Pass user credentials
         required: true
       responses:
@@ -8416,7 +8408,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/create_team_datasets_v2_request"
+              $ref: "#/components/schemas/patch_datasets_v2_request"
         description: Pass user credentials
         required: true
       responses:
@@ -11983,15 +11975,6 @@ components:
         create_origin:
           example: MANUAL
           type: string
-        mongo_object_id:
-          example: abc123
-          type: string
-        mongo_id:
-          example: "456"
-          type: string
-        mongo_pid:
-          example: def789
-          type: string
         datasetid:
           example: xyz1011
           type: string
@@ -12407,9 +12390,6 @@ components:
         access_type:
           example: Efficacy & Mechanism Evaluation
           type: string
-        mongo_object_dar_id:
-          example: MOBJIDDAR-2387
-          type: string
         enabled:
           example: false
           type: boolean
@@ -12419,12 +12399,6 @@ components:
         counter:
           example: 34319
           type: integer
-        mongo_object_id:
-          example: 5f32a7d53b1d85c427e97c01
-          type: string
-        mongo_id:
-          example: "38873389090594430"
-          type: string
         datasets:
           example: "[]"
           items:
@@ -13375,12 +13349,9 @@ components:
         request_category_type: Health Services & Delivery
         request_frequency: Public Health Research
         access_type: Efficacy & Mechanism Evaluation
-        mongo_object_dar_id: MOBJIDDAR-2387
         enabled: false
         last_activity: 2000-01-23T04:56:07.000+00:00
         counter: 34319
-        mongo_object_id: 5f32a7d53b1d85c427e97c01
-        mongo_id: "38873389090594430"
         datasets: "[]"
         publications: "[]"
         tools: "[]"
@@ -13512,9 +13483,6 @@ components:
         access_type:
           example: Efficacy & Mechanism Evaluation
           type: string
-        mongo_object_dar_id:
-          example: MOBJIDDAR-2387
-          type: string
         enabled:
           example: false
           type: boolean
@@ -13524,12 +13492,6 @@ components:
         counter:
           example: 34319
           type: integer
-        mongo_object_id:
-          example: 5f32a7d53b1d85c427e97c01
-          type: string
-        mongo_id:
-          example: "38873389090594430"
-          type: string
         datasets:
           example: "[]"
           items: {}
@@ -13611,12 +13573,9 @@ components:
           request_category_type: Health Services & Delivery
           request_frequency: Public Health Research
           access_type: Efficacy & Mechanism Evaluation
-          mongo_object_dar_id: MOBJIDDAR-2387
           enabled: false
           last_activity: 2000-01-23T04:56:07.000+00:00
           counter: 34319
-          mongo_object_id: 5f32a7d53b1d85c427e97c01
-          mongo_id: "38873389090594430"
           datasets: "[]"
           publications: "[]"
           tools: "[]"
@@ -13665,12 +13624,9 @@ components:
           request_category_type: Health Services & Delivery
           request_frequency: Public Health Research
           access_type: Efficacy & Mechanism Evaluation
-          mongo_object_dar_id: MOBJIDDAR-2387
           enabled: false
           last_activity: 2000-01-23T04:56:07.000+00:00
           counter: 34319
-          mongo_object_id: 5f32a7d53b1d85c427e97c01
-          mongo_id: "38873389090594430"
           datasets: "[]"
           publications: "[]"
           tools: "[]"
@@ -13846,9 +13802,6 @@ components:
         access_type:
           example: Efficacy & Mechanism Evaluation
           type: string
-        mongo_object_dar_id:
-          example: MOBJIDDAR-2387
-          type: string
         enabled:
           example: false
           type: boolean
@@ -13858,12 +13811,6 @@ components:
         counter:
           example: 34319
           type: integer
-        mongo_object_id:
-          example: 5f32a7d53b1d85c427e97c01
-          type: string
-        mongo_id:
-          example: "38873389090594430"
-          type: string
         datasets:
           example: "[]"
           items: {}
@@ -13935,12 +13882,9 @@ components:
         request_category_type: Health Services & Delivery
         request_frequency: Public Health Research
         access_type: Efficacy & Mechanism Evaluation
-        mongo_object_dar_id: MOBJIDDAR-2387
         enabled: false
         last_activity: 2000-01-23T04:56:07.000+00:00
         counter: 34319
-        mongo_object_id: 5f32a7d53b1d85c427e97c01
-        mongo_id: "38873389090594430"
         datasets: "[]"
         publications: "[]"
         tools: "[]"
@@ -14074,9 +14018,6 @@ components:
         access_type:
           example: Efficacy & Mechanism Evaluation
           type: string
-        mongo_object_dar_id:
-          example: MOBJIDDAR-2387
-          type: string
         enabled:
           example: false
           type: boolean
@@ -14086,12 +14027,6 @@ components:
         counter:
           example: 34319
           type: integer
-        mongo_object_id:
-          example: 5f32a7d53b1d85c427e97c01
-          type: string
-        mongo_id:
-          example: "38873389090594430"
-          type: string
         datasets:
           example: "[]"
           items: {}
@@ -14181,12 +14116,9 @@ components:
           request_category_type: Health Services & Delivery
           request_frequency: Public Health Research
           access_type: Efficacy & Mechanism Evaluation
-          mongo_object_dar_id: MOBJIDDAR-2387
           enabled: false
           last_activity: 2000-01-23T04:56:07.000+00:00
           counter: 34319
-          mongo_object_id: 5f32a7d53b1d85c427e97c01
-          mongo_id: "38873389090594430"
           datasets: "[]"
           publications: "[]"
           tools: "[]"
@@ -14237,12 +14169,9 @@ components:
           request_category_type: Health Services & Delivery
           request_frequency: Public Health Research
           access_type: Efficacy & Mechanism Evaluation
-          mongo_object_dar_id: MOBJIDDAR-2387
           enabled: false
           last_activity: 2000-01-23T04:56:07.000+00:00
           counter: 34319
-          mongo_object_id: 5f32a7d53b1d85c427e97c01
-          mongo_id: "38873389090594430"
           datasets: "[]"
           publications: "[]"
           tools: "[]"
@@ -14304,12 +14233,9 @@ components:
         request_category_type: Health Services & Delivery
         request_frequency: Public Health Research
         access_type: Efficacy & Mechanism Evaluation
-        mongo_object_dar_id: MOBJIDDAR-2387
         enabled: false
         last_activity: 2000-01-23T04:56:07.000+00:00
         counter: 34319
-        mongo_object_id: 5f32a7d53b1d85c427e97c01
-        mongo_id: "38873389090594430"
         datasets: "[]"
         keywords: "[]"
         users: "[]"
@@ -14441,9 +14367,6 @@ components:
         access_type:
           example: Efficacy & Mechanism Evaluation
           type: string
-        mongo_object_dar_id:
-          example: MOBJIDDAR-2387
-          type: string
         enabled:
           example: false
           type: boolean
@@ -14453,12 +14376,6 @@ components:
         counter:
           example: 34319
           type: integer
-        mongo_object_id:
-          example: 5f32a7d53b1d85c427e97c01
-          type: string
-        mongo_id:
-          example: "38873389090594430"
-          type: string
         datasets:
           example: "[]"
           items: {}
@@ -14540,12 +14457,9 @@ components:
           request_category_type: Health Services & Delivery
           request_frequency: Public Health Research
           access_type: Efficacy & Mechanism Evaluation
-          mongo_object_dar_id: MOBJIDDAR-2387
           enabled: false
           last_activity: 2000-01-23T04:56:07.000+00:00
           counter: 34319
-          mongo_object_id: 5f32a7d53b1d85c427e97c01
-          mongo_id: "38873389090594430"
           datasets: "[]"
           keywords: "[]"
           users: "[]"
@@ -14991,9 +14905,6 @@ components:
         url:
           example: http://example
           type: string
-        mongo_id:
-          example: "38873389090594430"
-          type: string
         datasets:
           items:
             $ref: "#/components/schemas/create_publications_request_datasets_inner"
@@ -15054,9 +14965,6 @@ components:
           type: string
         url:
           example: http://example
-          type: string
-        mongo_id:
-          example: "38873389090594430"
           type: string
         status:
           enum:
@@ -18642,29 +18550,6 @@ components:
         data:
           $ref: "#/components/schemas/fetch_data_custodian_network_info_200_response_data"
       type: object
-    create_datasets_v2_request:
-      properties:
-        team_id:
-          example: 1
-          type: integer
-        user_id:
-          example: 3
-          type: integer
-        create_origin:
-          example: MANUAL
-          type: string
-        mongo_object_id:
-          example: abc123
-          type: string
-        mongo_id:
-          example: "456"
-          type: string
-        mongo_pid:
-          example: def789
-          type: string
-        metadata:
-          type: object
-      type: object
     patch_datasets_v2_request:
       properties:
         create_origin:
@@ -18864,23 +18749,6 @@ components:
         total:
           example: 3
           type: integer
-      type: object
-    create_team_datasets_v2_request:
-      properties:
-        create_origin:
-          example: MANUAL
-          type: string
-        mongo_object_id:
-          example: abc123
-          type: string
-        mongo_id:
-          example: "456"
-          type: string
-        mongo_pid:
-          example: def789
-          type: string
-        metadata:
-          type: object
       type: object
   securitySchemes:
     bearerAuth:

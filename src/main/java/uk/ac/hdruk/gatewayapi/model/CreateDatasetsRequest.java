@@ -48,7 +48,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * CreateDatasetsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T09:41:50.364090846Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-08T14:41:26.380213411Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreateDatasetsRequest {
   public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
   @SerializedName(SERIALIZED_NAME_TEAM_ID)
@@ -64,21 +64,6 @@ public class CreateDatasetsRequest {
   @SerializedName(SERIALIZED_NAME_CREATE_ORIGIN)
   @javax.annotation.Nullable
   private String createOrigin;
-
-  public static final String SERIALIZED_NAME_MONGO_OBJECT_ID = "mongo_object_id";
-  @SerializedName(SERIALIZED_NAME_MONGO_OBJECT_ID)
-  @javax.annotation.Nullable
-  private String mongoObjectId;
-
-  public static final String SERIALIZED_NAME_MONGO_ID = "mongo_id";
-  @SerializedName(SERIALIZED_NAME_MONGO_ID)
-  @javax.annotation.Nullable
-  private String mongoId;
-
-  public static final String SERIALIZED_NAME_MONGO_PID = "mongo_pid";
-  @SerializedName(SERIALIZED_NAME_MONGO_PID)
-  @javax.annotation.Nullable
-  private String mongoPid;
 
   public static final String SERIALIZED_NAME_DATASETID = "datasetid";
   @SerializedName(SERIALIZED_NAME_DATASETID)
@@ -150,63 +135,6 @@ public class CreateDatasetsRequest {
   }
 
 
-  public CreateDatasetsRequest mongoObjectId(@javax.annotation.Nullable String mongoObjectId) {
-    this.mongoObjectId = mongoObjectId;
-    return this;
-  }
-
-  /**
-   * Get mongoObjectId
-   * @return mongoObjectId
-   */
-  @javax.annotation.Nullable
-  public String getMongoObjectId() {
-    return mongoObjectId;
-  }
-
-  public void setMongoObjectId(@javax.annotation.Nullable String mongoObjectId) {
-    this.mongoObjectId = mongoObjectId;
-  }
-
-
-  public CreateDatasetsRequest mongoId(@javax.annotation.Nullable String mongoId) {
-    this.mongoId = mongoId;
-    return this;
-  }
-
-  /**
-   * Get mongoId
-   * @return mongoId
-   */
-  @javax.annotation.Nullable
-  public String getMongoId() {
-    return mongoId;
-  }
-
-  public void setMongoId(@javax.annotation.Nullable String mongoId) {
-    this.mongoId = mongoId;
-  }
-
-
-  public CreateDatasetsRequest mongoPid(@javax.annotation.Nullable String mongoPid) {
-    this.mongoPid = mongoPid;
-    return this;
-  }
-
-  /**
-   * Get mongoPid
-   * @return mongoPid
-   */
-  @javax.annotation.Nullable
-  public String getMongoPid() {
-    return mongoPid;
-  }
-
-  public void setMongoPid(@javax.annotation.Nullable String mongoPid) {
-    this.mongoPid = mongoPid;
-  }
-
-
   public CreateDatasetsRequest datasetid(@javax.annotation.Nullable String datasetid) {
     this.datasetid = datasetid;
     return this;
@@ -258,16 +186,13 @@ public class CreateDatasetsRequest {
     return Objects.equals(this.teamId, createDatasetsRequest.teamId) &&
         Objects.equals(this.userId, createDatasetsRequest.userId) &&
         Objects.equals(this.createOrigin, createDatasetsRequest.createOrigin) &&
-        Objects.equals(this.mongoObjectId, createDatasetsRequest.mongoObjectId) &&
-        Objects.equals(this.mongoId, createDatasetsRequest.mongoId) &&
-        Objects.equals(this.mongoPid, createDatasetsRequest.mongoPid) &&
         Objects.equals(this.datasetid, createDatasetsRequest.datasetid) &&
         Objects.equals(this.metadata, createDatasetsRequest.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(teamId, userId, createOrigin, mongoObjectId, mongoId, mongoPid, datasetid, metadata);
+    return Objects.hash(teamId, userId, createOrigin, datasetid, metadata);
   }
 
   @Override
@@ -277,9 +202,6 @@ public class CreateDatasetsRequest {
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    createOrigin: ").append(toIndentedString(createOrigin)).append("\n");
-    sb.append("    mongoObjectId: ").append(toIndentedString(mongoObjectId)).append("\n");
-    sb.append("    mongoId: ").append(toIndentedString(mongoId)).append("\n");
-    sb.append("    mongoPid: ").append(toIndentedString(mongoPid)).append("\n");
     sb.append("    datasetid: ").append(toIndentedString(datasetid)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
@@ -300,7 +222,7 @@ public class CreateDatasetsRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("team_id", "user_id", "create_origin", "mongo_object_id", "mongo_id", "mongo_pid", "datasetid", "metadata"));
+    openapiFields = new HashSet<String>(Arrays.asList("team_id", "user_id", "create_origin", "datasetid", "metadata"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -329,15 +251,6 @@ public class CreateDatasetsRequest {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("create_origin") != null && !jsonObj.get("create_origin").isJsonNull()) && !jsonObj.get("create_origin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `create_origin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("create_origin").toString()));
-      }
-      if ((jsonObj.get("mongo_object_id") != null && !jsonObj.get("mongo_object_id").isJsonNull()) && !jsonObj.get("mongo_object_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongo_object_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongo_object_id").toString()));
-      }
-      if ((jsonObj.get("mongo_id") != null && !jsonObj.get("mongo_id").isJsonNull()) && !jsonObj.get("mongo_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongo_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongo_id").toString()));
-      }
-      if ((jsonObj.get("mongo_pid") != null && !jsonObj.get("mongo_pid").isJsonNull()) && !jsonObj.get("mongo_pid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongo_pid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongo_pid").toString()));
       }
       if ((jsonObj.get("datasetid") != null && !jsonObj.get("datasetid").isJsonNull()) && !jsonObj.get("datasetid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `datasetid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datasetid").toString()));

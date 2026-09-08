@@ -106,14 +106,6 @@ public class CreatePublicationsRequestTest {
     }
 
     /**
-     * Test the property 'mongoId'
-     */
-    @Test
-    public void mongoIdTest() {
-        // TODO: test mongoId
-    }
-
-    /**
      * Test the property 'datasets'
      */
     @Test

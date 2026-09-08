@@ -204,12 +204,11 @@ public class ToolsApiTest {
      */
     @Test
     public void fetchAllToolsTest() throws ApiException {
-        String mongoId = null;
         Integer teamId = null;
         Integer userId = null;
         String title = null;
         String sort = null;
-        FetchAllTools200Response response = api.fetchAllTools(mongoId, teamId, userId, title, sort);
+        FetchAllTools200Response response = api.fetchAllTools(teamId, userId, title, sort);
         // TODO: test validations
     }
 

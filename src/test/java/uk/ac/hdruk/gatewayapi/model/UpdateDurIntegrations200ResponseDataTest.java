@@ -345,14 +345,6 @@ public class UpdateDurIntegrations200ResponseDataTest {
     }
 
     /**
-     * Test the property 'mongoObjectDarId'
-     */
-    @Test
-    public void mongoObjectDarIdTest() {
-        // TODO: test mongoObjectDarId
-    }
-
-    /**
      * Test the property 'enabled'
      */
     @Test
@@ -374,22 +366,6 @@ public class UpdateDurIntegrations200ResponseDataTest {
     @Test
     public void counterTest() {
         // TODO: test counter
-    }
-
-    /**
-     * Test the property 'mongoObjectId'
-     */
-    @Test
-    public void mongoObjectIdTest() {
-        // TODO: test mongoObjectId
-    }
-
-    /**
-     * Test the property 'mongoId'
-     */
-    @Test
-    public void mongoIdTest() {
-        // TODO: test mongoId
     }
 
     /**

@@ -62,30 +62,6 @@ public class CreateDatasetsRequestTest {
     }
 
     /**
-     * Test the property 'mongoObjectId'
-     */
-    @Test
-    public void mongoObjectIdTest() {
-        // TODO: test mongoObjectId
-    }
-
-    /**
-     * Test the property 'mongoId'
-     */
-    @Test
-    public void mongoIdTest() {
-        // TODO: test mongoId
-    }
-
-    /**
-     * Test the property 'mongoPid'
-     */
-    @Test
-    public void mongoPidTest() {
-        // TODO: test mongoPid
-    }
-
-    /**
      * Test the property 'datasetid'
      */
     @Test

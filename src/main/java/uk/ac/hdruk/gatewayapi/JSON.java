@@ -116,7 +116,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDarTemplateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDarTemplateRequestQuestionsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDatasetsRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDatasetsV2Request.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDurIntegrationsRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDurRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateDurRequestDatasetsInner.CustomTypeAdapterFactory());
@@ -133,7 +132,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateQuestionBankQuestionRequestOptionsInnerChildrenInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateQuestionBankQuestionRequestOptionsInnerChildrenInnerOptionsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateTeamDarApplicationReviewRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateTeamDatasetsV2Request.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrations400Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrationsRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.CreateToolsIntegrationsRequestDatasetInner.CustomTypeAdapterFactory());

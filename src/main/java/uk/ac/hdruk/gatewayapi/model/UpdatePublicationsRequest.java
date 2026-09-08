@@ -52,7 +52,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * UpdatePublicationsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T09:41:50.364090846Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-08T14:41:26.380213411Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class UpdatePublicationsRequest {
   public static final String SERIALIZED_NAME_PAPER_TITLE = "paper_title";
   @SerializedName(SERIALIZED_NAME_PAPER_TITLE)
@@ -93,11 +93,6 @@ public class UpdatePublicationsRequest {
   @SerializedName(SERIALIZED_NAME_URL)
   @javax.annotation.Nullable
   private String url;
-
-  public static final String SERIALIZED_NAME_MONGO_ID = "mongo_id";
-  @SerializedName(SERIALIZED_NAME_MONGO_ID)
-  @javax.annotation.Nullable
-  private String mongoId;
 
   /**
    * Gets or Sets status
@@ -323,25 +318,6 @@ public class UpdatePublicationsRequest {
   }
 
 
-  public UpdatePublicationsRequest mongoId(@javax.annotation.Nullable String mongoId) {
-    this.mongoId = mongoId;
-    return this;
-  }
-
-  /**
-   * Get mongoId
-   * @return mongoId
-   */
-  @javax.annotation.Nullable
-  public String getMongoId() {
-    return mongoId;
-  }
-
-  public void setMongoId(@javax.annotation.Nullable String mongoId) {
-    this.mongoId = mongoId;
-  }
-
-
   public UpdatePublicationsRequest status(@javax.annotation.Nullable StatusEnum status) {
     this.status = status;
     return this;
@@ -433,7 +409,6 @@ public class UpdatePublicationsRequest {
         Objects.equals(this.journalName, updatePublicationsRequest.journalName) &&
         Objects.equals(this._abstract, updatePublicationsRequest._abstract) &&
         Objects.equals(this.url, updatePublicationsRequest.url) &&
-        Objects.equals(this.mongoId, updatePublicationsRequest.mongoId) &&
         Objects.equals(this.status, updatePublicationsRequest.status) &&
         Objects.equals(this.datasets, updatePublicationsRequest.datasets) &&
         Objects.equals(this.tools, updatePublicationsRequest.tools);
@@ -441,7 +416,7 @@ public class UpdatePublicationsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(paperTitle, authors, yearOfPublication, paperDoi, publicationType, journalName, _abstract, url, mongoId, status, datasets, tools);
+    return Objects.hash(paperTitle, authors, yearOfPublication, paperDoi, publicationType, journalName, _abstract, url, status, datasets, tools);
   }
 
   @Override
@@ -456,7 +431,6 @@ public class UpdatePublicationsRequest {
     sb.append("    journalName: ").append(toIndentedString(journalName)).append("\n");
     sb.append("    _abstract: ").append(toIndentedString(_abstract)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    mongoId: ").append(toIndentedString(mongoId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    datasets: ").append(toIndentedString(datasets)).append("\n");
     sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
@@ -478,7 +452,7 @@ public class UpdatePublicationsRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("paper_title", "authors", "year_of_publication", "paper_doi", "publication_type", "journal_name", "abstract", "url", "mongo_id", "status", "datasets", "tools"));
+    openapiFields = new HashSet<String>(Arrays.asList("paper_title", "authors", "year_of_publication", "paper_doi", "publication_type", "journal_name", "abstract", "url", "status", "datasets", "tools"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -528,9 +502,6 @@ public class UpdatePublicationsRequest {
       }
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-      if ((jsonObj.get("mongo_id") != null && !jsonObj.get("mongo_id").isJsonNull()) && !jsonObj.get("mongo_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongo_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongo_id").toString()));
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

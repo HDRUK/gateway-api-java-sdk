@@ -10,9 +10,6 @@
 |**teamId** | **Integer** |  |  [optional] |
 |**userId** | **Integer** |  |  [optional] |
 |**createOrigin** | **String** |  |  [optional] |
-|**mongoObjectId** | **String** |  |  [optional] |
-|**mongoId** | **String** |  |  [optional] |
-|**mongoPid** | **String** |  |  [optional] |
 |**datasetid** | **String** |  |  [optional] |
 |**metadata** | **Object** |  |  [optional] |
 
