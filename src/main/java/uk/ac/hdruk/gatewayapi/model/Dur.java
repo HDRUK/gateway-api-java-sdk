@@ -53,7 +53,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * A Data Use Register (DUR) entry describing an approved use of one or more datasets
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-08T14:41:26.380213411Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-17T15:40:23.780937896Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Dur {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

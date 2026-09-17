@@ -51,7 +51,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * CreateDurIntegrationsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-08T14:41:26.380213411Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-17T15:40:23.780937896Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreateDurIntegrationsRequest {
   public static final String SERIALIZED_NAME_NON_GATEWAY_DATASETS = "non_gateway_datasets";
   @SerializedName(SERIALIZED_NAME_NON_GATEWAY_DATASETS)

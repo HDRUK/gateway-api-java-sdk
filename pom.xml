@@ -5,7 +5,7 @@
     <artifactId>gateway-api-sdk</artifactId>
     <packaging>jar</packaging>
     <name>gateway-api-sdk</name>
-    <version>2.50.0</version>
+    <version>2.51.0</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>
     <scm>
