@@ -16,7 +16,7 @@ package uk.ac.hdruk.gatewayapi;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-17T15:40:23.780937896Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T14:49:48.283135148Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
