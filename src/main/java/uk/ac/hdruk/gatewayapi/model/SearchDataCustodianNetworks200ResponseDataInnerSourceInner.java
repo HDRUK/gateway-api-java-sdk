@@ -50,7 +50,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * SearchDataCustodianNetworks200ResponseDataInnerSourceInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T14:49:48.283135148Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-23T12:28:03.888933574Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class SearchDataCustodianNetworks200ResponseDataInnerSourceInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
