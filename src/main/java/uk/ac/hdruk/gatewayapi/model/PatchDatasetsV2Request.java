@@ -48,7 +48,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * PatchDatasetsV2Request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T09:08:37.613333421Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T15:57:37.808624305Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class PatchDatasetsV2Request {
   public static final String SERIALIZED_NAME_CREATE_ORIGIN = "create_origin";
   @SerializedName(SERIALIZED_NAME_CREATE_ORIGIN)

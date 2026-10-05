@@ -49,7 +49,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * Only present while a sync is actively in progress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T09:08:37.613333421Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T15:57:37.808624305Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GetFederationTeamId200ResponseDataInnerProgress {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)

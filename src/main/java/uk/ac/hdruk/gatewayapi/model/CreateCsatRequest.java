@@ -48,7 +48,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * CreateCsatRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T09:08:37.613333421Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T15:57:37.808624305Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreateCsatRequest {
   public static final String SERIALIZED_NAME_SCORE = "score";
   @SerializedName(SERIALIZED_NAME_SCORE)
