@@ -240,6 +240,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.GetFederationHistory200ResponseDataInnerFailedDatasetsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.GetFederationTeamId200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.GetFederationTeamId200ResponseDataInner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.GetFederationTeamId200ResponseDataInnerProgress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.Keyword.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.License.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.LoginRequest.CustomTypeAdapterFactory());
@@ -258,6 +259,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RegisterRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RetrieveWidgetData200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RetrieveWidgetData403Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RunFederation404Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RunFederation409Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.SavedSearch.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.SearchCollections200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.SearchCollections200ResponseDataInner.CustomTypeAdapterFactory());

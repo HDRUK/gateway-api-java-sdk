@@ -432,6 +432,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success response |  -  |
+| **404** | Federation not found, not enabled, or not tested |  -  |
+| **409** | Federation is already running an integration synchronisation |  -  |
 
 <a id="testFederation"></a>
 # **testFederation**

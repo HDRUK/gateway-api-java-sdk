@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
+import uk.ac.hdruk.gatewayapi.model.GetFederationTeamId200ResponseDataInnerProgress;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -183,6 +184,14 @@ public class GetFederationByFederationIdAndTeamId200ResponseDataTest {
     @Test
     public void isRunningTest() {
         // TODO: test isRunning
+    }
+
+    /**
+     * Test the property 'progress'
+     */
+    @Test
+    public void progressTest() {
+        // TODO: test progress
     }
 
 }

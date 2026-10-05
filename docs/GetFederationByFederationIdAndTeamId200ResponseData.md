@@ -25,6 +25,7 @@
 |**tested** | **Boolean** |  |  [optional] |
 |**notifications** | **List&lt;Object&gt;** |  |  [optional] |
 |**isRunning** | **Boolean** |  |  [optional] |
+|**progress** | [**GetFederationTeamId200ResponseDataInnerProgress**](GetFederationTeamId200ResponseDataInnerProgress.md) |  |  [optional] |
 
 
 

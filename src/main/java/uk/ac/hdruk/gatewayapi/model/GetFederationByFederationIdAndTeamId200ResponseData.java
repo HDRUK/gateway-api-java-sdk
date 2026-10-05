@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
+import uk.ac.hdruk.gatewayapi.model.GetFederationTeamId200ResponseDataInnerProgress;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * GetFederationByFederationIdAndTeamId200ResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-23T12:28:03.888933574Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T09:08:37.613333421Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class GetFederationByFederationIdAndTeamId200ResponseData {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -143,6 +144,11 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
   @SerializedName(SERIALIZED_NAME_IS_RUNNING)
   @javax.annotation.Nullable
   private Boolean isRunning;
+
+  public static final String SERIALIZED_NAME_PROGRESS = "progress";
+  @SerializedName(SERIALIZED_NAME_PROGRESS)
+  @javax.annotation.Nullable
+  private GetFederationTeamId200ResponseDataInnerProgress progress;
 
   public GetFederationByFederationIdAndTeamId200ResponseData() {
   }
@@ -497,6 +503,25 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
   }
 
 
+  public GetFederationByFederationIdAndTeamId200ResponseData progress(@javax.annotation.Nullable GetFederationTeamId200ResponseDataInnerProgress progress) {
+    this.progress = progress;
+    return this;
+  }
+
+  /**
+   * Get progress
+   * @return progress
+   */
+  @javax.annotation.Nullable
+  public GetFederationTeamId200ResponseDataInnerProgress getProgress() {
+    return progress;
+  }
+
+  public void setProgress(@javax.annotation.Nullable GetFederationTeamId200ResponseDataInnerProgress progress) {
+    this.progress = progress;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -524,7 +549,8 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
         Objects.equals(this.deletedAt, getFederationByFederationIdAndTeamId200ResponseData.deletedAt) &&
         Objects.equals(this.tested, getFederationByFederationIdAndTeamId200ResponseData.tested) &&
         Objects.equals(this.notifications, getFederationByFederationIdAndTeamId200ResponseData.notifications) &&
-        Objects.equals(this.isRunning, getFederationByFederationIdAndTeamId200ResponseData.isRunning);
+        Objects.equals(this.isRunning, getFederationByFederationIdAndTeamId200ResponseData.isRunning) &&
+        Objects.equals(this.progress, getFederationByFederationIdAndTeamId200ResponseData.progress);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -533,7 +559,7 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, federationType, authType, authSecretKey, endpointBaseurl, endpointDatasets, endpointDataset, runTimeHour, runTimeMinute, enabled, enabledAt, counter, createdAt, updatedAt, deletedAt, tested, notifications, isRunning);
+    return Objects.hash(id, federationType, authType, authSecretKey, endpointBaseurl, endpointDatasets, endpointDataset, runTimeHour, runTimeMinute, enabled, enabledAt, counter, createdAt, updatedAt, deletedAt, tested, notifications, isRunning, progress);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -565,6 +591,7 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
     sb.append("    tested: ").append(toIndentedString(tested)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
     sb.append("    isRunning: ").append(toIndentedString(isRunning)).append("\n");
+    sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -583,7 +610,7 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "counter", "created_at", "updated_at", "deleted_at", "tested", "notifications", "is_running"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "federation_type", "auth_type", "auth_secret_key", "endpoint_baseurl", "endpoint_datasets", "endpoint_dataset", "run_time_hour", "run_time_minute", "enabled", "enabled_at", "counter", "created_at", "updated_at", "deleted_at", "tested", "notifications", "is_running", "progress"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -634,6 +661,10 @@ public class GetFederationByFederationIdAndTeamId200ResponseData {
       // ensure the optional json data is an array if present
       if (jsonObj.get("notifications") != null && !jsonObj.get("notifications").isJsonNull() && !jsonObj.get("notifications").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `notifications` to be an array in the JSON string but got `%s`", jsonObj.get("notifications").toString()));
+      }
+      // validate the optional field `progress`
+      if (jsonObj.get("progress") != null && !jsonObj.get("progress").isJsonNull()) {
+        GetFederationTeamId200ResponseDataInnerProgress.validateJsonElement(jsonObj.get("progress"));
       }
   }
 

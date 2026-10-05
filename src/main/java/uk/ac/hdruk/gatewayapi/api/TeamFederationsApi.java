@@ -36,6 +36,8 @@ import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationByFederationIdAndTeamId200Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationHistory200Response;
 import uk.ac.hdruk.gatewayapi.model.GetFederationTeamId200Response;
+import uk.ac.hdruk.gatewayapi.model.RunFederation404Response;
+import uk.ac.hdruk.gatewayapi.model.RunFederation409Response;
 import uk.ac.hdruk.gatewayapi.model.TestFederation200Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateFederationTeamRequest;
 
@@ -797,6 +799,8 @@ public class TeamFederationsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Federation not found, not enabled, or not tested </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Federation is already running an integration synchronisation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call runFederationCall(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, final ApiCallback _callback) throws ApiException {
@@ -873,6 +877,8 @@ public class TeamFederationsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Federation not found, not enabled, or not tested </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Federation is already running an integration synchronisation </td><td>  -  </td></tr>
      </table>
      */
     public TestFederation200Response runFederation(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId) throws ApiException {
@@ -892,6 +898,8 @@ public class TeamFederationsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Federation not found, not enabled, or not tested </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Federation is already running an integration synchronisation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TestFederation200Response> runFederationWithHttpInfo(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId) throws ApiException {
@@ -913,6 +921,8 @@ public class TeamFederationsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Federation not found, not enabled, or not tested </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Federation is already running an integration synchronisation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call runFederationAsync(@javax.annotation.Nonnull Integer teamId, @javax.annotation.Nonnull Integer federationId, final ApiCallback<TestFederation200Response> _callback) throws ApiException {
