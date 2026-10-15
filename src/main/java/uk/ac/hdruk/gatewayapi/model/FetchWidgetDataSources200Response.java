@@ -50,7 +50,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * FetchWidgetDataSources200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T15:54:00.888342099Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T10:54:36.603700474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class FetchWidgetDataSources200Response {
   public static final String SERIALIZED_NAME_DATASETS = "datasets";
   @SerializedName(SERIALIZED_NAME_DATASETS)
@@ -71,6 +71,11 @@ public class FetchWidgetDataSources200Response {
   @SerializedName(SERIALIZED_NAME_DURS)
   @javax.annotation.Nullable
   private List<Object> durs = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_PUBLICATIONS = "publications";
+  @SerializedName(SERIALIZED_NAME_PUBLICATIONS)
+  @javax.annotation.Nullable
+  private List<Object> publications = new ArrayList<>();
 
   public FetchWidgetDataSources200Response() {
   }
@@ -183,6 +188,33 @@ public class FetchWidgetDataSources200Response {
   }
 
 
+  public FetchWidgetDataSources200Response publications(@javax.annotation.Nullable List<Object> publications) {
+    this.publications = publications;
+    return this;
+  }
+
+  public FetchWidgetDataSources200Response addPublicationsItem(Object publicationsItem) {
+    if (this.publications == null) {
+      this.publications = new ArrayList<>();
+    }
+    this.publications.add(publicationsItem);
+    return this;
+  }
+
+  /**
+   * Get publications
+   * @return publications
+   */
+  @javax.annotation.Nullable
+  public List<Object> getPublications() {
+    return publications;
+  }
+
+  public void setPublications(@javax.annotation.Nullable List<Object> publications) {
+    this.publications = publications;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -196,12 +228,13 @@ public class FetchWidgetDataSources200Response {
     return Objects.equals(this.datasets, fetchWidgetDataSources200Response.datasets) &&
         Objects.equals(this.tools, fetchWidgetDataSources200Response.tools) &&
         Objects.equals(this.collections, fetchWidgetDataSources200Response.collections) &&
-        Objects.equals(this.durs, fetchWidgetDataSources200Response.durs);
+        Objects.equals(this.durs, fetchWidgetDataSources200Response.durs) &&
+        Objects.equals(this.publications, fetchWidgetDataSources200Response.publications);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datasets, tools, collections, durs);
+    return Objects.hash(datasets, tools, collections, durs, publications);
   }
 
   @Override
@@ -212,6 +245,7 @@ public class FetchWidgetDataSources200Response {
     sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    durs: ").append(toIndentedString(durs)).append("\n");
+    sb.append("    publications: ").append(toIndentedString(publications)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -230,7 +264,7 @@ public class FetchWidgetDataSources200Response {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("datasets", "tools", "collections", "durs"));
+    openapiFields = new HashSet<String>(Arrays.asList("datasets", "tools", "collections", "durs", "publications"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -272,6 +306,10 @@ public class FetchWidgetDataSources200Response {
       // ensure the optional json data is an array if present
       if (jsonObj.get("durs") != null && !jsonObj.get("durs").isJsonNull() && !jsonObj.get("durs").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `durs` to be an array in the JSON string but got `%s`", jsonObj.get("durs").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("publications") != null && !jsonObj.get("publications").isJsonNull() && !jsonObj.get("publications").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `publications` to be an array in the JSON string but got `%s`", jsonObj.get("publications").toString()));
       }
   }
 

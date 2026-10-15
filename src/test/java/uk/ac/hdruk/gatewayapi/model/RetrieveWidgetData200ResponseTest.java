@@ -71,4 +71,12 @@ public class RetrieveWidgetData200ResponseTest {
         // TODO: test collections
     }
 
+    /**
+     * Test the property 'publications'
+     */
+    @Test
+    public void publicationsTest() {
+        // TODO: test publications
+    }
+
 }

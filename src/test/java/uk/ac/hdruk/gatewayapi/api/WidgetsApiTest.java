@@ -108,7 +108,7 @@ public class WidgetsApiTest {
     /**
      * WidgetController@getWidgetData
      *
-     * Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+     * Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
      *
      * @throws ApiException if the Api call fails
      */
@@ -123,7 +123,7 @@ public class WidgetsApiTest {
     /**
      * Retrieve data related to a widget
      *
-     * Fetches datasets, data uses, scripts, and collections linked to a widget
+     * Fetches datasets, data uses, scripts, collections and publications linked to a widget
      *
      * @throws ApiException if the Api call fails
      */

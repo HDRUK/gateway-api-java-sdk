@@ -49,7 +49,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * TrackWidgetEventRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T15:54:00.888342099Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T10:54:36.603700474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class TrackWidgetEventRequest {
   /**
    * Gets or Sets eventType
@@ -128,7 +128,9 @@ public class TrackWidgetEventRequest {
     
     COLLECTION("collection"),
     
-    DUR("dur");
+    DUR("dur"),
+    
+    PUBLICATION("publication");
 
     private String value;
 

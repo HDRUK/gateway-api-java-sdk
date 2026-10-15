@@ -15,6 +15,7 @@ A widget record managed by the Gateway
 |**includedDataUses** | **String** |  |  [optional] |
 |**includedScripts** | **String** |  |  [optional] |
 |**includedCollections** | **String** |  |  [optional] |
+|**includedPublications** | **String** |  |  [optional] |
 |**includeSearchBar** | **Boolean** |  |  [optional] |
 |**includeCohortLink** | **Boolean** |  |  [optional] |
 |**sizeWidth** | **Integer** |  |  [optional] |

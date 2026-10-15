@@ -50,7 +50,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * UpdateWidgetRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T15:54:00.888342099Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T10:54:36.603700474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class UpdateWidgetRequest {
   public static final String SERIALIZED_NAME_WIDGET_NAME = "widget_name";
   @SerializedName(SERIALIZED_NAME_WIDGET_NAME)
@@ -170,6 +170,11 @@ public class UpdateWidgetRequest {
   @SerializedName(SERIALIZED_NAME_INCLUDED_COLLECTIONS)
   @javax.annotation.Nullable
   private List<Integer> includedCollections = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_INCLUDED_PUBLICATIONS = "included_publications";
+  @SerializedName(SERIALIZED_NAME_INCLUDED_PUBLICATIONS)
+  @javax.annotation.Nullable
+  private List<Integer> includedPublications = new ArrayList<>();
 
   public UpdateWidgetRequest() {
   }
@@ -469,6 +474,33 @@ public class UpdateWidgetRequest {
   }
 
 
+  public UpdateWidgetRequest includedPublications(@javax.annotation.Nullable List<Integer> includedPublications) {
+    this.includedPublications = includedPublications;
+    return this;
+  }
+
+  public UpdateWidgetRequest addIncludedPublicationsItem(Integer includedPublicationsItem) {
+    if (this.includedPublications == null) {
+      this.includedPublications = new ArrayList<>();
+    }
+    this.includedPublications.add(includedPublicationsItem);
+    return this;
+  }
+
+  /**
+   * Get includedPublications
+   * @return includedPublications
+   */
+  @javax.annotation.Nullable
+  public List<Integer> getIncludedPublications() {
+    return includedPublications;
+  }
+
+  public void setIncludedPublications(@javax.annotation.Nullable List<Integer> includedPublications) {
+    this.includedPublications = includedPublications;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -491,12 +523,13 @@ public class UpdateWidgetRequest {
         Objects.equals(this.includedDataUses, updateWidgetRequest.includedDataUses) &&
         Objects.equals(this.dataCustodianEntitiesIds, updateWidgetRequest.dataCustodianEntitiesIds) &&
         Objects.equals(this.includedScripts, updateWidgetRequest.includedScripts) &&
-        Objects.equals(this.includedCollections, updateWidgetRequest.includedCollections);
+        Objects.equals(this.includedCollections, updateWidgetRequest.includedCollections) &&
+        Objects.equals(this.includedPublications, updateWidgetRequest.includedPublications);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(widgetName, sizeWidth, sizeHeight, unit, includeSearchBar, includeCohortLink, keepProportions, permittedDomains, includedDatasets, includedDataUses, dataCustodianEntitiesIds, includedScripts, includedCollections);
+    return Objects.hash(widgetName, sizeWidth, sizeHeight, unit, includeSearchBar, includeCohortLink, keepProportions, permittedDomains, includedDatasets, includedDataUses, dataCustodianEntitiesIds, includedScripts, includedCollections, includedPublications);
   }
 
   @Override
@@ -516,6 +549,7 @@ public class UpdateWidgetRequest {
     sb.append("    dataCustodianEntitiesIds: ").append(toIndentedString(dataCustodianEntitiesIds)).append("\n");
     sb.append("    includedScripts: ").append(toIndentedString(includedScripts)).append("\n");
     sb.append("    includedCollections: ").append(toIndentedString(includedCollections)).append("\n");
+    sb.append("    includedPublications: ").append(toIndentedString(includedPublications)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -534,7 +568,7 @@ public class UpdateWidgetRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("widget_name", "size_width", "size_height", "unit", "include_search_bar", "include_cohort_link", "keep_proportions", "permitted_domains", "included_datasets", "included_data_uses", "data_custodian_entities_ids", "included_scripts", "included_collections"));
+    openapiFields = new HashSet<String>(Arrays.asList("widget_name", "size_width", "size_height", "unit", "include_search_bar", "include_cohort_link", "keep_proportions", "permitted_domains", "included_datasets", "included_data_uses", "data_custodian_entities_ids", "included_scripts", "included_collections", "included_publications"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -594,6 +628,10 @@ public class UpdateWidgetRequest {
       // ensure the optional json data is an array if present
       if (jsonObj.get("included_collections") != null && !jsonObj.get("included_collections").isJsonNull() && !jsonObj.get("included_collections").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `included_collections` to be an array in the JSON string but got `%s`", jsonObj.get("included_collections").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("included_publications") != null && !jsonObj.get("included_publications").isJsonNull() && !jsonObj.get("included_publications").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `included_publications` to be an array in the JSON string but got `%s`", jsonObj.get("included_publications").toString()));
       }
   }
 

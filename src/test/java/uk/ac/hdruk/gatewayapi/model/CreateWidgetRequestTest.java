@@ -136,6 +136,14 @@ public class CreateWidgetRequestTest {
     }
 
     /**
+     * Test the property 'includedPublications'
+     */
+    @Test
+    public void includedPublicationsTest() {
+        // TODO: test includedPublications
+    }
+
+    /**
      * Test the property 'dataCustodianEntitiesIds'
      */
     @Test

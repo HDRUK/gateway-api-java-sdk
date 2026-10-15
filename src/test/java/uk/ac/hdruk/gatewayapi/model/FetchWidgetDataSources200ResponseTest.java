@@ -71,4 +71,12 @@ public class FetchWidgetDataSources200ResponseTest {
         // TODO: test durs
     }
 
+    /**
+     * Test the property 'publications'
+     */
+    @Test
+    public void publicationsTest() {
+        // TODO: test publications
+    }
+
 }

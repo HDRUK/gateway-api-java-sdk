@@ -20,6 +20,7 @@
 |**dataCustodianEntitiesIds** | **List&lt;Integer&gt;** |  |  [optional] |
 |**includedScripts** | **List&lt;Integer&gt;** |  |  [optional] |
 |**includedCollections** | **List&lt;Integer&gt;** |  |  [optional] |
+|**includedPublications** | **List&lt;Integer&gt;** |  |  [optional] |
 
 
 

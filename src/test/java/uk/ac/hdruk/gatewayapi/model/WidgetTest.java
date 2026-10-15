@@ -96,6 +96,14 @@ public class WidgetTest {
     }
 
     /**
+     * Test the property 'includedPublications'
+     */
+    @Test
+    public void includedPublicationsTest() {
+        // TODO: test includedPublications
+    }
+
+    /**
      * Test the property 'includeSearchBar'
      */
     @Test

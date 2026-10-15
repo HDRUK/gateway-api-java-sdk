@@ -727,7 +727,7 @@ public class WidgetsApi {
 
     /**
      * WidgetController@getWidgetData
-     * Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+     * Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
      * @param teamId Team ID (required)
      * @param teamIds Comma-separated list of team IDs to filter data (required)
      * @return FetchWidgetDataSources200Response
@@ -747,7 +747,7 @@ public class WidgetsApi {
 
     /**
      * WidgetController@getWidgetData
-     * Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+     * Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
      * @param teamId Team ID (required)
      * @param teamIds Comma-separated list of team IDs to filter data (required)
      * @return ApiResponse&lt;FetchWidgetDataSources200Response&gt;
@@ -768,7 +768,7 @@ public class WidgetsApi {
 
     /**
      * WidgetController@getWidgetData (asynchronously)
-     * Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+     * Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
      * @param teamId Team ID (required)
      * @param teamIds Comma-separated list of team IDs to filter data (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -879,7 +879,7 @@ public class WidgetsApi {
 
     /**
      * Retrieve data related to a widget
-     * Fetches datasets, data uses, scripts, and collections linked to a widget
+     * Fetches datasets, data uses, scripts, collections and publications linked to a widget
      * @param teamId Team ID (required)
      * @param id Widget ID (required)
      * @param domainOrigin Optional domain URL to check against the widget&#39;s permitted_domains list (required)
@@ -901,7 +901,7 @@ public class WidgetsApi {
 
     /**
      * Retrieve data related to a widget
-     * Fetches datasets, data uses, scripts, and collections linked to a widget
+     * Fetches datasets, data uses, scripts, collections and publications linked to a widget
      * @param teamId Team ID (required)
      * @param id Widget ID (required)
      * @param domainOrigin Optional domain URL to check against the widget&#39;s permitted_domains list (required)
@@ -924,7 +924,7 @@ public class WidgetsApi {
 
     /**
      * Retrieve data related to a widget (asynchronously)
-     * Fetches datasets, data uses, scripts, and collections linked to a widget
+     * Fetches datasets, data uses, scripts, collections and publications linked to a widget
      * @param teamId Team ID (required)
      * @param id Widget ID (required)
      * @param domainOrigin Optional domain URL to check against the widget&#39;s permitted_domains list (required)

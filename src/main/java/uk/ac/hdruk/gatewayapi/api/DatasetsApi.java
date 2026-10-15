@@ -3035,6 +3035,8 @@ public class DatasetsApi {
      * Build call for updateDatasetsV2
      * @param id dataset id (required)
      * @param updateDatasetsRequest  (required)
+     * @param validateInput Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) (optional)
+     * @param validateOutput Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3047,7 +3049,7 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDatasetsV2Call(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateDatasetsV2Call(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, @javax.annotation.Nullable Boolean validateInput, @javax.annotation.Nullable Boolean validateOutput, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3073,6 +3075,14 @@ public class DatasetsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (validateInput != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("validate_input", validateInput));
+        }
+
+        if (validateOutput != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("validate_output", validateOutput));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3094,7 +3104,7 @@ public class DatasetsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateDatasetsV2ValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateDatasetsV2ValidateBeforeCall(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, @javax.annotation.Nullable Boolean validateInput, @javax.annotation.Nullable Boolean validateOutput, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateDatasetsV2(Async)");
@@ -3105,7 +3115,7 @@ public class DatasetsApi {
             throw new ApiException("Missing the required parameter 'updateDatasetsRequest' when calling updateDatasetsV2(Async)");
         }
 
-        return updateDatasetsV2Call(id, updateDatasetsRequest, _callback);
+        return updateDatasetsV2Call(id, updateDatasetsRequest, validateInput, validateOutput, _callback);
 
     }
 
@@ -3114,6 +3124,8 @@ public class DatasetsApi {
      * Update a dataset with a new dataset version
      * @param id dataset id (required)
      * @param updateDatasetsRequest  (required)
+     * @param validateInput Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) (optional)
+     * @param validateOutput Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) (optional)
      * @return CreateDarIntegration201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3125,8 +3137,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateDarIntegration201Response updateDatasetsV2(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
-        ApiResponse<CreateDarIntegration201Response> localVarResp = updateDatasetsV2WithHttpInfo(id, updateDatasetsRequest);
+    public CreateDarIntegration201Response updateDatasetsV2(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, @javax.annotation.Nullable Boolean validateInput, @javax.annotation.Nullable Boolean validateOutput) throws ApiException {
+        ApiResponse<CreateDarIntegration201Response> localVarResp = updateDatasetsV2WithHttpInfo(id, updateDatasetsRequest, validateInput, validateOutput);
         return localVarResp.getData();
     }
 
@@ -3135,6 +3147,8 @@ public class DatasetsApi {
      * Update a dataset with a new dataset version
      * @param id dataset id (required)
      * @param updateDatasetsRequest  (required)
+     * @param validateInput Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) (optional)
+     * @param validateOutput Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) (optional)
      * @return ApiResponse&lt;CreateDarIntegration201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3146,8 +3160,8 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateDarIntegration201Response> updateDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateDatasetsV2ValidateBeforeCall(id, updateDatasetsRequest, null);
+    public ApiResponse<CreateDarIntegration201Response> updateDatasetsV2WithHttpInfo(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, @javax.annotation.Nullable Boolean validateInput, @javax.annotation.Nullable Boolean validateOutput) throws ApiException {
+        okhttp3.Call localVarCall = updateDatasetsV2ValidateBeforeCall(id, updateDatasetsRequest, validateInput, validateOutput, null);
         Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3157,6 +3171,8 @@ public class DatasetsApi {
      * Update a dataset with a new dataset version
      * @param id dataset id (required)
      * @param updateDatasetsRequest  (required)
+     * @param validateInput Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) (optional)
+     * @param validateOutput Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3169,9 +3185,9 @@ public class DatasetsApi {
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDatasetsV2Async(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
+    public okhttp3.Call updateDatasetsV2Async(@javax.annotation.Nonnull Integer id, @javax.annotation.Nonnull UpdateDatasetsRequest updateDatasetsRequest, @javax.annotation.Nullable Boolean validateInput, @javax.annotation.Nullable Boolean validateOutput, final ApiCallback<CreateDarIntegration201Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateDatasetsV2ValidateBeforeCall(id, updateDatasetsRequest, _callback);
+        okhttp3.Call localVarCall = updateDatasetsV2ValidateBeforeCall(id, updateDatasetsRequest, validateInput, validateOutput, _callback);
         Type localVarReturnType = new TypeToken<CreateDarIntegration201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

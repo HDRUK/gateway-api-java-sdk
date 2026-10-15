@@ -50,7 +50,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * CreateWidgetRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T15:54:00.888342099Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T10:54:36.603700474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CreateWidgetRequest {
   public static final String SERIALIZED_NAME_WIDGET_NAME = "widget_name";
   @SerializedName(SERIALIZED_NAME_WIDGET_NAME)
@@ -165,6 +165,11 @@ public class CreateWidgetRequest {
   @SerializedName(SERIALIZED_NAME_INCLUDED_COLLECTIONS)
   @javax.annotation.Nullable
   private List<Integer> includedCollections = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_INCLUDED_PUBLICATIONS = "included_publications";
+  @SerializedName(SERIALIZED_NAME_INCLUDED_PUBLICATIONS)
+  @javax.annotation.Nullable
+  private List<Integer> includedPublications = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DATA_CUSTODIAN_ENTITIES_IDS = "data_custodian_entities_ids";
   @SerializedName(SERIALIZED_NAME_DATA_CUSTODIAN_ENTITIES_IDS)
@@ -442,6 +447,33 @@ public class CreateWidgetRequest {
   }
 
 
+  public CreateWidgetRequest includedPublications(@javax.annotation.Nullable List<Integer> includedPublications) {
+    this.includedPublications = includedPublications;
+    return this;
+  }
+
+  public CreateWidgetRequest addIncludedPublicationsItem(Integer includedPublicationsItem) {
+    if (this.includedPublications == null) {
+      this.includedPublications = new ArrayList<>();
+    }
+    this.includedPublications.add(includedPublicationsItem);
+    return this;
+  }
+
+  /**
+   * Get includedPublications
+   * @return includedPublications
+   */
+  @javax.annotation.Nullable
+  public List<Integer> getIncludedPublications() {
+    return includedPublications;
+  }
+
+  public void setIncludedPublications(@javax.annotation.Nullable List<Integer> includedPublications) {
+    this.includedPublications = includedPublications;
+  }
+
+
   public CreateWidgetRequest dataCustodianEntitiesIds(@javax.annotation.Nullable List<Integer> dataCustodianEntitiesIds) {
     this.dataCustodianEntitiesIds = dataCustodianEntitiesIds;
     return this;
@@ -491,12 +523,13 @@ public class CreateWidgetRequest {
         Objects.equals(this.includedDataUses, createWidgetRequest.includedDataUses) &&
         Objects.equals(this.includedScripts, createWidgetRequest.includedScripts) &&
         Objects.equals(this.includedCollections, createWidgetRequest.includedCollections) &&
+        Objects.equals(this.includedPublications, createWidgetRequest.includedPublications) &&
         Objects.equals(this.dataCustodianEntitiesIds, createWidgetRequest.dataCustodianEntitiesIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(widgetName, sizeWidth, sizeHeight, unit, includeSearchBar, includeCohortLink, keepProportions, permittedDomains, includedDatasets, includedDataUses, includedScripts, includedCollections, dataCustodianEntitiesIds);
+    return Objects.hash(widgetName, sizeWidth, sizeHeight, unit, includeSearchBar, includeCohortLink, keepProportions, permittedDomains, includedDatasets, includedDataUses, includedScripts, includedCollections, includedPublications, dataCustodianEntitiesIds);
   }
 
   @Override
@@ -515,6 +548,7 @@ public class CreateWidgetRequest {
     sb.append("    includedDataUses: ").append(toIndentedString(includedDataUses)).append("\n");
     sb.append("    includedScripts: ").append(toIndentedString(includedScripts)).append("\n");
     sb.append("    includedCollections: ").append(toIndentedString(includedCollections)).append("\n");
+    sb.append("    includedPublications: ").append(toIndentedString(includedPublications)).append("\n");
     sb.append("    dataCustodianEntitiesIds: ").append(toIndentedString(dataCustodianEntitiesIds)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -534,7 +568,7 @@ public class CreateWidgetRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("widget_name", "size_width", "size_height", "unit", "include_search_bar", "include_cohort_link", "keep_proportions", "permitted_domains", "included_datasets", "included_data_uses", "included_scripts", "included_collections", "data_custodian_entities_ids"));
+    openapiFields = new HashSet<String>(Arrays.asList("widget_name", "size_width", "size_height", "unit", "include_search_bar", "include_cohort_link", "keep_proportions", "permitted_domains", "included_datasets", "included_data_uses", "included_scripts", "included_collections", "included_publications", "data_custodian_entities_ids"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("widget_name"));
@@ -597,6 +631,10 @@ public class CreateWidgetRequest {
       // ensure the optional json data is an array if present
       if (jsonObj.get("included_collections") != null && !jsonObj.get("included_collections").isJsonNull() && !jsonObj.get("included_collections").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `included_collections` to be an array in the JSON string but got `%s`", jsonObj.get("included_collections").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("included_publications") != null && !jsonObj.get("included_publications").isJsonNull() && !jsonObj.get("included_publications").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `included_publications` to be an array in the JSON string but got `%s`", jsonObj.get("included_publications").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("data_custodian_entities_ids") != null && !jsonObj.get("data_custodian_entities_ids").isJsonNull() && !jsonObj.get("data_custodian_entities_ids").isJsonArray()) {

@@ -143,4 +143,12 @@ public class UpdateWidgetRequestTest {
         // TODO: test includedCollections
     }
 
+    /**
+     * Test the property 'includedPublications'
+     */
+    @Test
+    public void includedPublicationsTest() {
+        // TODO: test includedPublications
+    }
+
 }

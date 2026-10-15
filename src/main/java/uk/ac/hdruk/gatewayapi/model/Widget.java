@@ -50,7 +50,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * A widget record managed by the Gateway
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T15:54:00.888342099Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T10:54:36.603700474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Widget {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -86,6 +86,11 @@ public class Widget {
   @SerializedName(SERIALIZED_NAME_INCLUDED_COLLECTIONS)
   @javax.annotation.Nullable
   private String includedCollections;
+
+  public static final String SERIALIZED_NAME_INCLUDED_PUBLICATIONS = "included_publications";
+  @SerializedName(SERIALIZED_NAME_INCLUDED_PUBLICATIONS)
+  @javax.annotation.Nullable
+  private String includedPublications;
 
   public static final String SERIALIZED_NAME_INCLUDE_SEARCH_BAR = "include_search_bar";
   @SerializedName(SERIALIZED_NAME_INCLUDE_SEARCH_BAR)
@@ -339,6 +344,25 @@ public class Widget {
 
   public void setIncludedCollections(@javax.annotation.Nullable String includedCollections) {
     this.includedCollections = includedCollections;
+  }
+
+
+  public Widget includedPublications(@javax.annotation.Nullable String includedPublications) {
+    this.includedPublications = includedPublications;
+    return this;
+  }
+
+  /**
+   * Get includedPublications
+   * @return includedPublications
+   */
+  @javax.annotation.Nullable
+  public String getIncludedPublications() {
+    return includedPublications;
+  }
+
+  public void setIncludedPublications(@javax.annotation.Nullable String includedPublications) {
+    this.includedPublications = includedPublications;
   }
 
 
@@ -606,6 +630,7 @@ public class Widget {
         Objects.equals(this.includedDataUses, widget.includedDataUses) &&
         Objects.equals(this.includedScripts, widget.includedScripts) &&
         Objects.equals(this.includedCollections, widget.includedCollections) &&
+        Objects.equals(this.includedPublications, widget.includedPublications) &&
         Objects.equals(this.includeSearchBar, widget.includeSearchBar) &&
         Objects.equals(this.includeCohortLink, widget.includeCohortLink) &&
         Objects.equals(this.sizeWidth, widget.sizeWidth) &&
@@ -627,7 +652,7 @@ public class Widget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, teamId, dataCustodianEntitiesIds, includedDatasets, includedDataUses, includedScripts, includedCollections, includeSearchBar, includeCohortLink, sizeWidth, sizeHeight, unit, keepProportions, widgetName, permittedDomains, brandingPrimary, brandingSecondary, brandingNeutral, createdAt, updatedAt);
+    return Objects.hash(id, teamId, dataCustodianEntitiesIds, includedDatasets, includedDataUses, includedScripts, includedCollections, includedPublications, includeSearchBar, includeCohortLink, sizeWidth, sizeHeight, unit, keepProportions, widgetName, permittedDomains, brandingPrimary, brandingSecondary, brandingNeutral, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -648,6 +673,7 @@ public class Widget {
     sb.append("    includedDataUses: ").append(toIndentedString(includedDataUses)).append("\n");
     sb.append("    includedScripts: ").append(toIndentedString(includedScripts)).append("\n");
     sb.append("    includedCollections: ").append(toIndentedString(includedCollections)).append("\n");
+    sb.append("    includedPublications: ").append(toIndentedString(includedPublications)).append("\n");
     sb.append("    includeSearchBar: ").append(toIndentedString(includeSearchBar)).append("\n");
     sb.append("    includeCohortLink: ").append(toIndentedString(includeCohortLink)).append("\n");
     sb.append("    sizeWidth: ").append(toIndentedString(sizeWidth)).append("\n");
@@ -679,7 +705,7 @@ public class Widget {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "team_id", "data_custodian_entities_ids", "included_datasets", "included_data_uses", "included_scripts", "included_collections", "include_search_bar", "include_cohort_link", "size_width", "size_height", "unit", "keep_proportions", "widget_name", "permitted_domains", "branding_primary", "branding_secondary", "branding_neutral", "created_at", "updated_at"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "team_id", "data_custodian_entities_ids", "included_datasets", "included_data_uses", "included_scripts", "included_collections", "included_publications", "include_search_bar", "include_cohort_link", "size_width", "size_height", "unit", "keep_proportions", "widget_name", "permitted_domains", "branding_primary", "branding_secondary", "branding_neutral", "created_at", "updated_at"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -720,6 +746,9 @@ public class Widget {
       }
       if ((jsonObj.get("included_collections") != null && !jsonObj.get("included_collections").isJsonNull()) && !jsonObj.get("included_collections").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `included_collections` to be a primitive type in the JSON string but got `%s`", jsonObj.get("included_collections").toString()));
+      }
+      if ((jsonObj.get("included_publications") != null && !jsonObj.get("included_publications").isJsonNull()) && !jsonObj.get("included_publications").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `included_publications` to be a primitive type in the JSON string but got `%s`", jsonObj.get("included_publications").toString()));
       }
       if ((jsonObj.get("unit") != null && !jsonObj.get("unit").isJsonNull()) && !jsonObj.get("unit").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unit").toString()));

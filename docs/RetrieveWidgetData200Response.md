@@ -11,6 +11,7 @@
 |**dataUses** | **List&lt;Object&gt;** |  |  [optional] |
 |**scripts** | **List&lt;Object&gt;** |  |  [optional] |
 |**collections** | **List&lt;Object&gt;** |  |  [optional] |
+|**publications** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

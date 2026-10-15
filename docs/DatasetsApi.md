@@ -1446,7 +1446,7 @@ public class Example {
 
 <a id="updateDatasetsV2"></a>
 # **updateDatasetsV2**
-> CreateDarIntegration201Response updateDatasetsV2(id, updateDatasetsRequest)
+> CreateDarIntegration201Response updateDatasetsV2(id, updateDatasetsRequest, validateInput, validateOutput)
 
 DatasetController@update
 
@@ -1474,8 +1474,10 @@ public class Example {
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
     Integer id = 1; // Integer | dataset id
     UpdateDatasetsRequest updateDatasetsRequest = new UpdateDatasetsRequest(); // UpdateDatasetsRequest | 
+    Boolean validateInput = true; // Boolean | Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation)
+    Boolean validateOutput = true; // Boolean | Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation)
     try {
-      CreateDarIntegration201Response result = apiInstance.updateDatasetsV2(id, updateDatasetsRequest);
+      CreateDarIntegration201Response result = apiInstance.updateDatasetsV2(id, updateDatasetsRequest, validateInput, validateOutput);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DatasetsApi#updateDatasetsV2");
@@ -1494,6 +1496,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| dataset id | |
 | **updateDatasetsRequest** | [**UpdateDatasetsRequest**](UpdateDatasetsRequest.md)|  | |
+| **validateInput** | **Boolean**| Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) | [optional] |
+| **validateOutput** | **Boolean**| Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) | [optional] |
 
 ### Return type
 

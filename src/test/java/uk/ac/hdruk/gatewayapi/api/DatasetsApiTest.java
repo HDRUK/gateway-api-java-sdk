@@ -358,7 +358,9 @@ public class DatasetsApiTest {
     public void updateDatasetsV2Test() throws ApiException {
         Integer id = null;
         UpdateDatasetsRequest updateDatasetsRequest = null;
-        CreateDarIntegration201Response response = api.updateDatasetsV2(id, updateDatasetsRequest);
+        Boolean validateInput = null;
+        Boolean validateOutput = null;
+        CreateDarIntegration201Response response = api.updateDatasetsV2(id, updateDatasetsRequest, validateInput, validateOutput);
         // TODO: test validations
     }
 

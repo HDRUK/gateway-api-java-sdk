@@ -11,6 +11,7 @@
 |**tools** | **List&lt;Object&gt;** |  |  [optional] |
 |**collections** | **List&lt;Object&gt;** |  |  [optional] |
 |**durs** | **List&lt;Object&gt;** |  |  [optional] |
+|**publications** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

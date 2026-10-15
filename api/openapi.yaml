@@ -6553,7 +6553,7 @@ paths:
   /api/v1/teams/{teamId}/widgets/data:
     get:
       description: "Fetch lightweight data (id, name, etc.) for multiple teams across\
-        \ datasets, tools, collections, and DURS"
+        \ datasets, tools, collections, DURS and publications"
       operationId: fetch_widget_data_sources
       parameters:
       - description: Team ID
@@ -6595,8 +6595,8 @@ paths:
       - application/json
   /api/v1/teams/{teamId}/widgets/{id}/data:
     get:
-      description: "Fetches datasets, data uses, scripts, and collections linked to\
-        \ a widget"
+      description: "Fetches datasets, data uses, scripts, collections and publications\
+        \ linked to a widget"
       operationId: retrieve_widget_data
       parameters:
       - description: Team ID
@@ -7883,6 +7883,24 @@ paths:
         schema:
           type: integer
         style: simple
+      - description: "Set to false to skip TRASER input validation (ignored for draft\
+          \ datasets, which always skip validation)"
+        explode: true
+        in: query
+        name: validate_input
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "Set to false to skip TRASER output validation (ignored for draft\
+          \ datasets, which always skip validation)"
+        explode: true
+        in: query
+        name: validate_output
+        required: false
+        schema:
+          type: boolean
+        style: form
       requestBody:
         content:
           application/json:
@@ -10243,6 +10261,7 @@ components:
         included_data_uses: "[5]"
         included_scripts: "[2]"
         included_collections: "[8]"
+        included_publications: "[3]"
         include_search_bar: false
         include_cohort_link: false
         size_width: 400
@@ -10281,6 +10300,10 @@ components:
           type: string
         included_collections:
           example: "[8]"
+          nullable: true
+          type: string
+        included_publications:
+          example: "[3]"
           nullable: true
           type: string
         include_search_bar:
@@ -17680,6 +17703,14 @@ components:
             example: 99
             type: integer
           type: array
+        included_publications:
+          example:
+          - 3
+          - 4
+          items:
+            example: 3
+            type: integer
+          type: array
         data_custodian_entities_ids:
           example:
           - 99
@@ -17720,6 +17751,7 @@ components:
           included_data_uses: "[5]"
           included_scripts: "[2]"
           included_collections: "[8]"
+          included_publications: "[3]"
           include_search_bar: false
           include_cohort_link: false
           size_width: 400
@@ -17813,6 +17845,14 @@ components:
             example: 99
             type: integer
           type: array
+        included_publications:
+          example:
+          - 3
+          - 4
+          items:
+            example: 3
+            type: integer
+          type: array
       type: object
     update_widget_200_response:
       example:
@@ -17825,6 +17865,7 @@ components:
           included_data_uses: "[5]"
           included_scripts: "[2]"
           included_collections: "[8]"
+          included_publications: "[3]"
           include_search_bar: false
           include_cohort_link: false
           size_width: 400
@@ -17859,6 +17900,9 @@ components:
         durs:
         - "{}"
         - "{}"
+        publications:
+        - "{}"
+        - "{}"
       properties:
         datasets:
           items:
@@ -17873,6 +17917,10 @@ components:
             type: object
           type: array
         durs:
+          items:
+            type: object
+          type: array
+        publications:
           items:
             type: object
           type: array
@@ -17907,6 +17955,9 @@ components:
         collections:
         - "{}"
         - "{}"
+        publications:
+        - "{}"
+        - "{}"
       properties:
         datasets:
           items:
@@ -17921,6 +17972,10 @@ components:
             type: object
           type: array
         collections:
+          items:
+            type: object
+          type: array
+        publications:
           items:
             type: object
           type: array
@@ -17943,6 +17998,7 @@ components:
           - tool
           - collection
           - dur
+          - publication
           nullable: true
           type: string
         source_domain:
