@@ -123,6 +123,8 @@ tags:
   name: Metrics
 - description: NightlyDatasetTests
   name: NightlyDatasetTests
+- description: Admin
+  name: Admin
 - description: TeamDashboard
   name: TeamDashboard
 paths:
@@ -8924,6 +8926,29 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /api/v2/admin/tokens/revoke_all:
+    post:
+      description: "Revoke every Gateway JWT issued up to now, including the caller's\
+        \ own. All users must sign in again."
+      operationId: revoke_all_tokens_v2
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/revoke_all_tokens_v2_200_response"
+          description: Success response
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/fetch_all_dar_integrations_401_response"
+          description: Unauthorized
+      summary: TokenRevocationController@revokeAll
+      tags:
+      - Admin
+      x-accepts:
+      - application/json
   /api/v2/tools:
     get:
       description: Get all tools with optional filters and sorting
@@ -12783,7 +12808,7 @@ components:
         processed: 63
         failed: 2
         pending: 65
-        started_at: 2000-01-23T04:56:07.000+00:00
+        started_at: 2026-09-29T09:12:04Z
       nullable: true
       properties:
         total:
@@ -12799,6 +12824,7 @@ components:
           example: 65
           type: integer
         started_at:
+          example: 2026-09-29T09:12:04Z
           format: date-time
           type: string
       type: object
@@ -12821,13 +12847,13 @@ components:
         tested: false
         is_running: false
         notifications: "[]"
-        last_run_at: 2000-01-23T04:56:07.000+00:00
+        last_run_at: 2026-07-25T09:12:04Z
         progress:
           total: 128
           processed: 63
           failed: 2
           pending: 65
-          started_at: 2000-01-23T04:56:07.000+00:00
+          started_at: 2026-09-29T09:12:04Z
       properties:
         id:
           example: 123
@@ -12883,6 +12909,7 @@ components:
           items: {}
           type: array
         last_run_at:
+          example: 2026-07-25T09:12:04Z
           format: date-time
           nullable: true
           type: string
@@ -12910,13 +12937,13 @@ components:
           tested: false
           is_running: false
           notifications: "[]"
-          last_run_at: 2000-01-23T04:56:07.000+00:00
+          last_run_at: 2026-07-25T09:12:04Z
           progress:
             total: 128
             processed: 63
             failed: 2
             pending: 65
-            started_at: 2000-01-23T04:56:07.000+00:00
+            started_at: 2026-09-29T09:12:04Z
         - id: 123
           federation_type: federation-type-eqhbjcnl
           auth_type: api_key
@@ -12934,13 +12961,13 @@ components:
           tested: false
           is_running: false
           notifications: "[]"
-          last_run_at: 2000-01-23T04:56:07.000+00:00
+          last_run_at: 2026-07-25T09:12:04Z
           progress:
             total: 128
             processed: 63
             failed: 2
             pending: 65
-            started_at: 2000-01-23T04:56:07.000+00:00
+            started_at: 2026-09-29T09:12:04Z
         first_page_url: http:\/\/localhost:8000\/api\/v1\/teams\/19\/federations?page=1
         from: 1
         last_page: 1
@@ -13058,7 +13085,7 @@ components:
           processed: 63
           failed: 2
           pending: 65
-          started_at: 2000-01-23T04:56:07.000+00:00
+          started_at: 2026-09-29T09:12:04Z
       properties:
         id:
           example: 123
@@ -13146,7 +13173,7 @@ components:
             processed: 63
             failed: 2
             pending: 65
-            started_at: 2000-01-23T04:56:07.000+00:00
+            started_at: 2026-09-29T09:12:04Z
       properties:
         message:
           type: string
@@ -13259,8 +13286,8 @@ components:
     get_federation_history_200_response_data_inner:
       example:
         job_uuid: 6d6b0e2e-6e4a-4a63-8f3c-2f9d9c8a1e11
-        started_at: 2000-01-23T04:56:07.000+00:00
-        finished_at: 2000-01-23T04:56:07.000+00:00
+        started_at: 2025-03-13T14:00:00Z
+        finished_at: 2025-03-13T14:02:31Z
         status: failed
         message: 2 of 5 datasets failed
         failed_datasets:
@@ -13273,10 +13300,13 @@ components:
           example: 6d6b0e2e-6e4a-4a63-8f3c-2f9d9c8a1e11
           type: string
         started_at:
+          example: 2025-03-13T14:00:00Z
           format: date-time
           type: string
         finished_at:
+          example: 2025-03-13T14:02:31Z
           format: date-time
+          nullable: true
           type: string
         status:
           enum:
@@ -13299,8 +13329,8 @@ components:
         current_page: 1
         data:
         - job_uuid: 6d6b0e2e-6e4a-4a63-8f3c-2f9d9c8a1e11
-          started_at: 2000-01-23T04:56:07.000+00:00
-          finished_at: 2000-01-23T04:56:07.000+00:00
+          started_at: 2025-03-13T14:00:00Z
+          finished_at: 2025-03-13T14:02:31Z
           status: failed
           message: 2 of 5 datasets failed
           failed_datasets:
@@ -13309,8 +13339,8 @@ components:
           - pid: 9c1e2f3a-...-abcdef
             message: "HDRUK/2.0.2: must NOT have additional properties"
         - job_uuid: 6d6b0e2e-6e4a-4a63-8f3c-2f9d9c8a1e11
-          started_at: 2000-01-23T04:56:07.000+00:00
-          finished_at: 2000-01-23T04:56:07.000+00:00
+          started_at: 2025-03-13T14:00:00Z
+          finished_at: 2025-03-13T14:02:31Z
           status: failed
           message: 2 of 5 datasets failed
           failed_datasets:
@@ -18893,6 +18923,26 @@ components:
         total:
           example: 3
           type: integer
+      type: object
+    revoke_all_tokens_v2_200_response_data:
+      example:
+        revoked_before: 2026-10-26T12:00:00.000000+00:00
+      properties:
+        revoked_before:
+          example: 2026-10-26T12:00:00.000000+00:00
+          type: string
+      type: object
+    revoke_all_tokens_v2_200_response:
+      example:
+        message: success
+        data:
+          revoked_before: 2026-10-26T12:00:00.000000+00:00
+      properties:
+        message:
+          example: success
+          type: string
+        data:
+          $ref: "#/components/schemas/revoke_all_tokens_v2_200_response_data"
       type: object
   securitySchemes:
     bearerAuth:

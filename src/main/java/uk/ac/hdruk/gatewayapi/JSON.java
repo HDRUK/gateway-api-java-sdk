@@ -259,6 +259,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RegisterRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RetrieveWidgetData200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RetrieveWidgetData403Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RevokeAllTokensV2200Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RevokeAllTokensV2200ResponseData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RunFederation404Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.RunFederation409Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new uk.ac.hdruk.gatewayapi.model.SavedSearch.CustomTypeAdapterFactory());
