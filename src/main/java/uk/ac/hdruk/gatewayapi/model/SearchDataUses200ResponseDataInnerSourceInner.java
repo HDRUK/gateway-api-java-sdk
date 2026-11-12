@@ -50,7 +50,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * SearchDataUses200ResponseDataInnerSourceInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T10:54:36.603700474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-12T14:42:43.200022131Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class SearchDataUses200ResponseDataInnerSourceInner {
   public static final String SERIALIZED_NAME_PROJECT_TITLE = "projectTitle";
   @SerializedName(SERIALIZED_NAME_PROJECT_TITLE)

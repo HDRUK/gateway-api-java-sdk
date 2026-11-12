@@ -48,7 +48,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * RevokeAllTokensV2200ResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-10T09:58:17.567601877Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-12T14:42:43.200022131Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class RevokeAllTokensV2200ResponseData {
   public static final String SERIALIZED_NAME_REVOKED_BEFORE = "revoked_before";
   @SerializedName(SERIALIZED_NAME_REVOKED_BEFORE)

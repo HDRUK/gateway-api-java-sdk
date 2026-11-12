@@ -13,7 +13,7 @@
 
 package uk.ac.hdruk.gatewayapi;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T10:54:36.603700474Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-12T14:42:43.200022131Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Pair {
   private final String name;
   private final String value;
