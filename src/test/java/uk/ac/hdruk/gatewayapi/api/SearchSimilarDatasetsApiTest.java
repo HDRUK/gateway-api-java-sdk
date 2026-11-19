@@ -14,8 +14,8 @@
 package uk.ac.hdruk.gatewayapi.api;
 
 import uk.ac.hdruk.gatewayapi.ApiException;
-import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasets200Response;
-import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasetsRequest;
+import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasetsV2200Response;
+import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasetsV2Request;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -33,16 +33,30 @@ public class SearchSimilarDatasetsApiTest {
     private final SearchSimilarDatasetsApi api = new SearchSimilarDatasetsApi();
 
     /**
-     * Search@similarDatasets
+     * Search for similar datasets (deprecated)
      *
-     * Returns top three gateway datasets most similar to the provided dataset
+     * Deprecated: use /api/v2/search/similar/datasets, which this endpoint now serves. Responses carry Deprecation, Sunset and Link headers; it stops working after the Sunset date (17 May 2027).
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void searchSimilarDatasetsTest() throws ApiException {
-        SearchSimilarDatasetsRequest searchSimilarDatasetsRequest = null;
-        SearchSimilarDatasets200Response response = api.searchSimilarDatasets(searchSimilarDatasetsRequest);
+        SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request = null;
+        api.searchSimilarDatasets(searchSimilarDatasetsV2Request);
+        // TODO: test validations
+    }
+
+    /**
+     * Search for similar datasets
+     *
+     * Returns up to three gateway datasets sharing the most terms with the provided dataset&#39;s keywords and title. The provided dataset is never included.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void searchSimilarDatasetsV2Test() throws ApiException {
+        SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request = null;
+        SearchSimilarDatasetsV2200Response response = api.searchSimilarDatasetsV2(searchSimilarDatasetsV2Request);
         // TODO: test validations
     }
 

@@ -22,30 +22,38 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasets200ResponseDataInner;
+import uk.ac.hdruk.gatewayapi.model.ExperimentDefinitionStepsInnerBlocksInner;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SearchSimilarDatasets200Response
+ * Model tests for ExperimentDefinitionStepsInner
  */
-public class SearchSimilarDatasets200ResponseTest {
-    private final SearchSimilarDatasets200Response model = new SearchSimilarDatasets200Response();
+public class ExperimentDefinitionStepsInnerTest {
+    private final ExperimentDefinitionStepsInner model = new ExperimentDefinitionStepsInner();
 
     /**
-     * Model tests for SearchSimilarDatasets200Response
+     * Model tests for ExperimentDefinitionStepsInner
      */
     @Test
-    public void testSearchSimilarDatasets200Response() {
-        // TODO: test SearchSimilarDatasets200Response
+    public void testExperimentDefinitionStepsInner() {
+        // TODO: test ExperimentDefinitionStepsInner
     }
 
     /**
-     * Test the property 'data'
+     * Test the property 'id'
      */
     @Test
-    public void dataTest() {
-        // TODO: test data
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'blocks'
+     */
+    @Test
+    public void blocksTest() {
+        // TODO: test blocks
     }
 
 }

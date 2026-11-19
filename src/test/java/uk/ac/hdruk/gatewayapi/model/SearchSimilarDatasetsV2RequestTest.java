@@ -19,41 +19,30 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import uk.ac.hdruk.gatewayapi.model.SearchDatasets200ResponseDataInnerSourceInner;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SearchSimilarDatasets200ResponseDataInner
+ * Model tests for SearchSimilarDatasetsV2Request
  */
-public class SearchSimilarDatasets200ResponseDataInnerTest {
-    private final SearchSimilarDatasets200ResponseDataInner model = new SearchSimilarDatasets200ResponseDataInner();
+public class SearchSimilarDatasetsV2RequestTest {
+    private final SearchSimilarDatasetsV2Request model = new SearchSimilarDatasetsV2Request();
 
     /**
-     * Model tests for SearchSimilarDatasets200ResponseDataInner
+     * Model tests for SearchSimilarDatasetsV2Request
      */
     @Test
-    public void testSearchSimilarDatasets200ResponseDataInner() {
-        // TODO: test SearchSimilarDatasets200ResponseDataInner
+    public void testSearchSimilarDatasetsV2Request() {
+        // TODO: test SearchSimilarDatasetsV2Request
     }
 
     /**
-     * Test the property 'source'
+     * Test the property 'id'
      */
     @Test
-    public void sourceTest() {
-        // TODO: test source
-    }
-
-    /**
-     * Test the property 'metadata'
-     */
-    @Test
-    public void metadataTest() {
-        // TODO: test metadata
+    public void idTest() {
+        // TODO: test id
     }
 
 }

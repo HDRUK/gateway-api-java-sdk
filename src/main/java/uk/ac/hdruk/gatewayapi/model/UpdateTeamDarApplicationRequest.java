@@ -48,7 +48,7 @@ import uk.ac.hdruk.gatewayapi.JSON;
 /**
  * UpdateTeamDarApplicationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T11:21:36.474113765Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T11:27:29.235601601Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class UpdateTeamDarApplicationRequest {
   public static final String SERIALIZED_NAME_SUBMISSION_STATUS = "submission_status";
   @SerializedName(SERIALIZED_NAME_SUBMISSION_STATUS)

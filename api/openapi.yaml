@@ -79,8 +79,6 @@ tags:
   name: SavedSearch
 - description: Search-Datasets
   name: Search-Datasets
-- description: Search-Similar-Datasets
-  name: Search-Similar-Datasets
 - description: Search-Tools
   name: Search-Tools
 - description: Search-Collections
@@ -123,6 +121,8 @@ tags:
   name: Metrics
 - description: NightlyDatasetTests
   name: NightlyDatasetTests
+- description: Search-Similar-Datasets
+  name: Search-Similar-Datasets
 - description: Admin
   name: Admin
 - description: TeamDashboard
@@ -5256,31 +5256,6 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
-  /api/v1/search/similar/datasets:
-    post:
-      description: Returns top three gateway datasets most similar to the provided
-        dataset
-      operationId: search_similar_datasets
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/search_similar_datasets_request"
-        description: Submit dataset id
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/search_similar_datasets_200_response"
-          description: Success
-      summary: Search@similarDatasets
-      tags:
-      - Search-Similar-Datasets
-      x-content-type: application/json
-      x-accepts:
-      - application/json
   /api/v1/search/tools:
     post:
       description: Returns gateway tools related to the provided query term(s)
@@ -8260,6 +8235,56 @@ paths:
       - Publication
       x-accepts:
       - application/json
+  /api/v2/search/similar/datasets:
+    post:
+      description: Returns up to three gateway datasets sharing the most terms with
+        the provided dataset's keywords and title. The provided dataset is never included.
+      operationId: search_similar_datasets_v2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/search_similar_datasets_v2_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/search_similar_datasets_v2_200_response"
+          description: Success; empty data when the dataset is not indexed
+        "400":
+          description: Missing or invalid dataset id
+      summary: Search for similar datasets
+      tags:
+      - Search-Similar-Datasets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/search/similar/datasets:
+    post:
+      deprecated: true
+      description: "Deprecated: use /api/v2/search/similar/datasets, which this endpoint\
+        \ now serves. Responses carry Deprecation, Sunset and Link headers; it stops\
+        \ working after the Sunset date (17 May 2027)."
+      operationId: search_similar_datasets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/search_similar_datasets_v2_request"
+        required: true
+      responses:
+        "200":
+          description: Same as /api/v2/search/similar/datasets
+        "400":
+          description: Missing or invalid dataset id
+      summary: Search for similar datasets (deprecated)
+      tags:
+      - Search-Similar-Datasets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /api/v2/teams/{teamId}/datasets/{id}:
     delete:
       description: Delete a team's dataset
@@ -8349,6 +8374,14 @@ paths:
               schema:
                 $ref: "#/components/schemas/delete_applications_200_response"
           description: Success
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/patch_team_datasets_v2_422_response"
+          description: "Activating a draft refused because its metadata fails source-schema\
+            \ or GWDM validation, or leaves a required list of values empty (SchemaOnboardingForm\
+            \ flag only)"
         "500":
           content:
             application/json:
@@ -9072,6 +9105,78 @@ components:
             $ref: "#/components/schemas/update_applications_404_response"
       description: Not found response
   schemas:
+    ExperimentInput:
+      properties:
+        name:
+          example: Search feedback
+          maxLength: 255
+          type: string
+        status:
+          enum:
+          - draft
+          - active
+          - paused
+          - archived
+          example: draft
+          type: string
+        definition:
+          description: See Experiment.definition
+          type: object
+        targeting:
+          description: See Experiment.targeting
+          type: object
+        trigger:
+          description: See Experiment.trigger
+          type: object
+        starts_at:
+          example: 2026-11-01
+          format: date
+          nullable: true
+          type: string
+        ends_at:
+          example: 2026-12-01
+          format: date
+          nullable: true
+          type: string
+      required:
+      - definition
+      - name
+      - status
+      - targeting
+      - trigger
+      type: object
+    ExperimentResponseInput:
+      properties:
+        answers:
+          description: Answers keyed by question block id; unknown ids are dropped
+          example:
+            score: 4
+            areas:
+            - filters
+          type: object
+        path:
+          example: /en/search
+          maxLength: 255
+          type: string
+        variant:
+          nullable: true
+          type: string
+        contact:
+          example: false
+          type: boolean
+        email:
+          description: Required when contact is true and not signed in
+          format: email
+          nullable: true
+          type: string
+        recaptcha:
+          description: reCAPTCHA v3 token for the experiment_response action
+          type: string
+      required:
+      - answers
+      - path
+      - recaptcha
+      type: object
     Alias:
       description: An alias used to label a team or dataset
       properties:
@@ -9660,6 +9765,57 @@ components:
         updated_at:
           example: 2024-06-01T08:00:00Z
           format: date-time
+          type: string
+      type: object
+    Experiment:
+      description: A feedback prompt or design review shown to targeted visitors
+      properties:
+        id:
+          example: 1
+          type: integer
+        name:
+          example: Search feedback
+          type: string
+        status:
+          enum:
+          - draft
+          - active
+          - paused
+          - archived
+          example: active
+          type: string
+        definition:
+          $ref: "#/components/schemas/Experiment_definition"
+        targeting:
+          $ref: "#/components/schemas/Experiment_targeting"
+        trigger:
+          $ref: "#/components/schemas/Experiment_trigger"
+        starts_at:
+          example: 2026-11-01
+          format: date
+          nullable: true
+          type: string
+        ends_at:
+          example: 2026-12-01
+          format: date
+          nullable: true
+          type: string
+        created_by:
+          example: 1
+          nullable: true
+          type: integer
+        responses_count:
+          example: 0
+          type: integer
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        deleted_at:
+          format: date-time
+          nullable: true
           type: string
       type: object
     Keyword:
@@ -10382,6 +10538,60 @@ components:
           example: 2024-06-01T08:00:00Z
           format: date-time
           type: string
+      type: object
+    ActiveExperiment:
+      description: "An experiment as served to a visitor, without its targeting rules"
+      properties:
+        id:
+          example: 1
+          type: integer
+        name:
+          example: Search feedback
+          type: string
+        paths:
+          items:
+            example: /en/search
+            type: string
+          type: array
+        trigger:
+          description: See Experiment.trigger
+          type: object
+        definition:
+          description: See Experiment.definition
+          type: object
+        variant:
+          nullable: true
+          type: string
+          example: null
+        endsAt:
+          example: 2026-12-01
+          format: date
+          nullable: true
+          type: string
+      type: object
+    OnboardingForm:
+      description: The data the metadata onboarding form is generated from
+      properties:
+        schemas:
+          items:
+            $ref: "#/components/schemas/OnboardingForm_schemas_inner"
+          type: array
+        model:
+          example: HDRUK
+          type: string
+        version:
+          example: 4.1.0
+          type: string
+        schema:
+          description: JSON Schema of the selected input schema
+          type: object
+        defaultValues:
+          description: Team defaults in the selected schema
+          type: object
+        metadata:
+          description: Only with dataset_id
+          nullable: true
+          type: object
       type: object
     fetch_all_applications_200_response_data_inner:
       example:
@@ -16020,104 +16230,6 @@ components:
           example: 3
           type: integer
       type: object
-    search_similar_datasets_request:
-      properties:
-        id:
-          example: 1
-          type: integer
-      type: object
-    search_similar_datasets_200_response_data_inner:
-      example:
-        _source:
-        - abstract: abstract
-          description: description
-          keywords: keywords
-          named_entities:
-          - ""
-          - ""
-          publisherName: publisherName
-          shortTitle: shortTitle
-          title: title
-          created_at: created_at
-        - abstract: abstract
-          description: description
-          keywords: keywords
-          named_entities:
-          - ""
-          - ""
-          publisherName: publisherName
-          shortTitle: shortTitle
-          title: title
-          created_at: created_at
-        metadata:
-        - ""
-        - ""
-      properties:
-        _source:
-          items:
-            $ref: "#/components/schemas/search_datasets_200_response_data_inner__source_inner"
-          type: array
-        metadata:
-          items: {}
-          type: array
-      type: object
-    search_similar_datasets_200_response:
-      example:
-        data:
-        - _source:
-          - abstract: abstract
-            description: description
-            keywords: keywords
-            named_entities:
-            - ""
-            - ""
-            publisherName: publisherName
-            shortTitle: shortTitle
-            title: title
-            created_at: created_at
-          - abstract: abstract
-            description: description
-            keywords: keywords
-            named_entities:
-            - ""
-            - ""
-            publisherName: publisherName
-            shortTitle: shortTitle
-            title: title
-            created_at: created_at
-          metadata:
-          - ""
-          - ""
-        - _source:
-          - abstract: abstract
-            description: description
-            keywords: keywords
-            named_entities:
-            - ""
-            - ""
-            publisherName: publisherName
-            shortTitle: shortTitle
-            title: title
-            created_at: created_at
-          - abstract: abstract
-            description: description
-            keywords: keywords
-            named_entities:
-            - ""
-            - ""
-            publisherName: publisherName
-            shortTitle: shortTitle
-            title: title
-            created_at: created_at
-          metadata:
-          - ""
-          - ""
-      properties:
-        data:
-          items:
-            $ref: "#/components/schemas/search_similar_datasets_200_response_data_inner"
-          type: array
-      type: object
     search_tools_request:
       properties:
         query:
@@ -18924,6 +19036,51 @@ components:
           example: 3
           type: integer
       type: object
+    search_similar_datasets_v2_request:
+      properties:
+        id:
+          description: Dataset id
+          example: 1
+          type: integer
+      required:
+      - id
+      type: object
+    search_similar_datasets_v2_200_response_data_inner:
+      example:
+        _id: _id
+        _source: "{}"
+        metadata: "{}"
+      properties:
+        _id:
+          type: string
+        _source:
+          type: object
+        metadata:
+          type: object
+      type: object
+    search_similar_datasets_v2_200_response:
+      example:
+        data:
+        - _id: _id
+          _source: "{}"
+          metadata: "{}"
+        - _id: _id
+          _source: "{}"
+          metadata: "{}"
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/search_similar_datasets_v2_200_response_data_inner"
+          type: array
+      type: object
+    patch_team_datasets_v2_422_response:
+      example:
+        message: Dataset metadata is not valid for activation
+      properties:
+        message:
+          example: Dataset metadata is not valid for activation
+          type: string
+      type: object
     revoke_all_tokens_v2_200_response_data:
       example:
         revoked_before: 2026-10-26T12:00:00.000000+00:00
@@ -18943,6 +19100,98 @@ components:
           type: string
         data:
           $ref: "#/components/schemas/revoke_all_tokens_v2_200_response_data"
+      type: object
+    Experiment_definition_steps_inner_blocks_inner:
+      properties:
+        id:
+          example: score
+          type: string
+        type:
+          enum:
+          - heading
+          - richText
+          - image
+          - rating
+          - choice
+          - textInput
+          - abChoice
+          - consentNotice
+          type: string
+      type: object
+    Experiment_definition_steps_inner:
+      properties:
+        id:
+          example: step-1
+          type: string
+        blocks:
+          items:
+            $ref: "#/components/schemas/Experiment_definition_steps_inner_blocks_inner"
+          type: array
+      type: object
+    Experiment_definition:
+      description: Steps and blocks rendered by @hdruk/experiments
+      properties:
+        steps:
+          items:
+            $ref: "#/components/schemas/Experiment_definition_steps_inner"
+          type: array
+        thankYou:
+          nullable: true
+          type: string
+      type: object
+    Experiment_targeting:
+      properties:
+        paths:
+          items:
+            example: /en/search
+            type: string
+          type: array
+        audience:
+          enum:
+          - all
+          - logged_in
+          - logged_out
+          - user_ids
+          example: all
+          type: string
+        user_ids:
+          items:
+            type: integer
+          type: array
+        percentage:
+          example: 100
+          maximum: 100
+          minimum: 1
+          type: integer
+      type: object
+    Experiment_trigger:
+      properties:
+        "on":
+          enum:
+          - load
+          - delay
+          - exitIntent
+          example: load
+          type: string
+        delaySeconds:
+          example: 10
+          type: integer
+        frequency:
+          enum:
+          - once
+          - untilAnswered
+          - always
+          example: untilAnswered
+          type: string
+      type: object
+    OnboardingForm_schemas_inner:
+      properties:
+        model:
+          example: HDRUK
+          type: string
+        version:
+          example: 4.1.0
+          type: string
       type: object
   securitySchemes:
     bearerAuth:

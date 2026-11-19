@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasets200ResponseDataInner;
+import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasetsV2200ResponseDataInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,24 +49,24 @@ import java.util.Set;
 import uk.ac.hdruk.gatewayapi.JSON;
 
 /**
- * SearchSimilarDatasets200Response
+ * SearchSimilarDatasetsV2200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T11:21:36.474113765Z[Etc/UTC]", comments = "Generator version: 7.24.0")
-public class SearchSimilarDatasets200Response {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T11:27:29.235601601Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+public class SearchSimilarDatasetsV2200Response {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
-  private List<SearchSimilarDatasets200ResponseDataInner> data = new ArrayList<>();
+  private List<SearchSimilarDatasetsV2200ResponseDataInner> data = new ArrayList<>();
 
-  public SearchSimilarDatasets200Response() {
+  public SearchSimilarDatasetsV2200Response() {
   }
 
-  public SearchSimilarDatasets200Response data(@javax.annotation.Nullable List<SearchSimilarDatasets200ResponseDataInner> data) {
+  public SearchSimilarDatasetsV2200Response data(@javax.annotation.Nullable List<SearchSimilarDatasetsV2200ResponseDataInner> data) {
     this.data = data;
     return this;
   }
 
-  public SearchSimilarDatasets200Response addDataItem(SearchSimilarDatasets200ResponseDataInner dataItem) {
+  public SearchSimilarDatasetsV2200Response addDataItem(SearchSimilarDatasetsV2200ResponseDataInner dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -79,11 +79,11 @@ public class SearchSimilarDatasets200Response {
    * @return data
    */
   @javax.annotation.Nullable
-  public List<SearchSimilarDatasets200ResponseDataInner> getData() {
+  public List<SearchSimilarDatasetsV2200ResponseDataInner> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable List<SearchSimilarDatasets200ResponseDataInner> data) {
+  public void setData(@javax.annotation.Nullable List<SearchSimilarDatasetsV2200ResponseDataInner> data) {
     this.data = data;
   }
 
@@ -97,8 +97,8 @@ public class SearchSimilarDatasets200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SearchSimilarDatasets200Response searchSimilarDatasets200Response = (SearchSimilarDatasets200Response) o;
-    return Objects.equals(this.data, searchSimilarDatasets200Response.data);
+    SearchSimilarDatasetsV2200Response searchSimilarDatasetsV2200Response = (SearchSimilarDatasetsV2200Response) o;
+    return Objects.equals(this.data, searchSimilarDatasetsV2200Response.data);
   }
 
   @Override
@@ -109,7 +109,7 @@ public class SearchSimilarDatasets200Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SearchSimilarDatasets200Response {\n");
+    sb.append("class SearchSimilarDatasetsV2200Response {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -139,20 +139,20 @@ public class SearchSimilarDatasets200Response {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SearchSimilarDatasets200Response
+   * @throws IOException if the JSON Element is invalid with respect to SearchSimilarDatasetsV2200Response
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SearchSimilarDatasets200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SearchSimilarDatasets200Response is not found in the empty JSON string", SearchSimilarDatasets200Response.openapiRequiredFields.toString()));
+        if (!SearchSimilarDatasetsV2200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SearchSimilarDatasetsV2200Response is not found in the empty JSON string", SearchSimilarDatasetsV2200Response.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SearchSimilarDatasets200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SearchSimilarDatasets200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!SearchSimilarDatasetsV2200Response.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SearchSimilarDatasetsV2200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -166,7 +166,7 @@ public class SearchSimilarDatasets200Response {
 
           // validate the optional field `data` (array)
           for (int i = 0; i < jsonArraydata.size(); i++) {
-            SearchSimilarDatasets200ResponseDataInner.validateJsonElement(jsonArraydata.get(i));
+            SearchSimilarDatasetsV2200ResponseDataInner.validateJsonElement(jsonArraydata.get(i));
           };
         }
       }
@@ -176,22 +176,22 @@ public class SearchSimilarDatasets200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SearchSimilarDatasets200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SearchSimilarDatasets200Response' and its subtypes
+       if (!SearchSimilarDatasetsV2200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SearchSimilarDatasetsV2200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SearchSimilarDatasets200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SearchSimilarDatasets200Response.class));
+       final TypeAdapter<SearchSimilarDatasetsV2200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SearchSimilarDatasetsV2200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SearchSimilarDatasets200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<SearchSimilarDatasetsV2200Response>() {
            @Override
-           public void write(JsonWriter out, SearchSimilarDatasets200Response value) throws IOException {
+           public void write(JsonWriter out, SearchSimilarDatasetsV2200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public SearchSimilarDatasets200Response read(JsonReader in) throws IOException {
+           public SearchSimilarDatasetsV2200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -202,18 +202,18 @@ public class SearchSimilarDatasets200Response {
   }
 
   /**
-   * Create an instance of SearchSimilarDatasets200Response given an JSON string
+   * Create an instance of SearchSimilarDatasetsV2200Response given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SearchSimilarDatasets200Response
-   * @throws IOException if the JSON string is invalid with respect to SearchSimilarDatasets200Response
+   * @return An instance of SearchSimilarDatasetsV2200Response
+   * @throws IOException if the JSON string is invalid with respect to SearchSimilarDatasetsV2200Response
    */
-  public static SearchSimilarDatasets200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SearchSimilarDatasets200Response.class);
+  public static SearchSimilarDatasetsV2200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SearchSimilarDatasetsV2200Response.class);
   }
 
   /**
-   * Convert an instance of SearchSimilarDatasets200Response to an JSON string
+   * Convert an instance of SearchSimilarDatasetsV2200Response to an JSON string
    *
    * @return JSON string
    */

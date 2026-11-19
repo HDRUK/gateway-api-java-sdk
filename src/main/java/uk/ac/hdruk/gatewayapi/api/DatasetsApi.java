@@ -38,6 +38,7 @@ import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDatasets200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDatasets200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDatasetsV2Request;
+import uk.ac.hdruk.gatewayapi.model.PatchTeamDatasetsV2422Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDatasetsRequest;
 
@@ -2739,6 +2740,7 @@ public class DatasetsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Activating a draft refused because its metadata fails source-schema or GWDM validation, or leaves a required list of values empty (SchemaOnboardingForm flag only) </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
@@ -2823,6 +2825,7 @@ public class DatasetsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Activating a draft refused because its metadata fails source-schema or GWDM validation, or leaves a required list of values empty (SchemaOnboardingForm flag only) </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
@@ -2844,6 +2847,7 @@ public class DatasetsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Activating a draft refused because its metadata fails source-schema or GWDM validation, or leaves a required list of values empty (SchemaOnboardingForm flag only) </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
@@ -2867,6 +2871,7 @@ public class DatasetsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Activating a draft refused because its metadata fails source-schema or GWDM validation, or leaves a required list of values empty (SchemaOnboardingForm flag only) </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */

@@ -24,25 +24,33 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SearchSimilarDatasetsRequest
+ * Model tests for OnboardingFormSchemasInner
  */
-public class SearchSimilarDatasetsRequestTest {
-    private final SearchSimilarDatasetsRequest model = new SearchSimilarDatasetsRequest();
+public class OnboardingFormSchemasInnerTest {
+    private final OnboardingFormSchemasInner model = new OnboardingFormSchemasInner();
 
     /**
-     * Model tests for SearchSimilarDatasetsRequest
+     * Model tests for OnboardingFormSchemasInner
      */
     @Test
-    public void testSearchSimilarDatasetsRequest() {
-        // TODO: test SearchSimilarDatasetsRequest
+    public void testOnboardingFormSchemasInner() {
+        // TODO: test OnboardingFormSchemasInner
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'model'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void modelTest() {
+        // TODO: test model
+    }
+
+    /**
+     * Test the property 'version'
+     */
+    @Test
+    public void versionTest() {
+        // TODO: test version
     }
 
 }

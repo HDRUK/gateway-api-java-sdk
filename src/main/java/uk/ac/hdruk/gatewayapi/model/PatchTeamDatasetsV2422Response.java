@@ -46,34 +46,34 @@ import java.util.Set;
 import uk.ac.hdruk.gatewayapi.JSON;
 
 /**
- * SearchSimilarDatasetsRequest
+ * PatchTeamDatasetsV2422Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T11:21:36.474113765Z[Etc/UTC]", comments = "Generator version: 7.24.0")
-public class SearchSimilarDatasetsRequest {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T11:27:29.235601601Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+public class PatchTeamDatasetsV2422Response {
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
   @javax.annotation.Nullable
-  private Integer id;
+  private String message;
 
-  public SearchSimilarDatasetsRequest() {
+  public PatchTeamDatasetsV2422Response() {
   }
 
-  public SearchSimilarDatasetsRequest id(@javax.annotation.Nullable Integer id) {
-    this.id = id;
+  public PatchTeamDatasetsV2422Response message(@javax.annotation.Nullable String message) {
+    this.message = message;
     return this;
   }
 
   /**
-   * Get id
-   * @return id
+   * Get message
+   * @return message
    */
   @javax.annotation.Nullable
-  public Integer getId() {
-    return id;
+  public String getMessage() {
+    return message;
   }
 
-  public void setId(@javax.annotation.Nullable Integer id) {
-    this.id = id;
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
   }
 
 
@@ -86,20 +86,20 @@ public class SearchSimilarDatasetsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SearchSimilarDatasetsRequest searchSimilarDatasetsRequest = (SearchSimilarDatasetsRequest) o;
-    return Objects.equals(this.id, searchSimilarDatasetsRequest.id);
+    PatchTeamDatasetsV2422Response patchTeamDatasetsV2422Response = (PatchTeamDatasetsV2422Response) o;
+    return Objects.equals(this.message, patchTeamDatasetsV2422Response.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(message);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SearchSimilarDatasetsRequest {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class PatchTeamDatasetsV2422Response {\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -118,7 +118,7 @@ public class SearchSimilarDatasetsRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id"));
+    openapiFields = new HashSet<String>(Arrays.asList("message"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -128,45 +128,48 @@ public class SearchSimilarDatasetsRequest {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SearchSimilarDatasetsRequest
+   * @throws IOException if the JSON Element is invalid with respect to PatchTeamDatasetsV2422Response
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SearchSimilarDatasetsRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SearchSimilarDatasetsRequest is not found in the empty JSON string", SearchSimilarDatasetsRequest.openapiRequiredFields.toString()));
+        if (!PatchTeamDatasetsV2422Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PatchTeamDatasetsV2422Response is not found in the empty JSON string", PatchTeamDatasetsV2422Response.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SearchSimilarDatasetsRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SearchSimilarDatasetsRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!PatchTeamDatasetsV2422Response.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PatchTeamDatasetsV2422Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SearchSimilarDatasetsRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SearchSimilarDatasetsRequest' and its subtypes
+       if (!PatchTeamDatasetsV2422Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PatchTeamDatasetsV2422Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SearchSimilarDatasetsRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SearchSimilarDatasetsRequest.class));
+       final TypeAdapter<PatchTeamDatasetsV2422Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PatchTeamDatasetsV2422Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SearchSimilarDatasetsRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<PatchTeamDatasetsV2422Response>() {
            @Override
-           public void write(JsonWriter out, SearchSimilarDatasetsRequest value) throws IOException {
+           public void write(JsonWriter out, PatchTeamDatasetsV2422Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public SearchSimilarDatasetsRequest read(JsonReader in) throws IOException {
+           public PatchTeamDatasetsV2422Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -177,18 +180,18 @@ public class SearchSimilarDatasetsRequest {
   }
 
   /**
-   * Create an instance of SearchSimilarDatasetsRequest given an JSON string
+   * Create an instance of PatchTeamDatasetsV2422Response given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SearchSimilarDatasetsRequest
-   * @throws IOException if the JSON string is invalid with respect to SearchSimilarDatasetsRequest
+   * @return An instance of PatchTeamDatasetsV2422Response
+   * @throws IOException if the JSON string is invalid with respect to PatchTeamDatasetsV2422Response
    */
-  public static SearchSimilarDatasetsRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SearchSimilarDatasetsRequest.class);
+  public static PatchTeamDatasetsV2422Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PatchTeamDatasetsV2422Response.class);
   }
 
   /**
-   * Convert an instance of SearchSimilarDatasetsRequest to an JSON string
+   * Convert an instance of PatchTeamDatasetsV2422Response to an JSON string
    *
    * @return JSON string
    */

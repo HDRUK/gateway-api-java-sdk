@@ -25,6 +25,7 @@ import uk.ac.hdruk.gatewayapi.model.FetchAllDarIntegrations401Response;
 import uk.ac.hdruk.gatewayapi.model.FetchAllDatasets200Response;
 import uk.ac.hdruk.gatewayapi.model.FetchDatasets200Response;
 import uk.ac.hdruk.gatewayapi.model.PatchDatasetsV2Request;
+import uk.ac.hdruk.gatewayapi.model.PatchTeamDatasetsV2422Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateApplications404Response;
 import uk.ac.hdruk.gatewayapi.model.UpdateDatasetsRequest;
 import org.junit.jupiter.api.Disabled;

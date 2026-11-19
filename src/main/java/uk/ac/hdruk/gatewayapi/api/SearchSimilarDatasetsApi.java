@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasets200Response;
-import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasetsRequest;
+import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasetsV2200Response;
+import uk.ac.hdruk.gatewayapi.model.SearchSimilarDatasetsV2Request;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -75,7 +75,7 @@ public class SearchSimilarDatasetsApi {
 
     /**
      * Build call for searchSimilarDatasets
-     * @param searchSimilarDatasetsRequest Submit dataset id (required)
+     * @param searchSimilarDatasetsV2Request  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -83,10 +83,13 @@ public class SearchSimilarDatasetsApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Same as /api/v2/search/similar/datasets </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or invalid dataset id </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public okhttp3.Call searchSimilarDatasetsCall(@javax.annotation.Nonnull SearchSimilarDatasetsRequest searchSimilarDatasetsRequest, final ApiCallback _callback) throws ApiException {
+    @Deprecated
+    public okhttp3.Call searchSimilarDatasetsCall(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -100,10 +103,143 @@ public class SearchSimilarDatasetsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = searchSimilarDatasetsRequest;
+        Object localVarPostBody = searchSimilarDatasetsV2Request;
 
         // create path and map variables
         String localVarPath = "/api/v1/search/similar/datasets";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @Deprecated
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchSimilarDatasetsValidateBeforeCall(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'searchSimilarDatasetsV2Request' is set
+        if (searchSimilarDatasetsV2Request == null) {
+            throw new ApiException("Missing the required parameter 'searchSimilarDatasetsV2Request' when calling searchSimilarDatasets(Async)");
+        }
+
+        return searchSimilarDatasetsCall(searchSimilarDatasetsV2Request, _callback);
+
+    }
+
+    /**
+     * Search for similar datasets (deprecated)
+     * Deprecated: use /api/v2/search/similar/datasets, which this endpoint now serves. Responses carry Deprecation, Sunset and Link headers; it stops working after the Sunset date (17 May 2027).
+     * @param searchSimilarDatasetsV2Request  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Same as /api/v2/search/similar/datasets </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or invalid dataset id </td><td>  -  </td></tr>
+     </table>
+     * @deprecated
+     */
+    @Deprecated
+    public void searchSimilarDatasets(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request) throws ApiException {
+        searchSimilarDatasetsWithHttpInfo(searchSimilarDatasetsV2Request);
+    }
+
+    /**
+     * Search for similar datasets (deprecated)
+     * Deprecated: use /api/v2/search/similar/datasets, which this endpoint now serves. Responses carry Deprecation, Sunset and Link headers; it stops working after the Sunset date (17 May 2027).
+     * @param searchSimilarDatasetsV2Request  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Same as /api/v2/search/similar/datasets </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or invalid dataset id </td><td>  -  </td></tr>
+     </table>
+     * @deprecated
+     */
+    @Deprecated
+    public ApiResponse<Void> searchSimilarDatasetsWithHttpInfo(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request) throws ApiException {
+        okhttp3.Call localVarCall = searchSimilarDatasetsValidateBeforeCall(searchSimilarDatasetsV2Request, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Search for similar datasets (deprecated) (asynchronously)
+     * Deprecated: use /api/v2/search/similar/datasets, which this endpoint now serves. Responses carry Deprecation, Sunset and Link headers; it stops working after the Sunset date (17 May 2027).
+     * @param searchSimilarDatasetsV2Request  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Same as /api/v2/search/similar/datasets </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or invalid dataset id </td><td>  -  </td></tr>
+     </table>
+     * @deprecated
+     */
+    @Deprecated
+    public okhttp3.Call searchSimilarDatasetsAsync(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchSimilarDatasetsValidateBeforeCall(searchSimilarDatasetsV2Request, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchSimilarDatasetsV2
+     * @param searchSimilarDatasetsV2Request  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success; empty data when the dataset is not indexed </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or invalid dataset id </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchSimilarDatasetsV2Call(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = searchSimilarDatasetsV2Request;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/search/similar/datasets";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -132,57 +268,59 @@ public class SearchSimilarDatasetsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchSimilarDatasetsValidateBeforeCall(@javax.annotation.Nonnull SearchSimilarDatasetsRequest searchSimilarDatasetsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'searchSimilarDatasetsRequest' is set
-        if (searchSimilarDatasetsRequest == null) {
-            throw new ApiException("Missing the required parameter 'searchSimilarDatasetsRequest' when calling searchSimilarDatasets(Async)");
+    private okhttp3.Call searchSimilarDatasetsV2ValidateBeforeCall(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'searchSimilarDatasetsV2Request' is set
+        if (searchSimilarDatasetsV2Request == null) {
+            throw new ApiException("Missing the required parameter 'searchSimilarDatasetsV2Request' when calling searchSimilarDatasetsV2(Async)");
         }
 
-        return searchSimilarDatasetsCall(searchSimilarDatasetsRequest, _callback);
+        return searchSimilarDatasetsV2Call(searchSimilarDatasetsV2Request, _callback);
 
     }
 
     /**
-     * Search@similarDatasets
-     * Returns top three gateway datasets most similar to the provided dataset
-     * @param searchSimilarDatasetsRequest Submit dataset id (required)
-     * @return SearchSimilarDatasets200Response
+     * Search for similar datasets
+     * Returns up to three gateway datasets sharing the most terms with the provided dataset&#39;s keywords and title. The provided dataset is never included.
+     * @param searchSimilarDatasetsV2Request  (required)
+     * @return SearchSimilarDatasetsV2200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success; empty data when the dataset is not indexed </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or invalid dataset id </td><td>  -  </td></tr>
      </table>
      */
-    public SearchSimilarDatasets200Response searchSimilarDatasets(@javax.annotation.Nonnull SearchSimilarDatasetsRequest searchSimilarDatasetsRequest) throws ApiException {
-        ApiResponse<SearchSimilarDatasets200Response> localVarResp = searchSimilarDatasetsWithHttpInfo(searchSimilarDatasetsRequest);
+    public SearchSimilarDatasetsV2200Response searchSimilarDatasetsV2(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request) throws ApiException {
+        ApiResponse<SearchSimilarDatasetsV2200Response> localVarResp = searchSimilarDatasetsV2WithHttpInfo(searchSimilarDatasetsV2Request);
         return localVarResp.getData();
     }
 
     /**
-     * Search@similarDatasets
-     * Returns top three gateway datasets most similar to the provided dataset
-     * @param searchSimilarDatasetsRequest Submit dataset id (required)
-     * @return ApiResponse&lt;SearchSimilarDatasets200Response&gt;
+     * Search for similar datasets
+     * Returns up to three gateway datasets sharing the most terms with the provided dataset&#39;s keywords and title. The provided dataset is never included.
+     * @param searchSimilarDatasetsV2Request  (required)
+     * @return ApiResponse&lt;SearchSimilarDatasetsV2200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success; empty data when the dataset is not indexed </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or invalid dataset id </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SearchSimilarDatasets200Response> searchSimilarDatasetsWithHttpInfo(@javax.annotation.Nonnull SearchSimilarDatasetsRequest searchSimilarDatasetsRequest) throws ApiException {
-        okhttp3.Call localVarCall = searchSimilarDatasetsValidateBeforeCall(searchSimilarDatasetsRequest, null);
-        Type localVarReturnType = new TypeToken<SearchSimilarDatasets200Response>(){}.getType();
+    public ApiResponse<SearchSimilarDatasetsV2200Response> searchSimilarDatasetsV2WithHttpInfo(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request) throws ApiException {
+        okhttp3.Call localVarCall = searchSimilarDatasetsV2ValidateBeforeCall(searchSimilarDatasetsV2Request, null);
+        Type localVarReturnType = new TypeToken<SearchSimilarDatasetsV2200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Search@similarDatasets (asynchronously)
-     * Returns top three gateway datasets most similar to the provided dataset
-     * @param searchSimilarDatasetsRequest Submit dataset id (required)
+     * Search for similar datasets (asynchronously)
+     * Returns up to three gateway datasets sharing the most terms with the provided dataset&#39;s keywords and title. The provided dataset is never included.
+     * @param searchSimilarDatasetsV2Request  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -190,13 +328,14 @@ public class SearchSimilarDatasetsApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success; empty data when the dataset is not indexed </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or invalid dataset id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchSimilarDatasetsAsync(@javax.annotation.Nonnull SearchSimilarDatasetsRequest searchSimilarDatasetsRequest, final ApiCallback<SearchSimilarDatasets200Response> _callback) throws ApiException {
+    public okhttp3.Call searchSimilarDatasetsV2Async(@javax.annotation.Nonnull SearchSimilarDatasetsV2Request searchSimilarDatasetsV2Request, final ApiCallback<SearchSimilarDatasetsV2200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchSimilarDatasetsValidateBeforeCall(searchSimilarDatasetsRequest, _callback);
-        Type localVarReturnType = new TypeToken<SearchSimilarDatasets200Response>(){}.getType();
+        okhttp3.Call localVarCall = searchSimilarDatasetsV2ValidateBeforeCall(searchSimilarDatasetsV2Request, _callback);
+        Type localVarReturnType = new TypeToken<SearchSimilarDatasetsV2200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
